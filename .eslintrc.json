@@ -35,7 +35,7 @@
         "@stylistic/no-extra-semi": "error",
         "@stylistic/array-bracket-spacing": ["error","always",{"singleValue": false}],
         "@stylistic/comma-style": ["error","last"],
-        "@stylistic/array-element-newline" : ["error",{"multiline": true}],
+        "@stylistic/array-element-newline" : ["error","consistent"],
         "@stylistic/arrow-parens": ["error", "as-needed"],
         "@stylistic/block-spacing": "error",
         "@stylistic/brace-style": "error",
