@@ -1,3 +1,4 @@
+export { default as Checkbox } from "@/core/components/Checkbox";
 export { default as Demo } from "@/core/components/Demo";
 export { default as Label } from "@/core/components/Label";
 export { default as Section } from "@/core/components/Section";
