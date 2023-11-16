@@ -2,13 +2,13 @@ import clsx from "clsx";
 import { forwardRef, useId } from "react";
 
 import Typography from "../Typography";
-import { CHECKBOX_SVG_SIZE } from "./constants";
+import { CHECKBOX_SVG_SIZE, SVG_SIZE } from "./constants";
 import { CheckboxProps } from "./types";
 
 const Checkbox = forwardRef((
     {
       label,
-      svgSize = "size-24",
+      svgSize = SVG_SIZE["SIZE_24"],
       isCircle = false,
     }: CheckboxProps,
     ref: React.ComponentPropsWithRef<"input">["ref"],

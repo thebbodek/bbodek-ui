@@ -1,14 +1,15 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
+import { THEME_TYPOGRAPHY } from "@/constants/typography";
 import { LABEL_ROUNDED, LABEL_SIZE, LABEL_VARIANTS } from "./constants";
-import { LabelProps } from "./types";
+import { LabelProps, ThemeType } from "./types";
 
 const Label = forwardRef((
   {
     variants,
     height,
-    theme = "body-01-bold",
+    theme = THEME_TYPOGRAPHY["BODY_01_BOLD"] as ThemeType,
     rounded,
     label,
     ...props
