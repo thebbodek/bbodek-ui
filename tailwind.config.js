@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -24,8 +24,157 @@ export default {
         "primary-00": "#DEEBFF",
         "error": "#FF5260",
         "warning": "#FFBB6A",
-        "success": "#79D4B4"
-      }
+        "success": "#79D4B4",
+      },
+      fontSize: {
+        "head-01-regular": [
+          "1.75rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "400",
+          },
+        ],
+        "head-01-medium": [
+          "1.75rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "500",
+          },
+        ],
+        "head-01-bold": [
+          "1.75rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "700",
+          },
+        ],
+        "head-02-regular": [
+          "1.5rem",
+          {
+          lineHeight: "1.5",
+            fontWeight: "400",
+          },
+        ],
+        "head-02-medium": [
+          "1.5rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "500",
+          },
+        ],
+        "head-02-bold": [
+          "1.5rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "700",
+          },
+        ],
+        "subhead-01-regular": [
+          "1.25rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "400",
+          },
+        ],
+        "subhead-01-medium": [
+          "1.25rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "500",
+          },
+        ],
+        "subhead-01-bold": [
+          "1.25rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "700",
+          },
+        ],
+        "subhead-02-regular": [
+          "1.125rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "400",
+          },
+        ],
+        "subhead-02-medium": [
+          "1.125rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "500",
+          },
+        ],
+        "subhead-02-bold": [
+          "1.125rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "700",
+          },
+        ],
+        "body-01-regular": [
+          "1rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "400",
+          },
+        ],
+        "body-01-medium": [
+          "1rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "500",
+          },
+        ],
+        "body-01-bold": [
+          "1rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "700",
+          },
+        ],
+        "body-02-regular": [
+          "0.875rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "400",
+          },
+        ],
+        "body-02-medium": [
+          "0.875rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "500",
+          },
+        ],
+        "body-02-bold": [
+          "0.875rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "700",
+          },
+        ],
+        "body-03-regular": [
+          "0.75rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "400",
+          },
+        ],
+        "body-03-medium": [
+          "0.75rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "500",
+          },
+        ],
+        "body-03-bold": [
+          "0.75rem",
+          {
+            lineHeight: "1.5",
+            fontWeight: "700",
+          },
+        ],
+      },
     },
   },
   safelist: [
@@ -33,6 +182,9 @@ export default {
     { pattern: /text-(white|black|gray|primary|error|warning|success)(-\d+)?/ },
     { pattern: /border-(white|black|gray|primary|error|warning|success)(-\d+)?/ },
     { pattern: /placeholder-(white|black|gray|primary|error|warning|success)(-\d+)?/ },
+    { pattern: /text-head-/ },
+    { pattern: /text-subhead-/ },
+    { pattern: /text-body-/ },
   ],
   plugins: [],
-}
+};
