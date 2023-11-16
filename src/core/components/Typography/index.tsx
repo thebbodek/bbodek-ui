@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import React from "react";
 
+import { THEME_COLOR } from "@/constants/color";
+import { THEME_TYPOGRAPHY } from "@/constants/typography";
 import { ThemeColors, ThemeTypography } from "@/types";
 
 export interface TypographyProps<T extends React.ElementType = "span"> {
@@ -11,8 +13,8 @@ export interface TypographyProps<T extends React.ElementType = "span"> {
 }
 
 const Typography = <T extends React.ElementType = "span">({
-  theme = "body-01-regular",
-  color = "gray-08",
+  theme = THEME_TYPOGRAPHY["BODY_01_REGULAR"] as ThemeTypography,
+  color = THEME_COLOR["GRAY_08"] as ThemeColors,
   text,
   element: Element,
   ...props

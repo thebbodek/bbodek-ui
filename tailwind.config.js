@@ -1,6 +1,6 @@
 /** @type {import("tailwindcss").Config} */
 export default {
-  content: ["./src/**/*.{ts,tsx}", "./src/**/*.stories.tsx"],
+  content: [ "./src/**/*.{ts,tsx}", "./src/**/*.stories.tsx" ],
   theme: {
     extend: {
       colors: {
@@ -172,15 +172,15 @@ export default {
           {
             lineHeight: "1.5",
             fontWeight: "700",
-          }
-        ]
+          },
+        ],
       },
       boxShadow: {
-        section: "0 .25rem 1.25rem .25rem rgba(0, 0, 0, 0.04)"
+        section: "0 .25rem 1.25rem .25rem rgba(0, 0, 0, 0.04)",
       },
       borderRadius: {
-        default: "1.25rem"
-      }
+        default: "1.25rem",
+      },
     },
   },
   safelist: [

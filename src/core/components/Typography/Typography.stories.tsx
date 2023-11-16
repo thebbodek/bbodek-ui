@@ -1,4 +1,6 @@
-import { ColorOptions, TypographyOptions } from "@/constants";
+
+import { ColorOptions } from "@/constants/color";
+import { TypographyOptions } from "@/constants/typography";
 import { Meta } from "@storybook/react";
 import Typography, { TypographyProps } from "./index";
 

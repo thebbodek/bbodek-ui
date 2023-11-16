@@ -1,0 +1,43 @@
+import { GapType, RoundedType, SizeType } from "../types";
+
+export const SIZE = {
+  SIZE_60: "h-60",
+  SIZE_56: "h-56",
+  SIZE_52: "h-52",
+  SIZE_49: "h-49",
+  SIZE_48: "h-48",
+  SIZE_40: "h-40",
+  SIZE_29: "h-29",
+} as const;
+
+export const ROUNDED = {
+  ROUNDED_12: "rounded-12",
+  ROUNDED_2: "rounded-2",
+} as const;
+
+export const GAP = {
+  GAP_12: "gap-12",
+  GAP_10: "gap-10",
+  GAP_8: "gap-8",
+} as const;
+
+export const BUTTON_SIZE: Record<SizeType, string> = {
+  [SIZE.SIZE_60]: "h-[3.75rem]",
+  [SIZE.SIZE_56]: "h-14",
+  [SIZE.SIZE_52]: "h-[3.25rem]",
+  [SIZE.SIZE_49]: "h-[3.0625rem]",
+  [SIZE.SIZE_48]: "h-12",
+  [SIZE.SIZE_40]: "h-10",
+  [SIZE.SIZE_29]: "h-[1.8125rem]",
+};
+
+export const BUTTON_ROUNDED: Record<RoundedType, string> = {
+  [ROUNDED.ROUNDED_12]: "rounded-xl",
+  [ROUNDED.ROUNDED_2]: "rounded-sm",
+};
+
+export const BUTTON_GAP: Record<GapType, string> = {
+  [GAP.GAP_12]: "gap-x-3",
+  [GAP.GAP_10]: "gap-x-2.5",
+  [GAP.GAP_8]: "gap-x-2",
+};
