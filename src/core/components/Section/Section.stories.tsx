@@ -12,12 +12,19 @@ const meta = {
     },
   },
   argTypes: {
+    hasRounded: {
+      control: "boolean",
+      defaultValue: true,
+      description: "Controls whether the component has a rounded",
+    },
     hasBorder: {
       control: "boolean",
+      defaultValue: false,
       description: "Controls whether the component has a border",
     },
     hasShadow: {
       control: "boolean",
+      defaultValue: false,
       description: "Controls whether the component has a Box Shadow",
     },
   },
@@ -27,10 +34,8 @@ export default meta;
 
 export const Default = (props: SectionProps<"section">) => {
   return (
-    <div className = "w-[400px] h-[300px]">
-      <Section {...props}>
-        section
-      </Section>
-    </div>
-    );
+    <Section className = "w-[400px] h-[300px]" {...props}>
+      section
+    </Section>
+  );
 };

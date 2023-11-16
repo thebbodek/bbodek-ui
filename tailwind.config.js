@@ -178,6 +178,26 @@ export default {
       boxShadow: {
         section: "0 .25rem 1.25rem .25rem rgba(0, 0, 0, 0.04)",
       },
+      animation: {
+        "fade-in": "fade-in .2s cubic-bezier(0, 0, 0.5, 1)",
+        popup: "popup .2s cubic-bezier(0, 0, 0.5, 1)",
+        drawer: "drawer .2s cubic-bezier(0, 0, 0.5, 1)",
+      },
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+        popup: {
+          "0%": { transform: "translateY(16px)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        drawer: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
+      },
       borderRadius: {
         default: "1.25rem",
       },

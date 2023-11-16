@@ -7,6 +7,7 @@ const Section = forwardRef(
   <T extends React.ElementType>(
     {
       children,
+      hasRounded = true,
       hasBorder = false,
       hasShadow = false,
       element: Element,
@@ -22,7 +23,8 @@ const Section = forwardRef(
       ref = {ref}
       className = {
         clsx(
-          "h-full bg-white rounded-default",
+          "bg-white",
+          hasRounded && "rounded-[1.25rem]",
           hasBorder && "border border-gray-02",
           hasShadow && "shadow-section",
           className,
