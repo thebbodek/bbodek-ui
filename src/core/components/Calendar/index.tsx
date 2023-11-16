@@ -1,9 +1,8 @@
-import React from "react";
 
-import CalendarWeekDayComponent from "@/core/components/Calendar/subs/CalendarWeekdayComponent";
 import { useCalendar } from "@/core/components/Calendar/hooks/useCalendar";
-import { CalendarComponentProps } from "@/core/components/Calendar/types/ICalendarComponentProps";
+import CalendarWeekDayComponent from "@/core/components/Calendar/subs/CalendarWeekdayComponent";
 import { CalendarDayComponent } from "@/core/components/Calendar/subs/ComponentDayComponent";
+import { CalendarComponentProps } from "@/core/components/Calendar/types/ICalendarComponentProps";
 
 import CaretLeft from "/images/CaretLeft.png";
 import CaretRight from "/images/CaretRight.png";

@@ -16,13 +16,13 @@ const meta = {
 
 export default meta;
 
-const data = [
-  { key: "realName", label: "실제 반명" },
-  { key: "packageName", label: "포장 반명" },
-];
-
 export const Default = () => {
   const [ currentValue, setCurrentValue ] = useState("realName");
+  const data = [
+    { key: "realName", label: "실제 반명" },
+    { key: "packageName", label: "포장 반명" },
+  ];
+
   const items = data.map(item => (
     <GeneralTab.Item
       label = {item.label}
@@ -38,7 +38,7 @@ export const Default = () => {
   ));
 
   return (
-    <div className = "w-[60rem]">
+    <div className = "w-[30rem]">
       <GeneralTab items = {items}/>
     </div>
   );

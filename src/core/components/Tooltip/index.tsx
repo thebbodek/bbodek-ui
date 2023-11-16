@@ -1,4 +1,4 @@
-import { JSX, PropsWithChildren, useId } from "react";
+import { PropsWithChildren, useId } from "react";
 import { PlacesType, Tooltip as ReactToolTip } from "react-tooltip";
 
 interface TooltipProps {
@@ -9,7 +9,7 @@ export default function Tooltip({
     tooltipContentText,
     placement = "top",
     children,
-  }: PropsWithChildren<TooltipProps>): JSX.Element {
+  }: PropsWithChildren<TooltipProps>) {
   const id = useId();
   return(
     <>

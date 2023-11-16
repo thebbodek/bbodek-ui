@@ -3,8 +3,8 @@ import { Meta } from "@storybook/react";
 import Index from "@/core/components/Calendar/index";
 
 const meta = {
-    title: "Calendar",
-    component: Index,
+  title: "core/Calendar",
+  component: Index,
 } satisfies Meta<typeof Index>;
 
 export default meta;

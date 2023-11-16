@@ -1,10 +1,10 @@
-import React from "react";
 import { Meta } from "@storybook/react";
+import React from "react";
 
 import TextEditor from "@/core/components/TextEditor/index";
 
 const meta = {
-  title: "TextEditor",
+  title: "core/TextEditor",
   component: TextEditor,
   tags: ["autodocs"],
   argTypes: {

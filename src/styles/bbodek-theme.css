@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .flex-h-stack {
+    @apply flex flex-row;
+  }
+
+  .flex-v-stack {
+    @apply flex flex-col;
+  }
+
+  .bbodek-field {
+    @apply flex-1 text-gray-08 placeholder:text-gray-05 bg-white outline-none;
+  }
+}
+
+@layer base {
+  html {
+    font-family: "Pretendard", system-ui, sans-serif;
+  }
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-display: swap;
+  src: local("Pretendard"),
+        url("./fonts/Pretendard-Regular.woff2") format("woff2"), 
+        url("./fonts/Pretendard-Regular.woff") format("woff"),
+        url("./fonts/Pretendard-Regular.otf") format("opentype"); 
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-display: swap;
+  src: local("Pretendard"),
+        url("./fonts/Pretendard-Medium.woff2") format("woff2"), 
+        url("./fonts/Pretendard-Medium.woff") format("woff"),
+        url("./fonts/Pretendard-Medium.otf") format("opentype"); 
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-display: swap;
+  src: local("Pretendard"),
+        url("./fonts/Pretendard-Bold.woff2") format("woff2"), 
+        url("./fonts/Pretendard-Bold.woff") format("woff"),
+        url("./fonts/Pretendard-Bold.otf") format("opentype"); 
+}

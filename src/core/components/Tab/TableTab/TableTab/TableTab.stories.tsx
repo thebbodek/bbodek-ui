@@ -11,13 +11,13 @@ const meta = {
 
 export default meta;
 
-const data = [
-  { key: "dish", label: "식기" },
-  { key: "snack", label: "간식기" },
-];
-
 export const Default = () => {
   const [ currentValue, setCurrentValue ] = useState("dish");
+  const data = [
+    { key: "dish", label: "식기" },
+    { key: "snack", label: "간식기" },
+  ];
+
   const items = data.map(item => (
     <TableTab.Item
       label = {item.label}
