@@ -13,6 +13,7 @@
     "storybook:build": "storybook build"
   },
   "dependencies": {
+    "@phosphor-icons/react": "2.0.15",
     "autoprefixer": "10.4.16",
     "clsx": "2.0.0",
     "dayjs": "1.11.10",
