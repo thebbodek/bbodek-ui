@@ -1,9 +1,8 @@
-import { JSX } from "react";
 import clsx from "clsx";
 import dayjs from "dayjs";
 
-import { CalendarDateDto } from "@/core/components/Calendar/types/ICalendarDateDto";
 import { CalendarComponentProps } from "@/core/components/Calendar/types/ICalendarComponentProps";
+import { CalendarDateDto } from "@/core/components/Calendar/types/ICalendarDateDto";
 
 interface CalendarDayComponentProps extends CalendarComponentProps {
   calendarDates: CalendarDateDto[][];
@@ -19,7 +18,7 @@ export const CalendarDayComponent = ({
   onDateClick,
   periodDates,
   selectedDate,
-}: CalendarDayComponentProps): JSX.Element => {
+}: CalendarDayComponentProps) => {
   const ifStartAndEndDatesAreTheSame = periodDates[0] !== periodDates[periodDates.length - 1];
 
   const ifSelectedDateIsEqualToToday = (calendarDate: CalendarDateDto) => {

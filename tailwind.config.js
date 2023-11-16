@@ -1,6 +1,6 @@
 /** @type {import("tailwindcss").Config} */
 export default {
-  content: [ "./src/**/*.{ts,tsx}", "./src/**/*.stories.tsx" ],
+  content: [ "./src/**/*.{js,jsx,ts,tsx}", "./src/**/*.stories.tsx", "./node_modules/bbodek-ui/dist/**.{js,ts,jsx,tsx}" ],
   theme: {
     extend: {
       colors: {
