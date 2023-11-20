@@ -1,1 +1,1 @@
-export { default as Demo } from '@/core/components/Demo';
+export { default as Demo } from "@/core/components/Demo";
