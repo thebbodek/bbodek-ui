@@ -197,7 +197,6 @@ export default {
           "100%": { transform: "translateY(0)" },
         },
       },
-      },
       borderRadius: {
         default: "1.25rem",
       },
