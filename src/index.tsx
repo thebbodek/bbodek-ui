@@ -19,4 +19,4 @@ export { default as TableHead } from "@/core/components/Table/TableHead";
 export { default as TableRow } from "@/core/components/Table/TableRow";
 export { default as Tooltip } from "@/core/components/Tooltip";
 export { default as Typography } from "@/core/components/Typography";
-
+export { default as Calendar } from "@/core/components/Calendar";
