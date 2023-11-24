@@ -11,3 +11,39 @@
     @apply flex flex-col;
   }
 }
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-display: swap;
+  src: local("Pretendard"),
+        url("../public/fonts/Pretendard-Regular.woff2") format("woff2"), 
+        url("../public/fonts/Pretendard-Regular.woff") format("woff"),
+        url("../public/fonts/Pretendard-Regular.otf") format("opentype"); 
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-display: swap;
+  src: local("Pretendard"),
+        url("../public/fonts/Pretendard-Medium.woff2") format("woff2"), 
+        url("../public/fonts/Pretendard-Medium.woff") format("woff"),
+        url("../public/fonts/Pretendard-Medium.otf") format("opentype"); 
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-display: swap;
+  src: local("Pretendard"),
+        url("../public/fonts/Pretendard-Bold.woff2") format("woff2"), 
+        url("../public/fonts/Pretendard-Bold.woff") format("woff"),
+        url("../public/fonts/Pretendard-Bold.otf") format("opentype"); 
+}
+
+@layer base {
+  html {
+    font-family: "Pretendard", system-ui, sans-serif;
+  }
+}
