@@ -181,6 +181,9 @@ export default {
       borderRadius: {
         default: "1.25rem",
       },
+      fontFamily: {
+        "pretendard": ["Pretendard"],
+      },
     },
   },
   safelist: [
