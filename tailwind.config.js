@@ -1,6 +1,10 @@
 /** @type {import("tailwindcss").Config} */
 export default {
-  content: [ "./src/**/*.{js,jsx,ts,tsx}", "./src/**/*.stories.tsx", "./node_modules/bbodek-ui/dist/**.{js,ts,jsx,tsx}" ],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.stories.tsx",
+    "./node_modules/bbodek-ui/dist/**.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -22,9 +26,9 @@ export default {
         "primary-02": "#3D89FA",
         "primary-01": "#9DC5FF",
         "primary-00": "#DEEBFF",
-        "error": "#FF5260",
-        "warning": "#FFBB6A",
-        "success": "#79D4B4",
+        error: "#FF5260",
+        warning: "#FFBB6A",
+        success: "#79D4B4",
       },
       fontSize: {
         "head-01-regular": [
@@ -183,10 +187,16 @@ export default {
         popup: "popup .2s cubic-bezier(0, 0, 0.5, 1)",
         drawer: "drawer .2s cubic-bezier(0, 0, 0.5, 1)",
       },
+      borderRadius: {
+        default: "1.25rem",
+      },
+      fontFamily: {
+        "pretendard": ["Pretendard"],
+      },
       keyframes: {
         "fade-in": {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         popup: {
           "0%": { transform: "translateY(16px)" },
@@ -196,12 +206,6 @@ export default {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateY(0)" },
         },
-      },
-      borderRadius: {
-        default: "1.25rem",
-      },
-      fontFamily: {
-        "pretendard": ["Pretendard"],
       },
     },
   },
