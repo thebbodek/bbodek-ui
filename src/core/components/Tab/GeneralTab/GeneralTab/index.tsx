@@ -24,7 +24,7 @@ const GeneralTab = forwardRef((
   );
 }) as unknown as ReturnType;
 
+export default GeneralTab;
+
 GeneralTab.displayName = "GeneralTab";
 GeneralTab.Item = GeneralTabItem;
-
-export default GeneralTab;

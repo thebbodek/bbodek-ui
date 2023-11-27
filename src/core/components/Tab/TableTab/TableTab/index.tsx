@@ -24,7 +24,7 @@ const TableTab = forwardRef((
   );
 }) as unknown as ReturnType;
 
+export default TableTab;
+
 TableTab.displayName = "TableTab";
 TableTab.Item = TableTabItem;
-
-export default TableTab;
