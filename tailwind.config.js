@@ -195,8 +195,8 @@ export default {
       },
       keyframes: {
         "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
         },
         popup: {
           "0%": { transform: "translateY(16px)" },
