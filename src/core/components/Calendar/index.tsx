@@ -3,9 +3,7 @@ import { useCalendar } from "@/core/components/Calendar/hooks/useCalendar";
 import CalendarWeekDayComponent from "@/core/components/Calendar/subs/CalendarWeekdayComponent";
 import { CalendarDayComponent } from "@/core/components/Calendar/subs/ComponentDayComponent";
 import { CalendarComponentProps } from "@/core/components/Calendar/types/ICalendarComponentProps";
-
-import CaretLeft from "/images/CaretLeft.png";
-import CaretRight from "/images/CaretRight.png";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 export default function Index ({
   disabledDates,
@@ -21,14 +19,14 @@ export default function Index ({
             onClick = {operations.onPreviousMonthClick}
             className = {"flex justify-center items-center cursor-pointer"}
           >
-            <img src = {CaretLeft} alt = {"CaretLeft"} className = {"w-[1.5rem] h-[1.5rem]"}/>
+            <CaretLeft size = {24} />
           </div>
           <div>{models.selectedDayjs.format("YYYY년-MM월")}</div>
           <div
             onClick = {operations.onNextMonthClick}
             className = {"flex justify-center items-center cursor-pointer"}
           >
-            <img src = {CaretRight} className = {"w-[1.5rem] h-[1.5rem]"} alt = {"CaretRight"}/>
+            <CaretRight size = {24} />
           </div>
         </div>
         <CalendarWeekDayComponent/>
