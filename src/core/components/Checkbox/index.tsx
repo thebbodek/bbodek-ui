@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { forwardRef, useId } from "react";
 
-import { CheckCircle, CheckSquare } from "@phosphor-icons/react/dist/ssr";
+import { CheckCircle, CheckSquare } from "@phosphor-icons/react";
 import Typography from "../Typography";
 import { CHECKBOX_SVG_SIZE, SVG_SIZE } from "./constants";
 import { CheckboxProps } from "./types";

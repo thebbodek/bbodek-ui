@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { forwardRef, useId, useState } from "react";
 
 import { useInput } from "@/core/components/Input/hooks/useInput";
-import { Eye, EyeSlash } from "@phosphor-icons/react/dist/ssr";
+import { Eye, EyeSlash } from "@phosphor-icons/react";
 import InputBase from "../InputBase";
 import { InputPasswordProps } from "./types";
 

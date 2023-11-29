@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { forwardRef, useId } from "react";
 
 import { useInput } from "@/core/components/Input/hooks/useInput";
-import { XCircle } from "@phosphor-icons/react/dist/ssr";
+import { XCircle } from "@phosphor-icons/react";
 import InputBase from "../InputBase";
 import { InputTextFieldProps } from "./types";
 

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { forwardRef, useId, useRef } from "react";
 
 import { useInput } from "@/core/components/Input/hooks/useInput";
-import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import InputBase from "../InputBase";
 import { InputSearchProps } from "./types";
 

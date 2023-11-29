@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { PropsWithChildren, forwardRef } from "react";
 
-import { X } from "@phosphor-icons/react/dist/ssr";
+import { X } from "@phosphor-icons/react";
 import ModalBase from "../Modal/ModalBase";
 import Section from "../Section";
 import Typography from "../Typography";
