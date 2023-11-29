@@ -15,6 +15,7 @@ export { default as ModalBase } from "@/core/components/Modal/ModalBase";
 export { default as ModalPopUp } from "@/core/components/Modal/ModalPopUp";
 export { default as ModalPortal } from "@/core/components/Modal/ModalPortal";
 export { default as Section } from "@/core/components/Section";
+export { default as SelectOnset } from "@/core/components/Select/SelectOnset/SelectOnset";
 export { default as GeneralTab } from "@/core/components/Tab/GeneralTab/GeneralTab";
 export { default as GeneralTabItem } from "@/core/components/Tab/GeneralTab/GeneralTabItem";
 export { default as TableTab } from "@/core/components/Tab/TableTab/TableTab";
