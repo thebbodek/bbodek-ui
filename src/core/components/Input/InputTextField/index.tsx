@@ -26,6 +26,7 @@ const InputTextField = forwardRef((
       inputId = {id}
       label = {label}
       rootClassName = {rootClassName}
+      inputRootClassName = "h-[3.75rem]"
       inputComponent = {
         <input
           ref = {ref}

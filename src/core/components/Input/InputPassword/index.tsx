@@ -27,6 +27,7 @@ const InputPassword = forwardRef((
       inputId = {id}
       label = {"비밀번호"}
       rootClassName = {rootClassName}
+      inputRootClassName = "h-[3.75rem]"
       inputComponent = {
         <input
           ref = {ref}

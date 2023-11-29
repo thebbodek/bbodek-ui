@@ -26,12 +26,12 @@ const InputSelect = forwardRef((
       label = {label}
       inputId = {id}
       rootClassName = {rootClassName}
-      inputRootClassName = {"py-0"}
+      inputRootClassName = {"py-0 h-[3.75rem]"}
       inputComponent = {
         <select
           ref = {ref}
           className = {clsx(
-            "text-subhead-02-regular py-4 outline-none cursor-pointer",
+            "text-subhead-02-regular outline-none cursor-pointer",
             !isSelectedValue ? "text-gray-05" : "text-gray-08",
             className,
           )}
