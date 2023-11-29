@@ -28,7 +28,11 @@ const InputBase = forwardRef(
 
   return (
     <Component ref = {ref} className = {clsx(label && "flex-v-stack gap-y-3", rootClassName)} {...props}>
-      {label && <FormLabel inputId = {inputId} label = {label} labelColor = {labelColor} required = {required} />}
+      {label &&
+        <label htmlFor = {inputId}>
+          <FormLabel label = {label} labelColor = {labelColor} required = {required} />
+        </label>
+      }
       <div
         className = {cn(
           `flex items-center px-3 py-4 text-subhead-02-regular bg-transparent rounded-xl overflow-hidden border border-${borderColor}`,
