@@ -18,6 +18,7 @@ const InputBase = forwardRef(
       labelColor = "gray-04",
       borderColor = "gray-03",
       required,
+      readOnly,
       ...props
     }: InputBaseProps<T>,
     ref: React.ComponentPropsWithRef<T>["ref"],
@@ -40,7 +41,7 @@ const InputBase = forwardRef(
       >
         {startComponent && startComponent}
         {inputComponent && inputComponent}
-        {endComponent && endComponent}
+        {!readOnly && endComponent && endComponent}
       </div>
     </Component>
   );
