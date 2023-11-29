@@ -19,7 +19,16 @@ export const useInput = ({ value, regCallback, onChange }: UseInputProps) => {
     onChange?.(e);
   }, [ regCallback, onChange ]);
 
-  const onResetInputValue = () => setInputValue("");
+  const onResetInputValue = () => {
+    setInputValue("");
+
+    const event = {
+      target: { value: "" },
+      currentTarget: { value: "" },
+    } as unknown as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+
+    onChange?.(event);
+  };
 
   useValueChangeEffect(value, setInputValue);
 
