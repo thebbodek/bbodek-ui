@@ -2,6 +2,7 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 
 import { cn } from "@/utilities/utils";
+import FormLabel from "../../FormLabel";
 import { InputBaseProps } from "./types";
 
 const InputBase = forwardRef(
@@ -15,7 +16,7 @@ const InputBase = forwardRef(
       startComponent,
       inputComponent,
       endComponent,
-      labelColor = "gray-04",
+      labelColor,
       borderColor = "gray-03",
       required,
       readOnly,
@@ -27,12 +28,7 @@ const InputBase = forwardRef(
 
   return (
     <Component ref = {ref} className = {clsx(label && "flex-v-stack gap-y-3", rootClassName)} {...props}>
-      {label && (
-        <label htmlFor = {inputId} className = {`flex gap-x-0.5 text-${labelColor} text-body-02-regular`}>
-          {label}
-          {required && <span className = "text-primary-03">*</span>}
-        </label>
-      )}
+      {label && <FormLabel inputId = {inputId} label = {label} labelColor = {labelColor} required = {required} />}
       <div
         className = {cn(
           `flex items-center px-3 py-4 text-subhead-02-regular bg-transparent rounded-xl overflow-hidden border border-${borderColor}`,
