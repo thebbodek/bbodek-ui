@@ -5,7 +5,7 @@ import { SelectOnsetOptions } from "./constants";
 import SelectOnset from "./index";
 
 const meta = {
-  title: "core/Select/SelectOnset",
+  title: "core/Select/SelectOnset/SelectOnset",
   component: SelectOnset,
   argTypes: {
     variants: {

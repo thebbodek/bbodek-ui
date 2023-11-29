@@ -5,7 +5,7 @@ import SelectOnsetItem from "./index";
 import { OnsetItemProps } from "./types";
 
 const meta = {
-  title: "core/Select/SelectOnsetItem",
+  title: "core/Select/SelectOnset/SelectOnsetItem",
   component: SelectOnsetItem,
   argTypes: {
     onset: {
