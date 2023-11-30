@@ -9,6 +9,7 @@ export interface UseCalendarResponse {
     selectedDayjs: dayjs.Dayjs;
     calendarDates: CalendarDateDto[][];
     periodDates: string[];
+    dottedDates: string[];
   }
   operations: {
     onPreviousMonthClick: () => void;

@@ -12,6 +12,7 @@ export const useCalendar = (): UseCalendarResponse => {
   const [ startDayjs, setStartDayjs ] = useState<dayjs.Dayjs | undefined>();
   const [ endDayjs, setEndDayjs ] = useState<dayjs.Dayjs | undefined>();
   const [ periodDates, setPeriodDates ] = useState<string[]>([]);
+  const [dottedDates] = useState<string[]>([]);
 
   const onDateClick = useCallback((calendarDate: CalendarDateDto) => {
     if (startDayjs && endDayjs) {
@@ -46,6 +47,7 @@ export const useCalendar = (): UseCalendarResponse => {
       endDayjs,
       periodDates,
       selectedDayjs,
+      dottedDates,
       calendarDates,
     },
     operations: {

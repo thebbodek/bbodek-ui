@@ -10,11 +10,11 @@ export default function CalendarWeekDayComponent () {
   };
 
   return (
-    <div className = {"grid grid-cols-7 justify-center items-center gap-2.5"}>
+    <div className = {"grid grid-cols-7 min-w-full w-full justify-center items-center"}>
       { Object.values(Weekdays).map(weekdayNumber => (
         <div
           key = {weekdayNumber}
-          className = {"flex justify-center items-center w-[2.875rem] h-[2.875rem]"}
+          className = {"flex justify-center items-center mb-4"}
         >
           {convertWeekdayNumberToString(weekdayNumber)}
         </div>

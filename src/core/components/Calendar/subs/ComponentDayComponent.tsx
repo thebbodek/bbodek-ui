@@ -18,6 +18,8 @@ export const CalendarDayComponent = ({
   onDateClick,
   periodDates,
   selectedDate,
+  dottedDates,
+  small,
 }: CalendarDayComponentProps) => {
   const ifStartAndEndDatesAreTheSame = periodDates[0] !== periodDates[periodDates.length - 1];
 
@@ -34,7 +36,7 @@ export const CalendarDayComponent = ({
       { calendarDates.map((calendarWeekDates: CalendarDateDto[], index) => (
         <div
           key = {index}
-          className = {"min-w-full h-full flex-row justify-center items-center grid grid-cols-7"}
+          className = {"grid grid-cols-7 min-w-full w-full h-full flex-row justify-center items-center"}
         >
           { calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => (
             <div
@@ -43,13 +45,14 @@ export const CalendarDayComponent = ({
             >
               <button
                 onClick = {() => onDateClick(calendarDate)}
-                disabled = {disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD"))}
+                disabled = {disabledDates && disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || small}
                 className = {clsx("flex flex-col relative justify-start items-center h-[80px]",
                   {
-                    "text-gray-08": disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")),
+                    "text-gray-08": disabledDates && disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")),
                     "text-white": ifSelectedDateIsEqualToToday(calendarDate) ||
                       ifEndDateIsEqualToToday(calendarDate) ||
                       selectedDate === calendarDate.dayjs,
+                    "h-[60px]": small,
                   },
                 )}
               >
@@ -66,19 +69,23 @@ export const CalendarDayComponent = ({
                   <div className = {"absolute top-[-4px] w-[35px] h-[35px] rounded-full bg-primary-03 -z-10"}/>
                 }
                 {
-                  Object.keys(markedDates!).map(markedDate => (
-                      markedDate === calendarDate.dayjs.format("YYYY-MM-DD") &&
-                      <div className = {"flex-v-stack"} key = {markedDate}>
-                        {
-                          markedDates?.[markedDate].map((markedDateValue, index) => (
-                            <div key = {index}>
-                              {markedDateValue}
-                            </div>
-                          ))
-                        }
-                      </div>
+                  markedDates && !small && Object.keys(markedDates).map(markedDate => (
+                    markedDate === calendarDate.dayjs.format("YYYY-MM-DD") &&
+                    <div className = {"flex-v-stack"} key = {markedDate}>
+                      {
+                        markedDates?.[markedDate].map((markedDateValue, index) => (
+                          <div key = {index}>
+                            {markedDateValue}
+                          </div>
+                        ))
+                      }
+                    </div>
                     ),
                   )
+                }
+                {
+                  small && dottedDates && dottedDates.includes(calendarDate.dayjs.format("YYYY-MM-DD")) &&
+                  <div className = {"absolute top-[1px] left-[6px] w-[3px] h-[3px] bg-primary-03 rounded-full -z-10"}/>
                 }
                 {
                   ifStartAndEndDatesAreTheSame &&

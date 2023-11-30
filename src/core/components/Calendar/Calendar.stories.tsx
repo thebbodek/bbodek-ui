@@ -1,19 +1,33 @@
 import { Meta } from "@storybook/react";
 
-import Index from "@/core/components/Calendar/index";
+import Calendar from "@/core/components/Calendar/calendar";
 
 const meta = {
   title: "core/Calendar",
-  component: Index,
-} satisfies Meta<typeof Index>;
+  component: Calendar,
+} satisfies Meta<typeof Calendar>;
 
 export default meta;
 
-export const Default = () =>
-  <Index
-    disabledDates = {[ "2023-11-01", "2023-11-02", "2023-11-03", "2023-11-04", "2023-11-05", "2023-11-06" ]}
-    markedDates = {{
-      "2023-11-16": [ "test", "test" ],
-    }}
-  />
+export const DefaultCalendar = () =>
+  <div className = {"w-screen"}>
+    <Calendar
+      disabledDates = {[ "2023-11-01", "2023-11-02", "2023-11-03", "2023-11-04", "2023-11-05", "2023-11-06" ]}
+      markedDates = {{
+        "2023-11-16": [ "test", "test" ],
+      }}
+    />
+  </div>
+;
+  export const SmallCalendar = () =>
+    <div className = {"w-96"}>
+      <Calendar
+      disabledDates = {[ "2023-11-01", "2023-11-02", "2023-11-03", "2023-11-04", "2023-11-05", "2023-11-06" ]}
+      markedDates = {{
+        "2023-11-16": [ "test", "test" ],
+      }}
+      small = {true}
+      dottedDates = {["2023-11-29"]}
+    />
+    </div>
 ;
