@@ -8,10 +8,6 @@ const meta = {
   title: "core/FormLabel",
   component: FormLabel,
   argTypes: {
-    inputId: {
-      control: "text",
-      description: "FormLabel Id",
-    },
     label: {
       control: "text",
       description: "FormLabel test",
@@ -38,7 +34,6 @@ export default meta;
 export const Default = (props: FormLabelProps) => {
   return (
     <FormLabel
-      inputId = {props.inputId ?? "formLabel"}
       label = {props.label ?? "품목 선택"}
       required = {props.required ?? true}
       labelColor = {props.labelColor}
