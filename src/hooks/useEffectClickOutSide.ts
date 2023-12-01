@@ -8,9 +8,9 @@ const useEffectClickOutSide = (ref: RefObject<Element>, onClose?: () => void) =>
       onClose?.();
     };
 
-    document.addEventListener("mousedown", onClickOutSide);
+    document.addEventListener("click", onClickOutSide);
 
-    return () => document.removeEventListener("mousedown", onClickOutSide);
+    return () => document.removeEventListener("click", onClickOutSide);
 
   }, [ ref.current, onClose ]);
 };

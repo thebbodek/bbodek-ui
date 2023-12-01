@@ -4,13 +4,7 @@ import React from "react";
 import { THEME_COLOR } from "@/constants/color";
 import { THEME_TYPOGRAPHY } from "@/constants/typography";
 import { ThemeColors, ThemeTypography } from "@/types";
-
-export interface TypographyProps<T extends React.ElementType = "span"> {
-  element?: T;
-  text: string;
-  theme?: ThemeTypography;
-  color?: ThemeColors;
-}
+import { TypographyProps } from "./types";
 
 const Typography = <T extends React.ElementType = "span">({
   theme = THEME_TYPOGRAPHY["BODY_01_REGULAR"] as ThemeTypography,
