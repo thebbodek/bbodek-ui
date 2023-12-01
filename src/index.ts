@@ -5,6 +5,7 @@ export { default as Demo } from "@/core/components/Demo";
 export { default as Divider } from "@/core/components/Divider";
 export { default as Drawer } from "@/core/components/Drawer";
 export { default as FormLabel } from "@/core/components/FormLabel";
+export { default as Icon } from "@/core/components/Icon";
 export { default as InputBase } from "@/core/components/Input/InputBase";
 export { default as InputPassword } from "@/core/components/Input/InputPassword";
 export { default as InputSearch } from "@/core/components/Input/InputSearch";
