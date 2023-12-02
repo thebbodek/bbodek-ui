@@ -51,8 +51,6 @@ const InputPassword = forwardRef((
           {showPassword ? HidePasswordIcon : ShowPasswordIcon}
         </button>
       }
-      labelColor = {"gray-06"}
-      borderColor = {"gray-04"}
     />
   );
 });
