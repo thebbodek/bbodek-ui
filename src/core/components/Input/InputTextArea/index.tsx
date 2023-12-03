@@ -28,6 +28,7 @@ const InputTextArea = forwardRef((
 
     onChangeHandler(e);
   };
+
   return (
     <InputBase
       label = {label}
