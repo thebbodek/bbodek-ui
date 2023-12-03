@@ -44,6 +44,7 @@ const InputTextField = forwardRef((
       }
       endComponent = {
         <button
+          type = "button"
           className = {clsx("w-7 h-7", inputValue ? "visible" : "invisible")}
           onClick = {onResetInputValue}
           aria-label = "초기화"

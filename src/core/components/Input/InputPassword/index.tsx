@@ -44,6 +44,7 @@ const InputPassword = forwardRef((
       }
       endComponent = {
         <button
+          type = "button"
           className = "w-6 h-6"
           onClick = {onToggleShowPassword}
           aria-label = {showPassword ? "비밀번호 숨기기" : "비밀번호 보이기"}
