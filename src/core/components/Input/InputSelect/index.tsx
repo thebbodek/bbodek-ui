@@ -38,6 +38,7 @@ const InputSelect = forwardRef((
           )}
           onChange = {onChangeHandler}
           required = {required}
+          value = {value}
           {...rest}
         >
           <option value = "" selected disabled hidden>{placeholder}</option>
