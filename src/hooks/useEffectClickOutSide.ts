@@ -8,11 +8,10 @@ const useEffectClickOutSide = (ref: RefObject<Element>, onClose?: () => void) =>
       onClose?.();
     };
 
-    document.addEventListener("click", onClickOutSide);
+    document.addEventListener("mousedown", onClickOutSide);
 
-    return () => document.removeEventListener("click", onClickOutSide);
-
-  }, [ ref.current, onClose ]);
+    return () => document.removeEventListener("mousedown", onClickOutSide);
+  }, [ref.current]);
 };
 
 export default useEffectClickOutSide;
