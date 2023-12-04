@@ -4,8 +4,8 @@ import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 export interface CalendarHeaderProps {
   currentMonth: string;
-  onPreviousMonthClick: () => void;
-  onNextMonthClick: () => void;
+  onPreviousMonthClick?: () => void;
+  onNextMonthClick?: () => void;
 }
 
 export const CalendarHeader = ({

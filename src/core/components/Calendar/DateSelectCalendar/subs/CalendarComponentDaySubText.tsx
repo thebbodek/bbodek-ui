@@ -1,5 +1,5 @@
 import { cn } from "@/utilities/utils";
-import { CalendarDateDto } from "@/core/components/Calendar/types/CalendarDateDto";
+import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
 
 interface CalendarComponentDaySubTextProps {
   selectedDate: string;
@@ -7,11 +7,11 @@ interface CalendarComponentDaySubTextProps {
   periodDateArray?: string[];
 }
 
-export default function CalendarComponentDaySubText({
+export const CalendarComponentDaySubText = ({
   selectedDate,
   calendarDate,
   periodDateArray,
-}: CalendarComponentDaySubTextProps) {
+}: CalendarComponentDaySubTextProps) => {
   const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
   const isPeriod = periodDateArray && periodDateArray.length > 0;
   const isStartDate = isPeriod && periodDateArray[0] === currentDate;
@@ -27,4 +27,4 @@ export default function CalendarComponentDaySubText({
       {!isPeriod && selectedDate === currentDate ? "시작일" : (calendarDate.isToday ? "오늘" : "")}&nbsp;
     </div>
   );
-}
+};

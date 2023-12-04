@@ -1,11 +1,12 @@
-import { useCalendar } from "@/core/components/Calendar/hooks/useCalendar";
-import { CalendarWeekDayComponent } from "@/core/components/Calendar/subs/CalendarWeekdayComponent";
-import { CalendarHeader } from "@/core/components/Calendar/subs/CalendarHeader";
+import { useCalendar } from "@/core/components/Calendar/common/hooks/useCalendar";
+import { CalendarWeekDayComponent } from "@/core/components/Calendar/common/subs/CalendarWeekdayComponent";
+import { CalendarHeader } from "@/core/components/Calendar/common/subs/CalendarHeader";
 import { CalendarDayComponent } from "@/core/components/Calendar/ScheduleCalendar/subs/ComponentDayComponent";
 import { CalendarComponentProps } from "@/core/components/Calendar/ScheduleCalendar/types/CalendarComponentProps";
 
 const ScheduleCalendar = ({
   markedDates,
+  onDateClick,
 }: CalendarComponentProps) => {
   const { models, operations } = useCalendar();
 
@@ -20,6 +21,7 @@ const ScheduleCalendar = ({
       <CalendarDayComponent
         markedDates = {markedDates}
         calendarDates = {models.calendarDates}
+        onDateClick = {onDateClick}
       />
     </div>
   );

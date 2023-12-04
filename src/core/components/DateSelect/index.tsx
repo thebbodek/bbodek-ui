@@ -7,6 +7,7 @@ import Typography from "../Typography";
 import Divider from "../Divider";
 import Button from "../Button";
 import { DateSelectProps } from "./types";
+import useClickOutside from "@/hooks/useClickOutSide";
 
 const DateSelect = ({
   isOpen,
@@ -15,18 +16,21 @@ const DateSelect = ({
   currentMonth,
   disabledDates,
   onToggle,
+  onClose,
   onDateClick,
 }: DateSelectProps) => {
   const startDate = dayjs(periodDates.startDate).format("YYYY. MM. DD");
   const isSameYear = dayjs(periodDates.startDate).year === dayjs(periodDates.endDate).year;
   const fullEndDate = dayjs(periodDates.endDate).format("YYYY. MM. DD");
   const shortEndDate = dayjs(periodDates.endDate).format("MM. DD");
+  const { contentRef } = useClickOutside<HTMLDivElement>(onClose);
 
   const calcDiffDate = () => {
     return dayjs(periodDates.endDate).diff(periodDates.startDate, "day") + 1;
   };
+
   return (
-    <div className = "relative">
+    <div className = "relative" ref = {contentRef}>
       <button
         type = "button"
         className = "w-full flex items-center justify-between px-3 py-4 text-subhead-02-regular bg-transparent rounded-xl overflow-hidden border border-gray-03"
@@ -70,19 +74,10 @@ const DateSelect = ({
           <Button
             backgroundColor = "white"
             color = "gray-06"
-            content = "취소"
+            content = "닫기"
             size = "h-60"
             rounded = "rounded-12"
             className = "w-full border"
-            onClick = {onToggle}
-          />
-          <Button
-            backgroundColor = "primary-03"
-            color = "white"
-            content = "적용"
-            size = "h-60"
-            rounded = "rounded-12"
-            className = "w-full"
             onClick = {onToggle}
           />
         </div>

@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-import { CalendarDateDto } from "@/core/components/Calendar/types/CalendarDateDto";
+import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
 
 export interface UseCalendarResponse {
   models: {

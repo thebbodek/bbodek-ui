@@ -29,6 +29,10 @@ export const Default = () => {
     setIsOpen(prev => !prev);
   };
 
+  const onCalendarClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div className = "w-[500px]">
@@ -39,6 +43,7 @@ export const Default = () => {
           selectedDate = {selectedDate}
           onToggle = {onCalendarToggle}
           onDateClick = {onDateClick}
+          onClose = {onCalendarClose}
         />
       </div>
     </>

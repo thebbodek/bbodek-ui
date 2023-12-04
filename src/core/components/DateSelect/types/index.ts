@@ -5,4 +5,5 @@ export interface DateSelectProps extends CalendarComponentProps {
   isOpen: boolean;
   periodDates: PeriodDates;
   onToggle: () => void;
+  onClose: () => void;
 }

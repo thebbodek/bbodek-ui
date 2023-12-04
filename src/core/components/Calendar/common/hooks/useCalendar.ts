@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import { useCallback, useState } from "react";
 
-import { useMonthChangeEffect } from "@/core/components/Calendar/hooks/useMonthChangeEffect";
-import { CalendarDateDto } from "@/core/components/Calendar/types/CalendarDateDto";
-import { UseCalendarResponse } from "@/core/components/Calendar/types/UseCalendarResponse";
+import { useMonthChangeEffect } from "@/core/components/Calendar/common/hooks/useMonthChangeEffect";
+import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
+import { UseCalendarResponse } from "@/core/components/Calendar/common/types/UseCalendarResponse";
 
 export const useCalendar = (): UseCalendarResponse => {
   const [ selectedDayjs, setSelectedDayjs ] = useState<dayjs.Dayjs>(dayjs());

@@ -1,5 +1,5 @@
 import { cn } from "@/utilities/utils";
-import { CalendarDateDto } from "@/core/components/Calendar/types/CalendarDateDto";
+import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
 
 interface CalendarComponentDayTextProps {
   selectedDate: string;
@@ -7,11 +7,11 @@ interface CalendarComponentDayTextProps {
   periodDateArray?: string[];
 }
 
-export default function CalendarComponentDayText({
+export const CalendarComponentDayText = ({
   selectedDate,
   calendarDate,
   periodDateArray,
-}: CalendarComponentDayTextProps) {
+}: CalendarComponentDayTextProps) => {
   const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
   const isPeriod = periodDateArray && periodDateArray.length > 0;
   const isStartDate = isPeriod && periodDateArray[0] === currentDate;
@@ -36,4 +36,4 @@ export default function CalendarComponentDayText({
       </div>
     </div>
   );
-}
+};
