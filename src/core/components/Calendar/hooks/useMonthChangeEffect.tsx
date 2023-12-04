@@ -2,9 +2,9 @@ import dayjs from "dayjs";
 import { useEffect } from "react";
 
 import { Weekdays } from "@/constants";
-import { CalendarDateDto } from "@/core/components/Calendar/types/ICalendarDateDto";
+import { CalendarDateDto } from "@/core/components/Calendar/types/CalendarDateDto";
 
-export const useGetCalendarDatesWhenMonthChangeEffect = (
+export const useMonthChangeEffect = (
   selectedDayjs:dayjs.Dayjs,
   setCalendarDates: React.Dispatch<React.SetStateAction<CalendarDateDto[][]>>,
 ) => {

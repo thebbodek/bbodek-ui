@@ -1,32 +1,13 @@
 import dayjs from "dayjs";
 import { useCallback, useState } from "react";
 
-import { useGetCalendarDatesWhenMonthChangeEffect } from "@/core/components/Calendar/hooks/useGetCalendarDatesWhenMonthChangeEffect";
-import { useSetPeriodDatesEffectWhenDateChanges } from "@/core/components/Calendar/hooks/useSetPeriodDatesEffectWhenDateChanges";
-import { CalendarDateDto } from "@/core/components/Calendar/types/ICalendarDateDto";
-import { UseCalendarResponse } from "@/core/components/Calendar/types/IUseCalendarResponse";
+import { useMonthChangeEffect } from "@/core/components/Calendar/hooks/useMonthChangeEffect";
+import { CalendarDateDto } from "@/core/components/Calendar/types/CalendarDateDto";
+import { UseCalendarResponse } from "@/core/components/Calendar/types/UseCalendarResponse";
 
 export const useCalendar = (): UseCalendarResponse => {
   const [ selectedDayjs, setSelectedDayjs ] = useState<dayjs.Dayjs>(dayjs());
   const [ calendarDates, setCalendarDates ] = useState<CalendarDateDto[][]>([[]]);
-  const [ startDayjs, setStartDayjs ] = useState<dayjs.Dayjs | undefined>();
-  const [ endDayjs, setEndDayjs ] = useState<dayjs.Dayjs | undefined>();
-  const [ periodDates, setPeriodDates ] = useState<string[]>([]);
-  const [dottedDates] = useState<string[]>([]);
-
-  const onDateClick = useCallback((calendarDate: CalendarDateDto) => {
-    if (startDayjs && endDayjs) {
-      setStartDayjs(calendarDate.dayjs);
-      setEndDayjs(undefined);
-      setPeriodDates([]);
-      return;
-    }
-    if (startDayjs) {
-      startDayjs.isAfter(calendarDate.dayjs) ? setStartDayjs(calendarDate.dayjs) : setEndDayjs(calendarDate.dayjs);
-      return;
-    }
-    setStartDayjs(calendarDate.dayjs);
-  }, [ startDayjs, endDayjs ]);
 
   const onPreviousMonthClick = useCallback(() => {
     const prevMonth: dayjs.Dayjs = selectedDayjs.subtract(1, "month");
@@ -38,22 +19,16 @@ export const useCalendar = (): UseCalendarResponse => {
     setSelectedDayjs(nextMonth);
   }, [selectedDayjs]);
 
-  useSetPeriodDatesEffectWhenDateChanges(startDayjs, endDayjs, setPeriodDates);
-  useGetCalendarDatesWhenMonthChangeEffect(selectedDayjs, setCalendarDates);
+  useMonthChangeEffect(selectedDayjs, setCalendarDates);
 
   return {
     models: {
-      startDayjs,
-      endDayjs,
-      periodDates,
       selectedDayjs,
-      dottedDates,
       calendarDates,
     },
     operations: {
       onPreviousMonthClick,
       onNextMonthClick,
-      onDateClick,
     },
   };
 };
