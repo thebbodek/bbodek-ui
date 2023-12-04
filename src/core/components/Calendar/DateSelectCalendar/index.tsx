@@ -1,17 +1,17 @@
 import clsx from "clsx";
 import dayjs from "dayjs";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 import { CalendarWeekDayComponent } from "@/core/components/Calendar/subs/CalendarWeekdayComponent";
 import { CalendarHeader } from "@/core/components/Calendar/subs/CalendarHeader";
 import { CalendarDateDto } from "@/core/components/Calendar/types/CalendarDateDto";
-import { CalendarComponentProps } from "./types/CalendarCoimponentProps";
+import { CalendarComponentProps } from "./types/CalendarComponentProps";
 import { useCalendar } from "@/core/components/Calendar/hooks/useCalendar";
 import CalendarComponentDayText from "./subs/CalendarComponentDayText";
 import CalendarComponentDaySubText from "./subs/CalendarComponentDaySubText";
-import { PeriodDates } from "./types/CalendarCoimponentProps";
+import { PeriodDates } from "./types/CalendarComponentProps";
 
-export interface UseDeateSelectCalendarResponse {
+export interface UseDateSelectCalendarResponse {
   models: {
     periodDateArray: string[];
   },
@@ -20,7 +20,7 @@ export interface UseDeateSelectCalendarResponse {
   }
 }
 
-export const useDateSelectCalendar = (): UseDeateSelectCalendarResponse => {
+export const useDateSelectCalendar = (): UseDateSelectCalendarResponse => {
   const [ periodDateArray, setPeriodDateArray ] = useState<string[]>([]);
 
   const setCalendarPeriodDates = useCallback((periodDates: PeriodDates) => {
@@ -37,6 +37,7 @@ export const useDateSelectCalendar = (): UseDeateSelectCalendarResponse => {
     }
     setPeriodDateArray(newState);
   }, [setPeriodDateArray]);
+
   return {
     models: {
       periodDateArray,
@@ -55,10 +56,15 @@ const DateSelectCalendar = ({
 }: CalendarComponentProps) => {
   const { models: commonModels, operations: commonOperations } = useCalendar();
   const { models, operations } = useDateSelectCalendar();
+
+  useEffect(() => {
+    commonOperations.setInitialSelectedDayjs(currentMonth);
+  }, []);
+
   return (
     <div className = {"flex flex-col h-full w-full"}>
       <CalendarHeader
-        currentMonth = {currentMonth.locale("ko").format("YYYY. MM")}
+        currentMonth = {commonModels.selectedDayjs.locale("ko").format("YYYY. MM")}
         onPreviousMonthClick = {commonOperations.onPreviousMonthClick}
         onNextMonthClick = {commonOperations.onNextMonthClick}
       />

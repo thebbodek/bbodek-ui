@@ -10,5 +10,6 @@ export interface UseCalendarResponse {
   operations: {
     onPreviousMonthClick: () => void;
     onNextMonthClick: () => void;
+    setInitialSelectedDayjs: (selectedDayjs: dayjs.Dayjs) => void;
   }
 }

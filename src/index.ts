@@ -1,4 +1,5 @@
 export { default as Button } from "@/core/components/Button";
+export { default as DateSelect } from "@/core/components/DateSelect";
 export { default as ScheduleCalendar } from "@/core/components/Calendar/ScheduleCalendar";
 export { default as DateSelectCalendar } from "@/core/components/Calendar/DateSelectCalendar";
 export { default as Checkbox } from "@/core/components/Checkbox";

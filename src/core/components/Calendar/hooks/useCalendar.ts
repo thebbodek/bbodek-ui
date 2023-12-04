@@ -19,6 +19,10 @@ export const useCalendar = (): UseCalendarResponse => {
     setSelectedDayjs(nextMonth);
   }, [selectedDayjs]);
 
+  const setInitialSelectedDayjs = (selectedDayjs: dayjs.Dayjs) => {
+    setSelectedDayjs(selectedDayjs);
+  };
+
   useMonthChangeEffect(selectedDayjs, setCalendarDates);
 
   return {
@@ -29,6 +33,7 @@ export const useCalendar = (): UseCalendarResponse => {
     operations: {
       onPreviousMonthClick,
       onNextMonthClick,
+      setInitialSelectedDayjs,
     },
   };
 };

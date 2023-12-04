@@ -1,8 +1,8 @@
 import { useState } from "react";
 import dayjs from "dayjs";
-
 import { Meta } from "@storybook/react";
-import { PeriodDates } from "./types/CalendarCoimponentProps";
+
+import { PeriodDates } from "./types/CalendarComponentProps";
 import DateSelectCalendar from "@/core/components/Calendar/DateSelectCalendar";
 
 const meta = {

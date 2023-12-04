@@ -22,10 +22,11 @@ export default function CalendarComponentDayText({
       <div
         className = {cn("flex justify-center items-center h-8 leading-none text-xs",
           {
-            "rounded-s-full w-full bg-[#206FE4] text-white": isStartDate,
-            "rounded-r-full w-full bg-[#206FE4] text-white": isEndDate,
-            "w-full bg-[#206FE4] text-white": periodDateArray?.includes(currentDate),
-            "rounded-full w-8 bg-[#206FE4] text-white": singleSelectedDate,
+            "relative rounded-full w-8 bg-primary-03 text-white": isStartDate || isEndDate || singleSelectedDate,
+            "before:absolute before:translate-x-1/2 before:content-[''] before:w-[calc(100%+5px)] before:h-full before:bg-primary-00 before:block before:-z-10": isStartDate || isEndDate,
+            "before:translate-x-1/2": isStartDate,
+            "before:-translate-x-1/2": isEndDate,
+            "w-full bg-primary-00": periodDateArray?.slice(1, -1).includes(currentDate),
             "bg-[#C9CCCF] text-white rounded-full w-8": calendarDate.isToday,
             "text-[#C9CCCF]": !calendarDate.isThisMonth && !periodDateArray?.includes(currentDate) && !calendarDate.isToday!,
           },
