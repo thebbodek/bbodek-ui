@@ -39,6 +39,7 @@ export const Default = (props: InputSelectProps) => {
       label = {props.label ?? "레이블"}
       placeholder = {props.placeholder ?? "메뉴 선택"}
       options = {options}
+      value = {currentValue}
       onChange = {onChangeHandler}
     />
   );

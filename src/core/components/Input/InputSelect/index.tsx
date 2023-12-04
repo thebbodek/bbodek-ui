@@ -8,6 +8,7 @@ const InputSelect = forwardRef((
     {
       options,
       placeholder,
+      value,
       ...props
     }: InputSelectProps,
     ref: React.Ref<HTMLSelectElement>,
@@ -17,7 +18,7 @@ const InputSelect = forwardRef((
   const { label, rootClassName, className, onChange, required, ...rest } = props;
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    !isSelectedValue &&setIsSelectedValue(true);
+    !isSelectedValue && setIsSelectedValue(true);
     onChange?.(e);
   };
 
@@ -32,7 +33,7 @@ const InputSelect = forwardRef((
           ref = {ref}
           className = {clsx(
             "text-subhead-02-regular outline-none cursor-pointer",
-            !isSelectedValue ? "text-gray-05" : "text-gray-08",
+            !value && !isSelectedValue ? "text-gray-05" : "text-gray-08",
             className,
           )}
           onChange = {onChangeHandler}
