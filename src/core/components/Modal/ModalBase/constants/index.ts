@@ -6,7 +6,7 @@ export const VARIANTS = {
 } as const;
 
 export const MODAL_CONTENT_POSITION: Record<VariantsType, string> = {
-  [VARIANTS.MODAL]: "flex items-center justify-center",
+  [VARIANTS.MODAL]: "fixed flex items-center justify-center",
   [VARIANTS.DRAWER]: "flex justify-end",
 } as const;
 
