@@ -30,6 +30,7 @@ export { default as Label } from "@/core/components/Label";
 export { default as ModalBase } from "@/core/components/Modal/ModalBase";
 export { default as ModalPopUp } from "@/core/components/Modal/ModalPopUp";
 export { default as ModalPortal } from "@/core/components/Modal/ModalPortal";
+export { default as Radio } from "@/core/components/Radio";
 export { default as Section } from "@/core/components/Section";
 export { default as SelectBubble } from "@/core/components/Select/SelectBubble/SelectBubble";
 export { default as SelectBubbleItem } from "@/core/components/Select/SelectBubble/SelectBubbleItem";
