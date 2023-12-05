@@ -8,6 +8,8 @@ export interface PeriodDates {
 export interface CalendarComponentProps {
   selectedDate: string;
   currentMonth?: dayjs.Dayjs;
+  periodDates: PeriodDates;
   disabledDates?: string[];
-  onDateClick: (date: string, periodDates?: PeriodDates) => void;
+  afterAllDate?: boolean;
+  onDateClick: (date: string, periodDates: PeriodDates) => void;
 }

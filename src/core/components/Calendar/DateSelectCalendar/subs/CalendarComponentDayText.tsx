@@ -1,33 +1,37 @@
-import { cn } from "@/utilities/utils";
+import clsx from "clsx";
 import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
+import { PeriodDates } from "../types/CalendarComponentProps";
 
 interface CalendarComponentDayTextProps {
-  selectedDate: string;
   calendarDate: CalendarDateDto;
+  afterAllDate: boolean;
+  periodDates: PeriodDates;
   periodDateArray?: string[];
 }
 
 export const CalendarComponentDayText = ({
-  selectedDate,
   calendarDate,
+  afterAllDate,
+  periodDates,
   periodDateArray,
 }: CalendarComponentDayTextProps) => {
   const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
-  const isPeriod = periodDateArray && periodDateArray.length > 0;
-  const isStartDate = isPeriod && periodDateArray[0] === currentDate;
-  const isEndDate = isPeriod && periodDateArray[periodDateArray.length - 1] === currentDate;
-  const singleSelectedDate = !isPeriod && currentDate === selectedDate;
+  const isPeriod = periodDates.startDate && periodDates.endDate;
+  const isStartDate = isPeriod && periodDates.startDate === currentDate;
+  const isEndDate = isPeriod && periodDates.endDate === currentDate;
+  const singleSelectedDate = (periodDates.startDate && !periodDates.endDate) && currentDate === periodDates.startDate;
+
   return (
-    <div className = {cn("flex flex-col justify-between items-center")}>
+    <div className = {clsx("flex flex-col justify-between items-center")}>
       <div
-        className = {cn("flex justify-center items-center h-8 leading-none text-xs",
+        className = {clsx("flex justify-center items-center h-8 leading-none text-xs",
           {
             "relative rounded-full w-8 bg-primary-03 text-white": isStartDate || isEndDate || singleSelectedDate,
-            "before:absolute before:translate-x-1/2 before:content-[''] before:w-[calc(100%+5px)] before:h-full before:bg-primary-00 before:block before:-z-10": isStartDate || isEndDate,
+            "before:absolute before:translate-x-1/2 before:content-[''] before:w-[calc(100%+5px)] before:h-full before:bg-primary-00 before:block before:-z-10": isStartDate || isEndDate || afterAllDate && singleSelectedDate,
             "before:translate-x-1/2": isStartDate,
-            "before:-translate-x-1/2": isEndDate,
-            "w-full bg-primary-00": periodDateArray?.slice(1, -1).includes(currentDate),
+            "before:translate-x-[-50%]": isEndDate,
             "bg-[#C9CCCF] text-white rounded-full w-8": calendarDate.isToday,
+            "w-full bg-primary-00 rounded-none !text-gray-08": (periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate)),
             "text-[#C9CCCF]": !calendarDate.isThisMonth && !periodDateArray?.includes(currentDate) && !calendarDate.isToday!,
           },
         )}

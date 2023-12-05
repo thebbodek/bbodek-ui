@@ -1,3 +1,4 @@
+import { useState } from "react";
 import dayjs from "dayjs";
 import clsx from "clsx";
 import { CalendarBlank } from "@phosphor-icons/react";
@@ -6,6 +7,7 @@ import DateSelectCalendar from "../Calendar/DateSelectCalendar";
 import Typography from "../Typography";
 import Divider from "../Divider";
 import Button from "../Button";
+import GeneralTab from "../Tab/GeneralTab/GeneralTab";
 import { DateSelectProps } from "./types";
 import useClickOutside from "@/hooks/useClickOutSide";
 
@@ -20,14 +22,27 @@ const DateSelect = ({
   onDateClick,
 }: DateSelectProps) => {
   const startDate = dayjs(periodDates.startDate).format("YYYY. MM. DD");
-  const isSameYear = dayjs(periodDates.startDate).year === dayjs(periodDates.endDate).year;
   const fullEndDate = dayjs(periodDates.endDate).format("YYYY. MM. DD");
-  const shortEndDate = dayjs(periodDates.endDate).format("MM. DD");
   const { contentRef } = useClickOutside<HTMLDivElement>(onClose);
+  const [ tabSelected, setTabSelected ] = useState("selectedDate");
+  const tabData = [
+    { key: "selectedDate", label: "선택한 기간만 적용" },
+    { key: "afterAllDate", label: "시작일부터 모든 날짜 적용" },
+  ];
 
-  const calcDiffDate = () => {
-    return dayjs(periodDates.endDate).diff(periodDates.startDate, "day") + 1;
-  };
+  const tabItems = tabData.map(item => (
+    <GeneralTab.Item
+      key = {item.key}
+      label = {item.label}
+      name = {"plate"}
+      theme = "body-01-bold"
+      checked = {item.key === tabSelected}
+      value = {item.key}
+      onChange = {(e: React.ChangeEvent<HTMLInputElement>) => {
+        setTabSelected(e.target.value);
+      }}
+    />
+  ));
 
   return (
     <div className = "relative" ref = {contentRef}>
@@ -46,29 +61,20 @@ const DateSelect = ({
         }
         <CalendarBlank size = {24} className = "text-gray-05" />
       </button>
-      <div className = {clsx("absolute w-full min-w-[25rem] max-w-[34rem] pt-6 z-10 rounded-xl border mt-2 bg-white", { "hidden": !isOpen })}>
+      <div className = {clsx("absolute end-0 w-full pt-6 z-10 rounded-xl border mt-2 bg-white", { "hidden": !isOpen })}>
         <div className = "px-4">
-          <div className = "flex-v-stack gap-3 mb-9">
-            <Typography element = "h6" text = "날짜 선택" theme = "subhead-01-bold" />
-            <Typography text = "사용하실 날짜를 선택해주세요" color = "gray-06" />
-          </div>
+          <Typography element = "h6" text = "날짜 선택" theme = "subhead-01-bold" />
+          <GeneralTab items = {tabItems} className = "mt-4 mb-11" />
           <DateSelectCalendar
             selectedDate = {selectedDate}
+            periodDates = {periodDates}
             currentMonth = {currentMonth}
             disabledDates = {disabledDates}
             onDateClick = {onDateClick}
+            afterAllDate = {tabSelected === "afterAllDate"}
           />
-          <Typography
-          element = "p"
-          text = {`사용일자 : 
-            ${periodDates.startDate ? `${startDate} ${!periodDates.endDate ? "(하루)" : ""}` : "시작일을 선택해주세요"}
-            ${periodDates.endDate ? ` - ${isSameYear ? shortEndDate : fullEndDate} (${calcDiffDate()}일)` : ""}
-          `}
-          theme = "subhead-02-bold"
-          color = "primary-03"
-          className = "my-16 text-center"
-        />
         </div>
+
         <Divider />
         <div className = "flex gap-3 py-5 px-6">
           <Button

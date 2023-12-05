@@ -48,8 +48,8 @@ export const CalendarDayComponent = ({
                     className = "text-inherit"
                   />
                 </div>
-                {markedDate && markedDate.items.map(item =>
-                  <div className = "flex-v-stack gap-1 w-full pt-1" key = {item.label}>
+                {markedDate && markedDate.items.map((item, index) =>
+                  <div className = "flex-v-stack gap-1 w-full pt-1" key = {index}>
                     <div key = {index} className = "bg-primary-00">
                           &nbsp;
                       <Typography theme = "body-02-bold" color = "primary-02" text = {item.label === undefined ? "" : item.label} />

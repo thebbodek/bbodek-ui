@@ -1,5 +1,4 @@
 import { useState } from "react";
-import dayjs from "dayjs";
 import { Meta } from "@storybook/react";
 
 import { PeriodDates } from "./types/CalendarComponentProps";
@@ -15,11 +14,11 @@ export default meta;
 export const Default = () => {
   const [ selectedDate, setSelectedDate ] = useState<string>("");
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
-    startDate: "",
+    startDate: "2023-12-08",
     endDate: "",
   });
 
-  const onDateClick = (date: string, periodDates?: PeriodDates) => {
+  const onDateClick = (date: string, periodDates: PeriodDates) => {
     setSelectedDate(date);
     setPeriodDates(periodDates!);
   };
@@ -29,7 +28,7 @@ export const Default = () => {
     <div className = {"w-[500px] border rounded-3xl py-6"}>
       <DateSelectCalendar
         selectedDate = {selectedDate}
-        currentMonth = {dayjs("2023-10-25")}
+        periodDates = {periodDates}
         onDateClick = {onDateClick}
       />
     </div>

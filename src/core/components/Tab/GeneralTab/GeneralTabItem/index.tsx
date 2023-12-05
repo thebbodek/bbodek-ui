@@ -6,6 +6,7 @@ import { GeneralTabItemProps } from "./types";
 const GeneralTabItem = forwardRef((
     {
       label,
+      theme = "subhead-01-bold",
       ...props
     }: Omit<GeneralTabItemProps, "ref">,
     ref: React.Ref<HTMLInputElement>,
@@ -23,8 +24,8 @@ const GeneralTabItem = forwardRef((
           {...props}
         />
         <Typography
-          className = "flex-1 px-2.5 py-3 text-subhead-01-bold text-gray-05 text-center bg-transparent cursor-pointer peer-checked:bg-white peer-checked:text-black"
-          theme = "subhead-01-bold"
+          className = "flex-1 px-2.5 py-3 text-center bg-transparent cursor-pointer peer-checked:bg-white peer-checked:text-black"
+          theme = {theme}
           color = "gray-05"
           text = {label}
         >

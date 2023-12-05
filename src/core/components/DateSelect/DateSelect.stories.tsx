@@ -3,7 +3,6 @@ import { Meta } from "@storybook/react";
 
 import { PeriodDates } from "@/core/components/Calendar/DateSelectCalendar/types/CalendarComponentProps";
 import DateSelect from "./index";
-import dayjs from "dayjs";
 
 const meta = {
   title: "core/DateSelect",
@@ -16,13 +15,15 @@ export const Default = () => {
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   const [ selectedDate, setSelectedDate ] = useState<string>("");
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
-    startDate: "",
+    startDate: "2023-12-21",
     endDate: "",
   });
 
-  const onDateClick = (date: string, periodDates?: PeriodDates) => {
+  const onDateClick = (date: string, periodDates: PeriodDates) => {
     setSelectedDate(date);
     setPeriodDates(periodDates!);
+    console.log(date);
+    console.log(periodDates);
   };
 
   const onCalendarToggle = () => {
@@ -38,7 +39,6 @@ export const Default = () => {
       <div className = "w-[500px]">
         <DateSelect
           isOpen = {isOpen}
-          currentMonth = {dayjs("2023-10-01")}
           periodDates = {periodDates}
           selectedDate = {selectedDate}
           onToggle = {onCalendarToggle}
