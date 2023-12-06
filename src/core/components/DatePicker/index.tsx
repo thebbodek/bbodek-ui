@@ -18,7 +18,7 @@ const InputDatePicker = ({
   currentMonth,
   disabledDates,
   useTab = false,
-  disabled = true,
+  disabled = false,
   onToggle,
   onClose,
   onDateClick,
