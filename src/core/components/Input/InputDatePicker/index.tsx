@@ -3,11 +3,11 @@ import dayjs from "dayjs";
 import clsx from "clsx";
 import { CalendarBlank } from "@phosphor-icons/react";
 
-import DatePickerCalendar from "../Calendar/DatePickerCalendar";
-import Typography from "../Typography";
-import Divider from "../Divider";
-import Button from "../Button";
-import GeneralTab from "../Tab/GeneralTab/GeneralTab";
+import DatePickerCalendar from "../../Calendar/DatePickerCalendar";
+import Typography from "../../Typography";
+import Divider from "../../Divider";
+import Button from "../../Button";
+import GeneralTab from "../../Tab/GeneralTab/GeneralTab";
 import { InputDatePickerProps } from "./types";
 import useClickOutside from "@/hooks/useClickOutSide";
 

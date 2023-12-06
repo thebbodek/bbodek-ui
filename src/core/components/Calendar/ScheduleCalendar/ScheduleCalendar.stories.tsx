@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Meta } from "@storybook/react";
 
 import ScheduleCalendar from "@/core/components/Calendar/ScheduleCalendar";
@@ -17,12 +17,11 @@ export const Default = () => {
   const onDateClick = (date: string, value: MarkedDatesItemsProps[]) => {
     setSelectedDate(date);
     setMarkedDatesValue(value);
-    console.log(date);
-    console.log(value);
   };
 
-  console.log(selectedDate);
-  console.log(markedDateValus);
+  useEffect(() => {
+    console.log(selectedDate, markedDateValus);
+  }, [ selectedDate, markedDateValus ]);
 
   return (
     <div className = {"w-screen"}>

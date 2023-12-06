@@ -30,7 +30,6 @@ export const Default = (props: InputSelectProps) => {
   const options = data.map(food => <option key = {food} value = {food}>{food}</option>);
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentValue(e.target.value);
-    console.log(currentValue);
   };
 
   return (

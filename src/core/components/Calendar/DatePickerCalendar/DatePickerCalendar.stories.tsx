@@ -23,7 +23,6 @@ export const Default = () => {
     setPeriodDates(periodDates!);
   };
 
-  console.log(periodDates);
   return (
     <div className = {"w-[500px] border rounded-3xl py-6"}>
       <DatePickerCalendar

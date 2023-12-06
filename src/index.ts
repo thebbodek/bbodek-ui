@@ -2,7 +2,7 @@ export { default as Button } from "@/core/components/Button";
 export { default as BasicCalendar } from "@/core/components/Calendar/BasicCalendar";
 export { default as DatePickerCalendar } from "@/core/components/Calendar/DatePickerCalendar";
 export { default as ScheduleCalendar } from "@/core/components/Calendar/ScheduleCalendar";
-export { default as InputDatePicker } from "@/core/components/DatePicker";
+export { default as InputDatePicker } from "@/core/components/Input/InputDatePicker";
 export { default as Checkbox } from "@/core/components/Checkbox";
 export { default as Demo } from "@/core/components/Demo";
 export { default as Divider } from "@/core/components/Divider";
