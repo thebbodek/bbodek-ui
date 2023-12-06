@@ -22,14 +22,18 @@ export const CalendarComponentDayText = ({
   const singleSelectedDate = (periodDates.startDate && !periodDates.endDate) && currentDate === periodDates.startDate;
 
   return (
-    <div className = {clsx("flex flex-col justify-between items-center")}>
+    <div
+      className = {clsx("relative flex flex-col justify-between items-center",
+        {
+          "before:absolute before:translate-x-1/2 before:content-[''] before:w-1/2 before:h-full before:bg-primary-00 before:block before:-z-10": isStartDate || isEndDate || afterAllDate && singleSelectedDate,
+          "before:translate-x-1/2": isStartDate,
+          "before:translate-x-[-50%]": isEndDate,
+        },
+    )}>
       <div
         className = {clsx("flex justify-center items-center h-8 leading-none text-xs",
           {
-            "relative rounded-full w-8 bg-primary-03 text-white": isStartDate || isEndDate || singleSelectedDate,
-            "before:absolute before:translate-x-1/2 before:content-[''] before:w-[calc(100%+5px)] before:h-full before:bg-primary-00 before:block before:-z-10": isStartDate || isEndDate || afterAllDate && singleSelectedDate,
-            "before:translate-x-1/2": isStartDate,
-            "before:translate-x-[-50%]": isEndDate,
+            "rounded-full w-8 bg-primary-03 text-white": isStartDate || isEndDate || singleSelectedDate,
             "bg-[#C9CCCF] text-white rounded-full w-8": calendarDate.isToday,
             "w-full bg-primary-00 rounded-none !text-gray-08": (periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate)),
             "text-[#C9CCCF]": !calendarDate.isThisMonth && !periodDateArray?.includes(currentDate) && !calendarDate.isToday!,
