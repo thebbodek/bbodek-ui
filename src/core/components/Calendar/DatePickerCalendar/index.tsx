@@ -100,8 +100,6 @@ const DatePickerCalendar = ({
       const newPeriodDates = models.periodDates;
       newPeriodDates.startDate = periodDates.startDate;
       operations.setPeriodDates({ ...newPeriodDates });
-      console.log(periodDates);
-      console.log(periodDates);
     }
   }, []);
 
@@ -118,7 +116,6 @@ const DatePickerCalendar = ({
   useEffect(() => {
     operations.setPeriodDates({ ...periodDates });
     operations.setCalendarPeriodDates(periodDates);
-    console.log(periodDates);
   }, [periodDates]);
 
   return (

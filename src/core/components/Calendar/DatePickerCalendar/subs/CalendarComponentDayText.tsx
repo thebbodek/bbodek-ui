@@ -31,12 +31,12 @@ export const CalendarComponentDayText = ({
         },
     )}>
       <div
-        className = {clsx("flex justify-center items-center h-8 leading-none text-xs",
+        className = {clsx("flex justify-center items-center h-8 leading-none text-xs text-gray-08",
           {
             "rounded-full w-8 bg-primary-03 text-white": isStartDate || isEndDate || singleSelectedDate,
-            "bg-[#C9CCCF] text-white rounded-full w-8": calendarDate.isToday,
+            "bg-gray-03 text-white rounded-full w-8": calendarDate.isToday,
             "w-full bg-primary-00 rounded-none !text-gray-08": (periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate)),
-            "text-[#C9CCCF]": !calendarDate.isThisMonth && !periodDateArray?.includes(currentDate) && !calendarDate.isToday!,
+            "!text-gray-03": !calendarDate.isThisMonth && !periodDateArray?.includes(currentDate) && !calendarDate.isToday!,
           },
         )}
       >
