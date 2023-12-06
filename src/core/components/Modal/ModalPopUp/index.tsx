@@ -12,10 +12,11 @@ const ModalPopUp = forwardRef((
     }: PropsWithChildren<ModalPopUpProps>,
     ref: React.Ref<HTMLDialogElement>,
   ) => {
-  const { className, ...rest } = props;
+  const { target, className, ...rest } = props;
 
   return (
     <ModalBase
+      target = {target ?? "modal"}
       ref = {ref}
       variants = "modal"
       {...rest}

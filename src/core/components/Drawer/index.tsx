@@ -17,11 +17,12 @@ const Drawer = forwardRef((
      }: PropsWithChildren<DrawerProps>,
      ref: React.Ref<HTMLDialogElement>,
   ) => {
-  const { className, ...rest } = props;
+  const { target, className, ...rest } = props;
   const CloseIcon = <X size = "32" fill = "#343330"/>;
 
   return (
     <ModalBase
+      target = {target ?? "drawer"}
       ref = {ref}
       variants = {"drawer"}
       onClose = {onClose}
