@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from "react";
 
-const useEffectClickOutSide = (ref: RefObject<Element>, onClose?: () => void) => {
+const useClickOutSideEffect = (ref: RefObject<Element>, onClose?: () => void) => {
   useEffect(() => {
     const onClickOutSide = (e: MouseEvent) => {
       if (!ref.current || ref.current.contains(e.target as Node)) return;
@@ -14,4 +14,4 @@ const useEffectClickOutSide = (ref: RefObject<Element>, onClose?: () => void) =>
   }, [ref.current]);
 };
 
-export default useEffectClickOutSide;
+export default useClickOutSideEffect;
