@@ -25,7 +25,7 @@ const DropdownTrigger = forwardRef((
     <button
       ref = {ref}
       onClick = {onClickHandler}
-      className = {clsx("cursor-pointer", className)}
+      className = {clsx("whitespace-nowrap cursor-pointer", className)}
       aria-haspopup = "listbox"
       aria-expanded = {isToggle}
       {...props}

@@ -1,5 +1,5 @@
-import React, { PropsWithChildren } from "react";
 import clsx from "clsx";
+import React, { PropsWithChildren } from "react";
 
 const Table = ({
   children,
@@ -8,7 +8,7 @@ const Table = ({
 }: PropsWithChildren<React.HTMLAttributes<HTMLTableElement>>) => {
   return (
     <table
-      className = {clsx("text-sm", className)}
+      className = {clsx("w-full text-sm", className)}
       {...props}
     >
       {children}

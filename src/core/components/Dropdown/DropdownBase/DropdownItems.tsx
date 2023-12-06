@@ -15,7 +15,7 @@ const DropdownItems = forwardRef((
   return (
     <ul
       ref = {ref}
-      className = {clsx("absolute z-10", className)}
+      className = {clsx("absolute mt-2 whitespace-nowrap bg-white z-10", className)}
       role = "listbox"
       {...props}
     >

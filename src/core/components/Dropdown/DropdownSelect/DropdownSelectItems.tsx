@@ -15,7 +15,7 @@ const DropdownSelectItems = forwardRef((
   return (
     <DropdownBase.Items
       ref = {ref}
-      className = {clsx("flex-v-stack gap-y-6 px-3 py-4 border border-gray-03 overflow-hidden right-0 rounded-xl min-w-full", className)}
+      className = {clsx("flex-v-stack gap-y-6 px-3 py-4 border border-gray-03 overflow-hidden rounded-xl min-w-full", className)}
       {...props}
     />
   );
