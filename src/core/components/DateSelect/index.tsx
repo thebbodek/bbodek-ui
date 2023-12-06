@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 import dayjs from "dayjs";
 import clsx from "clsx";
 import { CalendarBlank } from "@phosphor-icons/react";
@@ -21,6 +21,7 @@ const DateSelect = ({
   onClose,
   onDateClick,
 }: DateSelectProps) => {
+  const id = useId();
   const startDate = dayjs(periodDates.startDate).format("YYYY. MM. DD");
   const fullEndDate = dayjs(periodDates.endDate).format("YYYY. MM. DD");
   const { contentRef } = useClickOutside<HTMLDivElement>(onClose);
@@ -34,7 +35,7 @@ const DateSelect = ({
     <GeneralTab.Item
       key = {item.key}
       label = {item.label}
-      name = {"plate"}
+      name = {id}
       theme = "body-01-bold"
       checked = {item.key === tabSelected}
       value = {item.key}
