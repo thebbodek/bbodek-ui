@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Meta } from "@storybook/react";
 
 import { PeriodDates } from "./types/CalendarComponentProps";
-import DateSelectCalendar from "@/core/components/Calendar/DateSelectCalendar";
+import DatePickerCalendar from "@/core/components/Calendar/DatePickerCalendar";
 
 const meta = {
-  title: "core/Calendar/DateSelectCalendar",
-  component: DateSelectCalendar,
-} satisfies Meta<typeof DateSelectCalendar>;
+  title: "core/Calendar/DatePickerCalendar",
+  component: DatePickerCalendar,
+} satisfies Meta<typeof DatePickerCalendar>;
 
 export default meta;
 
@@ -26,7 +26,7 @@ export const Default = () => {
   console.log(periodDates);
   return (
     <div className = {"w-[500px] border rounded-3xl py-6"}>
-      <DateSelectCalendar
+      <DatePickerCalendar
         selectedDate = {selectedDate}
         periodDates = {periodDates}
         onDateClick = {onDateClick}

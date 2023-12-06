@@ -10,7 +10,7 @@ import { CalendarDateDto } from "@/core/components/Calendar/common/types/Calenda
 import { CalendarComponentProps, PeriodDates } from "./types/CalendarComponentProps";
 import { useCalendar } from "@/core/components/Calendar/common/hooks/useCalendar";
 
-export interface UseDateSelectCalendarResponse {
+export interface UseDatePickerCalendarResponse {
   models: {
     periodDates: PeriodDates;
     periodDateArray: string[];
@@ -22,7 +22,7 @@ export interface UseDateSelectCalendarResponse {
   }
 }
 
-export const useDateSelectCalendar = (): UseDateSelectCalendarResponse => {
+export const useDatePickerCalendar = (): UseDatePickerCalendarResponse => {
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
     startDate: "",
     endDate: "",
@@ -82,7 +82,7 @@ export const useDateSelectCalendar = (): UseDateSelectCalendarResponse => {
   };
 };
 
-const DateSelectCalendar = ({
+const DatePickerCalendar = ({
   selectedDate,
   currentMonth = dayjs(),
   periodDates,
@@ -91,7 +91,7 @@ const DateSelectCalendar = ({
   onDateClick,
 }: CalendarComponentProps) => {
   const { models: commonModels, operations: commonOperations } = useCalendar();
-  const { models, operations } = useDateSelectCalendar();
+  const { models, operations } = useDatePickerCalendar();
 
   useEffect(() => {
     commonOperations.setInitialSelectedDayjs(currentMonth);
@@ -100,6 +100,7 @@ const DateSelectCalendar = ({
       const newPeriodDates = models.periodDates;
       newPeriodDates.startDate = periodDates.startDate;
       operations.setPeriodDates({ ...newPeriodDates });
+      console.log(periodDates);
       console.log(periodDates);
     }
   }, []);
@@ -113,6 +114,12 @@ const DateSelectCalendar = ({
       onDateClick(selectedDate, models.periodDates);
     }
   }, [afterAllDate]);
+
+  useEffect(() => {
+    operations.setPeriodDates({ ...periodDates });
+    operations.setCalendarPeriodDates(periodDates);
+    console.log(periodDates);
+  }, [periodDates]);
 
   return (
     <div className = {"flex flex-col h-full w-full"}>
@@ -165,4 +172,4 @@ const DateSelectCalendar = ({
   );
 };
 
-export default DateSelectCalendar;
+export default DatePickerCalendar;

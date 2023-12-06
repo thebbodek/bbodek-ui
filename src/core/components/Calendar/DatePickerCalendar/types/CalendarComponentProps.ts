@@ -11,5 +11,6 @@ export interface CalendarComponentProps {
   periodDates: PeriodDates;
   disabledDates?: string[];
   afterAllDate?: boolean;
+  disabled?: boolean;
   onDateClick: (date: string, periodDates: PeriodDates) => void;
 }
