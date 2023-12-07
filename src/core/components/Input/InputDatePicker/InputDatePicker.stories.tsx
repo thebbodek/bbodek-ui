@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/react";
 
 import { OverlayProvider, useOverlay } from "@toss/use-overlay";
+import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/CalendarComponentProps";
 import ModalPopUp from "../../Modal/ModalPopUp";
 import InputDatePicker from "./index";
 
@@ -16,11 +17,12 @@ export default meta;
 
 const DefaultLayout = () => {
   const overlay = useOverlay();
+  const getDate = (periodDates: PeriodDates) => console.log(periodDates);
 
   return (
     <div className = "flex gap-2">
       <div className = "w-[500px]">
-        <InputDatePicker overlay = {overlay} useTab />
+        <InputDatePicker overlay = {overlay} useTab getPeriodDates = {getDate}/>
       </div>
     </div>
   );
@@ -38,11 +40,13 @@ export const Default = () => {
 const InputDatePickerInModalPopUpLayout = () => {
   const overlay = useOverlay();
   const inputDatePickerOverlay = useOverlay();
+  const getDate = (periodDates: PeriodDates) => console.log(periodDates);
+
   const onOverlay = () => {
     overlay.open(({ isOpen }) => {
       return (
         <ModalPopUp isOpen = {isOpen}>
-          <InputDatePicker overlay = {inputDatePickerOverlay} useTab = {false} />
+          <InputDatePicker overlay = {inputDatePickerOverlay} useTab = {false} getPeriodDates = {getDate}/>
         </ModalPopUp>
       );
     });

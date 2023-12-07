@@ -10,6 +10,7 @@ import { InputDatePickerProps } from "./types";
 const InputDatePicker = ({
   overlay,
   disabledDates,
+  getPeriodDates,
   currentMonth,
   useTab = false,
   disabled = false,
@@ -30,6 +31,7 @@ const InputDatePicker = ({
           currentMonth = {currentMonth}
           close = {(periodDates: PeriodDates) => {
             resolve(periodDates);
+            getPeriodDates(periodDates);
             close();
           }}
           useTab = {useTab}
