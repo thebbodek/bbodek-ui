@@ -1,10 +1,8 @@
-import { CalendarComponentProps } from "@/core/components/Calendar/DatePickerCalendar/types/CalendarComponentProps";
-import { PeriodDates } from "@/core/components/Calendar/DatePickerCalendar/types/CalendarComponentProps";
+import { CalendarComponentProps, PeriodDates } from "@/core/components/Calendar/DatePickerCalendar/types/CalendarComponentProps";
 
-export interface InputDatePickerProps extends Omit<CalendarComponentProps, "afterAllDate"> {
+export interface DatePickerProps extends Pick<CalendarComponentProps, "currentMonth" | "disabled" | "disabledDates"> {
   isOpen: boolean;
-  periodDates: PeriodDates;
+  close: (periodDates: PeriodDates) => void;
   useTab?: boolean;
-  onToggle: () => void;
-  onClose: () => void;
 }
+export interface InputDatePickerProps extends Omit<DatePickerProps, "isOpen"| "close"> {}

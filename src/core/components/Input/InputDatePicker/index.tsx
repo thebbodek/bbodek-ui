@@ -1,64 +1,56 @@
-import { useState, useId, useEffect } from "react";
-import dayjs from "dayjs";
-import clsx from "clsx";
 import { CalendarBlank } from "@phosphor-icons/react";
 
-import DatePickerCalendar from "../../Calendar/DatePickerCalendar";
+import { useOverlay } from "@toss/use-overlay";
+import dayjs from "dayjs";
+import { useState } from "react";
+import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/CalendarComponentProps";
 import Typography from "../../Typography";
-import Divider from "../../Divider";
-import Button from "../../Button";
-import GeneralTab from "../../Tab/GeneralTab/GeneralTab";
+import DatePicker from "./DatePicker";
 import { InputDatePickerProps } from "./types";
-import useClickOutside from "@/hooks/useClickOutSide";
 
 const InputDatePicker = ({
-  isOpen,
-  periodDates,
-  selectedDate,
-  currentMonth,
   disabledDates,
+  currentMonth,
   useTab = false,
   disabled = false,
-  onToggle,
-  onClose,
-  onDateClick,
 }: InputDatePickerProps) => {
-  const id = useId();
+  const overlay = useOverlay();
+  const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
+    startDate: "",
+    endDate: "",
+  });
   const startDate = dayjs(periodDates.startDate).format("YYYY. MM. DD");
   const endDate = dayjs(periodDates.endDate).format("YYYY. MM. DD");
-  const { contentRef } = useClickOutside<HTMLDivElement>(onClose);
-  const [ tabSelected, setTabSelected ] = useState("selectedDate");
-  const tabData = [
-    { key: "selectedDate", label: "선택한 기간만 적용" },
-    { key: "afterAllDate", label: "시작일부터 모든 날짜 적용" },
-  ];
 
-  const tabItems = tabData.map(item => (
-    <GeneralTab.Item
-      key = {item.key}
-      label = {item.label}
-      name = {id}
-      theme = "body-01-bold"
-      checked = {item.key === tabSelected}
-      value = {item.key}
-      onChange = {(e: React.ChangeEvent<HTMLInputElement>) => {
-        setTabSelected(e.target.value);
-      }}
-    />
-  ));
+  const onDatePickerClick = (): Promise<PeriodDates> => {
+    return new Promise(resolve => {
+      overlay.open(({ isOpen, close }) => (
+        <DatePicker
+          disabled = {disabled}
+          isOpen = {isOpen}
+          currentMonth = {currentMonth}
+          close = {(periodDates: PeriodDates) => {
+            resolve(periodDates);
+            close();
+          }}
+          useTab = {useTab}
+          disabledDates = {disabledDates}/>
+      ));
+    });
+  };
 
-  useEffect(() => {
-    if (disabled) {
-      onClose();
-    }
-  }, [disabled]);
+  const handleDatePicker = async () => {
+    const periodDates = await onDatePickerClick();
+
+    setPeriodDates(periodDates);
+  };
 
   return (
-    <div className = "relative" ref = {contentRef}>
+    <div>
       <button
         type = "button"
         className = "w-full flex items-center justify-between px-3 py-4 text-subhead-02-regular bg-transparent rounded-xl overflow-hidden border border-gray-03"
-        onClick = {onToggle}
+        onClick = {handleDatePicker}
         disabled = {disabled}
       >
         {
@@ -71,33 +63,6 @@ const InputDatePicker = ({
         }
         <CalendarBlank size = {24} className = "text-gray-05" />
       </button>
-      <div className = {clsx("absolute end-0 w-full pt-6 z-10 rounded-xl border mt-2 bg-white", { "hidden": !isOpen })}>
-        <div className = "px-4">
-          <Typography element = "h6" text = "날짜 선택" theme = "subhead-01-bold" />
-          {useTab && <GeneralTab items = {tabItems} className = "mt-4 mb-11" />}
-          <DatePickerCalendar
-            selectedDate = {selectedDate}
-            periodDates = {periodDates}
-            currentMonth = {currentMonth}
-            disabledDates = {disabledDates}
-            onDateClick = {onDateClick}
-            disabled = {disabled}
-            afterAllDate = {tabSelected === "afterAllDate"}
-          />
-        </div>
-        <Divider />
-        <div className = "flex gap-3 py-5 px-6">
-          <Button
-            backgroundColor = "white"
-            color = "gray-06"
-            content = "닫기"
-            size = "h-60"
-            rounded = "rounded-12"
-            className = "w-full border"
-            onClick = {onToggle}
-          />
-        </div>
-      </div>
     </div>
   );
 };
