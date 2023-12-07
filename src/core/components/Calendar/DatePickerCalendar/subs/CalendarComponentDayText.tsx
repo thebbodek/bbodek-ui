@@ -1,4 +1,5 @@
 import clsx from "clsx";
+
 import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
 import { PeriodDates } from "../types/CalendarComponentProps";
 
@@ -20,7 +21,6 @@ export const CalendarComponentDayText = ({
   const isStartDate = isPeriod && periodDates.startDate === currentDate;
   const isEndDate = isPeriod && periodDates.endDate === currentDate;
   const singleSelectedDate = (periodDates.startDate && !periodDates.endDate) && currentDate === periodDates.startDate;
-  console.log(isStartDate);
 
   return (
     <div

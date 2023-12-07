@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/react";
-
 import { OverlayProvider, useOverlay } from "@toss/use-overlay";
+import { useState } from "react";
+
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/CalendarComponentProps";
 import ModalPopUp from "../../Modal/ModalPopUp";
 import InputDatePicker from "./index";
@@ -17,12 +18,19 @@ export default meta;
 
 const DefaultLayout = () => {
   const overlay = useOverlay();
+  const [ myDates, setMyDates ] = useState({
+    startDate: "",
+    endDate: "",
+  });
   const getDate = (periodDates: PeriodDates) => console.log(periodDates);
+
+  const onDatesClick = () => setMyDates({ startDate: "22222", endDate: "1111" });
 
   return (
     <div className = "flex gap-2">
       <div className = "w-[500px]">
-        <InputDatePicker overlay = {overlay} useTab getPeriodDates = {getDate}/>
+        <button onClick = {onDatesClick}>날짜 변경</button>
+        <InputDatePicker overlay = {overlay} useTab getPeriodDates = {getDate} externalDates = {myDates} />
       </div>
     </div>
   );
@@ -46,7 +54,7 @@ const InputDatePickerInModalPopUpLayout = () => {
     overlay.open(({ isOpen }) => {
       return (
         <ModalPopUp isOpen = {isOpen}>
-          <InputDatePicker overlay = {inputDatePickerOverlay} useTab = {false} getPeriodDates = {getDate}/>
+          <InputDatePicker overlay = {inputDatePickerOverlay} useTab = {false} getPeriodDates = {getDate} />
         </ModalPopUp>
       );
     });

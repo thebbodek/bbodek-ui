@@ -1,6 +1,6 @@
 import { CalendarBlank } from "@phosphor-icons/react";
 import dayjs from "dayjs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/CalendarComponentProps";
 import Typography from "../../Typography";
@@ -12,6 +12,7 @@ const InputDatePicker = ({
   disabledDates,
   getPeriodDates,
   currentMonth,
+  externalDates,
   useTab = false,
   disabled = false,
 }: InputDatePickerProps) => {
@@ -34,6 +35,7 @@ const InputDatePicker = ({
             getPeriodDates(periodDates);
             close();
           }}
+          externalDates = {periodDates}
           useTab = {useTab}
           disabledDates = {disabledDates}/>
       ));
@@ -45,6 +47,10 @@ const InputDatePicker = ({
 
     setPeriodDates(periodDates);
   };
+
+  useEffect(() => {
+    externalDates && setPeriodDates(externalDates);
+  }, [externalDates]);
 
   return (
     <div>

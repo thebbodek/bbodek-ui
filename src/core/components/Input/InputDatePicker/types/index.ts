@@ -1,6 +1,7 @@
 import { CalendarComponentProps, PeriodDates } from "@/core/components/Calendar/DatePickerCalendar/types/CalendarComponentProps";
 
 export interface DatePickerProps extends Pick<CalendarComponentProps, "currentMonth" | "disabled" | "disabledDates"> {
+  externalDates?: PeriodDates;
   isOpen: boolean;
   close: (periodDates: PeriodDates) => void;
   useTab?: boolean;
@@ -12,7 +13,7 @@ type CreateOverlayElement = (props: {
   exit: () => void;
 }) => JSX.Element;
 
-export interface InputDatePickerProps extends Omit<DatePickerProps, "isOpen"| "close"> {
+export interface InputDatePickerProps extends Omit<DatePickerProps, "isOpen"| "close" | "periodDates" | "setPeriodDates"> {
   getPeriodDates: (periodDates: PeriodDates) => void;
   overlay: {
     open: (overlayElement: CreateOverlayElement) => void;

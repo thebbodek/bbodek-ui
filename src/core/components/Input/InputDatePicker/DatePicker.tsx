@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 import Button from "../../Button";
 import DatePickerCalendar from "../../Calendar/DatePickerCalendar";
@@ -15,6 +15,7 @@ const DatePicker = ({
   currentMonth,
   disabled,
   disabledDates,
+  externalDates,
   useTab = false,
 }: DatePickerProps) => {
   const id = useId();
@@ -23,6 +24,7 @@ const DatePicker = ({
     startDate: "",
     endDate: "",
   });
+
   const [ tabSelected, setTabSelected ] = useState("selectedDate");
   const tabData = [
     { key: "selectedDate", label: "선택한 기간만 적용" },
@@ -32,6 +34,10 @@ const DatePicker = ({
   const handleClose = () => {
     close(periodDates);
   };
+
+  useEffect(() => {
+    externalDates && setPeriodDates(externalDates);
+  }, [externalDates]);
 
   const tabItems = tabData.map(item => (
     <GeneralTab.Item
