@@ -21,9 +21,7 @@ export const Default = () => {
       <div id = "modal"/>
       <div className = "flex gap-2">
         <div className = "w-[500px]">
-          <InputDatePicker
-            useTab
-          />
+          <InputDatePicker useTab />
         </div>
       </div>
     </OverlayProvider>

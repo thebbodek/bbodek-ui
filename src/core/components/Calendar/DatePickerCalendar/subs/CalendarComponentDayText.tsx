@@ -20,18 +20,19 @@ export const CalendarComponentDayText = ({
   const isStartDate = isPeriod && periodDates.startDate === currentDate;
   const isEndDate = isPeriod && periodDates.endDate === currentDate;
   const singleSelectedDate = (periodDates.startDate && !periodDates.endDate) && currentDate === periodDates.startDate;
+  console.log(isStartDate);
 
   return (
     <div
       className = {clsx("relative flex flex-col justify-between items-center",
         {
-          "before:absolute before:translate-x-1/2 before:content-[''] before:w-1/2 before:h-full before:bg-primary-00 before:block before:-z-10": isStartDate || isEndDate || afterAllDate && singleSelectedDate,
+          "before:absolute before:translate-x-1/2 before:content-[''] before:w-1/2 before:h-full before:bg-primary-00 before:block before:z-20": isStartDate || isEndDate || afterAllDate && singleSelectedDate,
           "before:translate-x-1/2": isStartDate,
           "before:translate-x-[-50%]": isEndDate,
         },
     )}>
       <div
-        className = {clsx("flex justify-center items-center h-8 leading-none text-xs text-gray-08",
+        className = {clsx("relative z-20 flex justify-center items-center h-8 leading-none text-xs text-gray-08",
           {
             "rounded-full w-8 bg-primary-03 text-white": isStartDate || isEndDate || singleSelectedDate,
             "bg-gray-03 text-white rounded-full w-8": calendarDate.isToday,
