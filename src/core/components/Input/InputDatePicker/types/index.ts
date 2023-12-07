@@ -5,4 +5,17 @@ export interface DatePickerProps extends Pick<CalendarComponentProps, "currentMo
   close: (periodDates: PeriodDates) => void;
   useTab?: boolean;
 }
-export interface InputDatePickerProps extends Omit<DatePickerProps, "isOpen"| "close"> {}
+
+type CreateOverlayElement = (props: {
+  isOpen: boolean;
+  close: () => void;
+  exit: () => void;
+}) => JSX.Element;
+
+export interface InputDatePickerProps extends Omit<DatePickerProps, "isOpen"| "close"> {
+  overlay: {
+    open: (overlayElement: CreateOverlayElement) => void;
+    close: () => void;
+    exit: () => void;
+  }
+}

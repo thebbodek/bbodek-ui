@@ -14,27 +14,35 @@ const meta = {
 
 export default meta;
 
-export const Default = () => {
+const DefaultLayout = () => {
+  const overlay = useOverlay();
 
+  return (
+    <div className = "flex gap-2">
+      <div className = "w-[500px]">
+        <InputDatePicker overlay = {overlay} useTab />
+      </div>
+    </div>
+  );
+};
+
+export const Default = () => {
   return (
     <OverlayProvider>
       <div id = "modal"/>
-      <div className = "flex gap-2">
-        <div className = "w-[500px]">
-          <InputDatePicker useTab />
-        </div>
-      </div>
+      <DefaultLayout />
     </OverlayProvider>
   );
 };
 
-const Layout = () => {
+const InputDatePickerInModalPopUpLayout = () => {
   const overlay = useOverlay();
+  const inputDatePickerOverlay = useOverlay();
   const onOverlay = () => {
     overlay.open(({ isOpen }) => {
       return (
         <ModalPopUp isOpen = {isOpen}>
-          <InputDatePicker useTab = {false} />
+          <InputDatePicker overlay = {inputDatePickerOverlay} useTab = {false} />
         </ModalPopUp>
       );
     });
@@ -45,11 +53,11 @@ const Layout = () => {
   );
 };
 
-export const ModalDatePicker = () => {
+export const InputDatePickerInModalPopUp = () => {
   return (
     <OverlayProvider>
       <div id = "modal"/>
-      <Layout />
+      <InputDatePickerInModalPopUpLayout />
     </OverlayProvider>
   );
 };

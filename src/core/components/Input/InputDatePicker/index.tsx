@@ -1,20 +1,19 @@
 import { CalendarBlank } from "@phosphor-icons/react";
-
-import { useOverlay } from "@toss/use-overlay";
 import dayjs from "dayjs";
 import { useState } from "react";
+
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/CalendarComponentProps";
 import Typography from "../../Typography";
 import DatePicker from "./DatePicker";
 import { InputDatePickerProps } from "./types";
 
 const InputDatePicker = ({
+  overlay,
   disabledDates,
   currentMonth,
   useTab = false,
   disabled = false,
 }: InputDatePickerProps) => {
-  const overlay = useOverlay();
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
     startDate: "",
     endDate: "",
