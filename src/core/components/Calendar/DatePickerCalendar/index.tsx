@@ -1,14 +1,14 @@
 import clsx from "clsx";
 import dayjs from "dayjs";
-import { useState, useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
+import { useCalendar } from "@/core/components/Calendar/common/hooks/useCalendar";
 import { CalendarHeader } from "@/core/components/Calendar/common/subs/CalendarHeader";
 import { CalendarWeekDayComponent } from "@/core/components/Calendar/common/subs/CalendarWeekdayComponent";
-import { CalendarComponentDayText } from "./subs/CalendarComponentDayText";
-import { CalendarComponentDaySubText } from "./subs/CalendarComponentDaySubText";
 import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
-import { CalendarComponentProps, PeriodDates } from "./types/CalendarComponentProps";
-import { useCalendar } from "@/core/components/Calendar/common/hooks/useCalendar";
+import { CalendarComponentDaySubText } from "./subs/CalendarComponentDaySubText";
+import { CalendarComponentDayText } from "./subs/CalendarComponentDayText";
+import { DatePickerCalendarProps, DatePickerType, PeriodDates } from "./types/DatePickerCalendarProps";
 
 export interface UseDatePickerCalendarResponse {
   models: {
@@ -18,7 +18,7 @@ export interface UseDatePickerCalendarResponse {
   operations: {
     setCalendarPeriodDates: (periodDates: PeriodDates) => void;
     setPeriodDates: React.Dispatch<React.SetStateAction<PeriodDates>>;
-    onDateClick: (afterAllDate: boolean, calendarDate: CalendarDateDto) => void;
+    onDateClick: (variants: DatePickerType, afterAllDate: boolean, calendarDate: CalendarDateDto) => void;
   }
 }
 
@@ -29,28 +29,27 @@ export const useDatePickerCalendar = (): UseDatePickerCalendarResponse => {
   });
   const [ periodDateArray, setPeriodDateArray ] = useState<string[]>([]);
 
-  const onDateClick = useCallback((afterAllDate: boolean, calendarDate: CalendarDateDto) => {
+  const onDateClick = useCallback((variants: DatePickerType, afterAllDate: boolean, calendarDate: CalendarDateDto) => {
     const curruntDate = calendarDate.dayjs.format("YYYY-MM-DD");
     const newPeriodDates = periodDates;
 
-    if(!periodDates.startDate && !periodDates.endDate) {
-      newPeriodDates.startDate = curruntDate;
-      setPeriodDates({ ...newPeriodDates });
-      return;
-    }
     if ((periodDates.startDate && periodDates.endDate) || afterAllDate) {
       newPeriodDates.startDate = curruntDate;
       newPeriodDates.endDate = "";
-      setPeriodDates({ ...newPeriodDates });
-      return;
-    }
-    if (periodDates.startDate) {
-      dayjs(periodDates.startDate).isAfter(calendarDate.dayjs) ? newPeriodDates.startDate = curruntDate : newPeriodDates.endDate = curruntDate;
-      setPeriodDates({ ...newPeriodDates });
       return;
     }
 
-    setPeriodDates({ ...newPeriodDates, startDate: curruntDate });
+    if (variants === "period" && periodDates.startDate) {
+      if (!dayjs(periodDates.startDate).isAfter(calendarDate.dayjs)) {
+        newPeriodDates.endDate = curruntDate;
+      } else {
+        newPeriodDates.startDate = curruntDate;
+        newPeriodDates.endDate = "";
+      }
+    } else {
+      newPeriodDates.startDate = curruntDate;
+      newPeriodDates.endDate = "";
+    }
   }, [periodDates]);
 
   const setCalendarPeriodDates = useCallback((periodDates: PeriodDates) => {
@@ -83,23 +82,22 @@ export const useDatePickerCalendar = (): UseDatePickerCalendarResponse => {
 };
 
 const DatePickerCalendar = ({
-  selectedDate,
-  currentMonth = dayjs(),
+  variants = "single",
+  label = ["사용일"],
   periodDates,
   disabledDates,
   afterAllDate = false,
   onDateClick,
-}: CalendarComponentProps) => {
+}: DatePickerCalendarProps) => {
   const { models: commonModels, operations: commonOperations } = useCalendar();
   const { models, operations } = useDatePickerCalendar();
 
   useEffect(() => {
-    commonOperations.setInitialSelectedDayjs(currentMonth);
-
     if (periodDates.startDate) {
       const newPeriodDates = models.periodDates;
       newPeriodDates.startDate = periodDates.startDate;
       operations.setPeriodDates({ ...newPeriodDates });
+      commonOperations.setInitialSelectedDayjs(dayjs(periodDates.startDate));
     }
   }, []);
 
@@ -109,7 +107,7 @@ const DatePickerCalendar = ({
       newPeriodDates.endDate = "";
       operations.setPeriodDates({ ...newPeriodDates });
       operations.setCalendarPeriodDates({ startDate: "", endDate: "" });
-      onDateClick(selectedDate, models.periodDates);
+      onDateClick(models.periodDates);
     }
   }, [afterAllDate]);
 
@@ -139,12 +137,12 @@ const DatePickerCalendar = ({
                   onClick = {(): void => {
                     const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
 
-                    if (currentDate === selectedDate) {
+                    if (currentDate === periodDates.startDate) {
                       return;
                     }
-                    operations.onDateClick(afterAllDate, calendarDate);
+                    operations.onDateClick(variants, afterAllDate, calendarDate);
                     operations.setCalendarPeriodDates(models.periodDates);
-                    onDateClick(currentDate, models.periodDates);
+                    onDateClick(models.periodDates);
                   }}
                 >
                   <div className = {clsx("flex flex-col")}>
@@ -157,6 +155,7 @@ const DatePickerCalendar = ({
                     <CalendarComponentDaySubText
                       calendarDate = {calendarDate}
                       periodDates = {models.periodDates}
+                      label = {label}
                     />
                   </div>
                 </button>

@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { Meta } from "@storybook/react";
+import { useState } from "react";
 
-import { PeriodDates } from "./types/CalendarComponentProps";
 import DatePickerCalendar from "@/core/components/Calendar/DatePickerCalendar";
+import { PeriodDates } from "./types/DatePickerCalendarProps";
 
 const meta = {
   title: "core/Calendar/DatePickerCalendar",
@@ -11,25 +11,46 @@ const meta = {
 
 export default meta;
 
-export const Default = () => {
-  const [ selectedDate, setSelectedDate ] = useState<string>("");
+export const SingleDatePicker = () => {
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
     startDate: "2023-12-08",
     endDate: "",
   });
 
-  const onDateClick = (date: string, periodDates: PeriodDates) => {
-    setSelectedDate(date);
-    setPeriodDates(periodDates!);
+  const onDateClick = (date: PeriodDates) => {
+    setPeriodDates(date);
   };
 
   return (
     <div className = {"w-[500px] border rounded-3xl py-6"}>
       <DatePickerCalendar
-        selectedDate = {selectedDate}
+        variants = "single"
+        label = {["해지 신청일"]}
         periodDates = {periodDates}
         onDateClick = {onDateClick}
       />
     </div>
   );
 };
+
+export const PeriodDatesPicker = () => {
+  const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
+    startDate: "2023-12-08",
+    endDate: "",
+  });
+
+  const onDateClick = (date: PeriodDates) => {
+    setPeriodDates(date!);
+  };
+
+  return (
+    <div className = {"w-[500px] border rounded-3xl py-6"}>
+      <DatePickerCalendar
+        variants = "period"
+        periodDates = {periodDates}
+        onDateClick = {onDateClick}
+      />
+    </div>
+  );
+};
+

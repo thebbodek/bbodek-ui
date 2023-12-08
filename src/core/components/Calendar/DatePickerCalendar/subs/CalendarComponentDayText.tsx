@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
-import { PeriodDates } from "../types/CalendarComponentProps";
+import { PeriodDates } from "../types/DatePickerCalendarProps";
 
 interface CalendarComponentDayTextProps {
   calendarDate: CalendarDateDto;

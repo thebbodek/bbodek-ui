@@ -2,7 +2,7 @@ import { useEffect, useId, useState } from "react";
 
 import Button from "../../Button";
 import DatePickerCalendar from "../../Calendar/DatePickerCalendar";
-import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/CalendarComponentProps";
+import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps";
 import Divider from "../../Divider";
 import ModalPopUp from "../../Modal/ModalPopUp";
 import GeneralTab from "../../Tab/GeneralTab/GeneralTab";
@@ -12,14 +12,12 @@ import { DatePickerProps } from "./types";
 const DatePicker = ({
   isOpen,
   close,
-  currentMonth,
   disabled,
   disabledDates,
   externalDates,
   useTab = false,
 }: DatePickerProps) => {
   const id = useId();
-  const [ selectedDate, setSelectedDate ] = useState<string>("");
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
     startDate: "",
     endDate: "",
@@ -53,8 +51,7 @@ const DatePicker = ({
     />
   ));
 
-  const onDateClick = (date: string, periodDates: PeriodDates) => {
-    setSelectedDate(date);
+  const onDateClick = (periodDates: PeriodDates) => {
     setPeriodDates(periodDates!);
   };
 
@@ -65,9 +62,8 @@ const DatePicker = ({
           <Typography element = "h6" text = "날짜 선택" theme = "subhead-01-bold" />
           {useTab && <GeneralTab items = {tabItems} className = "mt-4 mb-11" />}
           <DatePickerCalendar
-            selectedDate = {selectedDate}
+            variants = "period"
             periodDates = {periodDates}
-            currentMonth = {currentMonth}
             disabledDates = {disabledDates}
             onDateClick = {onDateClick}
             disabled = {disabled}
