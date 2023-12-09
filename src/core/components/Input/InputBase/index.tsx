@@ -18,6 +18,7 @@ const InputBase = forwardRef(
       endComponent,
       labelColor,
       borderColor = "gray-03",
+      error = false,
       required,
       readOnly,
       ...props
@@ -36,6 +37,7 @@ const InputBase = forwardRef(
       <div
         className = {cn(
           `flex items-center px-3 py-4 text-subhead-02-regular bg-transparent rounded-xl overflow-hidden border border-${borderColor}`,
+          error && "border-error",
           inputRootClassName,
         )}
       >
