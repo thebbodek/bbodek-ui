@@ -62,6 +62,10 @@ const meta = {
       control: "boolean",
       description: "Button With Underline",
     },
+    disabled: {
+      control: "boolean",
+      description: "Button With disabled",
+    },
   },
 } satisfies Meta<typeof Button>;
 
