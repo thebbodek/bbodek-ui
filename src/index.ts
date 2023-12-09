@@ -2,7 +2,6 @@ export { default as Button } from "@/core/components/Button";
 export { default as BasicCalendar } from "@/core/components/Calendar/BasicCalendar";
 export { default as DatePickerCalendar } from "@/core/components/Calendar/DatePickerCalendar";
 export { default as ScheduleCalendar } from "@/core/components/Calendar/ScheduleCalendar";
-export { default as InputDatePicker } from "@/core/components/Input/InputDatePicker";
 export { default as Checkbox } from "@/core/components/Checkbox";
 export { default as Demo } from "@/core/components/Demo";
 export { default as Divider } from "@/core/components/Divider";
@@ -21,6 +20,7 @@ export { default as DropdownSelectItems } from "@/core/components/Dropdown/Dropd
 export { default as DropdownSelectTrigger } from "@/core/components/Dropdown/DropdownSelect/DropdownSelectTrigger";
 export { default as FormLabel } from "@/core/components/FormLabel";
 export { default as InputBase } from "@/core/components/Input/InputBase";
+export { default as InputDatePicker } from "@/core/components/Input/InputDatePicker";
 export { default as InputPassword } from "@/core/components/Input/InputPassword";
 export { default as InputSearch } from "@/core/components/Input/InputSearch";
 export { default as InputSelect } from "@/core/components/Input/InputSelect";
@@ -45,6 +45,7 @@ export { default as TableCell } from "@/core/components/Table/TableCell";
 export { default as TableContainer } from "@/core/components/Table/TableContainer";
 export { default as TableHead } from "@/core/components/Table/TableHead";
 export { default as TableRow } from "@/core/components/Table/TableRow";
+export { default as TextEditor } from "@/core/components/TextEditor";
 export { default as Tooltip } from "@/core/components/Tooltip";
 export { default as Typography } from "@/core/components/Typography";
 
