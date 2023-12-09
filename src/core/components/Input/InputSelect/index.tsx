@@ -15,7 +15,7 @@ const InputSelect = forwardRef((
   ) => {
   const id = useId();
   const [ isSelectedValue, setIsSelectedValue ] = useState(false);
-  const { label, rootClassName, className, onChange, required, ...rest } = props;
+  const { label, rootClassName, className, onChange, required, error, ...rest } = props;
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     !isSelectedValue && setIsSelectedValue(true);
@@ -28,6 +28,7 @@ const InputSelect = forwardRef((
       inputId = {id}
       rootClassName = {rootClassName}
       inputRootClassName = {"py-0 h-[3.75rem]"}
+      error = {error}
       inputComponent = {
         <select
           ref = {ref}

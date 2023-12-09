@@ -19,7 +19,7 @@ const InputTextArea = forwardRef((
     ref: React.Ref<HTMLTextAreaElement>,
   ) => {
   const id = useId();
-  const { rootClassName, className, required, value, onChange, autoComplete = "off", maxLength, ...rest } = props;
+  const { rootClassName, className, required, value, onChange, autoComplete = "off", maxLength, error, ...rest } = props;
   const { inputValue, onChangeHandler } = useInput({ value, regCallback, onChange });
   const currentInputValueLength = (inputValue as string).length;
 
@@ -35,6 +35,7 @@ const InputTextArea = forwardRef((
       inputId = {id}
       rootClassName = {rootClassName}
       inputRootClassName = {clsx("flex-v-stack", TEXT_AREA_HEIGHT[textAreaHeight])}
+      error = {error}
       inputComponent = {
         <textarea
           ref = {ref}

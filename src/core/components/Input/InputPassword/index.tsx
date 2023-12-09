@@ -15,7 +15,7 @@ const InputPassword = forwardRef((
   ) => {
   const id = useId();
   const [ showPassword, setShowPassword ] = useState(false);
-  const { rootClassName, className, required, value, onChange, autoComplete = "off", ...rest } = props;
+  const { rootClassName, className, required, value, onChange, autoComplete = "off", error, ...rest } = props;
   const { inputValue, onChangeHandler } = useInput({ value, regCallback, onChange });
   const ShowPasswordIcon = <Eye size = {"100%"} weight = "fill" fill = "#A9B2C7"/>;
   const HidePasswordIcon = <EyeSlash size = {"100%"} weight = "fill" fill = "#A9B2C7"/>;
@@ -28,6 +28,7 @@ const InputPassword = forwardRef((
       label = {"비밀번호"}
       rootClassName = {rootClassName}
       inputRootClassName = "h-[3.75rem]"
+      error = {error}
       inputComponent = {
         <input
           ref = {ref}
