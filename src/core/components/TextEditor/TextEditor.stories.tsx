@@ -14,6 +14,7 @@ const meta = {
     },
   },
 } satisfies Meta<typeof TextEditor>;
+
 export default meta;
 
 export const SmallTextEditor = () => {
