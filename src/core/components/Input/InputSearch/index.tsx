@@ -23,6 +23,8 @@ const InputSearch = forwardRef((
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if(!formSubmitHandler) return;
+
     formRef.current?.reset();
     onResetInputValue();
     formSubmitHandler(e);
