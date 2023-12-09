@@ -8,6 +8,10 @@ const meta = {
   title: "core/Input/InputPassword",
   component: InputPassword,
   argTypes: {
+    label: {
+      control: "text",
+      description: "InputPassword Label",
+    },
     regCallback: {
       description: "Input RegEx",
     },

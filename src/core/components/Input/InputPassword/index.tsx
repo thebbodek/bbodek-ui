@@ -8,6 +8,7 @@ import { InputPasswordProps } from "./types";
 
 const InputPassword = forwardRef((
     {
+      label = "비밀번호",
       regCallback,
       ...props
     }: InputPasswordProps,
@@ -25,7 +26,7 @@ const InputPassword = forwardRef((
   return (
     <InputBase
       inputId = {id}
-      label = {"비밀번호"}
+      label = {label}
       rootClassName = {rootClassName}
       inputRootClassName = "h-[3.75rem]"
       error = {error}
