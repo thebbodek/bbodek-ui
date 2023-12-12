@@ -30,24 +30,24 @@ export const useDatePickerCalendar = (): UseDatePickerCalendarResponse => {
   const [ periodDateArray, setPeriodDateArray ] = useState<string[]>([]);
 
   const onDateClick = useCallback((variants: DatePickerType, afterAllDate: boolean, calendarDate: CalendarDateDto) => {
-    const curruntDate = calendarDate.dayjs.format("YYYY-MM-DD");
+    const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
     const newPeriodDates = periodDates;
 
     if ((periodDates.startDate && periodDates.endDate) || afterAllDate) {
-      newPeriodDates.startDate = curruntDate;
+      newPeriodDates.startDate = currentDate;
       newPeriodDates.endDate = "";
       return;
     }
 
     if (variants === "period" && periodDates.startDate) {
       if (!dayjs(periodDates.startDate).isAfter(calendarDate.dayjs)) {
-        newPeriodDates.endDate = curruntDate;
+        newPeriodDates.endDate = currentDate;
       } else {
-        newPeriodDates.startDate = curruntDate;
+        newPeriodDates.startDate = currentDate;
         newPeriodDates.endDate = "";
       }
     } else {
-      newPeriodDates.startDate = curruntDate;
+      newPeriodDates.startDate = currentDate;
       newPeriodDates.endDate = "";
     }
   }, [periodDates]);
