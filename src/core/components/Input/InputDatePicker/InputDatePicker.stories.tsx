@@ -2,6 +2,7 @@ import { Meta } from "@storybook/react";
 import { OverlayProvider, useOverlay } from "@toss/use-overlay";
 import { useState } from "react";
 
+import Button from "../../Button";
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps";
 import ModalPopUp from "../../Modal/ModalPopUp";
 import InputDatePicker from "./index";
@@ -27,12 +28,19 @@ const DefaultLayout = () => {
   const onDatesClick = () => setMyDates({ startDate: "22222", endDate: "1111" });
 
   return (
-    <div className = "flex gap-2">
+    <form
+      className = "flex gap-2 p-4"
+      onSubmit = {(e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        alert("전송");
+      }}
+    >
       <div className = "w-[500px]">
-        <button onClick = {onDatesClick}>날짜 변경</button>
-        <InputDatePicker overlay = {overlay} useTab getPeriodDates = {getDate} externalDates = {myDates} />
+        <button type = "button" onClick = {onDatesClick}>전체 날짜 변경</button>
+        <InputDatePicker overlay = {overlay} useTab getPeriodDates = {getDate} externalDates = {myDates} label = "날짜 선택" required />
+        <Button type = "submit" backgroundColor = "primary-03" color = "white" size = "h-48" className = "px-7 mt-4" content = "전송"/>
       </div>
-    </div>
+    </form>
   );
 };
 

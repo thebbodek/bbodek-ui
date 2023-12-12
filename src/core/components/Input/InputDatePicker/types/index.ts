@@ -14,6 +14,9 @@ type CreateOverlayElement = (props: {
 }) => JSX.Element;
 
 export interface InputDatePickerProps extends Omit<DatePickerProps, "isOpen"| "close" | "periodDates" | "setPeriodDates"> {
+  required?: boolean;
+  inputClassName?: string;
+  label?: string;
   getPeriodDates: (periodDates: PeriodDates) => void;
   overlay: {
     open: (overlayElement: CreateOverlayElement) => void;

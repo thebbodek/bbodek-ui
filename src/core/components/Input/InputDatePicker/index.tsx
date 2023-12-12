@@ -1,9 +1,10 @@
 import { CalendarBlank } from "@phosphor-icons/react";
 import dayjs from "dayjs";
-import { useEffect, useState } from "react";
+import { HTMLAttributes, useEffect, useId, useState } from "react";
 
+import clsx from "clsx";
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps";
-import Typography from "../../Typography";
+import InputBase from "../InputBase";
 import DatePicker from "./DatePicker";
 import { InputDatePickerProps } from "./types";
 
@@ -14,7 +15,12 @@ const InputDatePicker = ({
   externalDates,
   useTab = false,
   disabled = false,
-}: InputDatePickerProps) => {
+  required = false,
+  className,
+  inputClassName,
+  label,
+}: InputDatePickerProps & HTMLAttributes<HTMLInputElement>) => {
+  const id = useId();
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
     startDate: "",
     endDate: "",
@@ -43,8 +49,11 @@ const InputDatePicker = ({
 
   const handleDatePicker = async () => {
     const periodDates = await onDatePickerClick();
-
     setPeriodDates(periodDates);
+  };
+
+  const handleOnInvalid = (e: React.InvalidEvent<HTMLInputElement>) => {
+    e.target.value ? e.target.setCustomValidity("") : e.target.setCustomValidity("날짜를 선택해주세요");
   };
 
   useEffect(() => {
@@ -52,24 +61,30 @@ const InputDatePicker = ({
   }, [externalDates]);
 
   return (
-    <div>
-      <button
-        type = "button"
-        className = "w-full flex items-center justify-between px-3 py-4 text-subhead-02-regular bg-transparent rounded-xl overflow-hidden border border-gray-03"
-        onClick = {handleDatePicker}
-        disabled = {disabled}
-      >
-        {
-          periodDates.startDate ?
-            <Typography
-              text = {`${startDate}${periodDates.endDate ? ` - ${endDate}` : ""}`}
-              theme = "subhead-01-regular"
-            /> :
-            <Typography text = "날짜를 선택해주세요" color = "gray-06" />
-        }
-        <CalendarBlank size = {24} className = "text-gray-05" />
-      </button>
-    </div>
+    <InputBase
+      inputId = {id}
+      inputRootClassName = {clsx("h-[3.75rem] cursor-pointer relative", className)}
+      onClick = {handleDatePicker}
+      label = {label}
+      required = {required}
+      inputComponent = {
+        <input
+          type = "text"
+          placeholder = "날짜를 입력해주세요"
+          className = {clsx("flex-1 focus-visible:outline-0 cursor-pointer pointer-events-none", inputClassName)}
+          value = {periodDates.startDate && `${startDate}${periodDates.endDate && ` - ${endDate}`}`}
+          onKeyDown = {() => false}
+          onFocus = {(e: React.FocusEvent<HTMLInputElement>) => e.target.blur()}
+          onChange = {() => {}}
+          onInvalid = {handleOnInvalid}
+          disabled = {disabled}
+          required = {required}
+        />
+      }
+      endComponent = {
+        <CalendarBlank size = {24} className = "absoulte top-1/2 right-2 text-gray-05" />
+      }
+    />
   );
 };
 

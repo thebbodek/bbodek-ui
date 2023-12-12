@@ -1,14 +1,8 @@
-export interface MarkedDatesItemsProps {
-  label: string | undefined;
-  memo: string;
-}
-
 export interface MarkedDatesProps {
-  date: string;
-  items: MarkedDatesItemsProps[];
+  [date: string]: string[] | undefined[];
 }
 
 export interface CalendarComponentProps {
   markedDates?: MarkedDatesProps[];
-  onDateClick: (date: string, data: MarkedDatesItemsProps[]) => void;
+  onDateClick: (date: string) => void;
 }
