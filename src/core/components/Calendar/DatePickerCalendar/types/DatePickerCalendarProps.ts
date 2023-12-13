@@ -13,6 +13,7 @@ export interface DatePickerCalendarProps {
   label?: string[];
   disabledDates?: string[];
   afterAllDate?: boolean;
+  cutoffDate?: string;
   disabled?: boolean;
   onDateClick: (periodDates: PeriodDates) => void;
 }
