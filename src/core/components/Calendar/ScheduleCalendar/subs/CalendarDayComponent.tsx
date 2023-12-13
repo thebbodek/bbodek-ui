@@ -19,14 +19,14 @@ export const CalendarDayComponent = ({
       { calendarDates.map((calendarWeekDates: CalendarDateDto[], index) => (
         <div
           key = {index}
-          className = {"grid grid-cols-7 h-44 overflow-hidden"}
+          className = {"grid grid-cols-7 h-36 overflow-hidden"}
         >
           {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => {
             const currentDate: string = calendarDate.dayjs.format("YYYY-MM-DD");
             const currentSchedule = schedulesData && Object.keys(schedulesData).find(date => date === currentDate);
             let quantity = defaultQuantity;
 
-            if(currentSchedule) {
+            if(currentSchedule && schedulesData![currentSchedule].quantity) {
               quantity = schedulesData![currentSchedule].quantity;
             }
 
@@ -61,14 +61,14 @@ export const CalendarDayComponent = ({
                   }
                 </div>
                 {schedulesData && Object.keys(schedulesData).map(markedDate => (
-                  markedDate === calendarDate.dayjs.format("YYYY-MM-DD") &&
+                  (markedDate === calendarDate.dayjs.format("YYYY-MM-DD")) &&
                   <div className = "flex-v-stack gap-1 w-full pt-1" key = {markedDate}>
                     {
-                      schedulesData?.[markedDate].markedDates?.map((markedDateValue, index) => (
+                      schedulesData[markedDate].markedDates?.slice(0, 2).map((markedDateValue, index) => (
                         <div
                           key = {index}
                           className = {`${!calendarDate.isThisMonth ? "bg-gray-00 text-primary-00" : "bg-primary-00 text-primary-02"}`}
-                        >
+                          >
                           &nbsp;
                           <Typography
                             theme = "body-02-bold"
@@ -78,6 +78,15 @@ export const CalendarDayComponent = ({
                           &nbsp;
                         </div>
                       ))
+                    }
+                    {(schedulesData[markedDate].markedDates?.length ?? 0) > 3 &&
+                      <div className = "bg-primary-02 text-white rounded-2xl mt-1">
+                        <Typography
+                          theme = "body-02-bold"
+                          text = "더보기"
+                          className = "text-inherit"
+                        />
+                      </div>
                     }
                   </div>
                 ))}

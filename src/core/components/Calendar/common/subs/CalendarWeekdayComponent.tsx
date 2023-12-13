@@ -10,9 +10,9 @@ export const CalendarWeekDayComponent = () => {
   };
 
   return (
-    <div className = {"grid grid-cols-7 min-w-full w-full justify-center items-center mb-4 text-center"}>
+    <div className = {"grid grid-cols-7 min-w-full w-full justify-center items-center mb-5 text-center bg-primary-00 py-2 rounded-md"}>
       { Object.values(Weekdays).map(weekdayNumber => (
-        <Typography key = {weekdayNumber} text = {convertWeekdayNumberToString(weekdayNumber)} />
+        <Typography key = {weekdayNumber} text = {convertWeekdayNumberToString(weekdayNumber)} theme = "body-01-bold" color = "primary-06" />
       ))}
     </div>
   );

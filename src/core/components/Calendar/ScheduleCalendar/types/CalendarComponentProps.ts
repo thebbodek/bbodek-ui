@@ -1,7 +1,7 @@
 import { PeriodDates } from "../../DatePickerCalendar/types/DatePickerCalendarProps";
 
 export interface MarkedDatesProps {
-  markedDates?: (string | undefined)[];
+  markedDates?: string[];
   quantity?: number;
 }
 
