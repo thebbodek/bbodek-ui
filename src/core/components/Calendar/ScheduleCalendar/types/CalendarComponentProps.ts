@@ -1,3 +1,4 @@
+import { PeriodDates } from "../../DatePickerCalendar/types/DatePickerCalendarProps";
 
 export interface MarkedDatesProps {
   markedDates?: (string | undefined)[];
@@ -12,4 +13,5 @@ export interface CalendarComponentProps {
   schedulesData?: SchedulesDataProps;
   defaultQuantity?: number;
   onDateClick: (date: string) => void;
+  onRender: (renderDates: PeriodDates) => void;
 }

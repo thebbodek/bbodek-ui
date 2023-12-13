@@ -2,6 +2,7 @@ import { Meta } from "@storybook/react";
 import { useEffect, useState } from "react";
 
 import ScheduleCalendar from "@/core/components/Calendar/ScheduleCalendar";
+import { PeriodDates } from "../DatePickerCalendar/types/DatePickerCalendarProps";
 const meta = {
   title: "core/Calendar/ScheduleCalendar",
   component: ScheduleCalendar,
@@ -16,6 +17,10 @@ export const Default = () => {
     setSelectedDate(date);
   };
 
+  const getCalendarDates = (dates: PeriodDates) => {
+    console.log(dates);
+  };
+
   useEffect(() => {
     console.log(selectedDate);
   }, [selectedDate]);
@@ -23,6 +28,7 @@ export const Default = () => {
   return (
     <div className = {"w-screen h-[1000px]"}>
       <ScheduleCalendar
+        onRender = {getCalendarDates}
         defaultQuantity = {25}
         schedulesData = {{
           "2023-11-30": {

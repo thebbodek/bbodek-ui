@@ -4,7 +4,7 @@ import { CalendarComponentProps } from "@/core/components/Calendar/ScheduleCalen
 import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
 import Typography from "@/core/components/Typography";
 
-interface CalendarDayComponentProps extends CalendarComponentProps {
+interface CalendarDayComponentProps extends Omit<CalendarComponentProps, "onRender"> {
   calendarDates: CalendarDateDto[][];
 }
 

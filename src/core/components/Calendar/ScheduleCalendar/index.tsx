@@ -1,15 +1,34 @@
+import { useEffect } from "react";
+
 import { CalendarDayComponent } from "@/core/components/Calendar/ScheduleCalendar/subs/CalendarDayComponent";
 import { CalendarComponentProps } from "@/core/components/Calendar/ScheduleCalendar/types/CalendarComponentProps";
 import { useCalendar } from "@/core/components/Calendar/common/hooks/useCalendar";
 import { CalendarHeader } from "@/core/components/Calendar/common/subs/CalendarHeader";
 import { CalendarWeekDayComponent } from "@/core/components/Calendar/common/subs/CalendarWeekdayComponent";
+import { PeriodDates } from "../DatePickerCalendar/types/DatePickerCalendarProps";
 
 const ScheduleCalendar = ({
   defaultQuantity,
   schedulesData,
   onDateClick,
+  onRender,
 }: CalendarComponentProps) => {
   const { models, operations } = useCalendar();
+
+  useEffect(() => {
+    if (models.calendarDates.length <= 0) {
+      return;
+    }
+
+    const calenderDatesEndWeek = models.calendarDates[models.calendarDates.length - 1];
+    const calenderDatesEndWeekEndDay = calenderDatesEndWeek[calenderDatesEndWeek.length - 1];
+    const renderDates: PeriodDates = {
+      startDate: models.calendarDates[0][0]?.dayjs.format("YYYY-MM-DD"),
+      endDate: calenderDatesEndWeekEndDay?.dayjs.format("YYYY-MM-DD"),
+    };
+
+    onRender(renderDates);
+  }, [models.calendarDates]);
 
   return (
     <div className = {"flex flex-col h-full w-full"}>
