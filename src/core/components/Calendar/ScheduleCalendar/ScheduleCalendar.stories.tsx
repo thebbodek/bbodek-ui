@@ -23,6 +23,7 @@ export const Default = () => {
   return (
     <div className = {"w-screen h-[1000px]"}>
       <ScheduleCalendar
+        defaultQuantity = {25}
         schedulesData = {{
           "2023-11-30": {
             quantity: 10,

@@ -10,5 +10,6 @@ export interface SchedulesDataProps {
 
 export interface CalendarComponentProps {
   schedulesData?: SchedulesDataProps;
+  defaultQuantity?: number;
   onDateClick: (date: string) => void;
 }

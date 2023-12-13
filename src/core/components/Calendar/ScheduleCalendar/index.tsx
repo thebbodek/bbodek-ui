@@ -5,6 +5,7 @@ import { CalendarHeader } from "@/core/components/Calendar/common/subs/CalendarH
 import { CalendarWeekDayComponent } from "@/core/components/Calendar/common/subs/CalendarWeekdayComponent";
 
 const ScheduleCalendar = ({
+  defaultQuantity,
   schedulesData,
   onDateClick,
 }: CalendarComponentProps) => {
@@ -19,6 +20,7 @@ const ScheduleCalendar = ({
       />
       <CalendarWeekDayComponent />
       <CalendarDayComponent
+        defaultQuantity = {defaultQuantity}
         schedulesData = {schedulesData}
         calendarDates = {models.calendarDates}
         onDateClick = {onDateClick}

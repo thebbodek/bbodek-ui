@@ -9,6 +9,7 @@ interface CalendarDayComponentProps extends CalendarComponentProps {
 }
 
 export const CalendarDayComponent = ({
+  defaultQuantity,
   schedulesData,
   calendarDates,
   onDateClick,
@@ -21,16 +22,21 @@ export const CalendarDayComponent = ({
           className = {"grid grid-cols-7 min-w-full w-full flex-1"}
         >
           {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => {
+            const currentDate: string = calendarDate.dayjs.format("YYYY-MM-DD");
+            const currentSchedule = schedulesData && Object.keys(schedulesData).find(date => date === currentDate);
+            let quantity = defaultQuantity;
+
+            if(currentSchedule) {
+              quantity = schedulesData![currentSchedule].quantity;
+            }
+
             return (
               <button
                 key = {index}
                 type = "button"
                 disabled = {!calendarDate.isThisMonth}
                 className = "flex-v-stack items-center h-full text-center"
-                onClick = {(): void => {
-                  const currentDate: string = calendarDate.dayjs.format("YYYY-MM-DD");
-                  onDateClick(currentDate);
-                }}
+                onClick = {(): void => onDateClick(currentDate)}
               >
                 <div
                   className = {clsx("relative flex justify-center items-center h-8",
@@ -45,15 +51,14 @@ export const CalendarDayComponent = ({
                     theme = "body-01-bold"
                     className = "text-inherit"
                   />
-                  {schedulesData && Object.keys(schedulesData).map((scheduleDate, index) => (
-                    scheduleDate === calendarDate.dayjs.format("YYYY-MM-DD") &&
+                  {quantity &&
                     <Typography
                       key = {index}
-                      text = {`(${schedulesData?.[scheduleDate].quantity})`}
+                      text = {`(${quantity})`}
                       className = "absolute top-[3px] end-0 translate-x-[calc(100%+0.625rem)]"
-                      color = {`${!calendarDate.isThisMonth ? "gray-03" : "primary-03"}`}
+                      color = {`${!calendarDate.isThisMonth ? "gray-03" : quantity === defaultQuantity ? "gray-06" : "primary-03"}`}
                     />
-                  ))}
+                  }
                 </div>
                 {schedulesData && Object.keys(schedulesData).map(markedDate => (
                   markedDate === calendarDate.dayjs.format("YYYY-MM-DD") &&
