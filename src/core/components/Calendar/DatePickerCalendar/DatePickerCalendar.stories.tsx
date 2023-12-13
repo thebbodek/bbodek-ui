@@ -24,6 +24,7 @@ export const SingleDatePicker = () => {
   return (
     <div className = {"w-[500px] border rounded-3xl py-6"}>
       <DatePickerCalendar
+        cutoffDate = "2023-12-08"
         variants = "single"
         label = {["해지 신청일"]}
         periodDates = {periodDates}

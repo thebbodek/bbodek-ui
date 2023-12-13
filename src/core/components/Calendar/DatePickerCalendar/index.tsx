@@ -86,6 +86,7 @@ const DatePickerCalendar = ({
   label = ["사용일"],
   periodDates,
   disabledDates,
+  cutoffDate,
   afterAllDate = false,
   onDateClick,
 }: DatePickerCalendarProps) => {
@@ -116,6 +117,12 @@ const DatePickerCalendar = ({
     operations.setCalendarPeriodDates(periodDates);
   }, [periodDates]);
 
+  const isCutoffDateValidation = ({ cutoffDate, calendarDate }: Pick<DatePickerCalendarProps, "cutoffDate"> & { calendarDate: string }) => {
+    if(!cutoffDate) return false;
+
+    return dayjs(calendarDate).isBefore(cutoffDate);
+  };
+
   return (
     <div className = {"flex flex-col h-full w-full"}>
       <CalendarHeader
@@ -133,7 +140,7 @@ const DatePickerCalendar = ({
                 <button
                   type = "button"
                   className = {"w-full h-full"}
-                  disabled = {(!calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")))}
+                  disabled = {!calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") })}
                   onClick = {(): void => {
                     const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
 
@@ -147,6 +154,7 @@ const DatePickerCalendar = ({
                 >
                   <div className = {clsx("flex flex-col")}>
                     <CalendarComponentDayText
+                      disabled = {isCutoffDateValidation({ cutoffDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") })}
                       calendarDate = {calendarDate}
                       periodDates = {models.periodDates}
                       periodDateArray = {models.periodDateArray}
