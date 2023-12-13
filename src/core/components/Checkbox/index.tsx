@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { forwardRef, useId } from "react";
+import { MouseEvent, forwardRef, useId } from "react";
 
 import { CheckCircle, CheckSquare } from "@phosphor-icons/react";
 import Typography from "../Typography";
@@ -24,7 +24,7 @@ const Checkbox = forwardRef((
   const svg = !isCircle ? RectangleCheckbox : CircleCheckbox;
 
   return (
-    <label htmlFor = {id} className = {clsx("cursor-pointer", label && "flex items-center gap-2.5", className)}>
+    <label onClick = {(e: MouseEvent<HTMLLabelElement>) => e.stopPropagation()} htmlFor = {id} className = {clsx("cursor-pointer", label && "flex items-center gap-2.5", className)}>
       <input ref = {ref} id = {id} type = "checkbox" className = "peer sr-only" {...props}/>
       <div className = {`${CHECKBOX_SVG_SIZE[svgSize]} peer-checked:[&>svg>path]:fill-primary-03`}>
         {svg}
