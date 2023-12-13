@@ -26,7 +26,7 @@ export const Default = () => {
   }, [selectedDate]);
 
   return (
-    <div className = {"w-screen h-[1000px]"}>
+    <div className = {"w-screen"}>
       <ScheduleCalendar
         onRender = {getCalendarDates}
         defaultQuantity = {25}
@@ -57,7 +57,7 @@ export const Default = () => {
           },
           "2023-12-06": {
             quantity: 10,
-            markedDates: [ undefined, "견학" ],
+            markedDates: [ undefined, "견학", "견학", "견학" ],
           },
           "2023-12-07": {
             quantity: 10,

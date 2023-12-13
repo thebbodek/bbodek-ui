@@ -19,7 +19,7 @@ export const CalendarDayComponent = ({
       { calendarDates.map((calendarWeekDates: CalendarDateDto[], index) => (
         <div
           key = {index}
-          className = {"grid grid-cols-7 min-w-full w-full flex-1"}
+          className = {"grid grid-cols-7 h-44 overflow-hidden"}
         >
           {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => {
             const currentDate: string = calendarDate.dayjs.format("YYYY-MM-DD");
