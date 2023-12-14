@@ -57,10 +57,13 @@ export const Default = () => {
           },
           "2023-12-06": {
             quantity: 10,
-            markedDates: [ "", "견학", "견학", "견학" ],
+            markedDates: [ "", "견학", "견학" ],
+          },
+          "2023-12-07": {
+            markedDates: [ "특강", "", "", "" ],
           },
           "2023-12-08": {
-            markedDates: ["특강"],
+            markedDates: [""],
           },
           "2023-12-09": {
             markedDates: [""],

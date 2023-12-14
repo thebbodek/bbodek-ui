@@ -79,12 +79,14 @@ export const CalendarDayComponent = ({
                         </div>
                       ))
                     }
-                    {(schedulesData[markedDate].markedDates?.length ?? 0) > 3 &&
-                      <div className = "bg-primary-02 text-white rounded-2xl mt-1">
+                    {(schedulesData[markedDate].markedDates?.length ?? 0) > 2 &&
+                      <div className = "mt-1 px-[2px]">
                         <Typography
+                          element = "p"
                           theme = "body-02-bold"
                           text = "더보기"
-                          className = "text-inherit"
+                          className = "bg-primary-02 rounded-2xl "
+                          color = "white"
                         />
                       </div>
                     }
