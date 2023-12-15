@@ -2,6 +2,7 @@ import { Meta } from "@storybook/react";
 import { useEffect, useState } from "react";
 
 import ScheduleCalendar from "@/core/components/Calendar/ScheduleCalendar";
+import dayjs from "dayjs";
 import { PeriodDates } from "../DatePickerCalendar/types/DatePickerCalendarProps";
 const meta = {
   title: "core/Calendar/ScheduleCalendar",
@@ -28,6 +29,7 @@ export const Default = () => {
   return (
     <div className = {"w-[1000px]"}>
       <ScheduleCalendar
+        initialDate = {dayjs("2023-12-02").unix()}
         onRender = {getCalendarDates}
         defaultQuantity = {25}
         schedulesData = {{

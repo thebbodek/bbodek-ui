@@ -5,15 +5,17 @@ import { CalendarComponentProps } from "@/core/components/Calendar/ScheduleCalen
 import { useCalendar } from "@/core/components/Calendar/common/hooks/useCalendar";
 import { CalendarHeader } from "@/core/components/Calendar/common/subs/CalendarHeader";
 import { CalendarWeekDayComponent } from "@/core/components/Calendar/common/subs/CalendarWeekdayComponent";
+import dayjs from "dayjs";
 import { PeriodDates } from "../DatePickerCalendar/types/DatePickerCalendarProps";
 
 const ScheduleCalendar = ({
+  initialDate,
   defaultQuantity,
   schedulesData,
   onDateClick,
   onRender,
 }: CalendarComponentProps) => {
-  const { models, operations } = useCalendar();
+  const { models, operations } = useCalendar(initialDate ? dayjs(initialDate * 1000) : dayjs());
 
   useEffect(() => {
     if (models.calendarDates.length <= 0) {

@@ -5,8 +5,8 @@ import { useMonthChangeEffect } from "@/core/components/Calendar/common/hooks/us
 import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
 import { UseCalendarResponse } from "@/core/components/Calendar/common/types/UseCalendarResponse";
 
-export const useCalendar = (): UseCalendarResponse => {
-  const [ selectedDayjs, setSelectedDayjs ] = useState<dayjs.Dayjs>(dayjs());
+export const useCalendar = (initialDate: dayjs.Dayjs): UseCalendarResponse => {
+  const [ selectedDayjs, setSelectedDayjs ] = useState<dayjs.Dayjs>(initialDate);
   const [ calendarDates, setCalendarDates ] = useState<CalendarDateDto[][]>([[]]);
 
   const onPreviousMonthClick = useCallback(() => {
