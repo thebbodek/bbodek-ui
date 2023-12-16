@@ -17,8 +17,8 @@ const InputTextField = forwardRef((
     ref: React.ComponentPropsWithRef<"input">["ref"],
   ) => {
   const id = useId();
-  const { rootClassName, className, required, value, onChange, autoComplete = "off", readOnly, error, ...rest } = props;
-  const { inputValue, onChangeHandler, onResetInputValue } = useInput({ value, regCallback, onChange });
+  const { rootClassName, className, required, value, onChange, autoComplete = "off", readOnly, error, name, ...rest } = props;
+  const { inputValue, onChangeHandler, onResetInputValue } = useInput({ value, regCallback, onChange, name });
   const ResetIcon = <XCircle size = "100%" weight = "fill" fill = "#A9B2C7"/>;
 
   return (
@@ -40,6 +40,7 @@ const InputTextField = forwardRef((
           onChange = {onChangeHandler}
           autoComplete = {autoComplete}
           readOnly = {readOnly}
+          name = {name}
           {...rest}
         />
       }

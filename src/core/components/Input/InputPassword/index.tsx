@@ -16,8 +16,8 @@ const InputPassword = forwardRef((
   ) => {
   const id = useId();
   const [ showPassword, setShowPassword ] = useState(false);
-  const { readOnly, rootClassName, className, required, value, onChange, autoComplete = "off", error, ...rest } = props;
-  const { inputValue, onChangeHandler } = useInput({ value, regCallback, onChange });
+  const { readOnly, rootClassName, className, required, value, onChange, autoComplete = "off", error, name, ...rest } = props;
+  const { inputValue, onChangeHandler } = useInput({ value, regCallback, onChange, name });
   const ShowPasswordIcon = <Eye size = {"100%"} weight = "fill" fill = "#A9B2C7"/>;
   const HidePasswordIcon = <EyeSlash size = {"100%"} weight = "fill" fill = "#A9B2C7"/>;
 
@@ -43,6 +43,7 @@ const InputPassword = forwardRef((
           onChange = {onChangeHandler}
           autoComplete = {autoComplete}
           placeholder = {"********"}
+          name = {name}
           {...rest}
         />
       }

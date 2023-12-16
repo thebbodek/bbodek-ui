@@ -16,8 +16,8 @@ const InputSearch = forwardRef((
   ) => {
   const id = useId();
   const formRef = useRef<HTMLFormElement | null>(null);
-  const { rootClassName, className, value, onChange, autoComplete = "off", error, ...rest } = props;
-  const { inputValue, onChangeHandler, onResetInputValue } = useInput({ value, regCallback, onChange });
+  const { rootClassName, className, value, onChange, autoComplete = "off", error, name, ...rest } = props;
+  const { inputValue, onChangeHandler, onResetInputValue } = useInput({ value, regCallback, onChange, name });
   const SearchIcon = <MagnifyingGlass size = "100%" fill = "#A9B2C7"/>;
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
@@ -48,6 +48,7 @@ const InputSearch = forwardRef((
           value = {inputValue}
           onChange = {onChangeHandler}
           autoComplete = {autoComplete}
+          name = {name}
           required
           {...rest}
         />
