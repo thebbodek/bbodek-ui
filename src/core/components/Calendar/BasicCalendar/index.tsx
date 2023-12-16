@@ -1,11 +1,11 @@
-import "dayjs/locale/ko";
 import clsx from "clsx";
+import "dayjs/locale/ko";
 
 import { useCalendar } from "@/core/components/Calendar/common/hooks/useCalendar";
-import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
 import { CalendarWeekDayComponent } from "@/core/components/Calendar/common/subs/CalendarWeekdayComponent";
-import { BasicCalendarProps } from "./types";
+import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
 import Typography from "@/core/components/Typography";
+import { BasicCalendarProps } from "./types";
 
 const BasicCalendar = ({
   dottedDates,

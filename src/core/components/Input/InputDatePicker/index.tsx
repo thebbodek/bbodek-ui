@@ -1,14 +1,16 @@
 import { CalendarBlank } from "@phosphor-icons/react";
+import clsx from "clsx";
 import dayjs from "dayjs";
 import { HTMLAttributes, useEffect, useId, useState } from "react";
 
-import clsx from "clsx";
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps";
 import InputBase from "../InputBase";
 import DatePicker from "./DatePicker";
 import { InputDatePickerProps } from "./types";
 
 const InputDatePicker = ({
+  variants = "period",
+  cutoffDate,
   overlay,
   disabledDates,
   getPeriodDates,
@@ -32,6 +34,7 @@ const InputDatePicker = ({
     return new Promise(resolve => {
       overlay.open(({ isOpen, close }) => (
         <DatePicker
+          variants = {variants}
           disabled = {disabled}
           isOpen = {isOpen}
           close = {(periodDates: PeriodDates) => {
@@ -39,6 +42,7 @@ const InputDatePicker = ({
             getPeriodDates(periodDates);
             close();
           }}
+          cutoffDate = {cutoffDate}
           externalDates = {periodDates}
           useTab = {useTab}
           disabledDates = {disabledDates}
@@ -82,7 +86,7 @@ const InputDatePicker = ({
         />
       }
       endComponent = {
-        <CalendarBlank size = {24} className = "absoulte top-1/2 right-2 text-gray-05" />
+        <CalendarBlank size = {24} className = "text-gray-05" />
       }
     />
   );

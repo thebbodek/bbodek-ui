@@ -10,6 +10,8 @@ import Typography from "../../Typography";
 import { DatePickerProps } from "./types";
 
 const DatePicker = ({
+  variants = "period",
+  cutoffDate,
   isOpen,
   close,
   disabled,
@@ -62,7 +64,8 @@ const DatePicker = ({
           <Typography element = "h6" text = "날짜 선택" theme = "subhead-01-bold" />
           {useTab && <GeneralTab items = {tabItems} className = "mt-4 mb-11" />}
           <DatePickerCalendar
-            variants = "period"
+            variants = {variants}
+            cutoffDate = {cutoffDate}
             periodDates = {periodDates}
             disabledDates = {disabledDates}
             onDateClick = {onDateClick}
