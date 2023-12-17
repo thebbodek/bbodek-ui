@@ -24,6 +24,7 @@ const DropdownTrigger = forwardRef((
   return (
     <button
       ref = {ref}
+      type = "button"
       onClick = {onClickHandler}
       className = {clsx("whitespace-nowrap cursor-pointer", className)}
       aria-haspopup = "listbox"
