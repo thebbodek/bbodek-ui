@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useCallback, useState } from "react";
+import { InputHTMLAttributes, useState } from "react";
 
 import useValueChangeEffect from "./effects/useValueChangeEffect";
 
@@ -12,13 +12,13 @@ export interface UseInputProps {
 export const useInput = ({ value, regCallback, onChange, name }: UseInputProps) => {
   const [ inputValue, setInputValue ] = useState<UseInputProps["value"]>(value ?? "");
 
-  const onChangeHandler = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     e.target.value = regCallback
       ? regCallback(e.target.value)
       : e.target.value;
     setInputValue(e.target.value);
     onChange?.(e);
-  }, [ regCallback, onChange ]);
+  };
 
   const onResetInputValue = () => {
     setInputValue("");

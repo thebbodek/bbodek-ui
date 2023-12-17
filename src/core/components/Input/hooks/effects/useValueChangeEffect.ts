@@ -10,7 +10,7 @@ const useValueChangeEffect = (value: UseInputProps["value"], setInputValue: Disp
     }
 
     isFirst.current = false;
-  }, [ value, setInputValue, isFirst.current ]);
+  }, [value]);
 };
 
 export default useValueChangeEffect;
