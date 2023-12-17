@@ -28,11 +28,7 @@ export const Default = () => {
   return (
     <DropdownFilter
       trigger = {<DropdownFilter.Trigger className = "w-[10rem]" currentValue = {currentValue || "선택해주세요"}/>}
-      content = {
-        <DropdownFilter.Items
-          className = "top-[1.31rem]"
-          items = {items}
-       />
+      content = {<DropdownFilter.Items items = {items} />
       }
     />
   );

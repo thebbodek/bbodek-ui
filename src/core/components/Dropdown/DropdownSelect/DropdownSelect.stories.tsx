@@ -27,13 +27,8 @@ export const Default = () => {
 
   return (
     <DropdownSelect
-      trigger = {<DropdownSelect.Trigger currentValue = {currentValue || "선택해주세요"}/>}
-      content = {
-        <DropdownSelect.Items
-          className = "top-[3.1875rem]"
-          items = {items}
-       />
-      }
+      trigger = {<DropdownSelect.Trigger currentValue = {currentValue} placeholder = "선택해주세요"/>}
+      content = {<DropdownSelect.Items items = {items} />}
     />
   );
 };
