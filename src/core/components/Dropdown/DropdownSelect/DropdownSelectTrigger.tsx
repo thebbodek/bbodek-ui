@@ -17,7 +17,7 @@ const DropdownSelectTrigger = forwardRef((
   const showPlaceholder = placeholder && !currentValue;
 
   return (
-    <DropdownBase.Trigger ref = {ref} className = {clsx("flex items-center p-3 gap-x-2 border border-gray-03 rounded-xl overflow-hidden", className)} {...rest}>
+    <DropdownBase.Trigger ref = {ref} className = {clsx("flex items-center justify-between w-full h-[3.75rem] p-3 gap-x-2 border border-gray-03 rounded-xl overflow-hidden", className)} {...rest}>
       {({ isToggle }) => (
         <>
           <Typography theme = "subhead-02-regular" color = "gray-08" className = {clsx(showPlaceholder && "!text-gray-05")} text = {currentValue ? currentValue : (placeholder ?? "")}/>
