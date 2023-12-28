@@ -18,6 +18,7 @@ const DatePicker = ({
   disabledDates,
   externalDates,
   useTab = false,
+  dateLabel,
 }: DatePickerProps) => {
   const id = useId();
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
@@ -44,7 +45,7 @@ const DatePicker = ({
       key = {item.key}
       label = {item.label}
       name = {id}
-      theme = "body-01-bold"
+      theme = 'body-01-bold'
       checked = {item.key === tabSelected}
       value = {item.key}
       onChange = {(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,9 +61,9 @@ const DatePicker = ({
   return (
     <ModalPopUp isOpen = {isOpen}>
       <div className = {"w-[30rem] pt-6 rounded-xl border bg-white"}>
-        <div className = "px-4">
-          <Typography element = "h6" text = "날짜 선택" theme = "subhead-01-bold" />
-          {useTab && <GeneralTab items = {tabItems} className = "mt-4 mb-11" />}
+        <div className = 'px-4'>
+          <Typography element = 'h6' text = '날짜 선택' theme = 'subhead-01-bold' />
+          {useTab && <GeneralTab items = {tabItems} className = 'mt-4 mb-11' />}
           <DatePickerCalendar
             variants = {variants}
             cutoffDate = {cutoffDate}
@@ -71,17 +72,18 @@ const DatePicker = ({
             onDateClick = {onDateClick}
             disabled = {disabled}
             afterAllDate = {tabSelected === "afterAllDate"}
+            label = {dateLabel}
           />
         </div>
         <Divider />
-        <div className = "flex gap-3 py-5 px-6">
+        <div className = 'flex gap-3 py-5 px-6'>
           <Button
-            backgroundColor = "white"
-            color = "gray-06"
-            content = "닫기"
-            size = "h-60"
-            rounded = "rounded-12"
-            className = "w-full border"
+            backgroundColor = 'white'
+            color = 'gray-06'
+            content = '닫기'
+            size = 'h-60'
+            rounded = 'rounded-12'
+            className = 'w-full border'
             onClick = {handleClose}
           />
         </div>

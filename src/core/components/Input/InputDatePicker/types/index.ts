@@ -6,6 +6,7 @@ export interface DatePickerProps extends Pick<DatePickerCalendarProps, "disabled
   isOpen: boolean;
   close: (periodDates: PeriodDates) => void;
   useTab?: boolean;
+  dateLabel?: DatePickerCalendarProps["label"]
 }
 
 type CreateOverlayElement = (props: {
@@ -19,6 +20,7 @@ export interface InputDatePickerProps extends Omit<DatePickerProps, "isOpen"| "c
   inputClassName?: string;
   label?: string;
   getPeriodDates: (periodDates: PeriodDates) => void;
+  dateLabel?: DatePickerCalendarProps["label"]
   overlay: {
     open: (overlayElement: CreateOverlayElement) => void;
     close: () => void;
