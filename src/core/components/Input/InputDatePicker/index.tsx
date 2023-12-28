@@ -78,7 +78,7 @@ const InputDatePicker = ({
           type = "text"
           placeholder = "날짜를 입력해주세요"
           className = {clsx("flex-1 focus-visible:outline-0 cursor-pointer pointer-events-none", inputClassName)}
-          value = {periodDates.startDate && `${startDate}${periodDates.endDate && ` - ${endDate}`}`}
+          value = {periodDates.startDate && `${startDate}${periodDates.endDate ? ` - ${endDate}` : ""}`}
           onKeyDown = {() => false}
           onFocus = {(e: React.FocusEvent<HTMLInputElement>) => e.target.blur()}
           onChange = {() => {}}
