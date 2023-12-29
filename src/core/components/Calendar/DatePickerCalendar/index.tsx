@@ -135,40 +135,42 @@ const DatePickerCalendar = ({
       <div className = {clsx("mt-4")}>
         {commonModels.calendarDates.map((calendarWeekDates: CalendarDateDto[], index: number) => (
           <div key = {index} className = {clsx("grid grid-cols-7")}>
-            {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => (
-              <div key = {index} className = {clsx("h-16")}>
-                <button
-                  type = "button"
-                  className = {"w-full h-full"}
-                  disabled = {calendarDate.isHoliday || !calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") })}
-                  onClick = {(): void => {
-                    const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
+            {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => {
+              const disabled = calendarDate.isHoliday || !calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") });
 
-                    if (currentDate === periodDates.startDate) {
-                      return;
-                    }
-                    operations.onDateClick(variants, afterAllDate, calendarDate);
-                    operations.setCalendarPeriodDates(models.periodDates);
-                    onDateClick(models.periodDates);
-                  }}
-                >
+              return <div key = {index} className = {clsx("h-16")}>
+                <button
+                    type = "button"
+                    className = {"w-full h-full"}
+                    disabled = {disabled}
+                    onClick = {(): void => {
+                      const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
+
+                      if (currentDate === periodDates.startDate) {
+                        return;
+                      }
+                      operations.onDateClick(variants, afterAllDate, calendarDate);
+                      operations.setCalendarPeriodDates(models.periodDates);
+                      onDateClick(models.periodDates);
+                    }}
+                  >
                   <div className = {clsx("flex flex-col")}>
                     <CalendarComponentDayText
-                      disabled = {isCutoffDateValidation({ cutoffDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") })}
-                      calendarDate = {calendarDate}
-                      periodDates = {models.periodDates}
-                      periodDateArray = {models.periodDateArray}
-                      afterAllDate = {afterAllDate}
-                    />
+                        disabled = {disabled}
+                        calendarDate = {calendarDate}
+                        periodDates = {models.periodDates}
+                        periodDateArray = {models.periodDateArray}
+                        afterAllDate = {afterAllDate}
+                      />
                     <CalendarComponentDaySubText
-                      calendarDate = {calendarDate}
-                      periodDates = {models.periodDates}
-                      label = {label}
-                    />
+                        calendarDate = {calendarDate}
+                        periodDates = {models.periodDates}
+                        label = {label}
+                      />
                   </div>
                 </button>
-              </div>
-            ))}
+              </div>;
+            })}
           </div>
         ))}
       </div>
