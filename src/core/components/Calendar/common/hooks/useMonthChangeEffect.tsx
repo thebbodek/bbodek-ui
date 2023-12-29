@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { useEffect } from "react";
 
-import { Weekdays } from "@/constants";
+import { HOLIDAYS, Weekdays } from "@/constants";
 import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
 
 export const useMonthChangeEffect = (
@@ -26,6 +26,7 @@ export const useMonthChangeEffect = (
           dayjs: calendarDate,
           isThisMonth: calendarDate.isSame(selectedDayjs, "month"),
           isToday: calendarDate.format("YYYY-MM-DD") === dayjs().format("YYYY-MM-DD"),
+          isHoliday: HOLIDAYS.includes(calendarDate.get("d")),
         });
 
         if (calendarWeekDates.length === 7) {

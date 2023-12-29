@@ -39,7 +39,7 @@ export const CalendarComponentDayText = ({
             "rounded-full w-8 bg-primary-03 text-white": isStartDate || isEndDate || singleSelectedDate,
             "bg-gray-03 text-white rounded-full w-8": calendarDate.isToday,
             "w-full bg-primary-00 rounded-none !text-gray-08": (periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate)),
-            "!text-gray-03": disabled || !calendarDate.isThisMonth && !periodDateArray?.includes(currentDate) && !calendarDate.isToday!,
+            "!text-gray-03": disabled || calendarDate.isHoliday || !calendarDate.isThisMonth && !periodDateArray?.includes(currentDate) && !calendarDate.isToday!,
             "!text-white": calendarDate.isToday && disabled,
           },
         )}

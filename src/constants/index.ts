@@ -55,3 +55,5 @@ export const Weekdays = {
   FRIDAY: 5,
   SATURDAY: 6,
 };
+
+export const HOLIDAYS = [ Weekdays["SUNDAY"], Weekdays["SATURDAY"] ];

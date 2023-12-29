@@ -140,7 +140,7 @@ const DatePickerCalendar = ({
                 <button
                   type = "button"
                   className = {"w-full h-full"}
-                  disabled = {!calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") })}
+                  disabled = {calendarDate.isHoliday || !calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") })}
                   onClick = {(): void => {
                     const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
 
