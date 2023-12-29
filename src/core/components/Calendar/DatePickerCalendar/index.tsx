@@ -36,9 +36,6 @@ export const useDatePickerCalendar = (): UseDatePickerCalendarResponse => {
     if ((periodDates.startDate && periodDates.endDate) || afterAllDate) {
       newPeriodDates.startDate = currentDate;
       newPeriodDates.endDate = "";
-      if (afterAllDate) {
-        newPeriodDates.endDate = null;
-      }
       return;
     }
 
@@ -108,10 +105,10 @@ const DatePickerCalendar = ({
   useEffect(() => {
     if (afterAllDate) {
       const newPeriodDates = models.periodDates;
-      newPeriodDates.endDate = null;
+      newPeriodDates.endDate = "";
       operations.setPeriodDates({ ...newPeriodDates });
       operations.setCalendarPeriodDates({ startDate: "", endDate: "" });
-      onDateClick(models.periodDates);
+      onDateClick(models.periodDates, true);
     }
   }, [afterAllDate]);
 

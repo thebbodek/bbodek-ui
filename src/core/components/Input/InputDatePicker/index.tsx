@@ -21,7 +21,6 @@ const InputDatePicker = ({
   className,
   inputClassName,
   label,
-  dateLabel,
 }: InputDatePickerProps & HTMLAttributes<HTMLInputElement>) => {
   const id = useId();
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
@@ -38,16 +37,15 @@ const InputDatePicker = ({
           variants = {variants}
           disabled = {disabled}
           isOpen = {isOpen}
-          close = {(periodDates: PeriodDates) => {
+          close = {(periodDates: PeriodDates, isAfterAllDate?: boolean) => {
             resolve(periodDates);
-            getPeriodDates(periodDates);
+            getPeriodDates(periodDates, isAfterAllDate);
             close();
           }}
           cutoffDate = {cutoffDate}
           externalDates = {periodDates}
           useTab = {useTab}
           disabledDates = {disabledDates}
-          dateLabel = {dateLabel}
         />
       ));
     });
@@ -78,7 +76,7 @@ const InputDatePicker = ({
           type = "text"
           placeholder = "날짜를 입력해주세요"
           className = {clsx("flex-1 focus-visible:outline-0 cursor-pointer pointer-events-none", inputClassName)}
-          value = {periodDates.startDate && `${startDate}${periodDates.endDate ? ` - ${endDate}` : ""}`}
+          value = {periodDates.startDate && `${startDate}${periodDates.endDate && ` - ${endDate}`}`}
           onKeyDown = {() => false}
           onFocus = {(e: React.FocusEvent<HTMLInputElement>) => e.target.blur()}
           onChange = {() => {}}

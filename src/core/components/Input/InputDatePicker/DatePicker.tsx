@@ -25,15 +25,15 @@ const DatePicker = ({
     startDate: "",
     endDate: "",
   });
-
   const [ tabSelected, setTabSelected ] = useState("selectedDate");
+  const [ isAfterAllDate, setIsAfterAllDate ] = useState(false);
   const tabData = [
     { key: "selectedDate", label: "선택한 기간만 적용" },
     { key: "afterAllDate", label: "시작일부터 모든 날짜 적용" },
   ];
 
   const handleClose = () => {
-    close(periodDates);
+    close(periodDates, isAfterAllDate);
   };
 
   useEffect(() => {
@@ -54,8 +54,9 @@ const DatePicker = ({
     />
   ));
 
-  const onDateClick = (periodDates: PeriodDates) => {
+  const onDateClick = (periodDates: PeriodDates, afterAllDate?: boolean) => {
     setPeriodDates(periodDates!);
+    setIsAfterAllDate(afterAllDate !== undefined && afterAllDate);
   };
 
   return (

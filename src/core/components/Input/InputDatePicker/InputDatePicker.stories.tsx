@@ -23,7 +23,7 @@ const DefaultLayout = () => {
     startDate: "",
     endDate: "",
   });
-  const getDate = (periodDates: PeriodDates) => console.log(periodDates);
+  const getDate = (periodDates: PeriodDates, isAfterAllDate?: boolean) => console.log(periodDates, isAfterAllDate);
 
   const onDatesClick = () => setMyDates({ startDate: "22222", endDate: "1111" });
 

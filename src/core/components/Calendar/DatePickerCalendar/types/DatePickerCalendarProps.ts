@@ -4,7 +4,7 @@ export type DatePickerType = typeof DATE_PICKER_TYPE[keyof typeof DATE_PICKER_TY
 
 export interface PeriodDates {
   startDate: string;
-  endDate: string | null;
+  endDate: string;
 }
 
 export interface DatePickerCalendarProps {
@@ -15,5 +15,5 @@ export interface DatePickerCalendarProps {
   afterAllDate?: boolean;
   cutoffDate?: string;
   disabled?: boolean;
-  onDateClick: (periodDates: PeriodDates) => void;
+  onDateClick: (periodDates: PeriodDates, afterAllDate?: boolean) => void;
 }
