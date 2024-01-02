@@ -151,7 +151,7 @@ const DatePickerCalendar = ({
                       }
                       operations.onDateClick(variants, afterAllDate, calendarDate);
                       operations.setCalendarPeriodDates(models.periodDates);
-                      onDateClick(models.periodDates);
+                      onDateClick(models.periodDates, afterAllDate);
                     }}
                   >
                   <div className = {clsx("flex flex-col")}>
