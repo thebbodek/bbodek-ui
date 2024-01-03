@@ -41,7 +41,7 @@ export const CalendarDayComponent = ({
                 <div
                   className = {clsx("relative flex justify-center items-center h-8",
                     {
-                      "w-8 rounded-full bg-gray-03": calendarDate.isToday,
+                      "w-8 rounded-full bg-gray-01": calendarDate.isToday,
                       "text-gray-03": !calendarDate.isThisMonth,
                     },
                   )}
@@ -51,7 +51,7 @@ export const CalendarDayComponent = ({
                     theme = "body-01-bold"
                     className = "text-inherit"
                   />
-                  {quantity &&
+                  {quantity !== undefined &&
                     <Typography
                       key = {index}
                       text = {`(${quantity})`}
