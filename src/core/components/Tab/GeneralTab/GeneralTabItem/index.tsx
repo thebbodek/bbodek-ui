@@ -20,7 +20,7 @@ const GeneralTabItem = forwardRef((
           ref = {ref}
           id = {id}
           type = "radio"
-          className = {"sr-only peer"}
+          className = {"none peer"}
           {...props}
         />
         <Typography
