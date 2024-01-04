@@ -11,6 +11,7 @@ import { InputDatePickerProps } from "./types";
 const InputDatePicker = ({
   variants = "period",
   cutoffDate,
+  cutoffAfterDate,
   overlay,
   disabledDates,
   getPeriodDates,
@@ -43,6 +44,7 @@ const InputDatePicker = ({
             close();
           }}
           cutoffDate = {cutoffDate}
+          cutoffAfterDate = {cutoffAfterDate}
           externalDates = {periodDates}
           useTab = {useTab}
           disabledDates = {disabledDates}

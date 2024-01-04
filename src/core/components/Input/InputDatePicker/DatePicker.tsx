@@ -12,6 +12,7 @@ import { DatePickerProps } from "./types";
 const DatePicker = ({
   variants = "period",
   cutoffDate,
+  cutoffAfterDate,
   isOpen,
   close,
   disabled,
@@ -68,6 +69,7 @@ const DatePicker = ({
           <DatePickerCalendar
             variants = {variants}
             cutoffDate = {cutoffDate}
+            cutoffAfterDate = {cutoffAfterDate}
             periodDates = {periodDates}
             disabledDates = {disabledDates}
             onDateClick = {onDateClick}

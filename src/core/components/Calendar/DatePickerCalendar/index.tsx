@@ -88,6 +88,7 @@ const DatePickerCalendar = ({
   periodDates,
   disabledDates,
   cutoffDate,
+  cutoffAfterDate,
   afterAllDate = false,
   onDateClick,
 }: DatePickerCalendarProps) => {
@@ -118,10 +119,10 @@ const DatePickerCalendar = ({
     operations.setCalendarPeriodDates(periodDates);
   }, [periodDates]);
 
-  const isCutoffDateValidation = ({ cutoffDate, calendarDate }: Pick<DatePickerCalendarProps, "cutoffDate"> & { calendarDate: string }) => {
-    if(!cutoffDate) return false;
+  const isCutoffDateValidation = ({ cutoffDate, cutoffAfterDate, calendarDate }: Pick<DatePickerCalendarProps, "cutoffDate" | "cutoffAfterDate"> & { calendarDate: string }) => {
+    if(!cutoffDate && !cutoffAfterDate) return false;
 
-    return dayjs(calendarDate).isBefore(cutoffDate);
+    return !!cutoffDate && dayjs(calendarDate).isBefore(cutoffDate) || !!cutoffAfterDate && dayjs(calendarDate).isAfter(cutoffAfterDate);
   };
 
   return (
@@ -137,7 +138,7 @@ const DatePickerCalendar = ({
         {commonModels.calendarDates.map((calendarWeekDates: CalendarDateDto[], index: number) => (
           <div key = {index} className = {clsx("grid grid-cols-7")}>
             {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => {
-              const disabled = calendarDate.isHoliday || !calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") });
+              const disabled = calendarDate.isHoliday || !calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, cutoffAfterDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") });
 
               return <div key = {index} className = {clsx("h-16")}>
                 <button
