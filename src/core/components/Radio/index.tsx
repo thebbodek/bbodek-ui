@@ -19,7 +19,7 @@ const Radio = forwardRef((
 
   return (
     <label htmlFor = {id} className = {clsx("cursor-pointer", label && "flex items-center gap-x-2", className)}>
-      <input ref = {ref} id = {id} type = "radio" className = "peer none" {...props}/>
+      <input ref = {ref} id = {id} type = "radio" className = "peer hidden" {...props}/>
       <div className = {"[&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-[#7595E7]"}>
         <RadioButton size = {svgSize} weight = "fill"/>
       </div>

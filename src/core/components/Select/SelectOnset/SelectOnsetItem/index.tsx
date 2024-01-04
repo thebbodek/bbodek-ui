@@ -19,7 +19,7 @@ const SelectOnsetItem = forwardRef((
           ref = {ref}
           id = {id}
           type = "radio"
-          className = {"none peer"}
+          className = {"hidden peer"}
           name = "onset"
           value = {onset}
           {...props}

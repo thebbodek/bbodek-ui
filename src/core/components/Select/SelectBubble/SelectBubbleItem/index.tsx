@@ -19,7 +19,7 @@ const SelectBubbleItem = forwardRef((
           ref = {ref}
           id = {id}
           type = "radio"
-          className = {"none peer"}
+          className = {"hidden peer"}
           {...props}
         />
         <Typography
