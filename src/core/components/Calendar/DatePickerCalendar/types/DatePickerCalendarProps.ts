@@ -9,6 +9,7 @@ export interface PeriodDates {
 
 export interface DatePickerCalendarProps {
   variants: DatePickerType;
+  initialDate?: string;
   periodDates: PeriodDates;
   label?: string[];
   disabledDates?: string[];

@@ -13,7 +13,7 @@ export default meta;
 
 export const SingleDatePicker = () => {
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
-    startDate: "2023-12-08",
+    startDate: "",
     endDate: "",
   });
 
@@ -27,6 +27,7 @@ export const SingleDatePicker = () => {
         cutoffDate = "2023-12-08"
         variants = "single"
         label = {["해지 신청일"]}
+        initialDate = "2024-02-05"
         periodDates = {periodDates}
         onDateClick = {onDateClick}
       />

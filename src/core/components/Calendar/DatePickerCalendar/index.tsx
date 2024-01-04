@@ -84,13 +84,14 @@ export const useDatePickerCalendar = (): UseDatePickerCalendarResponse => {
 const DatePickerCalendar = ({
   variants = "single",
   label = ["사용일"],
+  initialDate,
   periodDates,
   disabledDates,
   cutoffDate,
   afterAllDate = false,
   onDateClick,
 }: DatePickerCalendarProps) => {
-  const { models: commonModels, operations: commonOperations } = useCalendar();
+  const { models: commonModels, operations: commonOperations } = useCalendar(initialDate ? dayjs(initialDate): dayjs());
   const { models, operations } = useDatePickerCalendar();
 
   useEffect(() => {
