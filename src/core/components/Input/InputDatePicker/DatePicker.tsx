@@ -15,6 +15,7 @@ const DatePicker = ({
   cutoffAfterDate,
   isOpen,
   close,
+  initialDate,
   disabled,
   disabledDates,
   externalDates,
@@ -72,6 +73,7 @@ const DatePicker = ({
             cutoffAfterDate = {cutoffAfterDate}
             periodDates = {periodDates}
             disabledDates = {disabledDates}
+            initialDate = {initialDate}
             onDateClick = {onDateClick}
             disabled = {disabled}
             afterAllDate = {tabSelected === "afterAllDate"}

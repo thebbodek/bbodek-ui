@@ -14,6 +14,7 @@ const InputDatePicker = ({
   cutoffAfterDate,
   overlay,
   disabledDates,
+  initialDate,
   getPeriodDates,
   externalDates,
   useTab = false,
@@ -43,6 +44,7 @@ const InputDatePicker = ({
             getPeriodDates(periodDates, isAfterAllDate);
             close();
           }}
+          initialDate = {initialDate}
           cutoffDate = {cutoffDate}
           cutoffAfterDate = {cutoffAfterDate}
           externalDates = {periodDates}

@@ -1,6 +1,6 @@
 import { DatePickerCalendarProps, PeriodDates } from "@/core/components/Calendar/DatePickerCalendar/types/DatePickerCalendarProps";
 
-export interface DatePickerProps extends Pick<DatePickerCalendarProps, "disabled" | "disabledDates" | "cutoffDate" | "cutoffAfterDate"> {
+export interface DatePickerProps extends Pick<DatePickerCalendarProps, "disabled" | "disabledDates" | "cutoffDate" | "cutoffAfterDate" | "initialDate"> {
   variants?: DatePickerCalendarProps["variants"];
   externalDates?: PeriodDates;
   isOpen: boolean;
