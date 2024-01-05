@@ -1,26 +1,18 @@
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 import Typography from "@/core/components/Typography";
-
-export interface CalendarHeaderProps {
-  currentMonth: string;
-  onPreviousMonthClick?: () => void;
-  onNextMonthClick?: () => void;
-  isDisabledMonthBtn?: boolean;
-  isDisablePrevMonthBtn?: boolean;
-  isDisableNextMonthBtn?: boolean;
-}
+import { MONTH_BUTTON_STATUS } from "../constants";
+import { CalendarHeaderProps } from "../types/CalendarHeader";
 
 export const CalendarHeader = ({
   currentMonth,
   onPreviousMonthClick,
   onNextMonthClick,
-  isDisabledMonthBtn,
-  isDisablePrevMonthBtn,
-  isDisableNextMonthBtn,
+  monthButtonStatus = MONTH_BUTTON_STATUS["IDLE"],
 }: CalendarHeaderProps) => {
-  const isDisablePrev = (isDisabledMonthBtn || isDisablePrevMonthBtn) ?? false;
-  const isDisableNext = (isDisabledMonthBtn || isDisableNextMonthBtn) ?? false;
+  const isDisabledMonthBtn = monthButtonStatus === MONTH_BUTTON_STATUS["DISABLE_BOTH"];
+  const isDisablePrev = (isDisabledMonthBtn || monthButtonStatus === MONTH_BUTTON_STATUS["DISABLE_PREV"]) ?? false;
+  const isDisableNext = (isDisabledMonthBtn || monthButtonStatus === MONTH_BUTTON_STATUS["DISABLE_NEXT"]) ?? false;
   const buttonClassNames = "group flex justify-center items-center";
   const iconClassNames = "text-gray-05 group-disabled:text-gray-03 group-disabled:cursor-not-allowed";
 

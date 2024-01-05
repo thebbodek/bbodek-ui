@@ -1,5 +1,5 @@
 import { PeriodDates } from "../../DatePickerCalendar/types/DatePickerCalendarProps";
-import { CalendarHeaderProps } from "../../common/subs/CalendarHeader";
+import { CalendarHeaderProps } from "../../common/types/CalendarHeader";
 
 export interface MarkedDatesProps {
   markedDates?: string[];
@@ -10,7 +10,7 @@ export interface SchedulesDataProps {
   [date: string]: MarkedDatesProps;
 }
 
-export interface CalendarComponentProps extends Pick<CalendarHeaderProps, "isDisableNextMonthBtn" | "isDisablePrevMonthBtn" | "isDisabledMonthBtn"> {
+export interface CalendarComponentProps extends Pick<CalendarHeaderProps, "monthButtonStatus"> {
   initialDate?: number;
   schedulesData?: SchedulesDataProps;
   defaultQuantity?: number;

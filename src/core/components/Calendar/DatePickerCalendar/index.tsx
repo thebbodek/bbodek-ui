@@ -90,6 +90,7 @@ const DatePickerCalendar = ({
   cutoffDate,
   cutoffAfterDate,
   afterAllDate = false,
+  monthButtonStatus,
   onDateClick,
 }: DatePickerCalendarProps) => {
   const { models: commonModels, operations: commonOperations } = useCalendar(initialDate ? dayjs(initialDate): dayjs());
@@ -131,9 +132,9 @@ const DatePickerCalendar = ({
         currentMonth = {commonModels.selectedDayjs.locale("ko").format("YYYY. MM")}
         onPreviousMonthClick = {commonOperations.onPreviousMonthClick}
         onNextMonthClick = {commonOperations.onNextMonthClick}
+        monthButtonStatus = {monthButtonStatus}
       />
       <CalendarWeekDayComponent />
-
       <div className = {clsx("mt-4")}>
         {commonModels.calendarDates.map((calendarWeekDates: CalendarDateDto[], index: number) => (
           <div key = {index} className = {clsx("grid grid-cols-7")}>

@@ -14,9 +14,7 @@ const ScheduleCalendar = ({
   schedulesData,
   onDateClick,
   onRender,
-  isDisabledMonthBtn,
-  isDisablePrevMonthBtn,
-  isDisableNextMonthBtn,
+  monthButtonStatus,
 }: CalendarComponentProps) => {
   const { models, operations } = useCalendar(initialDate ? dayjs(initialDate * 1000) : dayjs());
 
@@ -41,9 +39,7 @@ const ScheduleCalendar = ({
         currentMonth = {models.selectedDayjs.locale("ko").format("YYYY. MM")}
         onPreviousMonthClick = {operations.onPreviousMonthClick}
         onNextMonthClick = {operations.onNextMonthClick}
-        isDisabledMonthBtn = {isDisabledMonthBtn}
-        isDisablePrevMonthBtn = {isDisablePrevMonthBtn}
-        isDisableNextMonthBtn = {isDisableNextMonthBtn}
+        monthButtonStatus = {monthButtonStatus}
       />
       <CalendarWeekDayComponent />
       <CalendarDayComponent
