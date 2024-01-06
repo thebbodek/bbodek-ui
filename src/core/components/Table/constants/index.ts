@@ -1,4 +1,4 @@
-import { ThemeType, TableCellType } from "../types";
+import { TableCellType, ThemeType } from "../types";
 
 export const THEME = {
   WHITE: "white",
@@ -23,7 +23,7 @@ export const TABLE_CELL_THEME: Record<ThemeType, Record<TableCellType, string>> 
     [TABLE_CELL.TD]: `${COMMON_CELL_STYLE} text-gray-07`,
   },
   [THEME.GRAY]: {
-    [TABLE_CELL.TH]: `${COMMON_CELL_STYLE} bg-gray-00 text-gray-06`,
-    [TABLE_CELL.TD]: `${COMMON_CELL_STYLE} text-gray-08`,
+    [TABLE_CELL.TH]: `${COMMON_CELL_STYLE} bg-gray-03 text-gray-07`,
+    [TABLE_CELL.TD]: `${COMMON_CELL_STYLE} text-gray-07`,
   },
 } as const;
