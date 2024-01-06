@@ -21,7 +21,7 @@ const DropdownSelectTrigger = forwardRef((
       {({ isToggle }) => (
         <>
           <Typography theme = "subhead-02-regular" color = "gray-08" className = {clsx(showPlaceholder && "!text-gray-05")} text = {currentValue ? currentValue : (placeholder ?? "")}/>
-          <CaretDown size = "16" className = {clsx(showPlaceholder ? "text-gray-05" : "text-gray-08", isToggle ? "rotate-180" : "rotate-0")} weight = "fill"/>
+          <CaretDown size = "28" className = {clsx("text-gray-06", isToggle ? "rotate-180" : "rotate-0")} weight = "fill"/>
         </>
       )}
     </DropdownBase.Trigger>
