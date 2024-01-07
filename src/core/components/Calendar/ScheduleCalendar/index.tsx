@@ -41,13 +41,15 @@ const ScheduleCalendar = ({
         onNextMonthClick = {operations.onNextMonthClick}
         monthButtonStatus = {monthButtonStatus}
       />
-      <CalendarWeekDayComponent />
-      <CalendarDayComponent
-        defaultQuantity = {defaultQuantity}
-        schedulesData = {schedulesData}
-        calendarDates = {models.calendarDates}
-        onDateClick = {onDateClick}
-      />
+      <CalendarWeekDayComponent className = "gap-x-[1px] border border-b-0 border-gray-03 bg-gray-03" />
+      <div className = "flex-v-stack gap-y-[1px] border border-t-0 border-gray-03 bg-gray-03">
+        <CalendarDayComponent
+          defaultQuantity = {defaultQuantity}
+          schedulesData = {schedulesData}
+          calendarDates = {models.calendarDates}
+          onDateClick = {onDateClick}
+        />
+      </div>
     </div>
   );
 };

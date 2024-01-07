@@ -17,7 +17,7 @@ export const CalendarHeader = ({
   const iconClassNames = "text-gray-05 group-disabled:text-gray-03 group-disabled:cursor-not-allowed";
 
   return (
-    <div className = {"flex gap-6 justify-center items-center mb-8"}>
+    <div className = {"flex gap-x-5 justify-center items-center mb-6"}>
       <button
         type = "button"
         className = {buttonClassNames}
@@ -26,7 +26,7 @@ export const CalendarHeader = ({
       >
         <CaretLeft size = {24} className = {iconClassNames}/>
       </button>
-      <Typography theme = "head-01-regular" text = {currentMonth} />
+      <Typography className = "w-[7.5rem] text-center" color = "black" theme = "head-01-regular" text = {currentMonth} />
       <button
         type = "button"
         className = {buttonClassNames}

@@ -135,14 +135,15 @@ const DatePickerCalendar = ({
         monthButtonStatus = {monthButtonStatus}
       />
       <CalendarWeekDayComponent />
-      <div className = {clsx("mt-4")}>
+      <div className = {clsx("flex-v-stack gap-y-2 mt-4")}>
         {commonModels.calendarDates.map((calendarWeekDates: CalendarDateDto[], index: number) => (
           <div key = {index} className = {clsx("grid grid-cols-7")}>
             {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => {
               const disabled = calendarDate.isHoliday || !calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, cutoffAfterDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") });
 
-              return <div key = {index} className = {clsx("h-16")}>
-                <button
+              return (
+                <div key = {index} className = {clsx("h-[3.75rem]")}>
+                  <button
                     type = "button"
                     className = {"w-full h-full"}
                     disabled = {disabled}
@@ -157,22 +158,22 @@ const DatePickerCalendar = ({
                       onDateClick(models.periodDates, afterAllDate);
                     }}
                   >
-                  <div className = {clsx("flex flex-col")}>
-                    <CalendarComponentDayText
+                    <div className = {clsx("flex flex-col")}>
+                      <CalendarComponentDayText
                         disabled = {disabled}
                         calendarDate = {calendarDate}
                         periodDates = {models.periodDates}
                         periodDateArray = {models.periodDateArray}
                         afterAllDate = {afterAllDate}
                       />
-                    <CalendarComponentDaySubText
+                      <CalendarComponentDaySubText
                         calendarDate = {calendarDate}
                         periodDates = {models.periodDates}
                         label = {label}
                       />
-                  </div>
-                </button>
-              </div>;
+                    </div>
+                  </button>
+                </div>);
             })}
           </div>
         ))}

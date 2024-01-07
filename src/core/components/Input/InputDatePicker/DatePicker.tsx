@@ -63,10 +63,12 @@ const DatePicker = ({
 
   return (
     <ModalPopUp isOpen = {isOpen}>
-      <div className = {"w-[30rem] pt-6 rounded-xl border bg-white"}>
-        <div className = 'px-4'>
-          <Typography element = 'h6' text = '날짜 선택' theme = 'subhead-01-bold' />
-          {useTab && <GeneralTab items = {tabItems} className = 'mt-4 mb-11' />}
+      <div className = {"w-[35.5rem] pt-5 rounded-xl bg-white"}>
+        <div className = 'px-6'>
+          <div className = "px-5 mb-6">
+            <Typography className = "mb-6" element = 'h6' text = '날짜 선택' theme = 'subhead-01-bold' />
+            {useTab && <GeneralTab items = {tabItems} />}
+          </div>
           <DatePickerCalendar
             variants = {variants}
             cutoffDate = {cutoffDate}
@@ -80,8 +82,8 @@ const DatePicker = ({
             label = {dateLabel}
           />
         </div>
-        <Divider />
-        <div className = 'flex gap-3 py-5 px-6'>
+        <Divider className = "mt-5" />
+        <div className = 'flex py-5 px-6'>
           <Button
             backgroundColor = 'white'
             color = 'gray-06'

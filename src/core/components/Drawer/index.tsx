@@ -37,7 +37,7 @@ const Drawer = forwardRef((
         <header className = "flex-v-stack gap-y-6 pt-6 pl-6 pr-4 after:content-[''] after:h-[0.0625rem] after:bg-gray-02">
           <div className = "flex items-center justify-between">
             <div className = {clsx(titleSub && "flex items-center gap-x-2")}>
-              <Typography element = "strong" theme = "head-01-bold" className = "text-[#000]" text = {title} />
+              <Typography element = "strong" theme = "head-01-bold" className = "text-black" text = {title} />
               {titleSub && <Typography theme = "body-02-regular" color = "gray-06" text = {titleSub} />}
             </div>
             <button onClick = {onClose} aria-label = "창 닫기">
