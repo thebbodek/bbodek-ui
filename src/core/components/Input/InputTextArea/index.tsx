@@ -19,12 +19,12 @@ const InputTextArea = forwardRef((
     ref: React.Ref<HTMLTextAreaElement>,
   ) => {
   const id = useId();
-  const { rootClassName, className, required, value, onChange, autoComplete = "off", maxLength, error, name, ...rest } = props;
+  const { rootClassName, className, required, value, onChange, autoComplete = "off", maxLength = 150, error, name, ...rest } = props;
   const { inputValue, onChangeHandler } = useInput({ value, regCallback, onChange, name });
-  const currentInputValueLength = (inputValue as string).length;
+  const currentInputValueLength = (inputValue as string)?.length || 0;
 
   const onChangeTextArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if(e.target.value.length > maxLength!) return;
+    if((e.target?.value ?? "").length > maxLength) return;
 
     onChangeHandler(e);
   };
