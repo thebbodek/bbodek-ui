@@ -8,6 +8,8 @@ export const SIZE = {
   SIZE_48: "h-48",
   SIZE_40: "h-40",
   SIZE_29: "h-29",
+  SIZE_24: "h-24",
+  SIZE_20: "h-20",
 } as const;
 
 export const ROUNDED = {
@@ -29,6 +31,8 @@ export const BUTTON_SIZE: Record<SizeType, string> = {
   [SIZE.SIZE_48]: "h-12",
   [SIZE.SIZE_40]: "h-10",
   [SIZE.SIZE_29]: "h-[1.8125rem]",
+  [SIZE.SIZE_24]: "h-6",
+  [SIZE.SIZE_20]: "h-5",
 };
 
 export const BUTTON_ROUNDED: Record<RoundedType, string> = {

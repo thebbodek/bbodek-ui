@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/react";
 
+import { TypographyOptions } from "@/constants";
 import { ColorOptions } from "@/constants/color";
 import { GAP, ROUNDED, SIZE } from "./constants";
 import Button from "./index";
@@ -11,8 +12,7 @@ const meta = {
   argTypes: {
     theme: {
       control: "select",
-      options: [ "body-01-bold", "body-02-bold", "body-02-bold" ],
-      defaultValue: "body-01-regular",
+      options: TypographyOptions,
       description: "Button Typography Theme",
     },
     color: {
@@ -76,10 +76,10 @@ export const Default = (props: ButtonProps) => {
 
   return (
     <Button
-      theme = {theme ?? "body-01-bold"}
+      theme = {theme}
       color = {color ?? "white"}
       backgroundColor = {backgroundColor ?? "primary-03"}
-      size = {size ?? "h-48"}
+      size = {size ?? SIZE["SIZE_48"]}
       content = {content ?? "스케줄 등록하기"}
       className = "w-[427px]"
       { ...rest }
