@@ -30,7 +30,7 @@ const ScheduleCalendar = ({
       endDate: calenderDatesEndWeekEndDay?.dayjs.format("YYYY-MM-DD"),
     };
 
-    onRender(renderDates);
+    onRender?.(renderDates);
   }, [models.calendarDates]);
 
   return (

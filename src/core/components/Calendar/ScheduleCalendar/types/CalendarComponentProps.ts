@@ -15,5 +15,5 @@ export interface CalendarComponentProps extends Pick<CalendarHeaderProps, "month
   schedulesData?: SchedulesDataProps;
   defaultQuantity?: number;
   onDateClick: (date: string) => void;
-  onRender: (renderDates: PeriodDates) => void;
+  onRender?: (renderDates: PeriodDates) => void;
 }
