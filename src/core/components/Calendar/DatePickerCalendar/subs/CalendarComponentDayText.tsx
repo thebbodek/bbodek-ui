@@ -20,9 +20,9 @@ export const CalendarComponentDayText = ({
 }: CalendarComponentDayTextProps) => {
   const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
   const isPeriod = periodDates.startDate && periodDates.endDate;
-  const isStartDate = isPeriod && periodDates.startDate === currentDate;
-  const isEndDate = isPeriod && periodDates.endDate === currentDate;
-  const singleSelectedDate = (periodDates.startDate && !periodDates.endDate) && currentDate === periodDates.startDate;
+  const isStartDate = isPeriod && (periodDates.startDate !== periodDates.endDate) && periodDates.startDate === currentDate;
+  const isEndDate = isPeriod && (periodDates.startDate !== periodDates.endDate) && periodDates.endDate === currentDate;
+  const singleSelectedDate = ((periodDates.startDate && !periodDates.endDate) || (periodDates.startDate === periodDates.endDate)) && currentDate === periodDates.startDate;
 
   return (
     <div
@@ -38,7 +38,7 @@ export const CalendarComponentDayText = ({
           {
             "rounded-full w-[2.375rem] bg-primary-03 text-white": isStartDate || isEndDate || singleSelectedDate,
             "bg-gray-03 text-white rounded-full w-[2.375rem]": calendarDate.isToday,
-            "w-full bg-primary-00 rounded-none !text-black": (periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate) && !disabled),
+            "w-full bg-primary-00 rounded-none !text-black": (periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate)),
             "!text-[#1018284d]": disabled,
             "!text-white": calendarDate.isToday && disabled,
           },
