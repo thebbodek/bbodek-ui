@@ -3,6 +3,7 @@ import { DatePickerCalendarProps, PeriodDates } from "@/core/components/Calendar
 export interface DatePickerProps extends Pick<DatePickerCalendarProps, "disabled" | "disabledDates" | "cutoffDate" | "cutoffAfterDate" | "initialDate" | "afterAllDate"> {
   variants?: DatePickerCalendarProps["variants"];
   externalDates?: PeriodDates;
+  closeButtonText?: string;
   isOpen: boolean;
   close: DatePickerCalendarProps["onDateClick"];
   useTab?: boolean;

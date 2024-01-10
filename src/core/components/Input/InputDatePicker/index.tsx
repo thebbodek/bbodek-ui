@@ -24,6 +24,7 @@ const InputDatePicker = ({
   inputClassName,
   afterAllDate,
   label,
+  closeButtonText,
 }: InputDatePickerProps & HTMLAttributes<HTMLInputElement>) => {
   const id = useId();
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
@@ -51,6 +52,7 @@ const InputDatePicker = ({
           externalDates = {periodDates}
           useTab = {useTab}
           disabledDates = {disabledDates}
+          closeButtonText = {closeButtonText}
         />
       ));
     });

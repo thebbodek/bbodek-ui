@@ -20,6 +20,7 @@ const DatePicker = ({
   disabledDates,
   externalDates,
   useTab = false,
+  closeButtonText = "닫기",
   dateLabel,
 }: DatePickerProps) => {
   const id = useId();
@@ -87,7 +88,7 @@ const DatePicker = ({
           <Button
             backgroundColor = 'white'
             color = 'gray-06'
-            content = '닫기'
+            content = {closeButtonText}
             size = 'h-60'
             rounded = 'rounded-12'
             className = 'w-full border'
