@@ -24,6 +24,7 @@ const InputDatePicker = ({
   inputClassName,
   afterAllDate,
   label,
+  dateLabel,
   closeButtonText,
 }: InputDatePickerProps & HTMLAttributes<HTMLInputElement>) => {
   const id = useId();
@@ -46,6 +47,7 @@ const InputDatePicker = ({
             getPeriodDates(periodDates, isAfterAllDate);
             close();
           }}
+          dateLabel = {dateLabel}
           initialDate = {initialDate}
           cutoffDate = {cutoffDate}
           cutoffAfterDate = {cutoffAfterDate}
