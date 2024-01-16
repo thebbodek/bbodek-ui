@@ -36,11 +36,11 @@ export const CalendarComponentDayText = ({
       <div
         className = {clsx("relative z-20 flex justify-center items-center h-[2.375rem] leading-none text-body-01-bold text-black",
           {
-            "rounded-full w-[2.375rem] bg-primary-03 text-white": isStartDate || isEndDate || singleSelectedDate,
+            "rounded-full w-[2.375rem] bg-primary-03 !text-white": isStartDate || isEndDate || singleSelectedDate,
             "bg-gray-03 text-white rounded-full w-[2.375rem]": calendarDate.isToday,
-            "w-full bg-primary-00 rounded-none !text-black": (periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate)),
+            "w-full bg-primary-00 rounded-none": ((periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate))),
+            "!bg-primary-01": (isStartDate || isEndDate || singleSelectedDate) && disabled,
             "!text-[#1018284d]": disabled,
-            "!text-white": calendarDate.isToday && disabled,
           },
         )}
       >

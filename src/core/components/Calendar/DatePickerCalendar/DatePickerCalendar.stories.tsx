@@ -37,8 +37,8 @@ export const SingleDatePicker = () => {
 
 export const PeriodDatesPicker = () => {
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
-    startDate: "2023-12-08",
-    endDate: "",
+    startDate: "2024-01-19",
+    endDate: "2024-01-25",
   });
 
   const onDateClick = (date: PeriodDates) => {
@@ -49,6 +49,7 @@ export const PeriodDatesPicker = () => {
     <div className = {"w-[500px] border rounded-3xl py-6"}>
       <DatePickerCalendar
         variants = "period"
+        cutoffDate = "2024-01-23"
         periodDates = {periodDates}
         onDateClick = {onDateClick}
       />
