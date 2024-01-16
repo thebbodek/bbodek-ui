@@ -91,6 +91,7 @@ const DatePickerCalendar = ({
   cutoffAfterDate,
   afterAllDate = false,
   monthButtonStatus,
+  useHoliday = false,
   onDateClick,
 }: DatePickerCalendarProps) => {
   const { models: commonModels, operations: commonOperations } = useCalendar(initialDate ? dayjs(initialDate): dayjs());
@@ -139,7 +140,7 @@ const DatePickerCalendar = ({
         {commonModels.calendarDates.map((calendarWeekDates: CalendarDateDto[], index: number) => (
           <div key = {index} className = {clsx("grid grid-cols-7")}>
             {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => {
-              const disabled = calendarDate.isHoliday || !calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, cutoffAfterDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") });
+              const disabled = (!useHoliday && calendarDate.isHoliday) || !calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, cutoffAfterDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") });
 
               return (
                 <div key = {index} className = {clsx("h-[3.75rem]")}>

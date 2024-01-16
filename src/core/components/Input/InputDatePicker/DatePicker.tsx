@@ -20,6 +20,7 @@ const DatePicker = ({
   disabledDates,
   externalDates,
   useTab = false,
+  useHoliday = false,
   closeButtonText = "닫기",
   dateLabel,
 }: DatePickerProps) => {
@@ -79,6 +80,7 @@ const DatePicker = ({
             initialDate = {initialDate}
             onDateClick = {onDateClick}
             disabled = {disabled}
+            useHoliday = {useHoliday}
             afterAllDate = {tabSelected === "afterAllDate"}
             label = {dateLabel}
           />

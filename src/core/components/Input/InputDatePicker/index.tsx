@@ -18,6 +18,7 @@ const InputDatePicker = ({
   getPeriodDates,
   externalDates,
   useTab = false,
+  useHoliday = false,
   disabled = false,
   required = false,
   className,
@@ -53,6 +54,7 @@ const InputDatePicker = ({
           cutoffAfterDate = {cutoffAfterDate}
           externalDates = {periodDates}
           useTab = {useTab}
+          useHoliday = {useHoliday}
           disabledDates = {disabledDates}
           closeButtonText = {closeButtonText}
         />

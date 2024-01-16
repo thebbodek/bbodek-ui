@@ -37,7 +37,7 @@ const DefaultLayout = () => {
     >
       <div className = "w-[500px]">
         <button type = "button" onClick = {onDatesClick}>전체 날짜 변경</button>
-        <InputDatePicker overlay = {overlay} useTab getPeriodDates = {getDate} externalDates = {myDates} label = "날짜 선택" initialDate = "2024-02-05" cutoffDate = "2024-02-06" cutoffAfterDate = "2024-02-15" required dateLabel = {["복구일"]}/>
+        <InputDatePicker overlay = {overlay} useTab getPeriodDates = {getDate} externalDates = {myDates} label = "날짜 선택" initialDate = "2024-02-05" required dateLabel = {["복구일"]}/>
         <Button type = "submit" backgroundColor = "primary-03" color = "white" size = "h-48" className = "px-7 mt-4" content = "전송"/>
       </div>
     </form>
