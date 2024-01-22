@@ -6,7 +6,7 @@ export type TextAreaSizeType = typeof SIZE[keyof typeof SIZE];
 
 export interface InputTextAreaProps
     extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-           Pick<InputBaseProps<"div">, "rootClassName" | "label" | "labelColor" | "borderColor"| "error">,
+           Pick<InputBaseProps<"div">, "feedback" | "rootClassName" | "label" | "labelColor" | "borderColor"| "error">,
            Pick<UseInputProps, "regCallback"> {
             textAreaHeight: TextAreaSizeType;
             maxLength: React.TextareaHTMLAttributes<HTMLTextAreaElement>["maxLength"];

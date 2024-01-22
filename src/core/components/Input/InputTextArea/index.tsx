@@ -14,6 +14,7 @@ const InputTextArea = forwardRef((
       label,
       textAreaHeight,
       regCallback,
+      feedback,
       ...props
     }: InputTextAreaProps,
     ref: React.Ref<HTMLTextAreaElement>,
@@ -35,6 +36,7 @@ const InputTextArea = forwardRef((
       inputId = {id}
       rootClassName = {rootClassName}
       inputRootClassName = {clsx("flex-v-stack", TEXT_AREA_HEIGHT[textAreaHeight])}
+      feedback = {feedback}
       error = {error}
       inputComponent = {
         <textarea

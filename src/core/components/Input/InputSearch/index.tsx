@@ -10,6 +10,7 @@ const InputSearch = forwardRef((
     {
       formSubmitHandler,
       regCallback,
+      feedback,
       ...props
     }: InputSearchProps,
     ref: React.ComponentPropsWithRef<"input">["ref"],
@@ -36,6 +37,7 @@ const InputSearch = forwardRef((
       element = {"form"}
       ref = {formRef}
       error = {error}
+      feedback = {feedback}
       rootClassName = {rootClassName}
       inputRootClassName = {"flex items-center px-6 py-2 text-body-02-medium bg-white rounded-full overflow-hidden border border-gray-02"}
       onSubmit = {onSubmitHandler}

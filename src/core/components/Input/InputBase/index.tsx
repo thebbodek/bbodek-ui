@@ -3,6 +3,7 @@ import React, { forwardRef } from "react";
 
 import { cn } from "@/utilities/utils";
 import FormLabel from "../../FormLabel";
+import Typography from "../../Typography";
 import { InputBaseProps } from "./types";
 
 const InputBase = forwardRef(
@@ -21,6 +22,7 @@ const InputBase = forwardRef(
       error = false,
       required,
       readOnly,
+      feedback,
       ...props
     }: InputBaseProps<T>,
     ref: React.ComponentPropsWithRef<T>["ref"],
@@ -28,9 +30,9 @@ const InputBase = forwardRef(
   const Component: React.ElementType = Element || "div";
 
   return (
-    <Component ref = {ref} className = {clsx(label && "flex-v-stack gap-y-3", rootClassName)} {...props}>
+    <Component ref = {ref} className = {clsx(label && "flex-v-stack", rootClassName)} {...props}>
       {label &&
-        <label htmlFor = {inputId}>
+        <label className = "mb-2" htmlFor = {inputId}>
           <FormLabel label = {label} labelColor = {labelColor} required = {required} />
         </label>
       }
@@ -38,6 +40,7 @@ const InputBase = forwardRef(
         className = {cn(
           `flex items-center px-3 py-4 text-subhead-02-regular bg-transparent rounded-xl overflow-hidden border border-${borderColor}`,
           error && "border-error",
+          feedback && "mb-1",
           inputRootClassName,
         )}
       >
@@ -45,6 +48,7 @@ const InputBase = forwardRef(
         {inputComponent && inputComponent}
         {!readOnly && endComponent && endComponent}
       </div>
+      {feedback ? <Typography theme = "body-03-regular" color = "error" text = {feedback} /> : null}
     </Component>
   );
 });

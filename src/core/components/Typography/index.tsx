@@ -20,7 +20,7 @@ const Typography = <T extends React.ElementType = "span">({
     <Component className = {clsx(`text-${theme} text-${color}`, className)} {...rest}>
       {text}
     </Component>
-    );
+  );
 };
 
 export default Typography;

@@ -11,7 +11,7 @@ const SelectBubble = forwardRef((
       label,
       labelColor,
       required,
-      feedback,
+      labelSubText,
       ...props
     }: SelectBubbleProps,
     ref: React.Ref<HTMLUListElement>,
@@ -20,7 +20,7 @@ const SelectBubble = forwardRef((
 
   return (
     <div className = {clsx("flex-v-stack gap-y-3", className)}>
-      <FormLabel label = {label} labelColor = {labelColor} required = {required} feedback = {feedback}/>
+      <FormLabel label = {label} labelColor = {labelColor} required = {required} labelSubText = {labelSubText}/>
       <ul ref = {ref} className = {"flex gap-x-3"} {...rest}>
         {items}
       </ul>

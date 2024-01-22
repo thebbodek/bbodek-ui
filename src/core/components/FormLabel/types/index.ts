@@ -5,5 +5,5 @@ export interface FormLabelProps {
   labelColor?: ThemeColors;
   label: string;
   required?: InputHTMLAttributes<HTMLInputElement>["required"];
-  feedback?: string;
+  labelSubText?: string;
 }

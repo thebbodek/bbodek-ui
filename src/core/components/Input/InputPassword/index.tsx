@@ -11,6 +11,7 @@ const InputPassword = forwardRef((
       labelColor,
       label = "비밀번호",
       regCallback,
+      feedback,
       ...props
     }: InputPasswordProps,
     ref: React.ComponentPropsWithRef<"input">["ref"],
@@ -33,6 +34,7 @@ const InputPassword = forwardRef((
       error = {error}
       readOnly = {readOnly}
       required = {required}
+      feedback = {feedback}
       labelColor = {labelColor}
       inputComponent = {
         <input

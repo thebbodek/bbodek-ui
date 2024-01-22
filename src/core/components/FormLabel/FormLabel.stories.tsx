@@ -22,7 +22,7 @@ const meta = {
       defaultValue: "gray-04",
       description: "Bbodek DesignSystem Colors",
     },
-    feedback: {
+    labelSubText: {
       control: "text",
       description: "Form Feedback",
     },
@@ -37,7 +37,7 @@ export const Default = (props: FormLabelProps) => {
       label = {props.label ?? "품목 선택"}
       required = {props.required ?? true}
       labelColor = {props.labelColor}
-      feedback = {props.feedback ?? "반별로 품목과 수량을 각각 선택해주세요."}
+      labelSubText = {props.labelSubText ?? "반별로 품목과 수량을 각각 선택해주세요."}
     />
   );
 };

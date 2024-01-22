@@ -7,7 +7,7 @@ const FormLabel = forwardRef((
       labelColor = "gray-06",
       label,
       required,
-      feedback,
+      labelSubText,
     }: FormLabelProps,
     ref: React.Ref<HTMLDivElement>,
   ) => {
@@ -15,7 +15,7 @@ const FormLabel = forwardRef((
     <div ref = {ref} className = {`flex text-${labelColor} text-body-02-medium`}>
       {label}
       {required && <span className = "ml-0.5 text-primary-03">*</span>}
-      {feedback && <Typography className = "ml-3" theme = "body-02-regular" text = {feedback} color = "error"/>}
+      {labelSubText && <Typography className = "ml-3" theme = "body-02-regular" text = {labelSubText} color = "error"/>}
     </div>
   );
 });

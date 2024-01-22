@@ -35,7 +35,7 @@ export const Default = () => {
 
   return (
     <div className = "w-[60rem]">
-      <SelectBubble label = "품목 선택" feedback = "반별로 품목과 수량을 각각 선택해주세요." items = {items} required/>
+      <SelectBubble label = "품목 선택" labelSubText = "반별로 품목과 수량을 각각 선택해주세요." items = {items} required/>
     </div>
   );
 };

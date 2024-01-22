@@ -12,6 +12,7 @@ const InputTextField = forwardRef((
       borderColor,
       label,
       regCallback,
+      feedback,
       ...props
     }: InputTextFieldProps,
     ref: React.ComponentPropsWithRef<"input">["ref"],
@@ -28,6 +29,7 @@ const InputTextField = forwardRef((
       rootClassName = {rootClassName}
       inputRootClassName = "h-[3.75rem]"
       readOnly = {readOnly}
+      feedback = {feedback}
       error = {error}
       inputComponent = {
         <input

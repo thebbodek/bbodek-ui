@@ -3,5 +3,5 @@ import { UseInputProps } from "../../hooks/useInput";
 
 export interface InputPasswordProps
     extends React.InputHTMLAttributes<HTMLInputElement>,
-            Pick<InputBaseProps<"div">, "rootClassName" | "label" | "error" | "labelColor">,
+            Pick<InputBaseProps<"div">, "feedback" | "rootClassName" | "label" | "error" | "labelColor">,
             Pick<UseInputProps, "regCallback"> {}
