@@ -26,7 +26,7 @@ const Checkbox = forwardRef((
   return (
     <label onClick = {(e: MouseEvent<HTMLLabelElement>) => e.stopPropagation()} htmlFor = {id} className = {clsx("cursor-pointer", label && "flex items-center gap-2.5", className)}>
       <input ref = {ref} id = {id} type = "checkbox" className = "peer hidden" {...props}/>
-      <div className = {`${CHECKBOX_SVG_SIZE[svgSize]} [&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-gray-06`}>
+      <div className = {`${CHECKBOX_SVG_SIZE[svgSize]} [&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-primary-03`}>
         {svg}
       </div>
       {label && <Typography text = {label} />}
