@@ -80,7 +80,7 @@ const InputDatePicker = ({
     <InputBase
       inputId = {id}
       inputRootClassName = {clsx("h-[3.75rem] cursor-pointer relative", {
-        "cursor-not-allowed": disabled,
+        "cursor-not-allowed bg-gray-01": disabled,
       }, className)}
       onClick = {handleDatePicker}
       label = {label}
@@ -89,9 +89,7 @@ const InputDatePicker = ({
         <input
           type = "text"
           placeholder = "날짜를 입력해주세요"
-          className = {clsx("flex-1 focus-visible:outline-0 cursor-pointer pointer-events-none", {
-            "cursor-not-allowed": disabled,
-          }, inputClassName)}
+          className = {clsx("flex-1 focus-visible:outline-0 cursor-pointer pointer-events-none disabled:bg-gray-01", inputClassName)}
           value = {periodDates.startDate && (!afterAllDate ? `${startDate}${periodDates.endDate && ` - ${endDate}`}` : `${startDate} ~`)}
           onKeyDown = {() => false}
           onFocus = {(e: React.FocusEvent<HTMLInputElement>) => e.target.blur()}
