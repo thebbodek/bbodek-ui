@@ -28,6 +28,8 @@ const InputDatePicker = ({
   dateLabel,
   closeButtonText,
   placeholder,
+  feedback,
+  feedbackColor,
 }: InputDatePickerProps & HTMLAttributes<HTMLInputElement>) => {
   const id = useId();
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
@@ -86,6 +88,8 @@ const InputDatePicker = ({
       onClick = {handleDatePicker}
       label = {label}
       required = {required}
+      feedback = {feedback}
+      feedbackColor = {feedbackColor}
       inputComponent = {
         <input
           type = "text"

@@ -23,6 +23,7 @@ const InputBase = forwardRef(
       required,
       readOnly,
       feedback,
+      feedbackColor = "error",
       ...props
     }: InputBaseProps<T>,
     ref: React.ComponentPropsWithRef<T>["ref"],
@@ -48,7 +49,7 @@ const InputBase = forwardRef(
         {inputComponent && inputComponent}
         {!readOnly && endComponent && endComponent}
       </div>
-      {feedback ? <Typography theme = "body-03-regular" color = "error" text = {feedback} /> : null}
+      {feedback ? <Typography theme = "body-03-regular" color = {feedbackColor} text = {feedback} /> : null}
     </Component>
   );
 });
