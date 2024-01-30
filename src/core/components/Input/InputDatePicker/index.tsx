@@ -27,6 +27,7 @@ const InputDatePicker = ({
   label,
   dateLabel,
   closeButtonText,
+  placeholder,
 }: InputDatePickerProps & HTMLAttributes<HTMLInputElement>) => {
   const id = useId();
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
@@ -88,7 +89,7 @@ const InputDatePicker = ({
       inputComponent = {
         <input
           type = "text"
-          placeholder = "날짜를 입력해주세요"
+          placeholder = {placeholder || "날짜를 입력해주세요"}
           className = {clsx("flex-1 focus-visible:outline-0 cursor-pointer pointer-events-none disabled:bg-gray-01", inputClassName)}
           value = {periodDates.startDate && (!afterAllDate ? `${startDate}${periodDates.endDate && ` - ${endDate}`}` : `${startDate} ~`)}
           onKeyDown = {() => false}
