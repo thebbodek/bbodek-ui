@@ -6,8 +6,8 @@ export const VARIANTS = {
 } as const;
 
 export const MODAL_CONTENT_POSITION: Record<VariantsType, string> = {
-  [VARIANTS.MODAL]: "fixed flex items-center justify-center",
-  [VARIANTS.DRAWER]: "flex justify-end",
+  [VARIANTS.MODAL]: "fixed flex items-center justify-center z-50",
+  [VARIANTS.DRAWER]: "flex justify-end z-40",
 } as const;
 
 export const MODAL_DIMMED_COLOR: Record<VariantsType, string> = {

@@ -25,7 +25,6 @@ const Drawer = forwardRef((
       target = {target ?? "drawer"}
       ref = {ref}
       variants = {"drawer"}
-      onClose = {onClose}
       {...rest}
     >
       <Section
