@@ -10,6 +10,7 @@ export interface PeriodDates {
 
 export interface DatePickerCalendarProps extends Pick<CalendarHeaderProps, "monthButtonStatus">{
   variants: DatePickerType;
+  isFixStartDate?: boolean;
   initialDate?: string;
   periodDates: PeriodDates;
   label?: string[];

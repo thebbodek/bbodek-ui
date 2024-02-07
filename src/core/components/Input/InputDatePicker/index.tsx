@@ -15,6 +15,7 @@ const InputDatePicker = ({
   overlay,
   disabledDates,
   initialDate,
+  isFixStartDate,
   getPeriodDates,
   externalDates,
   useTab = false,
@@ -43,6 +44,7 @@ const InputDatePicker = ({
     return new Promise(resolve => {
       overlay.open(({ isOpen, close }) => (
         <DatePicker
+          isFixStartDate = {isFixStartDate}
           variants = {variants}
           disabled = {disabled}
           isOpen = {isOpen}

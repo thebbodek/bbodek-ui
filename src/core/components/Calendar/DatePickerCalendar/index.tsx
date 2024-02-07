@@ -22,7 +22,7 @@ export interface UseDatePickerCalendarResponse {
   }
 }
 
-export const useDatePickerCalendar = (): UseDatePickerCalendarResponse => {
+export const useDatePickerCalendar = ({ isFixStartDate }: Pick<DatePickerCalendarProps, "isFixStartDate">): UseDatePickerCalendarResponse => {
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
     startDate: "",
     endDate: "",
@@ -34,17 +34,31 @@ export const useDatePickerCalendar = (): UseDatePickerCalendarResponse => {
     const newPeriodDates = periodDates;
 
     if ((periodDates.startDate && periodDates.endDate) || afterAllDate) {
-      newPeriodDates.startDate = currentDate;
-      newPeriodDates.endDate = "";
-      return;
+      if(!isFixStartDate) {
+        newPeriodDates.startDate = currentDate;
+        newPeriodDates.endDate = "";
+
+        return;
+      } else {
+        newPeriodDates.startDate = periodDates["startDate"];
+        newPeriodDates.endDate = currentDate;
+
+        return;
+      }
     }
 
     if (variants === "period" && periodDates.startDate) {
-      if (!dayjs(periodDates.startDate).isAfter(calendarDate.dayjs)) {
+      if(isFixStartDate) {
         newPeriodDates.endDate = currentDate;
+
+        return;
       } else {
-        newPeriodDates.startDate = currentDate;
-        newPeriodDates.endDate = "";
+        if (!dayjs(periodDates.startDate).isAfter(calendarDate.dayjs)) {
+          newPeriodDates.endDate = currentDate;
+        } else {
+          newPeriodDates.startDate = currentDate;
+          newPeriodDates.endDate = "";
+        }
       }
     } else {
       newPeriodDates.startDate = currentDate;
@@ -91,11 +105,12 @@ const DatePickerCalendar = ({
   cutoffAfterDate,
   afterAllDate = false,
   monthButtonStatus,
+  isFixStartDate = false,
   useHoliday = false,
   onDateClick,
 }: DatePickerCalendarProps) => {
   const { models: commonModels, operations: commonOperations } = useCalendar(initialDate ? dayjs(initialDate): dayjs());
-  const { models, operations } = useDatePickerCalendar();
+  const { models, operations } = useDatePickerCalendar({ isFixStartDate });
 
   useEffect(() => {
     if (periodDates.startDate) {

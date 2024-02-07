@@ -15,6 +15,7 @@ const DatePicker = ({
   cutoffAfterDate,
   isOpen,
   close,
+  isFixStartDate = false,
   initialDate,
   disabled,
   disabledDates,
@@ -59,7 +60,7 @@ const DatePicker = ({
   ));
 
   const onDateClick = (periodDates: PeriodDates, afterAllDate?: boolean) => {
-    setPeriodDates(periodDates!);
+    setPeriodDates(!isFixStartDate ? periodDates! : { startDate: externalDates!["startDate"], endDate: periodDates["endDate"] });
     setIsAfterAllDate(afterAllDate !== undefined && afterAllDate);
   };
 
@@ -72,6 +73,7 @@ const DatePicker = ({
             {useTab && <GeneralTab items = {tabItems} />}
           </div>
           <DatePickerCalendar
+            isFixStartDate = {isFixStartDate}
             variants = {variants}
             cutoffDate = {cutoffDate}
             cutoffAfterDate = {cutoffAfterDate}
