@@ -25,14 +25,6 @@ const meta = {
       defaultValue: "gray-03",
       description: "Bbodek DesignSystem Colors",
     },
-    disabled: {
-      control: "boolean",
-      description: "Input disabled",
-    },
-    readOnly: {
-      control: "boolean",
-      description: "Input readOnly",
-    },
     regCallback: {
       description: "Input RegEx",
     },

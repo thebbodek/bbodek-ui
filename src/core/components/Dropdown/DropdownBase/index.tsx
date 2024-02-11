@@ -10,16 +10,15 @@ import { DropdownContextValue, DropdownProps, ReturnType } from "./types";
 export const DropdownContext = createContext<DropdownContextValue | undefined>(undefined);
 DropdownContext.displayName = "DropdownContext";
 
-const DropdownBase = ({ className, readOnly = false, disabled = false, trigger, content }: DropdownProps) => {
+const DropdownBase = ({ className, trigger, content }: DropdownProps) => {
   const [ isToggle, setIsToggle ] = useState(false);
   const { contentRef } = useClickOutside<HTMLDivElement>(() => setIsToggle(false));
-  const isVisibleContent = !readOnly && !disabled && isToggle;
 
   return (
-    <DropdownContext.Provider value = {{ isToggle, setIsToggle, readOnly, disabled }}>
+    <DropdownContext.Provider value = {{ isToggle, setIsToggle }}>
       <div ref = {contentRef} className = {clsx(className, "relative")}>
         {trigger}
-        {isVisibleContent && content}
+        {isToggle && content}
       </div>
     </DropdownContext.Provider>
   );

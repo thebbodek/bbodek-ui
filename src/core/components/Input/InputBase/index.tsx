@@ -9,29 +9,26 @@ import { InputBaseProps } from "./types";
 const InputBase = forwardRef(
   <T extends React.ElementType>(
     {
-      label,
       inputId,
-      rootClassName,
       element: Element,
+      rootClassName,
       inputRootClassName,
+      label,
       startComponent,
       inputComponent,
       endComponent,
       labelColor,
-      feedback,
       borderColor = "gray-03",
-      feedbackColor = "error",
       error = false,
-      disabled = false,
-      readOnly = false,
-      required = false,
+      required,
+      readOnly,
+      feedback,
+      feedbackColor = "error",
       ...props
     }: InputBaseProps<T>,
     ref: React.ComponentPropsWithRef<T>["ref"],
   ) => {
   const Component: React.ElementType = Element || "div";
-  const isDisabled = readOnly || disabled;
-  const isVisibleEndComponent = !isDisabled && endComponent;
 
   return (
     <Component ref = {ref} className = {clsx(label && "flex-v-stack", rootClassName)} {...props}>
@@ -42,16 +39,15 @@ const InputBase = forwardRef(
       }
       <div
         className = {cn(
-          `flex items-center px-3 py-4 text-subhead-02-regular bg-white rounded-xl overflow-hidden border border-${borderColor}`,
+          `flex items-center px-3 py-4 text-subhead-02-regular bg-transparent rounded-xl overflow-hidden border border-${borderColor}`,
+          error && "border-error",
           feedback && "mb-1",
           inputRootClassName,
-          isDisabled && "bg-gray-09",
-          error && "border-error",
         )}
       >
         {startComponent && startComponent}
         {inputComponent && inputComponent}
-        {isVisibleEndComponent && endComponent}
+        {!readOnly && endComponent && endComponent}
       </div>
       {feedback ? <Typography theme = "body-03-regular" color = {feedbackColor} text = {feedback} /> : null}
     </Component>

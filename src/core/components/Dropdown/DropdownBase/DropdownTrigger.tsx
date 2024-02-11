@@ -13,13 +13,10 @@ const DropdownTrigger = forwardRef((
     }: DropdownTriggerProps,
     ref: React.Ref<HTMLButtonElement>,
   ) => {
-  const { isToggle, readOnly, disabled, setIsToggle } = useContext(DropdownContext) as DropdownContextValue;
-  const content = typeof children === "function" ? children({ isToggle, readOnly, disabled }) : children;
-  const isDisabled = readOnly || disabled;
+  const { isToggle, setIsToggle } = useContext(DropdownContext) as DropdownContextValue;
+  const content = typeof children === "function" ? children({ isToggle }) : children;
 
   const onClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if(isDisabled) return;
-
     setIsToggle(v => !v);
     onClick?.(e);
   };
@@ -29,11 +26,9 @@ const DropdownTrigger = forwardRef((
       ref = {ref}
       type = "button"
       onClick = {onClickHandler}
-      className = {clsx("whitespace-nowrap cursor-pointer", isDisabled && "!cursor-not-allowed bg-gray-09", className)}
+      className = {clsx("whitespace-nowrap cursor-pointer", className)}
       aria-haspopup = "listbox"
       aria-expanded = {isToggle}
-      aria-disabled = {disabled}
-      aria-readonly = {readOnly}
       {...props}
     >
       {content}

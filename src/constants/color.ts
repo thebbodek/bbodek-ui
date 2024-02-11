@@ -1,7 +1,6 @@
 export const THEME_COLOR = {
   WHITE: "white",
   BLACK: "black",
-  GRAY_09: "gray-09",
   GRAY_08: "gray-08",
   GRAY_07: "gray-07",
   GRAY_06: "gray-06",

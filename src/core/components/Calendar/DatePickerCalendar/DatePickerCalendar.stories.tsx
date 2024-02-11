@@ -2,7 +2,6 @@ import { Meta } from "@storybook/react";
 import { useState } from "react";
 
 import DatePickerCalendar from "@/core/components/Calendar/DatePickerCalendar";
-import { DATE_PICKER_TYPE } from "./constants";
 import { PeriodDates } from "./types/DatePickerCalendarProps";
 
 const meta = {
@@ -26,7 +25,7 @@ export const SingleDatePicker = () => {
     <div className = {"w-[500px] border rounded-3xl py-6"}>
       <DatePickerCalendar
         cutoffDate = "2023-12-08"
-        variants = {DATE_PICKER_TYPE["SINGLE"]}
+        variants = "single"
         label = {["해지 신청일"]}
         initialDate = "2024-02-05"
         periodDates = {periodDates}
@@ -49,7 +48,7 @@ export const PeriodDatesPicker = () => {
   return (
     <div className = {"w-[500px] border rounded-3xl py-6"}>
       <DatePickerCalendar
-        variants = {DATE_PICKER_TYPE["PERIOD"]}
+        variants = "period"
         cutoffDate = "2024-01-23"
         periodDates = {periodDates}
         onDateClick = {onDateClick}

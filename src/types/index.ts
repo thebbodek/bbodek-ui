@@ -1,5 +1,5 @@
 export type ThemeColors =
-  "white" | "black" | "gray-09" | "gray-08" |
+  "white" | "black" | "gray-08" |
   "gray-07" | "gray-06" | "gray-05" |
   "gray-04" | "gray-03" | "gray-02" |
   "gray-01" | "gray-00" | "primary-06" |
