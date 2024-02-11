@@ -18,12 +18,17 @@ const DropdownSelectTrigger = forwardRef((
 
   return (
     <DropdownBase.Trigger ref = {ref} className = {clsx("flex items-center justify-between w-full h-[3.75rem] p-3 gap-x-2 border border-gray-03 rounded-xl overflow-hidden", className)} {...rest}>
-      {({ isToggle }) => (
-        <>
-          <Typography theme = "subhead-02-regular" color = "gray-08" className = {clsx(showPlaceholder && "!text-gray-05")} text = {currentValue ? currentValue : (placeholder ?? "")}/>
-          <CaretDown size = "28" className = {clsx("text-gray-06", isToggle ? "rotate-180" : "rotate-0")} weight = "fill"/>
-        </>
-      )}
+      {({ isToggle, disabled, readOnly }) => {
+        const isDisabled = readOnly || disabled;
+        const isVisibleContent = !readOnly && !disabled && isToggle;
+
+        return (
+          <>
+            <Typography theme = "subhead-02-regular" className = {clsx(isDisabled && "mr-[1.75rem]")} color = {(!isDisabled && !showPlaceholder) ? "gray-08" : "gray-05"} text = {currentValue ? currentValue : (placeholder ?? "")}/>
+            {!isDisabled ? <CaretDown size = "28" className = {clsx("text-gray-06", isVisibleContent ? "rotate-180" : "rotate-0")} weight = "fill"/> : null}
+          </>
+        );
+      }}
     </DropdownBase.Trigger>
   );
 });

@@ -1,5 +1,4 @@
-
 export const DATE_PICKER_TYPE = {
-  SINGGLE: "single",
+  SINGLE: "single",
   PERIOD: "period",
 } as const;

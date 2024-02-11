@@ -4,15 +4,17 @@ import DropdownItems from "../DropdownItems";
 import DropdownTrigger from "../DropdownTrigger";
 
 export interface DropdownProps {
-  className?: string,
-  trigger: React.ReactNode,
-  content: React.ReactNode,
+  className?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+  trigger: React.ReactNode;
+  content: React.ReactNode;
 }
 
-export type DropdownContextValue = {
+export interface DropdownContextValue extends Pick<DropdownProps, "readOnly" | "disabled"> {
   isToggle: boolean;
   setIsToggle: Dispatch<SetStateAction<boolean>>;
-};
+}
 
 export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {}
 
@@ -22,7 +24,7 @@ export interface DropdownItemsProps extends HTMLAttributes<HTMLUListElement>{
 
 export interface DropdownTriggerProps extends Omit<HTMLAttributes<HTMLButtonElement>, "children"> {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  children: React.ReactNode | ((props: { isToggle: boolean }) => React.ReactNode);
+  children: React.ReactNode | ((props: Pick<DropdownContextValue, "isToggle" | "readOnly" | "disabled">) => React.ReactNode);
 }
 
 type Dropdown = (props: DropdownProps) => React.ReactElement;
