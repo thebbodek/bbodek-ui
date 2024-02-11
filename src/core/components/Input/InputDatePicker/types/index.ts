@@ -25,7 +25,7 @@ export interface ExternalDates {
 
 export interface InputDatePickerProps extends
   Omit<DatePickerProps, "isOpen"| "close" | "periodDates" | "setPeriodDates" | "setIsAfterAllDate">,
-  Pick<InputBaseProps<"div">, "feedback" | "feedbackColor"> {
+  Pick<InputBaseProps<"div">, "feedback" | "feedbackColor" | "disabled" | "readOnly"> {
     required?: boolean;
     inputClassName?: string;
     label?: string;

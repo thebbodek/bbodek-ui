@@ -13,6 +13,14 @@ const meta = {
     regCallback: {
       description: "Input RegEx",
     },
+    readOnly: {
+      control: "boolean",
+      description: "Input readOnly",
+    },
+    disabled: {
+      control: "boolean",
+      description: "Input disabled",
+    },
   },
 } satisfies Meta<typeof InputSearch>;
 

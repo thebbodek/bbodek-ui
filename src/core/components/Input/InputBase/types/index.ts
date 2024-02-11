@@ -15,6 +15,7 @@ export interface InputBaseProps<T extends React.ElementType> extends React.HTMLA
   borderColor?: ThemeColors;
   error?: boolean
   readOnly?: boolean;
+  disabled?: boolean;
   feedback?: React.ReactNode;
   feedbackColor?: ThemeColors;
 }

@@ -2,6 +2,7 @@ import { useEffect, useId, useState } from "react";
 
 import Button from "../../Button";
 import DatePickerCalendar from "../../Calendar/DatePickerCalendar";
+import { DATE_PICKER_TYPE } from "../../Calendar/DatePickerCalendar/constants";
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps";
 import Divider from "../../Divider";
 import ModalPopUp from "../../Modal/ModalPopUp";
@@ -10,7 +11,7 @@ import Typography from "../../Typography";
 import { DatePickerProps } from "./types";
 
 const DatePicker = ({
-  variants = "period",
+  variants = DATE_PICKER_TYPE["PERIOD"],
   cutoffDate,
   cutoffAfterDate,
   isOpen,

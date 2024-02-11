@@ -6,6 +6,7 @@ import { useCalendar } from "@/core/components/Calendar/common/hooks/useCalendar
 import { CalendarHeader } from "@/core/components/Calendar/common/subs/CalendarHeader";
 import { CalendarWeekDayComponent } from "@/core/components/Calendar/common/subs/CalendarWeekdayComponent";
 import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
+import { DATE_PICKER_TYPE } from "./constants";
 import { CalendarComponentDaySubText } from "./subs/CalendarComponentDaySubText";
 import { CalendarComponentDayText } from "./subs/CalendarComponentDayText";
 import { DatePickerCalendarProps, DatePickerType, PeriodDates } from "./types/DatePickerCalendarProps";
@@ -96,7 +97,7 @@ export const useDatePickerCalendar = ({ isFixStartDate }: Pick<DatePickerCalenda
 };
 
 const DatePickerCalendar = ({
-  variants = "single",
+  variants = DATE_PICKER_TYPE["SINGLE"],
   label = ["사용일"],
   initialDate,
   periodDates,

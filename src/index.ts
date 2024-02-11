@@ -3,7 +3,6 @@ export { default as BasicCalendar } from "@/core/components/Calendar/BasicCalend
 export { default as DatePickerCalendar } from "@/core/components/Calendar/DatePickerCalendar";
 export { default as ScheduleCalendar } from "@/core/components/Calendar/ScheduleCalendar";
 export { default as Checkbox } from "@/core/components/Checkbox";
-export { default as Demo } from "@/core/components/Demo";
 export { default as Divider } from "@/core/components/Divider";
 export { default as Drawer } from "@/core/components/Drawer";
 export { default as DropdownBase } from "@/core/components/Dropdown/DropdownBase";
@@ -32,9 +31,6 @@ export { default as ModalPopUp } from "@/core/components/Modal/ModalPopUp";
 export { default as ModalPortal } from "@/core/components/Modal/ModalPortal";
 export { default as Radio } from "@/core/components/Radio";
 export { default as Section } from "@/core/components/Section";
-export { default as SelectBubble } from "@/core/components/Select/SelectBubble/SelectBubble";
-export { default as SelectBubbleItem } from "@/core/components/Select/SelectBubble/SelectBubbleItem";
-export { default as SelectOnset } from "@/core/components/Select/SelectOnset/SelectOnset";
 export { default as GeneralTab } from "@/core/components/Tab/GeneralTab/GeneralTab";
 export { default as GeneralTabItem } from "@/core/components/Tab/GeneralTab/GeneralTabItem";
 export { default as TableTab } from "@/core/components/Tab/TableTab/TableTab";

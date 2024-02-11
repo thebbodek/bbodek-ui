@@ -12,7 +12,7 @@
   }
 
   .bbodek-field {
-    @apply flex-1 text-gray-08 placeholder:text-gray-05 bg-white outline-none;
+    @apply flex-1 text-gray-08 placeholder:text-gray-05 disabled:text-gray-05 read-only:text-gray-05 bg-transparent outline-none;
   }
 }
 

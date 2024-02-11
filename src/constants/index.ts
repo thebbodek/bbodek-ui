@@ -1,6 +1,7 @@
 export const ColorOptions = [
   "white",
   "black",
+  "gray-09",
   "gray-08",
   "gray-07",
   "gray-06",
