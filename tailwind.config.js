@@ -30,6 +30,7 @@ export default {
         error: "#FF5260",
         warning: "#FFBB6A",
         success: "#79D4B4",
+        transparent: "transparent",
       },
       fontSize: {
         "head-01-regular": [

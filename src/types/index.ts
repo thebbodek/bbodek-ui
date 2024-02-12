@@ -5,7 +5,7 @@ export type ThemeColors =
   "gray-01" | "gray-00" | "primary-06" |
   "primary-05" | "primary-04" | "primary-03" |
   "primary-02" | "primary-01" | "primary-00" |
-  "error" | "warning" | "success";
+  "error" | "warning" | "success" | "transparent";
 
 export type ThemeTypography =
 "head-01-regular" | "head-01-medium" | "head-01-bold" |

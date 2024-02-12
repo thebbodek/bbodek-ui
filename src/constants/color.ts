@@ -21,6 +21,7 @@ export const THEME_COLOR = {
   ERROR: "error",
   WARNING: "warning",
   SUCCESS: "success",
+  TRANSPARENT: "transparent",
 };
 
 export const ColorOptions = Object.keys(THEME_COLOR).map(color => THEME_COLOR[color as keyof typeof THEME_COLOR]);

@@ -21,6 +21,7 @@ export const ColorOptions = [
   "error",
   "warning",
   "success",
+  "transparent",
 ];
 
 export const TypographyOptions = [
