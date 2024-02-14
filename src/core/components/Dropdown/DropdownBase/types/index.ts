@@ -1,3 +1,4 @@
+import { ThemeColors } from "@/types";
 import { Dispatch, HTMLAttributes, SetStateAction } from "react";
 import DropdownItem from "../DropdownItem";
 import DropdownItems from "../DropdownItems";
@@ -9,6 +10,8 @@ export interface DropdownProps {
   readOnly?: boolean;
   trigger: React.ReactNode;
   content: React.ReactNode;
+  feedback?: React.ReactNode;
+  feedbackColor?: ThemeColors;
 }
 
 export interface DropdownContextValue extends Pick<DropdownProps, "readOnly" | "disabled"> {

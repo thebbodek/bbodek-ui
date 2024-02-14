@@ -25,7 +25,7 @@ const DropdownSelectTrigger = forwardRef((
         return (
           <>
             <Typography theme = "subhead-02-regular" className = {clsx(isDisabled && "mr-[1.75rem]")} color = {(!isDisabled && !showPlaceholder) ? "gray-08" : "gray-05"} text = {currentValue ? currentValue : (placeholder ?? "")}/>
-            {!isDisabled ? <CaretDown size = "28" className = {clsx("text-gray-06", isVisibleContent ? "rotate-180" : "rotate-0")} weight = "fill"/> : null}
+            {!isDisabled ? <CaretDown size = "24" className = {clsx("text-gray-06", isVisibleContent ? "rotate-180" : "rotate-0")} weight = "fill"/> : null}
           </>
         );
       }}
