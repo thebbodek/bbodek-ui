@@ -48,7 +48,7 @@ export const CalendarComponentDayText = ({
           isExceptionDate && "bg-gray-05",
           isMarkedPeriod && "w-full bg-primary-00 rounded-none",
           isActiveDate && disabled && "bg-primary-01",
-          disabled && "!text-[#1018284d]",
+          !isExceptionDate && disabled && "!text-[#1018284d]",
         )}
       >
         {calendarDate.dayjs.date()}
