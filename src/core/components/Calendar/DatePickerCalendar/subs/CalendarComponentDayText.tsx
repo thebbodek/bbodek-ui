@@ -8,7 +8,8 @@ interface CalendarComponentDayTextProps {
   afterAllDate: boolean;
   periodDates: PeriodDates;
   periodDateArray?: string[];
-  disabled: boolean
+  disabled: boolean;
+  isExceptionDate: boolean;
 }
 
 export const CalendarComponentDayText = ({
@@ -16,6 +17,7 @@ export const CalendarComponentDayText = ({
   afterAllDate,
   periodDates,
   periodDateArray,
+  isExceptionDate,
   disabled,
 }: CalendarComponentDayTextProps) => {
   const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
@@ -23,6 +25,13 @@ export const CalendarComponentDayText = ({
   const isStartDate = isPeriod && (periodDates.startDate !== periodDates.endDate) && periodDates.startDate === currentDate;
   const isEndDate = isPeriod && (periodDates.startDate !== periodDates.endDate) && periodDates.endDate === currentDate;
   const singleSelectedDate = ((periodDates.startDate && !periodDates.endDate) || (periodDates.startDate === periodDates.endDate)) && currentDate === periodDates.startDate;
+
+  const MARKED_CIRCLE_SIZE = "2.375rem";
+  const MARKED_CIRCLE_WIDTH = `w-[${MARKED_CIRCLE_SIZE}]`;
+  const MARKED_CIRCLE_HEIGHT = `h-[${MARKED_CIRCLE_SIZE}]`;
+  const isActiveDate = isStartDate || isEndDate || singleSelectedDate;
+  const isMarkedDate = isActiveDate || calendarDate.isToday || isExceptionDate;
+  const isMarkedPeriod = ((periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate)));
 
   return (
     <div
@@ -34,13 +43,16 @@ export const CalendarComponentDayText = ({
         },
     )}>
       <div
-        className = {clsx("relative z-20 flex justify-center items-center h-[2.375rem] leading-none text-body-01-bold text-black",
+        className = {clsx("relative z-20 flex justify-center items-center leading-none text-body-01-bold text-black",
+          MARKED_CIRCLE_HEIGHT,
           {
-            "rounded-full w-[2.375rem] bg-primary-03 !text-white": isStartDate || isEndDate || singleSelectedDate,
-            "bg-gray-03 text-white rounded-full w-[2.375rem]": calendarDate.isToday,
-            "w-full bg-primary-00 rounded-none": ((periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate))),
-            "!bg-primary-01": (isStartDate || isEndDate || singleSelectedDate) && disabled,
-            "!text-[#1018284d]": disabled,
+            [`rounded-full ${MARKED_CIRCLE_WIDTH} text-white`]: isMarkedDate,
+            ["bg-primary-03"]: isActiveDate,
+            ["bg-gray-03"]: calendarDate.isToday,
+            ["bg-gray-05"]: isExceptionDate,
+            "w-full bg-primary-00 rounded-none": isMarkedPeriod,
+            "bg-primary-01": isActiveDate && disabled,
+            "text-[#1018284d]": disabled,
           },
         )}
       >

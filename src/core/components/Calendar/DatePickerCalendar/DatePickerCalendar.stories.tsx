@@ -38,8 +38,8 @@ export const SingleDatePicker = () => {
 
 export const PeriodDatesPicker = () => {
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
-    startDate: "2024-01-19",
-    endDate: "2024-01-25",
+    startDate: "2024-01-24",
+    endDate: "2024-01-26",
   });
 
   const onDateClick = (date: PeriodDates) => {

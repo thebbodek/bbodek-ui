@@ -100,6 +100,7 @@ const DatePickerCalendar = ({
   variants = DATE_PICKER_TYPE["SINGLE"],
   label = ["사용일"],
   initialDate,
+  exceptionDay,
   periodDates,
   disabledDates,
   cutoffDate,
@@ -110,6 +111,7 @@ const DatePickerCalendar = ({
   useHoliday = false,
   onDateClick,
 }: DatePickerCalendarProps) => {
+  const { date: exceptionDate = "", label: exceptionLabel = "" } = exceptionDay ?? {};
   const { models: commonModels, operations: commonOperations } = useCalendar(initialDate ? dayjs(initialDate): dayjs());
   const { models, operations } = useDatePickerCalendar({ isFixStartDate });
 
@@ -157,6 +159,8 @@ const DatePickerCalendar = ({
           <div key = {index} className = {clsx("grid grid-cols-7")}>
             {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => {
               const disabled = (!useHoliday && calendarDate.isHoliday) || !calendarDate.isThisMonth || disabledDates?.includes(calendarDate.dayjs.format("YYYY-MM-DD")) || isCutoffDateValidation({ cutoffDate, cutoffAfterDate, calendarDate: calendarDate.dayjs.format("YYYY-MM-DD") });
+              const currentDate = calendarDate.dayjs.format("YYYY-MM-DD");
+              const isExceptionDate = exceptionDay ? exceptionDate === currentDate : false;
 
               return (
                 <div key = {index} className = {clsx("h-[3.75rem]")}>
@@ -182,10 +186,13 @@ const DatePickerCalendar = ({
                         periodDates = {models.periodDates}
                         periodDateArray = {models.periodDateArray}
                         afterAllDate = {afterAllDate}
+                        isExceptionDate = {isExceptionDate}
                       />
                       <CalendarComponentDaySubText
                         calendarDate = {calendarDate}
                         periodDates = {models.periodDates}
+                        isExceptionDate = {isExceptionDate}
+                        exceptionDateLabel = {exceptionLabel}
                         label = {label}
                       />
                     </div>
