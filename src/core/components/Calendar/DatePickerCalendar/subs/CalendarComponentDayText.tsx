@@ -26,9 +26,6 @@ export const CalendarComponentDayText = ({
   const isEndDate = isPeriod && (periodDates.startDate !== periodDates.endDate) && periodDates.endDate === currentDate;
   const singleSelectedDate = ((periodDates.startDate && !periodDates.endDate) || (periodDates.startDate === periodDates.endDate)) && currentDate === periodDates.startDate;
 
-  const MARKED_CIRCLE_SIZE = "2.375rem";
-  const MARKED_CIRCLE_WIDTH = `w-[${MARKED_CIRCLE_SIZE}]`;
-  const MARKED_CIRCLE_HEIGHT = `h-[${MARKED_CIRCLE_SIZE}]`;
   const isActiveDate = isStartDate || isEndDate || singleSelectedDate;
   const isMarkedDate = isActiveDate || calendarDate.isToday || isExceptionDate;
   const isMarkedPeriod = ((periodDateArray?.slice(1, -1).includes(currentDate)) || (afterAllDate && calendarDate.dayjs.isAfter(periodDates.startDate)));
@@ -43,17 +40,15 @@ export const CalendarComponentDayText = ({
         },
     )}>
       <div
-        className = {clsx("relative z-20 flex justify-center items-center leading-none text-body-01-bold text-black",
-          MARKED_CIRCLE_HEIGHT,
-          {
-            [`rounded-full ${MARKED_CIRCLE_WIDTH} text-white`]: isMarkedDate,
-            ["bg-primary-03"]: isActiveDate,
-            ["bg-gray-03"]: calendarDate.isToday,
-            ["bg-gray-05"]: isExceptionDate,
-            "w-full bg-primary-00 rounded-none": isMarkedPeriod,
-            "bg-primary-01": isActiveDate && disabled,
-            "text-[#1018284d]": disabled,
-          },
+        className = {clsx(
+          "relative z-20 flex justify-center items-center leading-none text-body-01-bold text-black h-[2.375rem]",
+          isMarkedDate && "rounded-full w-[2.375rem] text-white",
+          isActiveDate && "bg-primary-03",
+          calendarDate.isToday && "bg-gray-03 w-[2.375rem]",
+          isExceptionDate && "bg-gray-05",
+          isMarkedPeriod && "w-full bg-primary-00 rounded-none",
+          isActiveDate && disabled && "bg-primary-01",
+          disabled && "!text-[#1018284d]",
         )}
       >
         {calendarDate.dayjs.date()}
