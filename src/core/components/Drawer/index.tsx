@@ -1,7 +1,8 @@
+import { X } from "@phosphor-icons/react";
 import clsx from "clsx";
 import { PropsWithChildren, forwardRef } from "react";
 
-import { X } from "@phosphor-icons/react";
+import { useBlockScrollingEffect } from "@/hooks/effects/useBlockScrollingEffect";
 import ModalBase from "../Modal/ModalBase";
 import Section from "../Section";
 import Typography from "../Typography";
@@ -13,6 +14,7 @@ const Drawer = forwardRef((
       titleSub,
       onClose,
       children,
+      isOpen,
       ...props
      }: PropsWithChildren<DrawerProps>,
      ref: React.Ref<HTMLDialogElement>,
@@ -20,11 +22,14 @@ const Drawer = forwardRef((
   const { target, className, ...rest } = props;
   const CloseIcon = <X size = "32" fill = "#343330"/>;
 
+  useBlockScrollingEffect(isOpen);
+
   return (
     <ModalBase
       target = {target ?? "drawer"}
       ref = {ref}
       variants = {"drawer"}
+      isOpen = {isOpen}
       {...rest}
     >
       <Section

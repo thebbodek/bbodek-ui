@@ -9,7 +9,7 @@ export const VARIANTS = {
 export const MODAL_CONTENT_POSITION: Record<VariantsType, string> = {
   [VARIANTS.MODAL]: "fixed flex items-center justify-center z-50",
   [VARIANTS.DRAWER]: "flex justify-end z-40",
-  [VARIANTS.BOTTOM_SHEET]: "flex justify-center items-end",
+  [VARIANTS.BOTTOM_SHEET]: "fixed flex justify-center items-end z-50",
 } as const;
 
 export const MODAL_DIMMED_COLOR: Record<VariantsType, string> = {

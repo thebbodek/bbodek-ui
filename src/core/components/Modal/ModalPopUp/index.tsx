@@ -4,6 +4,7 @@ import { PropsWithChildren, forwardRef } from "react";
 import { useBlockScrollingEffect } from "@/hooks/effects/useBlockScrollingEffect";
 import Section from "../../Section";
 import ModalBase from "../ModalBase";
+import { VARIANTS } from "../ModalBase/constants";
 import { ModalPopUpProps } from "./types";
 
 const ModalPopUp = forwardRef((
@@ -22,7 +23,7 @@ const ModalPopUp = forwardRef((
     <ModalBase
       target = {target ?? "modal"}
       ref = {ref}
-      variants = "modal"
+      variants = {VARIANTS["MODAL"]}
       isOpen = {isOpen}
       {...rest}
     >
