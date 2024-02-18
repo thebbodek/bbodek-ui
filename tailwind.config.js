@@ -188,6 +188,7 @@ export default {
         "fade-in": "fade-in .2s cubic-bezier(0, 0, 0.5, 1)",
         popup: "popup .2s cubic-bezier(0, 0, 0.5, 1)",
         drawer: "drawer .2s cubic-bezier(0, 0, 0.5, 1)",
+        "bottom-sheet": "bottom-sheet .2s cubic-bezier(0, 0, 0.5, 1)",
       },
       borderRadius: {
         default: "1.25rem",
@@ -206,6 +207,10 @@ export default {
         },
         drawer: {
           "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "bottom-sheet": {
+          "0%": { transform: "translateY(100%)" },
           "100%": { transform: "translateY(0)" },
         },
       },
