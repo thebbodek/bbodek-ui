@@ -42,7 +42,7 @@ export const CalendarComponentDayText = ({
       <div
         className = {clsx(
           "relative z-20 flex justify-center items-center leading-none text-body-01-bold text-black h-[2.375rem]",
-          isMarkedDate && "rounded-full w-[2.375rem] text-white",
+          isMarkedDate && "rounded-full w-[2.375rem] !text-white",
           isActiveDate && "bg-primary-03",
           calendarDate.isToday && "bg-gray-03 w-[2.375rem]",
           isExceptionDate && "bg-gray-05",
