@@ -2,27 +2,27 @@ import { PropsWithChildren, useId } from "react";
 import { PlacesType, Tooltip as ReactToolTip } from "react-tooltip";
 
 interface TooltipProps {
-    tooltipContentText: string;
-    placement?: PlacesType;
+  tooltipContentText: string;
+  placement?: PlacesType;
+  className?: string;
 }
 export default function Tooltip({
-    tooltipContentText,
-    placement = "top",
-    children,
-  }: PropsWithChildren<TooltipProps>) {
+  tooltipContentText,
+  placement = "top",
+  className = "!bg-primary-03 !rounded-lg",
+  children,
+}: PropsWithChildren<TooltipProps>) {
   const id = useId();
-  return(
+  return (
     <>
-      <a
-        data-tooltip-id = {id}
-        data-tooltip-content = {tooltipContentText}
-      >
+      <a data-tooltip-id = {id} data-tooltip-content = {tooltipContentText}>
         {children}
       </a>
       <ReactToolTip
         id = {id}
         place = {placement}
-        className = "!text-gray-07 !bg-primary-01 !rounded-lg"
+        className = {className}
+        style = {{ zIndex: 10 }}
       />
     </>
   );
