@@ -22,7 +22,6 @@ export default function Tooltip({
         id = {id}
         place = {placement}
         className = {className}
-        style = {{ zIndex: 10 }}
       />
     </>
   );
