@@ -129,7 +129,7 @@ const DatePickerCalendar = ({
     };
 
     onRender?.(renderDates);
-  }, [ commonModels.calendarDates, onRender ]);
+  }, [commonModels.calendarDates]);
 
   useEffect(() => {
     if (periodDates.startDate) {
