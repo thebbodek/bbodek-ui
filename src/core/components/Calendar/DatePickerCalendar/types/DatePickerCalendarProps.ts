@@ -24,5 +24,6 @@ export interface DatePickerCalendarProps extends Pick<CalendarHeaderProps, "mont
   cutoffAfterDate?: string;
   disabled?: boolean;
   useHoliday?: boolean;
+  onRender?: (renderDates: PeriodDates) => void;
   onDateClick: (periodDates: PeriodDates, afterAllDate?: boolean) => void;
 }

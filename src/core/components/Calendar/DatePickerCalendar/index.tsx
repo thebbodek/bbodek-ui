@@ -109,11 +109,27 @@ const DatePickerCalendar = ({
   monthButtonStatus,
   isFixStartDate = false,
   useHoliday = false,
+  onRender,
   onDateClick,
 }: DatePickerCalendarProps) => {
   const { date: exceptionDate = "", label: exceptionLabel = "" } = exceptionDay ?? {};
   const { models: commonModels, operations: commonOperations } = useCalendar(initialDate ? dayjs(initialDate): dayjs());
   const { models, operations } = useDatePickerCalendar({ isFixStartDate });
+
+  useEffect(() => {
+    if (!onRender || commonModels.calendarDates.length <= 0) {
+      return;
+    }
+
+    const calenderDatesEndWeek = commonModels.calendarDates[commonModels.calendarDates.length - 1];
+    const calenderDatesEndWeekEndDay = calenderDatesEndWeek[calenderDatesEndWeek.length - 1];
+    const renderDates: PeriodDates = {
+      startDate: commonModels.calendarDates[0][0]?.dayjs.format("YYYY-MM-DD"),
+      endDate: calenderDatesEndWeekEndDay?.dayjs.format("YYYY-MM-DD"),
+    };
+
+    onRender?.(renderDates);
+  }, [ commonModels.calendarDates, onRender ]);
 
   useEffect(() => {
     if (periodDates.startDate) {
