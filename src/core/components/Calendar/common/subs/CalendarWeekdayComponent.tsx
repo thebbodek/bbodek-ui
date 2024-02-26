@@ -13,7 +13,7 @@ export const CalendarWeekDayComponent = ({ className }: { className?: string }) 
   return (
     <div className = {clsx("grid grid-cols-7 min-w-full w-full justify-center items-center text-center", className)}>
       {Object.values(Weekdays).map(weekdayNumber => (
-        <Typography element = "strong" className = "bg-white" key = {weekdayNumber} text = {convertWeekdayNumberToString(weekdayNumber)} theme = "body-02-regular" color = "gray-07" />
+        <Typography element = "strong" key = {weekdayNumber} text = {convertWeekdayNumberToString(weekdayNumber)} theme = "body-02-regular" color = "gray-07" />
       ))}
     </div>
   );
