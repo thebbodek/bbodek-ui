@@ -1,19 +1,23 @@
-import React, { createContext } from "react";
 import clsx from "clsx";
+import { createContext, forwardRef, Ref } from "react";
 
-import { TableContainerProps } from "./types";
-import { ThemeType } from "./types";
 import { THEME } from "./constants";
+import { TableContainerProps, ThemeType } from "./types";
 
 export const TableThemeContext = createContext<{ theme: ThemeType }>({ theme: THEME.WHITE });
-const TableContainer = ({
-  children,
-  theme = "white",
-  className,
-}: TableContainerProps) => {
+
+const TableContainer = forwardRef((
+  {
+    children,
+    theme = "white",
+    className,
+  }: TableContainerProps,
+  ref: Ref<HTMLDivElement>,
+) => {
   return (
     <TableThemeContext.Provider value = {{ theme }}>
       <div
+        ref = {ref}
         className = {clsx(
           "w-full overflow-x-auto",
           className,
@@ -23,6 +27,6 @@ const TableContainer = ({
       </div>
     </TableThemeContext.Provider>
   );
-};
+});
 
 export default TableContainer;

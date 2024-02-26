@@ -1,18 +1,22 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, Ref, forwardRef } from "react";
 
-const TableHead = ({
-  children,
-  className,
-  ...props
-}: PropsWithChildren<React.HTMLAttributes<HTMLTableSectionElement>>) => {
+const TableHead = forwardRef((
+  {
+    children,
+    className,
+    ...props
+  }: PropsWithChildren<React.HTMLAttributes<HTMLTableSectionElement>>,
+  ref: Ref<HTMLTableSectionElement>,
+) => {
   return (
     <thead
+      ref = {ref}
       className = {className}
       {...props}
     >
       {children}
     </thead>
   );
-};
+});
 
 export default TableHead;
