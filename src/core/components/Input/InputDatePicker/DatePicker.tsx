@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from "react";
 
+import clsx from "clsx";
 import Button from "../../Button";
 import DatePickerCalendar from "../../Calendar/DatePickerCalendar";
 import { DATE_PICKER_TYPE } from "../../Calendar/DatePickerCalendar/constants";
@@ -25,6 +26,7 @@ const DatePicker = ({
   useHoliday = false,
   closeButtonText = "닫기",
   dateLabel,
+  hasDatePickerTitle = true,
 }: DatePickerProps) => {
   const id = useId();
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
@@ -67,11 +69,19 @@ const DatePicker = ({
 
   return (
     <ModalPopUp isOpen = {isOpen}>
-      <div className = {"w-[35.5rem] pt-8 rounded-xl bg-white"}>
-        <div className = 'px-6'>
-          <div className = "px-5 mb-6">
-            <Typography className = "mb-6" element = 'h6' text = '날짜 선택' theme = 'subhead-01-bold' />
-            {useTab && <GeneralTab items = {tabItems} />}
+      <div
+        className = {clsx("min-w-[20rem] w-[calc(100vw-1rem)] max-w-[30rem] pt-6 md:pt-8 rounded-xl bg-white", { "pt-4 md:pt-6 max-w-[35rem]": useTab })}>
+        <div className = 'px-2 pb-2'>
+          <div className = "px-2 md:px-5">
+            {hasDatePickerTitle &&
+              <Typography element = 'h6' text = '날짜 선택' className = "!text-body-02-bold md:!text-subhead-01-bold md:mb-2"/>
+            }
+            {useTab &&
+              <GeneralTab
+                items = {tabItems}
+                className = "[&_span]:text-body-03-bold md:[&_span]:text-subhead-02-bold md:[&_span]:p-2 [&_span]:p-1.5 !p-1.5 md:!p-2 !rounded-lg [&_li]:rounded-lg mb-6 md:mb-8"
+                />
+              }
           </div>
           <DatePickerCalendar
             isFixStartDate = {isFixStartDate}
@@ -89,12 +99,12 @@ const DatePicker = ({
           />
         </div>
         <Divider className = "mt-5" />
-        <div className = 'flex py-5 px-6'>
+        <div className = 'flex py-3 md:py-5 px-4 md:px-6'>
           <Button
             backgroundColor = 'white'
             color = 'gray-06'
             content = {closeButtonText}
-            size = 'h-60'
+            size = 'h-52'
             rounded = 'rounded-12'
             className = 'w-full border'
             onClick = {handleClose}

@@ -179,7 +179,7 @@ const DatePickerCalendar = ({
               const isExceptionDate = exceptionDay ? exceptionDate === currentDate : false;
 
               return (
-                <div key = {index} className = {clsx("h-[3.75rem]")}>
+                <div key = {index} className = {"h-[3rem] md:h-[3.75rem]"}>
                   <button
                     type = "button"
                     className = {"w-full h-full"}

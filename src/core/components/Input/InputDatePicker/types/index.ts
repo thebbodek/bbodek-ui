@@ -10,6 +10,7 @@ export interface DatePickerProps extends Pick<DatePickerCalendarProps, "useHolid
   close: DatePickerCalendarProps["onDateClick"];
   useTab?: boolean;
   dateLabel?: DatePickerCalendarProps["label"];
+  hasDatePickerTitle?: boolean;
 }
 
 type CreateOverlayElement = (props: {
@@ -25,12 +26,10 @@ export interface ExternalDates {
 
 export interface InputDatePickerProps extends
   Omit<DatePickerProps, "isOpen"| "close" | "periodDates" | "setPeriodDates" | "setIsAfterAllDate">,
-  Pick<InputBaseProps<"div">, "feedback" | "feedbackColor" | "disabled" | "readOnly"> {
-    required?: boolean;
+  Pick<InputBaseProps<"input">, "feedback" | "feedbackColor" | "disabled" | "readOnly" | "required"> {
     inputClassName?: string;
     label?: string;
     getPeriodDates: DatePickerCalendarProps["onDateClick"];
-    dateLabel?: DatePickerCalendarProps["label"];
     overlay: {
       open: (overlayElement: CreateOverlayElement) => void;
       close: () => void;

@@ -26,7 +26,7 @@ export const CalendarHeader = ({
       >
         <CaretLeft size = {24} className = {iconClassNames}/>
       </button>
-      <Typography className = "w-[7.5rem] text-center" color = "black" theme = "head-01-regular" text = {currentMonth} />
+      <Typography className = "text-center md:text-head-01-regular" color = "black" theme = "subhead-01-regular" text = {currentMonth} />
       <button
         type = "button"
         className = {buttonClassNames}

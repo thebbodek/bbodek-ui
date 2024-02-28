@@ -26,5 +26,5 @@ const TableTab = forwardRef((
 
 export default TableTab;
 
-TableTab.displayName = "TableTab";
 TableTab.Item = TableTabItem;
+TableTab.displayName = "TableTab";

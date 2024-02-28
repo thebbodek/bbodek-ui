@@ -33,6 +33,7 @@ const InputDatePicker = ({
   placeholder,
   feedback,
   feedbackColor,
+  hasDatePickerTitle,
 }: InputDatePickerProps & Omit<HTMLAttributes<HTMLInputElement>, "disabled" | "readOnly">) => {
   const id = useId();
   const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
@@ -47,6 +48,7 @@ const InputDatePicker = ({
     return new Promise(resolve => {
       overlay.open(({ isOpen, close }) => (
         <DatePicker
+          hasDatePickerTitle = {hasDatePickerTitle}
           isFixStartDate = {isFixStartDate}
           variants = {variants}
           disabled = {isDisabled}

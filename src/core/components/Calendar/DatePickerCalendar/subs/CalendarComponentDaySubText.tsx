@@ -32,7 +32,7 @@ export const CalendarComponentDaySubText = ({
 
   return (
     <div
-      className = {clsx("flex justify-center items-center text-sm font-light mt-0.5 z-10 whitespace-nowrap",
+      className = {clsx("flex justify-center items-center text-body-03-regular md:text-body-02-regular font-light mt-0.5 z-10 whitespace-nowrap",
         isActiveDate ? "text-[#007BC7]" : "text-black",
       )}
     >
