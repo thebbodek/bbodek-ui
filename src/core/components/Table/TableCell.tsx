@@ -1,18 +1,15 @@
 import clsx from "clsx";
-import React, { PropsWithChildren, forwardRef, useContext } from "react";
+import React, { PropsWithChildren, useContext } from "react";
 
 import { TableThemeContext } from "./TableContainer";
 import { TABLE_CELL_THEME } from "./constants";
 import { TableCellProps, TableCellType } from "./types";
 
-const TableCell = forwardRef(
-  <T extends TableCellType = "td">(
-  {
-    children,
-    element: Element,
-    ...props
-  }: PropsWithChildren<TableCellProps<T>> & React.ComponentPropsWithoutRef<T>,
-) => {
+const TableCell = <T extends TableCellType = "td">({
+  children,
+  element: Element,
+  ...props
+}: PropsWithChildren<TableCellProps<T>> & React.ComponentPropsWithoutRef<T>) => {
   const { theme } = useContext(TableThemeContext);
   const { className, ...rest } = props;
   const Component: React.ElementType = Element;
@@ -31,6 +28,6 @@ const TableCell = forwardRef(
       </Component>
     </>
   );
-});
+};
 
 export default TableCell;
