@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useId } from "react";
 
-import Typography from "../Typography";
+import FormLabel from "../FormLabel";
 import { ToggleProps } from "./types";
 
 const Toggle = ({
@@ -11,6 +11,8 @@ const Toggle = ({
   checked,
   disabled = false,
   reverse = false,
+  labelColor,
+  required,
 }: ToggleProps) => {
   const id = useId();
 
@@ -22,7 +24,7 @@ const Toggle = ({
         className,
       )}
     >
-      <Typography theme = 'body-02-bold' text = {label} />
+      <FormLabel label = {label} labelColor = {labelColor} required = {required} />
       <label htmlFor = {id}>
         <input
           id = {id}
