@@ -24,6 +24,10 @@ const meta = {
           control: "boolean",
           description: "Toggle Reverse",
         },
+        disabled: {
+          control: "boolean",
+          description: "Toggle Disabled",
+        },
     },
 } satisfies Meta<typeof Toggle>;
 

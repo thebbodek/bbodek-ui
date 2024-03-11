@@ -9,6 +9,7 @@ const Toggle = ({
   className,
   onChange,
   checked,
+  disabled = false,
   reverse = false,
 }: ToggleProps) => {
   const id = useId();
@@ -29,8 +30,9 @@ const Toggle = ({
           className = 'peer hidden'
           checked = {checked}
           onChange = {onChange}
+          disabled = {disabled}
         />
-        <div className = 'relative h-[2rem] w-[3.5rem] cursor-pointer rounded-full bg-gray-03 transition-all peer-checked:bg-primary-03 peer-checked:[&>.circle]:-left-[0.125rem] peer-checked:[&>.circle]:translate-x-full'>
+        <div className = 'relative h-[2rem] w-[3.5rem] cursor-pointer rounded-full bg-gray-03 transition-all peer-disabled:bg-gray-09 peer-checked:bg-primary-03 peer-checked:[&>.circle]:-left-[0.125rem] peer-checked:[&>.circle]:translate-x-full peer-disabled:cursor-not-allowed'>
           <div className = 'circle absolute left-[0.125rem] top-1/2 h-[1.75rem] w-[1.75rem] -translate-y-1/2 translate-x-0 transform rounded-full border border-solid border-gray-03 bg-white transition-all' />
         </div>
       </label>
