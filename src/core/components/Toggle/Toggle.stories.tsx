@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 
 import Toggle from "../Toggle/index";
-import { ToggleButtonProps } from "./types";
+import { ToggleProps } from "./types";
 
 const meta = {
     title: "core/Toggle",
@@ -29,7 +29,7 @@ const meta = {
 
 export default meta;
 
-export const Default = (props: ToggleButtonProps) => {
+export const Default = (props: ToggleProps) => {
   const { label, ...rest } = props;
 
   return <Toggle label = {label || "토글"} {...rest}/>;

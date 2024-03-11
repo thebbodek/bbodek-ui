@@ -1,4 +1,4 @@
-export interface ToggleButtonProps
+export interface ToggleProps
   extends Pick<
     React.InputHTMLAttributes<HTMLInputElement>,
     "onChange" | "className" | "checked"

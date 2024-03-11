@@ -2,15 +2,15 @@ import clsx from "clsx";
 import { useId } from "react";
 
 import Typography from "../Typography";
-import { ToggleButtonProps } from "./types";
+import { ToggleProps } from "./types";
 
-const ToggleButton = ({
+const Toggle = ({
   label,
   className,
   onChange,
   checked,
   reverse = false,
-}: ToggleButtonProps) => {
+}: ToggleProps) => {
   const id = useId();
 
   return (
@@ -38,4 +38,4 @@ const ToggleButton = ({
   );
 };
 
-export default ToggleButton;
+export default Toggle;

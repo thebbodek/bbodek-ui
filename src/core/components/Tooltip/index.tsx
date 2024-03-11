@@ -13,6 +13,7 @@ export default function Tooltip({
   children,
 }: PropsWithChildren<TooltipProps>) {
   const id = useId();
+
   return (
     <>
       <a data-tooltip-id = {id} data-tooltip-content = {tooltipContentText}>
