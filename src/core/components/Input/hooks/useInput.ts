@@ -10,18 +10,29 @@ export interface UseInputProps {
 }
 
 export const useInput = ({ value, regCallback, onChange, name }: UseInputProps) => {
+  const [ inputType, setInputType ] = useState<HTMLInputElement["type"]>("text");
   const [ inputValue, setInputValue ] = useState<UseInputProps["value"]>(value ?? "");
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    e.target.value = regCallback
-      ? regCallback(e.target.value)
-      : e.target.value;
-    setInputValue(e.target.value);
+    const { type, value: eventTargetValue } = e.target;
+    const eventType = type;
+    let eventValue = eventTargetValue;
+    const isDifferenceType = type !== inputType;
+
+    if(isDifferenceType) {
+      setInputType(eventType);
+    }
+
+    eventValue = regCallback
+      ? regCallback(eventValue)
+      : eventValue;
+    setInputValue(eventValue);
     onChange?.(e);
   };
 
   const onResetInputValue = () => {
-    setInputValue("");
+    const isNumberType = inputType === "number";
+    setInputValue(!isNumberType ? "" : "0");
 
     const event = {
       target: { value: "", name },
