@@ -16,17 +16,16 @@ export const useInput = ({ value, regCallback, onChange, name }: UseInputProps) 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { type, value: eventTargetValue } = e.target;
     const eventType = type;
-    let eventValue = eventTargetValue;
     const isDifferenceType = type !== inputType;
 
     if(isDifferenceType) {
       setInputType(eventType);
     }
 
-    eventValue = regCallback
-      ? regCallback(eventValue)
-      : eventValue;
-    setInputValue(eventValue);
+    e.target.value = regCallback
+      ? regCallback(eventTargetValue)
+      : e.target.value;
+    setInputValue(e.target.value);
     onChange?.(e);
   };
 
