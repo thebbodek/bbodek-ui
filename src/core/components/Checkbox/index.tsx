@@ -12,6 +12,7 @@ const Checkbox = forwardRef((
       svgSize = SVG_SIZE["SIZE_24"],
       isCircle = false,
       className,
+      disabled,
       ...props
     }: CheckboxProps,
     ref: React.ComponentPropsWithRef<"input">["ref"],
@@ -24,8 +25,12 @@ const Checkbox = forwardRef((
   const svg = !isCircle ? RectangleCheckbox : CircleCheckbox;
 
   return (
-    <label onClick = {(e: MouseEvent<HTMLLabelElement>) => e.stopPropagation()} htmlFor = {id} className = {clsx("cursor-pointer", label && "flex items-center gap-2.5", className)}>
-      <input ref = {ref} id = {id} type = "checkbox" className = "peer hidden" {...props}/>
+    <label
+      onClick = {(e: MouseEvent<HTMLLabelElement>) => e.stopPropagation()}
+      htmlFor = {id}
+      className = {clsx({ "flex items-center gap-2.5": label, "cursor-not-allowed": disabled, "cursor-pointer": !disabled }, className)}
+    >
+      <input ref = {ref} id = {id} type = "checkbox" className = "peer hidden" disabled = {disabled} {...props}/>
       <div className = {`${CHECKBOX_SVG_SIZE[svgSize]} [&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-primary-03`}>
         {svg}
       </div>
