@@ -1,17 +1,15 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { THEME_TYPOGRAPHY } from "@/constants/typography";
-import { LABEL_ROUNDED, LABEL_SIZE, LABEL_VARIANTS } from "./constants";
-import { LabelProps, ThemeType } from "./types";
+import { LABEL_SIZE, LABEL_VARIANTS } from "./constants";
+import { LabelProps } from "./types";
 
 const Label = forwardRef((
   {
     variants,
-    height,
-    theme = THEME_TYPOGRAPHY["BODY_01_BOLD"] as ThemeType,
-    rounded,
+    size,
     label,
+    icon,
     ...props
   }: LabelProps,
   ref: React.Ref<HTMLDivElement>,
@@ -23,15 +21,15 @@ const Label = forwardRef((
       ref = {ref}
       className = {
         clsx(
-          `flex items-center justify-center text-${theme}`,
+          "flex items-center gap-1 justify-center",
           LABEL_VARIANTS[variants],
-          LABEL_SIZE[height],
-          LABEL_ROUNDED[rounded],
+          LABEL_SIZE[size],
           className,
         )
       }
       {...rest}
     >
+      {icon && icon}
       {label}
     </div>
   );

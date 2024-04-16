@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/react";
 
+import { Info } from "@phosphor-icons/react";
 import Label from "./index";
 import { LabelProps } from "./types";
 
@@ -12,20 +13,10 @@ const meta = {
       options: [ "primary", "error", "border" ],
       description: "Label Variants",
     },
-    height: {
+    size: {
       control: "select",
-      options: [ "h-44", "h-40", "h-29" ],
-      description: "Label Height",
-    },
-    theme: {
-      control: "select",
-      options: [ "body-01-bold", "body-02-bold" ],
-      description: "Label Typography Theme",
-    },
-    rounded: {
-      control: "select",
-      options: [ "rounded-12", "rounded-8" ],
-      description: "Label Rounded Size",
+      options: [ "small", "medium", "large" ],
+      description: "Label Size",
     },
     label: {
       control: "text",
@@ -40,11 +31,9 @@ export const Primary = (props: LabelProps) => {
   return (
     <Label
       variants = {props.variants ?? "primary"}
-      height = {props.height ?? "h-44"}
-      rounded = {props.rounded ?? "rounded-12"}
-      label = {props.label ?? "Label"}
-      theme = {props.theme ?? "body-01-bold"}
-      className = "w-[15rem]"
+      size = "small"
+      label = {props.label ?? "label"}
+      icon = {<Info />}
     />
   );
 };
@@ -53,24 +42,40 @@ export const Error = (props: LabelProps) => {
   return (
     <Label
       variants = {props.variants ?? "error"}
-      height = {props.height ?? "h-44"}
-      rounded = {props.rounded ?? "rounded-12"}
-      label = {props.label ?? "Label"}
-      theme = {props.theme ?? "body-01-bold"}
-      className = "w-[15rem]"
+      size = "medium"
+      label = {props.label ?? "label"}
+      icon = {<Info />}
     />
   );
 };
 
-export const Border = (props: LabelProps) => {
+export const Success = (props: LabelProps) => {
   return (
     <Label
-      variants = {props.variants ?? "border"}
-      height = {props.height ?? "h-44"}
-      rounded = {props.rounded ?? "rounded-12"}
-      label = {props.label ?? "Label"}
-      theme = {props.theme ?? "body-01-bold"}
-      className = "w-[15rem]"
+      variants = {props.variants ?? "success"}
+      size = "large"
+      label = {props.label ?? "label"}
+      icon = {<Info />}
+    />
+  );
+};
+
+export const Warning = (props: LabelProps) => {
+  return (
+    <Label
+      variants = {props.variants ?? "warning"}
+      size = "small"
+      label = {props.label ?? "label"}
+    />
+  );
+};
+
+export const Secondary = (props: LabelProps) => {
+  return (
+    <Label
+      variants = {props.variants ?? "secondary"}
+      size = "small"
+      label = {props.label ?? "label"}
     />
   );
 };
