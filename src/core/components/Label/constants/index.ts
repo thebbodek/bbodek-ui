@@ -16,9 +16,9 @@ export const SIZE = {
 
 export const LABEL_VARIANTS: Record<VariantsType, string> = {
   [VARIANTS.PRIMARY]: "bg-primary-00 text-primary-03",
-  [VARIANTS.ERROR]: "bg-rose-100 text-rose-500",
-  [VARIANTS.WARNING]: "bg-amber-100 text-amber-500",
-  [VARIANTS.SUCCESS]: "bg-green-100 text-green-500",
+  [VARIANTS.ERROR]: "bg-rose-300 bg-opacity-20 text-rose-600",
+  [VARIANTS.WARNING]: "bg-amber-300 bg-opacity-20 text-amber-600",
+  [VARIANTS.SUCCESS]: "bg-green-300 bg-opacity-20 text-green-600",
   [VARIANTS.SECONDARY]: "bg-gray-02 text-gray-07",
 };
 
