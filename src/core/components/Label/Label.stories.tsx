@@ -30,6 +30,7 @@ export default meta;
 export const Primary = (props: LabelProps) => {
   return (
     <Label
+      element = "dt"
       variants = {props.variants ?? "primary"}
       size = "small"
       label = {props.label ?? "label"}
