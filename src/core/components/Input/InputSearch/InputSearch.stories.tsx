@@ -37,6 +37,7 @@ export const Default = () => {
         formSubmitHandler = {onSubmitHandler}
         onChange = {onChangeHandler}
         value = {currentValue}
+        rounded = "rounded-8"
         placeholder = "검색하기"
       />
     </div>

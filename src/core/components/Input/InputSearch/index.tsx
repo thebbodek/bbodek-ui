@@ -4,6 +4,7 @@ import { forwardRef, useId, useRef } from "react";
 import { useInput } from "@/core/components/Input/hooks/useInput";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import InputBase from "../InputBase";
+import { INPUT_SEARCH_ROUNDED } from "./constants";
 import { InputSearchProps } from "./types";
 
 const InputSearch = forwardRef((
@@ -11,6 +12,7 @@ const InputSearch = forwardRef((
       formSubmitHandler,
       regCallback,
       feedback,
+      rounded,
       ...props
     }: InputSearchProps,
     ref: React.ComponentPropsWithRef<"input">["ref"],
@@ -41,7 +43,10 @@ const InputSearch = forwardRef((
       readOnly = {readOnly}
       disabled = {disabled}
       rootClassName = {rootClassName}
-      inputRootClassName = {"flex items-center px-6 py-2 text-body-02-medium bg-white rounded-full overflow-hidden border border-gray-02"}
+      inputRootClassName = {clsx(
+        "flex items-center py-2 text-body-02-medium bg-white overflow-hidden border border-gray-02",
+        INPUT_SEARCH_ROUNDED[rounded],
+      )}
       onSubmit = {onSubmitHandler}
       inputComponent = {
         <input
