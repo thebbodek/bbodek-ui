@@ -1,10 +1,15 @@
 import { forwardRef } from "react";
+
+import { THEME_COLOR } from "@/constants/color";
+import { THEME_TYPOGRAPHY } from "@/constants/typography";
+import { ThemeColors, ThemeTypography } from "@/types";
 import Typography from "../Typography";
 import { FormLabelProps } from "./types";
 
 const FormLabel = forwardRef((
     {
-      labelColor = "gray-06",
+      labelTheme = THEME_TYPOGRAPHY["BODY_02_MEDIUM"] as ThemeTypography,
+      labelColor = THEME_COLOR["GRAY_06"] as ThemeColors,
       label,
       required,
       labelSubText,
@@ -12,7 +17,7 @@ const FormLabel = forwardRef((
     ref: React.Ref<HTMLDivElement>,
   ) => {
   return (
-    <div ref = {ref} className = {`flex text-${labelColor} text-body-02-medium`}>
+    <div ref = {ref} className = {`flex text-${labelColor} text-${labelTheme}`}>
       {label}
       {required && <span className = "ml-0.5 text-primary-03">*</span>}
       {labelSubText && <Typography className = "ml-3" theme = "body-02-regular" text = {labelSubText} color = "error"/>}
