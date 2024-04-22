@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import { OverlayProvider, useOverlay } from "@toss/use-overlay";
 import { useState } from "react";
 
-import Button from "../../Button";
+import Button from "../../Button/Button";
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps";
 import ModalPopUp from "../../Modal/ModalPopUp";
 import InputDatePicker from "./index";

@@ -1,7 +1,7 @@
 import { useEffect, useId, useState } from "react";
 
 import clsx from "clsx";
-import Button from "../../Button";
+import Button from "../../Button/Button";
 import DatePickerCalendar from "../../Calendar/DatePickerCalendar";
 import { DATE_PICKER_TYPE } from "../../Calendar/DatePickerCalendar/constants";
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps";

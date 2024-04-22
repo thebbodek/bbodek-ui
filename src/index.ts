@@ -1,5 +1,6 @@
 export { default as BottomSheet } from "@/core/components/BottomSheet";
-export { default as Button } from "@/core/components/Button";
+export { default as Button } from "@/core/components/Button/Button";
+export { default as ButtonIcon } from "@/core/components/Button/ButtonIcon";
 export { default as BasicCalendar } from "@/core/components/Calendar/BasicCalendar";
 export { default as DatePickerCalendar } from "@/core/components/Calendar/DatePickerCalendar";
 export { default as ScheduleCalendar } from "@/core/components/Calendar/ScheduleCalendar";

@@ -1,27 +1,24 @@
 import clsx from "clsx";
-import { forwardRef } from "react";
+import { PropsWithChildren, forwardRef } from "react";
 
 import { THEME_TYPOGRAPHY } from "@/constants/typography";
 import { BUTTON_GAP, BUTTON_ROUNDED, BUTTON_SIZE, GAP, ROUNDED, SIZE } from "./constants";
-import { ButtonProps, SizeType } from "./types";
+import { ButtonBaseProps, SizeType } from "./types";
 
-const Button = forwardRef(({
+const ButtonBase = forwardRef(({
   color,
   backgroundColor,
   size,
   gap = GAP["GAP_12"],
   rounded = ROUNDED["ROUNDED_12"],
+  hasIcon = false,
   borderColor,
-  leftIcon,
-  content,
-  rightIcon,
-  hasUnderline = false,
   disabled,
+  children,
   ...props
-}: ButtonProps,
+}: PropsWithChildren<ButtonBaseProps>,
 ref: React.Ref<HTMLButtonElement>,
 ) => {
-  const hasIcon = leftIcon || rightIcon;
   const { className, theme, ...rest } = props;
   const MINI_SIZES: SizeType[] = [ SIZE["SIZE_24"], SIZE["SIZE_20"] ];
   const isMiniSize = MINI_SIZES.includes(size);
@@ -45,11 +42,9 @@ ref: React.Ref<HTMLButtonElement>,
       disabled = {disabled}
       {...rest}
     >
-      {leftIcon && <div>{leftIcon}</div>}
-      <span className = {clsx(hasUnderline && "underline")}>{content}</span>
-      {rightIcon && <div>{rightIcon}</div>}
+      {children}
     </button>
   );
 });
 
-export default Button;
+export default ButtonBase;
