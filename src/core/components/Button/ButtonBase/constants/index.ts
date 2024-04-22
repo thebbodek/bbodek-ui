@@ -1,4 +1,4 @@
-import { GapType, RoundedType, SizeType } from "../types";
+import { ColorThemeType, GapType, RoundedType, SizeType } from "../types";
 
 export const SIZE = {
   SIZE_60: "h-60",
@@ -24,6 +24,16 @@ export const GAP = {
   GAP_8: "gap-8",
 } as const;
 
+export const COLOR_THEME = {
+  PRIMARY: "primary",
+  ERROR: "error",
+  WARNING: "warning",
+  SUCCESS: "success",
+  SECONDARY: "secondary",
+  GRAY: "gray",
+  WHITE: "white",
+} as const;
+
 export const BUTTON_SIZE: Record<SizeType, string> = {
   [SIZE.SIZE_60]: "h-[3.75rem]",
   [SIZE.SIZE_56]: "h-14",
@@ -46,4 +56,14 @@ export const BUTTON_GAP: Record<GapType, string> = {
   [GAP.GAP_12]: "gap-x-3",
   [GAP.GAP_10]: "gap-x-2.5",
   [GAP.GAP_8]: "gap-x-2",
+};
+
+export const BUTTON_COLOR_THEME: Record<ColorThemeType, string> = {
+  [COLOR_THEME["PRIMARY"]]: "bg-primary-03 text-white",
+  [COLOR_THEME["SECONDARY"]]: "text-primary-03 bg-primary-00",
+  [COLOR_THEME["ERROR"]]: "text-rose-600 bg-rose-300/20",
+  [COLOR_THEME["WARNING"]]: "text-amber-600 bg-amber-300/20",
+  [COLOR_THEME["SUCCESS"]]: "text-green-600 bg-green-300/20",
+  [COLOR_THEME["GRAY"]]: "text-gray-07 bg-gray-02",
+  [COLOR_THEME["WHITE"]]: "text-gray-06 bg-white border border-gray-03",
 };

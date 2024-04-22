@@ -1,9 +1,11 @@
 import { ButtonHTMLAttributes } from "react";
 
 import { ThemeColors, ThemeTypography } from "@/types";
-import { GAP, ROUNDED, SIZE } from "../constants";
+import { COLOR_THEME, GAP, ROUNDED, SIZE } from "../constants";
 
 export type ThemeType = Extract<ThemeTypography, "body-01-bold" | "body-02-bold" | "body-02-bold">;
+
+export type ColorThemeType = typeof COLOR_THEME[keyof typeof COLOR_THEME];
 
 export type SizeType = typeof SIZE[keyof typeof SIZE];
 
@@ -14,9 +16,10 @@ export type BorderColorType = Extract<ThemeColors, "gray-04" | "gray-03" | "gray
 export type GapType = typeof GAP[keyof typeof GAP];
 
 export interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  colorTheme?: ColorThemeType;
   theme?: ThemeType;
-  color: ThemeColors;
-  backgroundColor: ThemeColors;
+  color?: ThemeColors;
+  backgroundColor?: ThemeColors;
   size: SizeType;
   gap?: GapType;
   rounded?: RoundedType;

@@ -2,10 +2,11 @@ import clsx from "clsx";
 import { PropsWithChildren, forwardRef } from "react";
 
 import { THEME_TYPOGRAPHY } from "@/constants/typography";
-import { BUTTON_GAP, BUTTON_ROUNDED, BUTTON_SIZE, GAP, ROUNDED, SIZE } from "./constants";
+import { BUTTON_COLOR_THEME, BUTTON_GAP, BUTTON_ROUNDED, BUTTON_SIZE, GAP, ROUNDED, SIZE } from "./constants";
 import { ButtonBaseProps, SizeType } from "./types";
 
 const ButtonBase = forwardRef(({
+  colorTheme,
   color,
   backgroundColor,
   size,
@@ -31,8 +32,9 @@ ref: React.Ref<HTMLButtonElement>,
       className = {clsx(
         "flex items-center justify-center disabled:cursor-not-allowed disabled:text-white disabled:bg-gray-03 disabled:border-gray-03",
         `text-${theme ?? defaultButtonTheme}`,
-        `text-${color}`,
-        `bg-${backgroundColor}`,
+        !colorTheme && color && `text-${color}`,
+        !colorTheme && backgroundColor && `bg-${backgroundColor}`,
+        colorTheme && BUTTON_COLOR_THEME[colorTheme],
         BUTTON_SIZE[size],
         hasIcon && gap && BUTTON_GAP[gap],
         BUTTON_ROUNDED[rounded],
