@@ -3,12 +3,12 @@ import { Meta } from "@storybook/react";
 import { TypographyOptions } from "@/constants";
 import { ColorOptions } from "@/constants/color";
 import { ROUNDED, SIZE } from "../ButtonBase/constants";
-import { default as ButtonIcon } from "./index";
-import { ButtonIconProps } from "./types";
+import { default as IconButton } from "./index";
+import { IconButtonProps } from "./types";
 
 const meta = {
-  title: "core/Button/ButtonIcon",
-  component: ButtonIcon,
+  title: "core/Button/IconButton",
+  component: IconButton,
   argTypes: {
     theme: {
       control: "select",
@@ -51,15 +51,15 @@ const meta = {
       description: "Button With disabled",
     },
   },
-} satisfies Meta<typeof ButtonIcon>;
+} satisfies Meta<typeof IconButton>;
 
 export default meta;
 
-export const Default = (props: ButtonIconProps) => {
+export const Default = (props: IconButtonProps) => {
   const { theme, color, backgroundColor, size, icon, ...rest } = props;
 
   return (
-    <ButtonIcon
+    <IconButton
       theme = {theme}
       color = {color ?? "white"}
       backgroundColor = {backgroundColor ?? "primary-03"}

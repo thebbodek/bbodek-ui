@@ -3,13 +3,13 @@ import { forwardRef } from "react";
 import ButtonBase from "../ButtonBase";
 import { ROUNDED } from "../ButtonBase/constants";
 import { BUTTON_SIZE } from "./constants";
-import { ButtonIconProps } from "./types";
+import { IconButtonProps } from "./types";
 
-const ButtonIcon = forwardRef(({
+const IconButton = forwardRef(({
     icon,
     isCircle = false,
     ...props
-  }: ButtonIconProps,
+  }: IconButtonProps,
   ref: React.Ref<HTMLButtonElement>,
   ) => {
   const { rounded, size, className, ...rest } = props;
@@ -21,4 +21,4 @@ const ButtonIcon = forwardRef(({
   );
 });
 
-export default ButtonIcon;
+export default IconButton;
