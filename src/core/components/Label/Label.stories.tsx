@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/react";
 
+import { colorThemeOptions } from "@/constants/theme";
 import { Info } from "@phosphor-icons/react";
 import Label from "./index";
 import { LabelProps } from "./types";
@@ -8,10 +9,10 @@ const meta = {
   title: "core/Label",
   component: Label,
   argTypes: {
-    variants: {
+    colorTheme: {
       control: "select",
-      options: [ "primary", "error", "border" ],
-      description: "Label Variants",
+      options: colorThemeOptions,
+      description: "Label colorTheme",
     },
     size: {
       control: "select",
@@ -31,7 +32,7 @@ export const Primary = (props: LabelProps) => {
   return (
     <Label
       element = "dt"
-      variants = {props.variants ?? "primary"}
+      colorTheme = {props.colorTheme ?? "primary"}
       size = "small"
       label = {props.label ?? "label"}
       icon = {<Info />}
@@ -42,7 +43,7 @@ export const Primary = (props: LabelProps) => {
 export const Error = (props: LabelProps) => {
   return (
     <Label
-      variants = {props.variants ?? "error"}
+      colorTheme = {props.colorTheme ?? "error"}
       size = "medium"
       label = {props.label ?? "label"}
       icon = {<Info />}
@@ -53,7 +54,7 @@ export const Error = (props: LabelProps) => {
 export const Success = (props: LabelProps) => {
   return (
     <Label
-      variants = {props.variants ?? "success"}
+      colorTheme = {props.colorTheme ?? "success"}
       size = "large"
       label = {props.label ?? "label"}
       icon = {<Info />}
@@ -64,7 +65,7 @@ export const Success = (props: LabelProps) => {
 export const Warning = (props: LabelProps) => {
   return (
     <Label
-      variants = {props.variants ?? "warning"}
+      colorTheme = {props.colorTheme ?? "warning"}
       size = "small"
       label = {props.label ?? "label"}
     />
@@ -74,7 +75,7 @@ export const Warning = (props: LabelProps) => {
 export const Secondary = (props: LabelProps) => {
   return (
     <Label
-      variants = {props.variants ?? "secondary"}
+      colorTheme = {props.colorTheme ?? "secondary"}
       size = "small"
       label = {props.label ?? "label"}
     />

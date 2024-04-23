@@ -1,10 +1,11 @@
 import clsx from "clsx";
 
-import { LABEL_SIZE, LABEL_VARIANTS } from "./constants";
+import { COLOR_THEME_STYLES } from "@/constants/theme";
+import { LABEL_SIZE } from "./constants";
 import { LabelProps } from "./types";
 
 const Label = <T extends React.ElementType = "div">({
-  variants,
+  colorTheme,
   size,
   label,
   icon,
@@ -19,7 +20,7 @@ const Label = <T extends React.ElementType = "div">({
       className = {
         clsx(
           "flex items-center gap-1 justify-center",
-          LABEL_VARIANTS[variants],
+          COLOR_THEME_STYLES[colorTheme],
           LABEL_SIZE[size],
           className,
         )

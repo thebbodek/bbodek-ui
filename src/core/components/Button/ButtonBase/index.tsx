@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import { PropsWithChildren, forwardRef } from "react";
 
+import { COLOR_THEME_STYLES } from "@/constants/theme";
 import { THEME_TYPOGRAPHY } from "@/constants/typography";
-import { BUTTON_COLOR_THEME, BUTTON_GAP, BUTTON_ROUNDED, BUTTON_SIZE, GAP, ROUNDED, SIZE } from "./constants";
+import { BUTTON_GAP, BUTTON_ROUNDED, BUTTON_SIZE, GAP, ROUNDED, SIZE } from "./constants";
 import { ButtonBaseProps, SizeType } from "./types";
 
 const ButtonBase = forwardRef(({
@@ -34,7 +35,7 @@ ref: React.Ref<HTMLButtonElement>,
         `text-${theme ?? defaultButtonTheme}`,
         !colorTheme && color && `text-${color}`,
         !colorTheme && backgroundColor && `bg-${backgroundColor}`,
-        colorTheme && BUTTON_COLOR_THEME[colorTheme],
+        colorTheme && COLOR_THEME_STYLES[colorTheme],
         BUTTON_SIZE[size],
         hasIcon && gap && BUTTON_GAP[gap],
         BUTTON_ROUNDED[rounded],

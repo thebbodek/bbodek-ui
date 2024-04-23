@@ -1,14 +1,12 @@
-
-import { SIZE, VARIANTS } from "../constants";
-
-export type VariantsType = typeof VARIANTS[keyof typeof VARIANTS];
+import { ColorThemeType } from "@/types";
+import { SIZE } from "../constants";
 
 export type SizeType = typeof SIZE[keyof typeof SIZE];
 
 export interface LabelProps<T extends React.ElementType = "div">{
   element?: T;
-  variants: VariantsType
-  size: SizeType
-  label: string
-  icon?: React.ReactNode
+  colorTheme: ColorThemeType;
+  size: SizeType;
+  label: string;
+  icon?: React.ReactNode;
 }

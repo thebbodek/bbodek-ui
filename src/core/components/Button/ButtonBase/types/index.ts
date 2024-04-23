@@ -1,11 +1,9 @@
 import { ButtonHTMLAttributes } from "react";
 
-import { ThemeColors, ThemeTypography } from "@/types";
-import { COLOR_THEME, GAP, ROUNDED, SIZE } from "../constants";
+import { ColorThemeType, ThemeColors, ThemeTypography } from "@/types";
+import { GAP, ROUNDED, SIZE } from "../constants";
 
 export type ThemeType = Extract<ThemeTypography, "body-01-bold" | "body-02-bold" | "body-02-bold">;
-
-export type ColorThemeType = typeof COLOR_THEME[keyof typeof COLOR_THEME];
 
 export type SizeType = typeof SIZE[keyof typeof SIZE];
 

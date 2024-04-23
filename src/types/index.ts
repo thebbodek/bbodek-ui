@@ -1,3 +1,5 @@
+import { COLOR_THEME } from "@/constants/theme";
+
 export type ThemeColors =
   "white" | "black" | "gray-09" | "gray-08" |
   "gray-07" | "gray-06" | "gray-05" |
@@ -15,3 +17,5 @@ export type ThemeTypography =
 "body-01-regular" | "body-01-medium" | "body-01-bold" |
 "body-02-regular" | "body-02-medium" | "body-02-bold" |
 "body-03-regular" | "body-03-medium" | "body-03-bold";
+
+export type ColorThemeType = typeof COLOR_THEME[keyof typeof COLOR_THEME];
