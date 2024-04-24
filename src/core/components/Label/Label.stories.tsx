@@ -34,7 +34,7 @@ export const Primary = (props: LabelProps) => {
       element = "dt"
       colorTheme = {props.colorTheme ?? "primary"}
       size = "small"
-      label = {props.label ?? "label"}
+      label = {props.label ?? "small primary"}
       icon = {<Info />}
     />
   );
@@ -45,7 +45,7 @@ export const Error = (props: LabelProps) => {
     <Label
       colorTheme = {props.colorTheme ?? "error"}
       size = "medium"
-      label = {props.label ?? "label"}
+      label = {props.label ?? "medium error"}
       icon = {<Info />}
     />
   );
@@ -56,7 +56,7 @@ export const Success = (props: LabelProps) => {
     <Label
       colorTheme = {props.colorTheme ?? "success"}
       size = "large"
-      label = {props.label ?? "label"}
+      label = {props.label ?? "large success"}
       icon = {<Info />}
     />
   );
@@ -67,7 +67,7 @@ export const Warning = (props: LabelProps) => {
     <Label
       colorTheme = {props.colorTheme ?? "warning"}
       size = "small"
-      label = {props.label ?? "label"}
+      label = {<><span className = "max-w-[70px] truncate">small warning</span> 외 1개</>}
     />
   );
 };
@@ -77,7 +77,7 @@ export const Secondary = (props: LabelProps) => {
     <Label
       colorTheme = {props.colorTheme ?? "secondary"}
       size = "small"
-      label = {props.label ?? "label"}
+      label = {props.label ?? "small secondary"}
     />
   );
 };

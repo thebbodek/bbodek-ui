@@ -7,6 +7,6 @@ export interface LabelProps<T extends React.ElementType = "div">{
   element?: T;
   colorTheme: ColorThemeType;
   size: SizeType;
-  label: string;
+  label: React.ReactNode;
   icon?: React.ReactNode;
 }
