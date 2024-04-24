@@ -15,6 +15,7 @@ export const SIZE = {
 export const ROUNDED = {
   ROUNDED_FULL: "rounded-full",
   ROUNDED_12: "rounded-12",
+  ROUNDED_6: "rounded-6",
   ROUNDED_2: "rounded-2",
 } as const;
 
@@ -25,25 +26,26 @@ export const GAP = {
 } as const;
 
 export const BUTTON_SIZE: Record<SizeType, string> = {
-  [SIZE.SIZE_60]: "h-[3.75rem]",
-  [SIZE.SIZE_56]: "h-14",
-  [SIZE.SIZE_52]: "h-[3.25rem]",
-  [SIZE.SIZE_49]: "h-[3.0625rem]",
-  [SIZE.SIZE_48]: "h-12",
-  [SIZE.SIZE_40]: "h-10",
-  [SIZE.SIZE_29]: "h-[1.8125rem]",
-  [SIZE.SIZE_24]: "h-6",
-  [SIZE.SIZE_20]: "h-5",
+  [SIZE["SIZE_60"]]: "h-[3.75rem]",
+  [SIZE["SIZE_56"]]: "h-14",
+  [SIZE["SIZE_52"]]: "h-[3.25rem]",
+  [SIZE["SIZE_49"]]: "h-[3.0625rem]",
+  [SIZE["SIZE_48"]]: "h-12",
+  [SIZE["SIZE_40"]]: "h-10",
+  [SIZE["SIZE_29"]]: "h-[1.8125rem]",
+  [SIZE["SIZE_24"]]: "h-6",
+  [SIZE["SIZE_20"]]: "h-5",
 };
 
 export const BUTTON_ROUNDED: Record<RoundedType, string> = {
   [ROUNDED["ROUNDED_FULL"]]: "rounded-full",
-  [ROUNDED.ROUNDED_12]: "rounded-xl",
-  [ROUNDED.ROUNDED_2]: "rounded-sm",
+  [ROUNDED["ROUNDED_12"]]: "rounded-xl",
+  [ROUNDED["ROUNDED_6"]]: "rounded-md",
+  [ROUNDED["ROUNDED_2"]]: "rounded-sm",
 };
 
 export const BUTTON_GAP: Record<GapType, string> = {
-  [GAP.GAP_12]: "gap-x-3",
-  [GAP.GAP_10]: "gap-x-2.5",
-  [GAP.GAP_8]: "gap-x-2",
+  [GAP["GAP_12"]]: "gap-x-3",
+  [GAP["GAP_10"]]: "gap-x-2.5",
+  [GAP["GAP_8"]]: "gap-x-2",
 };
