@@ -1,34 +1,39 @@
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import clsx from "clsx";
-import { forwardRef, useId, useRef } from "react";
+import { useId, useRef } from "react";
 
 import { useInput } from "@/core/components/Input/hooks/useInput";
-import { MagnifyingGlass } from "@phosphor-icons/react";
 import InputBase from "../InputBase";
 import { INPUT_SEARCH_ROUNDED } from "./constants";
 import { InputSearchProps } from "./types";
 
-const InputSearch = forwardRef((
+const InputSearch = <T extends React.ElementType = "form">(
     {
       formSubmitHandler,
       regCallback,
       feedback,
       rounded,
+      rootElement,
       ...props
-    }: InputSearchProps,
-    ref: React.ComponentPropsWithRef<"input">["ref"],
+    }: InputSearchProps<T> & React.ComponentPropsWithoutRef<"input">,
   ) => {
   const id = useId();
-  const formRef = useRef<HTMLFormElement | null>(null);
+  const rootRef = useRef<T | null>(null);
   const { readOnly = false, disabled = false, rootClassName, className, value, onChange, autoComplete = "off", error = false, name, ...rest } = props;
   const { inputValue, onChangeHandler, onResetInputValue } = useInput({ value, regCallback, onChange, name });
-  const SearchIcon = <MagnifyingGlass size = "100%" fill = "#A9B2C7"/>;
+  const SearchIcon = <MagnifyingGlass size = "100%" className = "text-gray-05"/>;
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const el = rootRef.current;
+
     if(!formSubmitHandler) return;
 
-    formRef.current?.reset();
+    if (el instanceof HTMLFormElement) {
+      el.reset();
+    }
+
     onResetInputValue();
     formSubmitHandler(e);
   };
@@ -36,8 +41,8 @@ const InputSearch = forwardRef((
   return (
     <InputBase
       inputId = {id}
-      element = {"form"}
-      ref = {formRef}
+      element = {rootElement ?? "form"}
+      ref = {rootRef}
       error = {error}
       feedback = {feedback}
       readOnly = {readOnly}
@@ -50,7 +55,6 @@ const InputSearch = forwardRef((
       onSubmit = {onSubmitHandler}
       inputComponent = {
         <input
-          ref = {ref}
           id = {id}
           className = {clsx("bbodek-field", className)}
           type = "text"
@@ -73,7 +77,7 @@ const InputSearch = forwardRef((
       }
     />
   );
-});
+};
 
 InputSearch.displayName = "InputSearch";
 
