@@ -1,11 +1,11 @@
+import { CalendarBlank } from "@phosphor-icons/react";
+import clsx from "clsx";
 import { useEffect, useId, useState } from "react";
 
-import clsx from "clsx";
 import Button from "../../Button/Button";
 import DatePickerCalendar from "../../Calendar/DatePickerCalendar";
 import { DATE_PICKER_TYPE } from "../../Calendar/DatePickerCalendar/constants";
 import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps";
-import Divider from "../../Divider";
 import ModalPopUp from "../../Modal/ModalPopUp";
 import GeneralTab from "../../Tab/GeneralTab/GeneralTab";
 import Typography from "../../Typography";
@@ -37,7 +37,7 @@ const DatePicker = ({
   const [ isAfterAllDate, setIsAfterAllDate ] = useState(false);
   const tabData = [
     { key: "selectedDate", label: "선택한 기간만 적용" },
-    { key: "afterAllDate", label: "시작일부터 모든 날짜 적용" },
+    { key: "afterAllDate", label: "선택일부터 모든 날짜 적용" },
   ];
 
   const handleClose = () => {
@@ -69,20 +69,22 @@ const DatePicker = ({
 
   return (
     <ModalPopUp isOpen = {isOpen}>
-      <div
-        className = {clsx("min-w-[20rem] w-[calc(100vw-1rem)] max-w-[30rem] pt-6 md:pt-8 rounded-xl bg-white", { "pt-4 md:pt-6 max-w-[35rem]": useTab })}>
-        <div className = 'px-2 pb-2'>
-          <div className = "px-2 md:px-5">
-            {hasDatePickerTitle &&
-              <Typography element = 'h6' text = '날짜 선택' className = "!text-body-02-bold md:!text-subhead-01-bold md:mb-2"/>
-            }
-            {useTab &&
-              <GeneralTab
-                items = {tabItems}
-                className = "[&_span]:text-body-03-bold md:[&_span]:text-subhead-02-bold md:[&_span]:p-2 [&_span]:p-1.5 !p-1.5 md:!p-2 !rounded-lg [&_li]:rounded-lg mb-6 md:mb-8"
-                />
-              }
-          </div>
+      <div className = {clsx("min-w-[20rem] w-[calc(100vw-1rem)] max-w-[26rem] rounded-xl bg-white", { "max-w-[35rem]": useTab })}>
+        <header className = "p-4">
+          {hasDatePickerTitle &&
+            <div className = "flex gap-2 items-center">
+              <CalendarBlank className = "text-subhead-02-medium md:text-subhead-01-medium" />
+              <Typography element = 'h6' text = '날짜 선택' theme = "body-01-medium" className = "md:text-subhead-02-medium" />
+            </div>
+          }
+          {useTab &&
+            <GeneralTab
+              items = {tabItems}
+              className = "[&_span]:text-body-02-bold md:[&_span]:text-body-01-bold md:[&_span]:p-2 [&_span]:p-1.5 !p-1.5 md:p-2 !rounded-xl [&_li]:rounded-lg mt-3 md:mt-4"
+            />
+          }
+        </header>
+        <div className = {clsx("px-4 pb-2 md:pt-3 overflow-y-auto", useTab ? "pt-1 max-h-[calc(100vh-13rem)]" : "max-h-[calc(100vh-10rem)]")}>
           <DatePickerCalendar
             isFixStartDate = {isFixStartDate}
             variants = {variants}
@@ -98,15 +100,12 @@ const DatePicker = ({
             label = {dateLabel}
           />
         </div>
-        <Divider className = "mt-5" />
-        <div className = 'flex py-3 md:py-5 px-4 md:px-6'>
+        <div className = 'p-3 md:p-4 border-t'>
           <Button
-            backgroundColor = 'white'
-            color = 'gray-06'
             content = {closeButtonText}
             size = 'h-52'
-            rounded = 'rounded-12'
-            className = 'w-full border'
+            colorTheme = "white"
+            className = 'w-full'
             onClick = {handleClose}
           />
         </div>

@@ -162,15 +162,15 @@ const DatePickerCalendar = ({
   };
 
   return (
-    <div className = {"flex flex-col h-full w-full"}>
+    <div className = {"flex-v-stack h-full w-full"}>
       <CalendarHeader
         currentMonth = {commonModels.selectedDayjs.locale("ko").format("YYYY. MM")}
         onPreviousMonthClick = {commonOperations.onPreviousMonthClick}
         onNextMonthClick = {commonOperations.onNextMonthClick}
         monthButtonStatus = {monthButtonStatus}
       />
-      <CalendarWeekDayComponent />
-      <div className = {clsx("flex-v-stack gap-y-2 mt-4")}>
+      <CalendarWeekDayComponent className = "text-gray-06"/>
+      <div className = {clsx("grid flex-1 gap-y-2 mt-4")}>
         {commonModels.calendarDates.map((calendarWeekDates: CalendarDateDto[], index: number) => (
           <div key = {index} className = {clsx("grid grid-cols-7")}>
             {calendarWeekDates.map((calendarDate: CalendarDateDto, index: number) => {
@@ -179,7 +179,7 @@ const DatePickerCalendar = ({
               const isExceptionDate = exceptionDay ? exceptionDate === currentDate : false;
 
               return (
-                <div key = {index} className = {"h-[3rem] md:h-[3.75rem]"}>
+                <div key = {index}>
                   <button
                     type = "button"
                     className = {"w-full h-full"}
@@ -213,7 +213,8 @@ const DatePickerCalendar = ({
                       />
                     </div>
                   </button>
-                </div>);
+                </div>
+              );
             })}
           </div>
         ))}

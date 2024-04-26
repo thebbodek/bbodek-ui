@@ -1,5 +1,5 @@
 import { CalendarDateDto } from "@/core/components/Calendar/common/types/CalendarDateDto";
-import clsx from "clsx";
+import Typography from "@/core/components/Typography";
 import { DatePickerCalendarProps } from "../types/DatePickerCalendarProps";
 
 interface CalendarComponentDaySubTextProps extends Pick<DatePickerCalendarProps, "label" | "periodDates"> {
@@ -22,21 +22,32 @@ export const CalendarComponentDaySubText = ({
   const singleSelectedDate = (periodDates.startDate && !periodDates.endDate) && currentDate === periodDates.startDate;
   const isActiveDate = isStartDate || isEndDate || singleSelectedDate;
 
-  const dayLabel = !isExceptionDate ?
-    <>
-      &nbsp;
-      {isStartDate ? label && label[0] ? label[0] : "시작일" : isEndDate ? label && label[1] ? label[1] : "종료일" : ""}
-      {singleSelectedDate ? label && label[0] ? label[0] : "시작일" : (calendarDate.isToday ? "오늘" : "")}
-      &nbsp;
-    </> : exceptionDateLabel;
+  const dayLabel = () => {
+    if(isExceptionDate) return exceptionDateLabel;
+
+    const hasCustomStartLabel = label && label[0];
+    const hasCustomEndLabel = label && label[1];
+    const startLabel = hasCustomStartLabel ? label[0] : "시작일";
+    const endLabel = hasCustomEndLabel ? label[1] : "종료일";
+
+    if(isStartDate || singleSelectedDate) return startLabel;
+
+    if(isEndDate) return endLabel;
+
+    if(calendarDate.isToday) {
+      const todayLabel = isEndDate ? endLabel : "오늘";
+      return todayLabel;
+    }
+
+    return "";
+};
 
   return (
-    <div
-      className = {clsx("flex justify-center items-center text-body-03-regular md:text-body-02-regular font-light mt-0.5 z-10 whitespace-nowrap",
-        isActiveDate ? "text-[#007BC7]" : "text-black",
-      )}
-    >
-      {dayLabel}
-    </div>
+    <Typography
+      text = {dayLabel()}
+      theme = "body-03-regular"
+      className = "md:text-body-02-regular z-10 whitespace-nowrap h-[1.5rem] mt-0.5"
+      color = { isActiveDate ? "primary-03" : "gray-06"}
+    />
   );
 };

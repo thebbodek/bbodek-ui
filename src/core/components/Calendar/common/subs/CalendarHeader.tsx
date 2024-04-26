@@ -14,7 +14,7 @@ export const CalendarHeader = ({
   const isDisablePrev = (isDisabledMonthBtn || monthButtonStatus === MONTH_BUTTON_STATUS["DISABLE_PREV"]) ?? false;
   const isDisableNext = (isDisabledMonthBtn || monthButtonStatus === MONTH_BUTTON_STATUS["DISABLE_NEXT"]) ?? false;
   const buttonClassNames = "group flex justify-center items-center";
-  const iconClassNames = "text-gray-05 group-disabled:text-gray-03 group-disabled:cursor-not-allowed";
+  const iconClassNames = "text-gray-05 group-disabled:text-gray-03 group-disabled:cursor-not-allowed text-subhead-01-regular md:text-head-01-regular";
 
   return (
     <div className = {"flex gap-x-5 justify-center items-center mb-6"}>
@@ -24,16 +24,16 @@ export const CalendarHeader = ({
         onClick = {() => !isDisablePrev && onPreviousMonthClick?.()}
         disabled = {isDisablePrev}
       >
-        <CaretLeft size = {24} className = {iconClassNames}/>
+        <CaretLeft className = {iconClassNames}/>
       </button>
-      <Typography className = "text-center md:text-head-01-regular" color = "black" theme = "subhead-01-regular" text = {currentMonth} />
+      <Typography className = "text-center md:text-head-02-regular" color = "black" theme = "subhead-01-medium" text = {currentMonth} />
       <button
         type = "button"
         className = {buttonClassNames}
         onClick = {() => !isDisableNext && onNextMonthClick?.()}
         disabled = {isDisableNext}
       >
-        <CaretRight size = {24} className = {iconClassNames}/>
+        <CaretRight className = {iconClassNames}/>
       </button>
     </div>
   );
