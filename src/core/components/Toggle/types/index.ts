@@ -7,7 +7,7 @@ export interface ToggleProps
     "onChange" | "className" | "checked" | "disabled"
   >, Omit<FormLabelProps, "label" | "labelSubText"> {
   size: SizeType;
-  label: string;
+  label?: string;
   reverse?: boolean;
 }
 
