@@ -22,17 +22,33 @@ const InputSearch = <T extends React.ElementType = "form">(
   const { readOnly = false, disabled = false, rootClassName, className, value, onChange, autoComplete = "off", error = false, name, ...rest } = props;
   const { inputValue, onChangeHandler, onResetInputValue } = useInput({ value, regCallback, onChange, name });
   const SearchIcon = <MagnifyingGlass size = "100%" className = "text-gray-05"/>;
+  const el = rootRef.current;
+  const isForm = el instanceof HTMLFormElement;
+
+  const endComponent = () => {
+    if(isForm) {
+      return (
+        <button className = "w-5 h-5" type = "submit" aria-label = "검색하기">
+          {SearchIcon}
+        </button>
+      );
+    }
+
+    return (
+      <div className = "w-5 h-5">
+        {SearchIcon}
+      </div>
+    );
+  };
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    if(!isForm) return;
 
-    const el = rootRef.current;
+    e.preventDefault();
 
     if(!formSubmitHandler) return;
 
-    if (el instanceof HTMLFormElement) {
-      el.reset();
-    }
+    el.reset();
 
     onResetInputValue();
     formSubmitHandler(e);
@@ -52,7 +68,7 @@ const InputSearch = <T extends React.ElementType = "form">(
         "flex items-center py-2 text-body-02-medium bg-white overflow-hidden border border-gray-02",
         INPUT_SEARCH_ROUNDED[rounded],
       )}
-      onSubmit = {onSubmitHandler}
+      onSubmit = {el instanceof HTMLFormElement ? onSubmitHandler : undefined}
       inputComponent = {
         <input
           id = {id}
@@ -71,9 +87,7 @@ const InputSearch = <T extends React.ElementType = "form">(
         />
       }
       endComponent = {
-        <button className = "w-5 h-5" type = "submit" aria-label = "검색하기">
-          {SearchIcon}
-        </button>
+        endComponent()
       }
     />
   );
