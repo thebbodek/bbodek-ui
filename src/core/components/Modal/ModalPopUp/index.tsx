@@ -11,7 +11,9 @@ const ModalPopUp = forwardRef((
     {
       isOpen,
       children,
+      rounded,
       hasRounded = true,
+      hasShadow = true,
       ...props
     }: PropsWithChildren<ModalPopUpProps>,
     ref: React.Ref<HTMLDialogElement>,
@@ -31,8 +33,9 @@ const ModalPopUp = forwardRef((
       <Section
         element = "div"
         className = {clsx("animate-popup", className)}
+        rounded = {rounded}
         hasRounded = {hasRounded}
-        hasShadow
+        hasShadow = {hasShadow}
       >
         {children}
       </Section>

@@ -1,12 +1,14 @@
 import clsx from "clsx";
 import React, { PropsWithChildren, forwardRef } from "react";
 
+import { ROUNDED, SECTION_ROUNDED } from "./constants";
 import { SectionProps } from "./types";
 
 const Section = forwardRef(
   <T extends React.ElementType>(
     {
       children,
+      rounded = ROUNDED["ROUNDED_20"],
       hasRounded = true,
       hasBorder = false,
       hasShadow = false,
@@ -24,7 +26,7 @@ const Section = forwardRef(
       className = {
         clsx(
           "bg-white",
-          hasRounded && "rounded-[1.25rem]",
+          hasRounded && SECTION_ROUNDED[rounded],
           hasBorder && "border border-gray-02",
           hasShadow && "shadow-section",
           className,
