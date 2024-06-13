@@ -1,7 +1,10 @@
-import { Dispatch, SetStateAction, useEffect, useRef } from "react";
-import { UseInputProps } from "../useInput";
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import { UseInputProps } from '../useInput';
 
-const useValueChangeEffect = (value: UseInputProps["value"], setInputValue: Dispatch<SetStateAction<UseInputProps["value"]>>) => {
+const useValueChangeEffect = (
+  value: UseInputProps['value'],
+  setInputValue: Dispatch<SetStateAction<UseInputProps['value']>>,
+) => {
   const isFirst = useRef(true);
 
   useEffect(() => {
@@ -14,4 +17,3 @@ const useValueChangeEffect = (value: UseInputProps["value"], setInputValue: Disp
 };
 
 export default useValueChangeEffect;
-

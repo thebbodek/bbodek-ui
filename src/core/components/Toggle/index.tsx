@@ -1,9 +1,9 @@
-import clsx from "clsx";
-import { useId } from "react";
+import clsx from 'clsx';
+import { useId } from 'react';
 
-import FormLabel from "../FormLabel";
-import { TOGGLE_CIRCLE_SIZE, TOGGLE_SIZE } from "./constants";
-import { ToggleProps } from "./types";
+import FormLabel from '../FormLabel';
+import { TOGGLE_CIRCLE_SIZE, TOGGLE_SIZE } from './constants';
+import { ToggleProps } from './types';
 
 const Toggle = ({
   size,
@@ -21,31 +21,38 @@ const Toggle = ({
 
   return (
     <label
-      htmlFor = {id}
-      className = {clsx(
-        "flex items-center gap-x-1 cursor-pointer",
-        reverse && "flex-row-reverse",
+      htmlFor={id}
+      className={clsx(
+        'flex cursor-pointer items-center gap-x-1',
+        reverse && 'flex-row-reverse',
         className,
       )}
     >
-      {label && <FormLabel labelTheme = {labelTheme} label = {label} labelColor = {labelColor} required = {required} />}
+      {label && (
+        <FormLabel
+          labelTheme={labelTheme}
+          label={label}
+          labelColor={labelColor}
+          required={required}
+        />
+      )}
       <input
-        id = {id}
-        type = 'checkbox'
-        className = 'peer hidden'
-        checked = {checked}
-        onChange = {onChange}
-        disabled = {disabled}
+        id={id}
+        type='checkbox'
+        className='peer hidden'
+        checked={checked}
+        onChange={onChange}
+        disabled={disabled}
       />
       <div
-        className = {clsx(
-          "relative rounded-full bg-gray-03 transition-all peer-disabled:bg-gray-09 peer-checked:bg-primary-03 peer-checked:[&>.circle]:-left-[0.125rem] peer-disabled:cursor-not-allowed",
+        className={clsx(
+          'relative rounded-full bg-gray-03 transition-all peer-checked:bg-primary-03 peer-disabled:cursor-not-allowed peer-disabled:bg-gray-09 peer-checked:[&>.circle]:-left-[0.125rem]',
           TOGGLE_SIZE[size],
-        )
-      }>
+        )}
+      >
         <div
-          className = {clsx(
-            "circle absolute left-[0.125rem] top-1/2 -translate-y-1/2 translate-x-0 transform rounded-full border border-solid border-gray-03 bg-white transition-all",
+          className={clsx(
+            'circle absolute left-[0.125rem] top-1/2 -translate-y-1/2 translate-x-0 transform rounded-full border border-solid border-gray-03 bg-white transition-all',
             TOGGLE_CIRCLE_SIZE[size],
           )}
         />
@@ -55,4 +62,3 @@ const Toggle = ({
 };
 
 export default Toggle;
-

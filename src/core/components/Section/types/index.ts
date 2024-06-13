@@ -1,6 +1,7 @@
-import { ROUNDED } from "../constants";
+import { ROUNDED } from '../constants';
 
-export interface SectionProps<T extends React.ElementType> extends React.HTMLAttributes<HTMLElement> {
+export interface SectionProps<T extends React.ElementType>
+  extends React.HTMLAttributes<HTMLElement> {
   rounded?: RoundedType;
   hasRounded?: boolean;
   hasBorder?: boolean;
@@ -8,4 +9,4 @@ export interface SectionProps<T extends React.ElementType> extends React.HTMLAtt
   element?: T;
 }
 
-export type RoundedType = typeof ROUNDED[keyof typeof ROUNDED];
+export type RoundedType = (typeof ROUNDED)[keyof typeof ROUNDED];

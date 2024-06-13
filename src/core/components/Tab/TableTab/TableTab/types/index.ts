@@ -1,7 +1,7 @@
-import TableTabItem from "../../TableTabItem";
+import TableTabItem from '../../TableTabItem';
 
 export interface TableTabProps extends React.HTMLAttributes<HTMLUListElement> {
-  items: React.ReactNode[]
+  items: React.ReactNode[];
 }
 
 type TableTabComponent = (props: TableTabProps) => React.ReactElement;

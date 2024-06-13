@@ -1,19 +1,21 @@
-import { CalendarHeaderProps } from "../../common/types/CalendarHeader";
-import { DATE_PICKER_TYPE } from "../constants";
+import { CalendarHeaderProps } from '../../common/types/CalendarHeader';
+import { DATE_PICKER_TYPE } from '../constants';
 
-export type DatePickerType = typeof DATE_PICKER_TYPE[keyof typeof DATE_PICKER_TYPE];
+export type DatePickerType =
+  (typeof DATE_PICKER_TYPE)[keyof typeof DATE_PICKER_TYPE];
 
 export interface PeriodDates {
   startDate: string;
   endDate: string;
 }
 
-export interface DatePickerCalendarProps extends Pick<CalendarHeaderProps, "monthButtonStatus">{
+export interface DatePickerCalendarProps
+  extends Pick<CalendarHeaderProps, 'monthButtonStatus'> {
   variants: DatePickerType;
   exceptionDay?: {
-    date: string,
-    label: string,
-  }
+    date: string;
+    label: string;
+  };
   isFixStartDate?: boolean;
   initialDate?: string;
   periodDates: PeriodDates;

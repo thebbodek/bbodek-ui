@@ -1,40 +1,40 @@
-import { Meta } from "@storybook/react";
+import { Meta } from '@storybook/react';
 
-import Section from "./index";
-import { SectionProps } from "./types";
+import Section from './index';
+import { SectionProps } from './types';
 
 const meta = {
-  title: "core/Section",
+  title: 'core/Section',
   component: Section,
   parameters: {
     backgrounds: {
-      default: "dark",
+      default: 'dark',
     },
   },
   argTypes: {
     hasRounded: {
-      control: "boolean",
+      control: 'boolean',
       defaultValue: true,
-      description: "Controls whether the component has a rounded",
+      description: 'Controls whether the component has a rounded',
     },
     hasBorder: {
-      control: "boolean",
+      control: 'boolean',
       defaultValue: false,
-      description: "Controls whether the component has a border",
+      description: 'Controls whether the component has a border',
     },
     hasShadow: {
-      control: "boolean",
+      control: 'boolean',
       defaultValue: false,
-      description: "Controls whether the component has a Box Shadow",
+      description: 'Controls whether the component has a Box Shadow',
     },
   },
 } satisfies Meta<typeof Section>;
 
 export default meta;
 
-export const Default = (props: SectionProps<"section">) => {
+export const Default = (props: SectionProps<'section'>) => {
   return (
-    <Section className = "w-[400px] h-[300px]" {...props}>
+    <Section className='h-[300px] w-[400px]' {...props}>
       section
     </Section>
   );

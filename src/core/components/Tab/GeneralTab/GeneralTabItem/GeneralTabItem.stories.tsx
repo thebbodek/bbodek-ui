@@ -1,20 +1,20 @@
-import { Meta } from "@storybook/react";
+import { Meta } from '@storybook/react';
 
-import GeneralTabItem from "./index";
-import { GeneralTabItemProps } from "./types";
+import GeneralTabItem from './index';
+import { GeneralTabItemProps } from './types';
 
 const meta = {
-  title: "core/Tab/GeneralTab/GeneralTabItem",
+  title: 'core/Tab/GeneralTab/GeneralTabItem',
   component: GeneralTabItem,
   parameters: {
     backgrounds: {
-      default: "dark",
+      default: 'dark',
     },
   },
   argTypes: {
     label: {
-      control: "text",
-      description: "Tab Label",
+      control: 'text',
+      description: 'Tab Label',
     },
   },
 } satisfies Meta<typeof GeneralTabItem>;
@@ -26,7 +26,7 @@ export const Default = (props: GeneralTabItemProps) => {
 
   return (
     <ul>
-      <GeneralTabItem label = {label ?? "실제 반명"} {...rest} />
+      <GeneralTabItem label={label ?? '실제 반명'} {...rest} />
     </ul>
   );
 };

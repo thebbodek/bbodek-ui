@@ -1,3 +1,4 @@
-export interface TableTabItemProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface TableTabItemProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
 }

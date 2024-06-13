@@ -1,10 +1,10 @@
-import { Meta } from "@storybook/react";
-import { useState } from "react";
+import { Meta } from '@storybook/react';
+import { useState } from 'react';
 
-import DropdownFilter from "../DropdownFilter";
+import DropdownFilter from '../DropdownFilter';
 
 const meta = {
-  title: "core/Dropdown/DropdownFilter",
+  title: 'core/Dropdown/DropdownFilter',
   component: DropdownFilter,
   argTypes: {},
 } satisfies Meta<typeof DropdownFilter>;
@@ -12,14 +12,14 @@ const meta = {
 export default meta;
 
 export const Default = () => {
-  const [ currentValue, setCurrentValue ] = useState("");
-  const data = [ "학부모", "교육기관", "둘다" ];
+  const [currentValue, setCurrentValue] = useState('');
+  const data = ['학부모', '교육기관', '둘다'];
 
   const items = data.map((item, idx) => (
     <DropdownFilter.Item
-      key = {idx}
-      checked = {item === currentValue}
-      onClick = {() => setCurrentValue(item)}
+      key={idx}
+      checked={item === currentValue}
+      onClick={() => setCurrentValue(item)}
     >
       {item}
     </DropdownFilter.Item>
@@ -27,9 +27,13 @@ export const Default = () => {
 
   return (
     <DropdownFilter
-      trigger = {<DropdownFilter.Trigger className = "w-[10rem]" currentValue = {currentValue || "선택해주세요"}/>}
-      content = {<DropdownFilter.Items items = {items} />
+      trigger={
+        <DropdownFilter.Trigger
+          className='w-[10rem]'
+          currentValue={currentValue || '선택해주세요'}
+        />
       }
+      content={<DropdownFilter.Items items={items} />}
     />
   );
 };

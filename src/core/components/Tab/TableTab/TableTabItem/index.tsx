@@ -1,38 +1,37 @@
-import { forwardRef, useId } from "react";
+import { forwardRef, useId } from 'react';
 
-import { Typography } from "@/index";
-import { TableTabItemProps } from "./types";
+import { Typography } from '@/index';
+import { TableTabItemProps } from './types';
 
-const TableTabItem = forwardRef((
-    {
-      label,
-      ...props
-    }: Omit<TableTabItemProps, "ref">,
+const TableTabItem = forwardRef(
+  (
+    { label, ...props }: Omit<TableTabItemProps, 'ref'>,
     ref: React.Ref<HTMLInputElement>,
   ) => {
-  const id = useId();
+    const id = useId();
 
-  return (
-    <li className = "flex-1">
-      <label className = "flex" htmlFor = {id}>
-        <input
-          ref = {ref}
-          id = {id}
-          type = "radio"
-          className = {"hidden peer"}
-          {...props}
-        />
-        <Typography
-          className = "flex-1 pb-3 text-center bg-transparent cursor-pointer border-b-2 border-transparent mb-[-0.0625rem] peer-checked:border-b-black peer-checked:text-black"
-          theme = "subhead-02-bold"
-          color = "gray-05"
-          text = {label}
-        />
-      </label>
-    </li>
-  );
-});
+    return (
+      <li className='flex-1'>
+        <label className='flex' htmlFor={id}>
+          <input
+            ref={ref}
+            id={id}
+            type='radio'
+            className={'peer hidden'}
+            {...props}
+          />
+          <Typography
+            className='mb-[-0.0625rem] flex-1 cursor-pointer border-b-2 border-transparent bg-transparent pb-3 text-center peer-checked:border-b-black peer-checked:text-black'
+            theme='subhead-02-bold'
+            color='gray-05'
+            text={label}
+          />
+        </label>
+      </li>
+    );
+  },
+);
 
-TableTabItem.displayName = "TableTabItem";
+TableTabItem.displayName = 'TableTabItem';
 
 export default TableTabItem;

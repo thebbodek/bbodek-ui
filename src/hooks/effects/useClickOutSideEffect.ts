@@ -1,6 +1,9 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useEffect } from 'react';
 
-const useClickOutSideEffect = (ref: RefObject<Element>, onClose?: () => void) => {
+const useClickOutSideEffect = (
+  ref: RefObject<Element>,
+  onClose?: () => void,
+) => {
   useEffect(() => {
     const onClickOutSide = (e: MouseEvent) => {
       if (!ref.current || ref.current.contains(e.target as Node)) return;
@@ -8,9 +11,9 @@ const useClickOutSideEffect = (ref: RefObject<Element>, onClose?: () => void) =>
       onClose?.();
     };
 
-    document.addEventListener("mousedown", onClickOutSide);
+    document.addEventListener('mousedown', onClickOutSide);
 
-    return () => document.removeEventListener("mousedown", onClickOutSide);
+    return () => document.removeEventListener('mousedown', onClickOutSide);
   }, [ref.current]);
 };
 

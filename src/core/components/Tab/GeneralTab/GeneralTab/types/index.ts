@@ -1,7 +1,8 @@
-import GeneralTabItem from "../../GeneralTabItem";
+import GeneralTabItem from '../../GeneralTabItem';
 
-export interface GeneralTabProps extends React.HTMLAttributes<HTMLUListElement> {
-  items: React.ReactNode[]
+export interface GeneralTabProps
+  extends React.HTMLAttributes<HTMLUListElement> {
+  items: React.ReactNode[];
 }
 
 type GeneralTabComponent = (props: GeneralTabProps) => React.ReactElement;

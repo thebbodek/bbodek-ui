@@ -1,16 +1,16 @@
-import { CalendarBlank } from "@phosphor-icons/react";
-import clsx from "clsx";
-import dayjs from "dayjs";
-import { HTMLAttributes, useEffect, useId, useState } from "react";
+import { CalendarBlank } from '@phosphor-icons/react';
+import clsx from 'clsx';
+import dayjs from 'dayjs';
+import { HTMLAttributes, useEffect, useId, useState } from 'react';
 
-import { DATE_PICKER_TYPE } from "../../Calendar/DatePickerCalendar/constants";
-import { PeriodDates } from "../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps";
-import InputBase from "../InputBase";
-import DatePicker from "./DatePicker";
-import { InputDatePickerProps } from "./types";
+import { DATE_PICKER_TYPE } from '../../Calendar/DatePickerCalendar/constants';
+import { PeriodDates } from '../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps';
+import InputBase from '../InputBase';
+import DatePicker from './DatePicker';
+import { InputDatePickerProps } from './types';
 
 const InputDatePicker = ({
-  variants = DATE_PICKER_TYPE["PERIOD"],
+  variants = DATE_PICKER_TYPE['PERIOD'],
   cutoffDate,
   cutoffAfterDate,
   overlay,
@@ -34,39 +34,40 @@ const InputDatePicker = ({
   feedback,
   feedbackColor,
   hasDatePickerTitle,
-}: InputDatePickerProps & Omit<HTMLAttributes<HTMLInputElement>, "disabled" | "readOnly">) => {
+}: InputDatePickerProps &
+  Omit<HTMLAttributes<HTMLInputElement>, 'disabled' | 'readOnly'>) => {
   const id = useId();
-  const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
-    startDate: "",
-    endDate: "",
+  const [periodDates, setPeriodDates] = useState<PeriodDates>({
+    startDate: '',
+    endDate: '',
   });
-  const startDate = dayjs(periodDates.startDate).format("YYYY. MM. DD");
-  const endDate = dayjs(periodDates.endDate).format("YYYY. MM. DD");
+  const startDate = dayjs(periodDates.startDate).format('YYYY. MM. DD');
+  const endDate = dayjs(periodDates.endDate).format('YYYY. MM. DD');
   const isDisabled = readOnly || disabled;
 
   const onDatePickerClick = (): Promise<PeriodDates> => {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       overlay.open(({ isOpen, close }) => (
         <DatePicker
-          hasDatePickerTitle = {hasDatePickerTitle}
-          isFixStartDate = {isFixStartDate}
-          variants = {variants}
-          disabled = {isDisabled}
-          isOpen = {isOpen}
-          close = {(periodDates: PeriodDates, isAfterAllDate?: boolean) => {
+          hasDatePickerTitle={hasDatePickerTitle}
+          isFixStartDate={isFixStartDate}
+          variants={variants}
+          disabled={isDisabled}
+          isOpen={isOpen}
+          close={(periodDates: PeriodDates, isAfterAllDate?: boolean) => {
             resolve(periodDates);
             getPeriodDates(periodDates, isAfterAllDate);
             close();
           }}
-          dateLabel = {dateLabel}
-          initialDate = {initialDate}
-          cutoffDate = {cutoffDate}
-          cutoffAfterDate = {cutoffAfterDate}
-          externalDates = {periodDates}
-          useTab = {useTab}
-          useHoliday = {useHoliday}
-          disabledDates = {disabledDates}
-          closeButtonText = {closeButtonText}
+          dateLabel={dateLabel}
+          initialDate={initialDate}
+          cutoffDate={cutoffDate}
+          cutoffAfterDate={cutoffAfterDate}
+          externalDates={periodDates}
+          useTab={useTab}
+          useHoliday={useHoliday}
+          disabledDates={disabledDates}
+          closeButtonText={closeButtonText}
         />
       ));
     });
@@ -80,7 +81,9 @@ const InputDatePicker = ({
   };
 
   const handleOnInvalid = (e: React.InvalidEvent<HTMLInputElement>) => {
-    e.target.value ? e.target.setCustomValidity("") : e.target.setCustomValidity("날짜를 선택해주세요");
+    e.target.value
+      ? e.target.setCustomValidity('')
+      : e.target.setCustomValidity('날짜를 선택해주세요');
   };
 
   useEffect(() => {
@@ -89,37 +92,44 @@ const InputDatePicker = ({
 
   return (
     <InputBase
-      inputId = {id}
-      inputRootClassName = {clsx("h-[3.75rem] cursor-pointer relative", {
-        "cursor-not-allowed": isDisabled,
-      }, className)}
-      onClick = {handleDatePicker}
-      label = {label}
-      required = {required}
-      feedback = {feedback}
-      feedbackColor = {feedbackColor}
-      disabled = {disabled}
-      readOnly = {readOnly}
-      inputComponent = {
+      inputId={id}
+      inputRootClassName={clsx(
+        'relative h-[3.75rem] cursor-pointer',
+        {
+          'cursor-not-allowed': isDisabled,
+        },
+        className,
+      )}
+      onClick={handleDatePicker}
+      label={label}
+      required={required}
+      feedback={feedback}
+      feedbackColor={feedbackColor}
+      disabled={disabled}
+      readOnly={readOnly}
+      inputComponent={
         <input
-          type = "text"
-          placeholder = {placeholder || "날짜를 입력해주세요"}
-          className = {clsx("bbodek-field pointer-events-none", inputClassName)}
-          value = {periodDates.startDate && (!afterAllDate ? `${startDate}${periodDates.endDate && ` - ${endDate}`}` : `${startDate} ~`)}
-          onKeyDown = {() => false}
-          onFocus = {(e: React.FocusEvent<HTMLInputElement>) => e.target.blur()}
-          onChange = {() => {}}
-          onInvalid = {handleOnInvalid}
-          disabled = {disabled}
-          readOnly = {readOnly}
-          aria-disabled = {disabled}
-          aria-readonly = {readOnly}
-          required = {required}
+          type='text'
+          placeholder={placeholder || '날짜를 입력해주세요'}
+          className={clsx('bbodek-field pointer-events-none', inputClassName)}
+          value={
+            periodDates.startDate &&
+            (!afterAllDate
+              ? `${startDate}${periodDates.endDate && ` - ${endDate}`}`
+              : `${startDate} ~`)
+          }
+          onKeyDown={() => false}
+          onFocus={(e: React.FocusEvent<HTMLInputElement>) => e.target.blur()}
+          onChange={() => {}}
+          onInvalid={handleOnInvalid}
+          disabled={disabled}
+          readOnly={readOnly}
+          aria-disabled={disabled}
+          aria-readonly={readOnly}
+          required={required}
         />
       }
-      endComponent = {
-        <CalendarBlank size = {24} className = "text-gray-05" />
-      }
+      endComponent={<CalendarBlank size={24} className='text-gray-05' />}
     />
   );
 };

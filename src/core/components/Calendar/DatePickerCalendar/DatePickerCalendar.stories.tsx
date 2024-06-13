@@ -1,21 +1,21 @@
-import { Meta } from "@storybook/react";
-import { useState } from "react";
+import { Meta } from '@storybook/react';
+import { useState } from 'react';
 
-import DatePickerCalendar from "@/core/components/Calendar/DatePickerCalendar";
-import { DATE_PICKER_TYPE } from "./constants";
-import { PeriodDates } from "./types/DatePickerCalendarProps";
+import DatePickerCalendar from '@/core/components/Calendar/DatePickerCalendar';
+import { DATE_PICKER_TYPE } from './constants';
+import { PeriodDates } from './types/DatePickerCalendarProps';
 
 const meta = {
-  title: "core/Calendar/DatePickerCalendar",
+  title: 'core/Calendar/DatePickerCalendar',
   component: DatePickerCalendar,
 } satisfies Meta<typeof DatePickerCalendar>;
 
 export default meta;
 
 export const SingleDatePicker = () => {
-  const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
-    startDate: "",
-    endDate: "",
+  const [periodDates, setPeriodDates] = useState<PeriodDates>({
+    startDate: '',
+    endDate: '',
   });
 
   const onDateClick = (date: PeriodDates) => {
@@ -23,23 +23,23 @@ export const SingleDatePicker = () => {
   };
 
   return (
-    <div className = {"w-[500px] border rounded-3xl py-6"}>
+    <div className={'w-[500px] rounded-3xl border py-6'}>
       <DatePickerCalendar
-        cutoffDate = "2023-12-08"
-        variants = {DATE_PICKER_TYPE["SINGLE"]}
-        label = {["해지 신청일"]}
-        initialDate = "2024-02-05"
-        periodDates = {periodDates}
-        onDateClick = {onDateClick}
+        cutoffDate='2023-12-08'
+        variants={DATE_PICKER_TYPE['SINGLE']}
+        label={['해지 신청일']}
+        initialDate='2024-02-05'
+        periodDates={periodDates}
+        onDateClick={onDateClick}
       />
     </div>
   );
 };
 
 export const PeriodDatesPicker = () => {
-  const [ periodDates, setPeriodDates ] = useState<PeriodDates>({
-    startDate: "2024-01-24",
-    endDate: "2024-01-26",
+  const [periodDates, setPeriodDates] = useState<PeriodDates>({
+    startDate: '2024-01-24',
+    endDate: '2024-01-26',
   });
 
   const onDateClick = (date: PeriodDates) => {
@@ -47,14 +47,13 @@ export const PeriodDatesPicker = () => {
   };
 
   return (
-    <div className = {"w-[500px] border rounded-3xl py-6"}>
+    <div className={'w-[500px] rounded-3xl border py-6'}>
       <DatePickerCalendar
-        variants = {DATE_PICKER_TYPE["PERIOD"]}
-        cutoffDate = "2024-01-23"
-        periodDates = {periodDates}
-        onDateClick = {onDateClick}
+        variants={DATE_PICKER_TYPE['PERIOD']}
+        cutoffDate='2024-01-23'
+        periodDates={periodDates}
+        onDateClick={onDateClick}
       />
     </div>
   );
 };
-
