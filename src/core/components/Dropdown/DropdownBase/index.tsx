@@ -7,6 +7,7 @@ import DropdownItem from './DropdownItem';
 import DropdownItems from './DropdownItems';
 import DropdownTrigger from './DropdownTrigger';
 import { DropdownContextValue, DropdownProps, ReturnType } from './types';
+import FormLabel from '@/core/components/FormLabel';
 
 export const DropdownContext = createContext<DropdownContextValue | undefined>(
   undefined,
@@ -14,6 +15,7 @@ export const DropdownContext = createContext<DropdownContextValue | undefined>(
 DropdownContext.displayName = 'DropdownContext';
 
 const DropdownBase = ({
+  label,
   className,
   readOnly = false,
   disabled = false,
@@ -21,6 +23,7 @@ const DropdownBase = ({
   content,
   feedback,
   feedbackColor = 'error',
+  ...formLabelProps
 }: DropdownProps) => {
   const [isToggle, setIsToggle] = useState(false);
   const { contentRef } = useClickOutside<HTMLDivElement>(() =>
@@ -33,6 +36,11 @@ const DropdownBase = ({
       value={{ isToggle, setIsToggle, readOnly, disabled }}
     >
       <div ref={contentRef} className={clsx(className, 'relative')}>
+        {label && (
+          <label className='mb-2 inline-block'>
+            <FormLabel label={label} {...formLabelProps} />
+          </label>
+        )}
         {trigger}
         {isVisibleContent && content}
       </div>

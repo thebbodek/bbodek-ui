@@ -33,7 +33,12 @@ const Chip = forwardRef(
   ) => {
     const handleDelete = (e: MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
-      onDelete?.();
+      onDelete?.(e);
+    };
+
+    const handleLabelClick = (e: MouseEvent<T>) => {
+      e.stopPropagation();
+      onClick?.(e);
     };
 
     const renderer = () => {
@@ -66,10 +71,11 @@ const Chip = forwardRef(
         className={clsx(
           onDelete && 'flex gap-2',
           onClick &&
-            `cursor-pointer brightness-100 transition-all hover:brightness-95 ${CHIP_LABEL_STYLE[colorTheme]}`,
+            `brightness-100 transition-all hover:brightness-95 ${CHIP_LABEL_STYLE[colorTheme]}`,
+          onClick ? 'cursor-pointer' : 'cursor-text',
           className,
         )}
-        onClick={onClick}
+        onClick={handleLabelClick}
         {...props}
       />
     );

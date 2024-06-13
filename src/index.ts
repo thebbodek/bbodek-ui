@@ -19,6 +19,10 @@ export { default as DropdownSelect } from '@/core/components/Dropdown/DropdownSe
 export { default as DropdownSelectItem } from '@/core/components/Dropdown/DropdownSelect/DropdownSelectItem';
 export { default as DropdownSelectItems } from '@/core/components/Dropdown/DropdownSelect/DropdownSelectItems';
 export { default as DropdownSelectTrigger } from '@/core/components/Dropdown/DropdownSelect/DropdownSelectTrigger';
+export { default as DropdownMultiple } from '@/core/components/Dropdown/DropdownMultiple';
+export { default as DropdownMultipleItem } from '@/core/components/Dropdown/DropdownMultiple/DropdownMultipleItem';
+export { default as DropdownMultipleItems } from '@/core/components/Dropdown/DropdownSelect/DropdownSelectItems';
+export { default as DropdownMultipleTrigger } from '@/core/components/Dropdown/DropdownMultiple/DropdownMultipleTrigger';
 export { default as FormLabel } from '@/core/components/FormLabel';
 export { default as InputBase } from '@/core/components/Input/InputBase';
 export { default as InputDatePicker } from '@/core/components/Input/InputDatePicker';

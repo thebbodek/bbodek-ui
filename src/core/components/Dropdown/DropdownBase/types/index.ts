@@ -1,16 +1,25 @@
+import {
+  Dispatch,
+  HTMLAttributes,
+  MouseEvent,
+  ReactElement,
+  ReactNode,
+  SetStateAction,
+} from 'react';
+
 import { ThemeColors } from '@/types';
-import { Dispatch, HTMLAttributes, SetStateAction } from 'react';
 import DropdownItem from '../DropdownItem';
 import DropdownItems from '../DropdownItems';
 import DropdownTrigger from '../DropdownTrigger';
+import { FormLabelProps } from '@/core/components/FormLabel/types';
 
-export interface DropdownProps {
+export interface DropdownProps extends Partial<FormLabelProps> {
   className?: string;
   disabled?: boolean;
   readOnly?: boolean;
-  trigger: React.ReactNode;
-  content: React.ReactNode;
-  feedback?: React.ReactNode;
+  trigger: ReactNode;
+  content: ReactNode;
+  feedback?: ReactNode;
   feedbackColor?: ThemeColors;
 }
 
@@ -23,20 +32,20 @@ export interface DropdownContextValue
 export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {}
 
 export interface DropdownItemsProps extends HTMLAttributes<HTMLUListElement> {
-  items: React.ReactNode[];
+  items: ReactNode[];
 }
 
 export interface DropdownTriggerProps
   extends Omit<HTMLAttributes<HTMLButtonElement>, 'children'> {
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   children:
-    | React.ReactNode
+    | ReactNode
     | ((
         props: Pick<DropdownContextValue, 'isToggle' | 'readOnly' | 'disabled'>,
-      ) => React.ReactNode);
+      ) => ReactNode);
 }
 
-type Dropdown = (props: DropdownProps) => React.ReactElement;
+type Dropdown = (props: DropdownProps) => ReactElement;
 
 export type ReturnType = Dropdown & {
   displayName: string;

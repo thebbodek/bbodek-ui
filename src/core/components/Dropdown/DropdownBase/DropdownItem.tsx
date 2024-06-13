@@ -1,7 +1,13 @@
-import { PropsWithChildren, forwardRef, useContext } from 'react';
-
+import {
+  forwardRef,
+  MouseEvent,
+  PropsWithChildren,
+  Ref,
+  useContext,
+} from 'react';
 import clsx from 'clsx';
-import { DropdownContext } from '.';
+
+import { DropdownContext } from './index';
 import { DropdownContextValue, DropdownItemProps } from './types';
 
 const DropdownItem = forwardRef(
@@ -12,11 +18,11 @@ const DropdownItem = forwardRef(
       className,
       ...props
     }: PropsWithChildren<DropdownItemProps>,
-    ref: React.Ref<HTMLLIElement>,
+    ref: Ref<HTMLLIElement>,
   ) => {
     const { setIsToggle } = useContext(DropdownContext) as DropdownContextValue;
 
-    const onClickHandler = (e: React.MouseEvent<HTMLLIElement>) => {
+    const onClickHandler = (e: MouseEvent<HTMLLIElement>) => {
       setIsToggle(false);
       onClick?.(e);
     };
