@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 import { TypographyProps } from '@/core/components/Typography/types';
 import {
   DropdownItemProps,
@@ -17,7 +19,7 @@ export interface DropdownSelectItemProps extends DropdownItemProps {
   checked: boolean;
 }
 
-type DropdownSelect = (props: DropdownProps) => React.ReactElement;
+type DropdownSelect = (props: DropdownProps) => ReactElement;
 
 export type ReturnType = DropdownSelect & {
   displayName: string;

@@ -1,0 +1,74 @@
+import { Meta } from '@storybook/react';
+import { MouseEvent, useState } from 'react';
+
+import DropdownMultiple from './index';
+import {
+  ValueWithLabel,
+  ValueWithLabelType,
+} from '@/core/components/Dropdown/DropdownMultiple/types';
+
+const meta = {
+  title: 'core/Dropdown/DropdownMultiple',
+  component: DropdownMultiple,
+  argTypes: {},
+} satisfies Meta<typeof DropdownMultiple>;
+
+export default meta;
+
+export const Default = () => {
+  const [currentValues, setCurrentValues] = useState<ValueWithLabel<number>[]>(
+    [],
+  );
+  const data = [
+    { value: 0, label: '2024년 5월 선정산' },
+    { value: 1, label: '5월 BIZ 본정산' },
+    { value: 2, label: '5월 비즈 선정산 진짜' },
+    { value: 3, label: '5월 비즈 선정산 진짜 진짜' },
+  ];
+
+  const handleDelete = (value: ValueWithLabelType) => {
+    setCurrentValues((prev) => prev.filter(({ value: v }) => v !== value));
+  };
+
+  const items = data.map((item, idx) => {
+    const { value, label } = item;
+    const checked = currentValues.some((item) => item.value === value);
+
+    return (
+      <DropdownMultiple.Item
+        key={idx}
+        checked={checked}
+        onClick={(e: MouseEvent<HTMLLIElement>) => {
+          e.stopPropagation();
+
+          if (!checked) {
+            setCurrentValues((prev) => [...prev, item]);
+          } else {
+            setCurrentValues((prev) =>
+              prev.filter((prevItem) => prevItem !== item),
+            );
+          }
+        }}
+      >
+        {label}
+      </DropdownMultiple.Item>
+    );
+  });
+
+  return (
+    <DropdownMultiple
+      label={'정산 선택'}
+      trigger={
+        <DropdownMultiple.Trigger
+          variant={'chip'}
+          currentValues={currentValues}
+          placeholder='선택해주세요'
+          onDelete={handleDelete}
+        />
+      }
+      content={<DropdownMultiple.Items items={items} />}
+      className={'w-[500px]'}
+      required
+    />
+  );
+};
