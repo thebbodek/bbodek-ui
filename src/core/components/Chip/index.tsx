@@ -12,13 +12,18 @@ import Label from '@/core/components/Label';
 import { ChipProps } from '@/core/components/Chip/types';
 import IconButton from '@/core/components/Button/IconButton';
 import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
+import {
+  CHIP_DELETE_BUTTON_STYLE,
+  CHIP_LABEL_STYLE,
+} from '@/core/components/Chip/constants';
+import { COLOR_THEME } from '@/constants/theme';
 
 const Chip = forwardRef(
   <T extends ElementType = 'div'>(
     {
       label,
       onDelete,
-      colorTheme,
+      colorTheme = COLOR_THEME['SECONDARY'],
       onClick,
       rounded = ROUNDED['ROUNDED_FULL'],
       className,
@@ -41,7 +46,10 @@ const Chip = forwardRef(
             size={'h-20'}
             rounded={rounded}
             colorTheme={colorTheme}
-            className={'!bg-opacity-0 transition-colors hover:!bg-opacity-100'}
+            className={clsx(
+              'brightness-100 transition-all',
+              CHIP_DELETE_BUTTON_STYLE[colorTheme],
+            )}
             icon={<X weight={'bold'} />}
             onClick={handleDelete}
           />
@@ -57,7 +65,8 @@ const Chip = forwardRef(
         colorTheme={colorTheme}
         className={clsx(
           onDelete && 'flex gap-2',
-          onClick && 'cursor-pointer transition-colors hover:bg-opacity-50',
+          onClick &&
+            `cursor-pointer brightness-100 transition-all hover:brightness-95 ${CHIP_LABEL_STYLE[colorTheme]}`,
           className,
         )}
         onClick={onClick}
