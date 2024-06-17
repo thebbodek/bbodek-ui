@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import { MouseEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import DropdownMultiple from './index';
 import {
@@ -32,20 +32,22 @@ export const Default = () => {
 
   const items = data.map((item, idx) => {
     const { value, label } = item;
-    const checked = currentValues.some((item) => item.value === value);
+    const isChecked = currentValues.some(({ value: v }) => v === value);
 
     return (
       <DropdownMultiple.Item
         key={idx}
-        checked={checked}
-        onClick={(e: MouseEvent<HTMLLIElement>) => {
+        checked={isChecked}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
           e.stopPropagation();
 
-          if (!checked) {
+          const { checked } = e.target;
+
+          if (checked) {
             setCurrentValues((prev) => [...prev, item]);
           } else {
             setCurrentValues((prev) =>
-              prev.filter((prevItem) => prevItem !== item),
+              prev.filter((prevItem) => prevItem.value !== item.value),
             );
           }
         }}

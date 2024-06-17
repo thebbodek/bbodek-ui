@@ -58,7 +58,11 @@ const DropdownMultipleTrigger = forwardRef(
           <Typography
             theme='subhead-02-regular'
             color={!showPlaceholder && !isDisabled ? 'gray-08' : 'gray-05'}
-            text={!showPlaceholder ? currentValues.join(', ') : placeholder}
+            text={
+              !showPlaceholder
+                ? currentValues.map((value) => value.label).join(', ')
+                : placeholder
+            }
             className={clsx(
               'flex-1 truncate text-start',
               isDisabled && 'mr-[1.75rem]',

@@ -1,4 +1,9 @@
-import { HTMLAttributes, MouseEvent, ReactElement } from 'react';
+import {
+  HTMLAttributes,
+  InputHTMLAttributes,
+  MouseEvent,
+  ReactElement,
+} from 'react';
 
 import { DropdownProps } from '@/core/components/Dropdown/DropdownBase/types';
 import DropdownSelectItems from '@/core/components/Dropdown/DropdownSelect/DropdownSelectItems';
@@ -23,6 +28,9 @@ export interface DropdownMultipleTriggerProps<T extends ValueWithLabelType>
   onClick?: (e: MouseEvent<HTMLDivElement>) => void;
   onDelete?: (value: T) => void;
 }
+
+export interface DropdownMultipleItemProps
+  extends InputHTMLAttributes<HTMLInputElement> {}
 
 type DropdownMultiple = (props: DropdownProps) => ReactElement;
 
