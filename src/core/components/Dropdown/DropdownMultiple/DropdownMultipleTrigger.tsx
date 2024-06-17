@@ -44,7 +44,7 @@ const DropdownMultipleTrigger = forwardRef(
         role={'button'}
         onClick={onClickHandler}
         className={clsx(
-          'flex w-full items-center justify-between gap-x-2 overflow-hidden rounded-xl border border-gray-03 p-3',
+          'flex min-h-[3.75rem] w-full items-center justify-between gap-x-2 overflow-hidden rounded-xl border border-gray-03 p-3',
           isDisabled ? '!cursor-not-allowed bg-gray-09' : 'cursor-pointer',
           className,
         )}
