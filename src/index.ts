@@ -11,6 +11,8 @@ export { default as DropdownBase } from '@/core/components/Dropdown/DropdownBase
 export { default as DropdownBaseItem } from '@/core/components/Dropdown/DropdownBase/DropdownItem';
 export { default as DropdownBaseItems } from '@/core/components/Dropdown/DropdownBase/DropdownItems';
 export { default as DropdownBaseTrigger } from '@/core/components/Dropdown/DropdownBase/DropdownTrigger';
+export { default as FixedVirtualList } from '@/core/components/Virtual/FixedVirtualList';
+export { default as FixedVirtualListItem } from '@/core/components/Virtual/FixedVirtualList/FixedVirtualListItem';
 export { default as DropdownFilter } from '@/core/components/Dropdown/DropdownFilter';
 export { default as DropdownFilterItem } from '@/core/components/Dropdown/DropdownFilter/DropdownFilterItem';
 export { default as DropdownFilterItems } from '@/core/components/Dropdown/DropdownFilter/DropdownFilterItems';
