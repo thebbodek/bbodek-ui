@@ -2,6 +2,12 @@ import { Meta } from '@storybook/react';
 
 import Checkbox from './index';
 import { CheckboxProps } from './types';
+import {
+  CheckBoxGapVariants,
+  GAP,
+  SvgSizeVariants,
+} from '@/core/components/Checkbox/constants';
+import { TypographyOptions } from '@/constants/typography';
 
 const meta = {
   title: 'core/Checkbox',
@@ -13,9 +19,21 @@ const meta = {
     },
     svgSize: {
       control: 'select',
-      options: ['size-24', 'size-32'],
+      options: SvgSizeVariants,
       defaultValue: 'size-24',
       description: 'Checkbox Icon Size',
+    },
+    theme: {
+      control: 'select',
+      options: TypographyOptions,
+      defaultValue: 'body-01-regular',
+      description: 'Typography Theme',
+    },
+    gap: {
+      control: 'select',
+      options: CheckBoxGapVariants,
+      defaultValue: [GAP['GAP_10']],
+      description: 'Checkbox Gap with label',
     },
     isCircle: {
       control: 'boolean',

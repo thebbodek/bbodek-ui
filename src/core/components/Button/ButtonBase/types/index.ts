@@ -5,7 +5,7 @@ import { GAP, ROUNDED, SIZE } from '../constants';
 
 export type ThemeType = Extract<
   ThemeTypography,
-  'body-01-bold' | 'body-02-bold' | 'body-02-bold'
+  'body-01-bold' | 'body-02-bold' | 'body-03-bold'
 >;
 
 export type SizeType = (typeof SIZE)[keyof typeof SIZE];

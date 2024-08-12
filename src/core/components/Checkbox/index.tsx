@@ -1,16 +1,19 @@
 import clsx from 'clsx';
-import { MouseEvent, forwardRef, useId } from 'react';
+import React, { forwardRef, MouseEvent, useId } from 'react';
 
 import { CheckCircle, CheckSquare } from '@phosphor-icons/react';
 import Typography from '../Typography';
-import { CHECKBOX_SVG_SIZE, SVG_SIZE } from './constants';
+import { CHECK_BOX_GAP, CHECKBOX_SVG_SIZE, SVG_SIZE } from './constants';
 import { CheckboxProps } from './types';
+import { GAP } from '@/core/components/Button/ButtonBase/constants';
 
 const Checkbox = forwardRef(
   (
     {
       label,
+      theme,
       svgSize = SVG_SIZE['SIZE_24'],
+      gap = GAP['GAP_10'],
       isCircle = false,
       className,
       disabled,
@@ -29,10 +32,11 @@ const Checkbox = forwardRef(
         htmlFor={id}
         className={clsx(
           {
-            'flex items-center gap-2.5': label,
+            'flex items-center': label,
             'cursor-not-allowed': disabled,
             'cursor-pointer': !disabled,
           },
+          label && gap && CHECK_BOX_GAP[gap],
           className,
         )}
       >
@@ -49,7 +53,7 @@ const Checkbox = forwardRef(
         >
           {svg}
         </div>
-        {label && <Typography text={label} />}
+        {label && <Typography theme={theme} text={label} />}
       </label>
     );
   },

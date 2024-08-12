@@ -1,9 +1,4 @@
-import React, {
-  ComponentPropsWithoutRef,
-  ElementType,
-  forwardRef,
-  Ref,
-} from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 
 import { COLOR_THEME, COLOR_THEME_STYLES } from '@/constants/theme';
@@ -21,8 +16,8 @@ const Label = forwardRef(
       size = SIZE['MEDIUM'],
       rounded,
       ...props
-    }: LabelProps<T> & ComponentPropsWithoutRef<T>,
-    ref: Ref<T>,
+    }: LabelProps<T>,
+    ref: React.ComponentPropsWithRef<T>,
   ) => {
     const { className, ...rest } = props;
     const Component: ElementType = Element || 'div';
