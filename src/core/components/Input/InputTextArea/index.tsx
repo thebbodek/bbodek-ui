@@ -33,6 +33,7 @@ const InputTextArea = forwardRef(
       maxLength = 150,
       error = false,
       name,
+      sub,
       ...rest
     } = props;
     const { inputValue, onChangeHandler } = useInput({
@@ -62,6 +63,7 @@ const InputTextArea = forwardRef(
         error={error}
         readOnly={readOnly}
         disabled={disabled}
+        sub={sub}
         inputComponent={
           <textarea
             ref={ref}

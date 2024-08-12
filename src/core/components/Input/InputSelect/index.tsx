@@ -18,6 +18,7 @@ const InputSelect = forwardRef(
       onChange,
       required,
       error,
+      sub,
       ...rest
     } = props;
 
@@ -33,6 +34,7 @@ const InputSelect = forwardRef(
         rootClassName={rootClassName}
         inputRootClassName={'py-0 h-[3.75rem]'}
         error={error}
+        sub={sub}
         inputComponent={
           <select
             ref={ref}

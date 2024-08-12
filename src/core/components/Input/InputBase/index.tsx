@@ -25,6 +25,7 @@ const InputBase = forwardRef(
       disabled = false,
       readOnly = false,
       required = false,
+      sub,
       ...props
     }: InputBaseProps<T>,
     ref: React.ComponentPropsWithRef<T>['ref'],
@@ -32,6 +33,7 @@ const InputBase = forwardRef(
     const Component: React.ElementType = Element || 'div';
     const isDisabled = readOnly || disabled;
     const isVisibleEndComponent = !isDisabled && endComponent;
+    const hasInputLabel = label || sub;
 
     return (
       <Component
@@ -39,14 +41,19 @@ const InputBase = forwardRef(
         className={clsx(label && 'flex-v-stack', rootClassName)}
         {...props}
       >
-        {label && (
-          <label className='mb-2' htmlFor={inputId}>
-            <FormLabel
-              label={label}
-              labelColor={labelColor}
-              required={required}
-            />
-          </label>
+        {hasInputLabel && (
+          <div className='mb-2 flex items-center justify-between'>
+            {label && (
+              <label htmlFor={inputId}>
+                <FormLabel
+                  label={label}
+                  labelColor={labelColor}
+                  required={required}
+                />
+              </label>
+            )}
+            {sub && sub}
+          </div>
         )}
         <div
           className={cn(

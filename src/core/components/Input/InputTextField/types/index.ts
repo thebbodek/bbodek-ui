@@ -16,5 +16,6 @@ export interface InputTextFieldProps
       | 'error'
       | 'readOnly'
       | 'disabled'
+      | 'sub'
     >,
     Pick<UseInputProps, 'regCallback'> {}
