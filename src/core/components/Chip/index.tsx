@@ -1,10 +1,4 @@
-import {
-  ComponentPropsWithoutRef,
-  ElementType,
-  forwardRef,
-  MouseEvent,
-  Ref,
-} from 'react';
+import React, { ElementType, forwardRef, MouseEvent } from 'react';
 import clsx from 'clsx';
 import { X } from '@phosphor-icons/react';
 
@@ -28,8 +22,8 @@ const Chip = forwardRef(
       rounded = ROUNDED['ROUNDED_FULL'],
       className,
       ...props
-    }: ChipProps<T> & ComponentPropsWithoutRef<T>,
-    ref: Ref<T>, // 여기에 적절한 타입을 지정합니다
+    }: ChipProps<T>,
+    ref: React.ComponentPropsWithRef<T>['ref'],
   ) => {
     const handleDelete = (e: MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
