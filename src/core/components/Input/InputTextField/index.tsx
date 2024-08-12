@@ -30,6 +30,7 @@ const InputTextField = forwardRef(
       error = false,
       name,
       disabled = false,
+      sub,
       ...rest
     } = props;
     const { inputValue, onChangeHandler, onResetInputValue } = useInput({
@@ -50,6 +51,7 @@ const InputTextField = forwardRef(
         disabled={disabled}
         feedback={feedback}
         error={error}
+        sub={sub}
         inputComponent={
           <input
             ref={ref}

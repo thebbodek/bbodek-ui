@@ -48,7 +48,12 @@ export interface InputDatePickerProps
     >,
     Pick<
       InputBaseProps<'input'>,
-      'feedback' | 'feedbackColor' | 'disabled' | 'readOnly' | 'required'
+      | 'feedback'
+      | 'feedbackColor'
+      | 'disabled'
+      | 'readOnly'
+      | 'required'
+      | 'sub'
     > {
   inputClassName?: string;
   label?: string;

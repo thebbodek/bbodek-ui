@@ -15,5 +15,6 @@ export interface InputPasswordProps
       | 'labelColor'
       | 'readOnly'
       | 'disabled'
+      | 'sub'
     >,
     Pick<UseInputProps, 'regCallback'> {}

@@ -27,6 +27,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
     autoComplete = 'off',
     error = false,
     name,
+    sub,
     ...rest
   } = props;
   const { inputValue, onChangeHandler, onResetInputValue } = useInput({
@@ -79,6 +80,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
         INPUT_SEARCH_ROUNDED[rounded],
       )}
       onSubmit={el instanceof HTMLFormElement ? onSubmitHandler : undefined}
+      sub={sub}
       inputComponent={
         <input
           id={id}

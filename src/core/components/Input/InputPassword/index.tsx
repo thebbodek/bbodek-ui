@@ -30,6 +30,7 @@ const InputPassword = forwardRef(
       autoComplete = 'off',
       error = false,
       name,
+      sub,
       ...rest
     } = props;
     const { inputValue, onChangeHandler } = useInput({
@@ -57,6 +58,7 @@ const InputPassword = forwardRef(
         required={required}
         feedback={feedback}
         labelColor={labelColor}
+        sub={sub}
         inputComponent={
           <input
             ref={ref}

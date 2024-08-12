@@ -34,6 +34,7 @@ const InputDatePicker = ({
   feedback,
   feedbackColor,
   hasDatePickerTitle,
+  sub,
 }: InputDatePickerProps &
   Omit<HTMLAttributes<HTMLInputElement>, 'disabled' | 'readOnly'>) => {
   const id = useId();
@@ -107,6 +108,7 @@ const InputDatePicker = ({
       feedbackColor={feedbackColor}
       disabled={disabled}
       readOnly={readOnly}
+      sub={sub}
       inputComponent={
         <input
           type='text'

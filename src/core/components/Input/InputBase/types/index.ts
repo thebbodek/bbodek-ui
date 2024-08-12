@@ -20,4 +20,5 @@ export interface InputBaseProps<T extends React.ElementType>
   disabled?: boolean;
   feedback?: React.ReactNode;
   feedbackColor?: ThemeColors;
+  sub?: React.ReactNode;
 }

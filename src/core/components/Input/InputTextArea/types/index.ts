@@ -19,6 +19,7 @@ export interface InputTextAreaProps
       | 'error'
       | 'readOnly'
       | 'disabled'
+      | 'sub'
     >,
     Pick<UseInputProps, 'regCallback'> {
   textAreaHeight: TextAreaSizeType;
