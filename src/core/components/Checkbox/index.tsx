@@ -1,11 +1,11 @@
+import { CheckCircle, CheckSquare } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import React, { forwardRef, MouseEvent, useId } from 'react';
 
-import { CheckCircle, CheckSquare } from '@phosphor-icons/react';
+import { GAP } from '@/core/components/Button/ButtonBase/constants';
 import Typography from '../Typography';
 import { CHECK_BOX_GAP, CHECKBOX_SVG_SIZE, SVG_SIZE } from './constants';
 import { CheckboxProps } from './types';
-import { GAP } from '@/core/components/Button/ButtonBase/constants';
 
 const Checkbox = forwardRef(
   (

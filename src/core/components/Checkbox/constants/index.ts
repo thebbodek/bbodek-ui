@@ -3,6 +3,7 @@ import { GapType, SvgSizeType } from '../types';
 export const SVG_SIZE = {
   SIZE_32: 'size-32',
   SIZE_24: 'size-24',
+  SIZE_20: 'size-20',
   SIZE_16: 'size-16',
 } as const;
 
@@ -17,6 +18,7 @@ export const GAP = {
 export const CHECKBOX_SVG_SIZE: Record<SvgSizeType, string> = {
   [SVG_SIZE['SIZE_32']]: 'w-8 h-8',
   [SVG_SIZE['SIZE_24']]: 'w-6 h-6',
+  [SVG_SIZE['SIZE_20']]: 'w-5 h-5',
   [SVG_SIZE['SIZE_16']]: 'w-4 h-4',
 };
 
