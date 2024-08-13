@@ -7,7 +7,7 @@ import { RoundedType } from '@/core/components/Button/ButtonBase/types';
 export type SizeType = (typeof SIZE)[keyof typeof SIZE];
 
 export interface LabelProps<T extends ElementType = 'div'>
-  extends Pick<HTMLAttributes<T>, 'className' | 'onClick'> {
+  extends Pick<HTMLAttributes<T>, 'className' | 'onClick' | 'title'> {
   label: ReactNode;
   element?: T;
   colorTheme?: ColorThemeType;
