@@ -13,7 +13,7 @@ const meta = {
     },
     svgSize: {
       control: 'select',
-      options: ['24', '32'],
+      options: ['18', '24', '32'],
       defaultValue: '24',
       description: 'Radio Icon Size',
     },
