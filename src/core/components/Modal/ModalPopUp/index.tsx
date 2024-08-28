@@ -1,18 +1,19 @@
 import clsx from 'clsx';
-import { PropsWithChildren, forwardRef } from 'react';
+import { forwardRef, PropsWithChildren } from 'react';
 
 import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
 import Section from '../../Section';
 import ModalBase from '../ModalBase';
 import { VARIANTS } from '../ModalBase/constants';
 import { ModalPopUpProps } from './types';
+import { ROUNDED } from '@/core/components/Section/constants';
 
 const ModalPopUp = forwardRef(
   (
     {
       isOpen,
       children,
-      rounded,
+      rounded = ROUNDED['ROUNDED_20'],
       hasRounded = true,
       hasShadow = true,
       ...props
