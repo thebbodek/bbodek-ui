@@ -21,6 +21,7 @@ export interface DropdownProps extends Partial<FormLabelProps> {
   content: ReactNode;
   feedback?: ReactNode;
   feedbackColor?: ThemeColors;
+  sub?: ReactNode;
 }
 
 export interface DropdownContextValue

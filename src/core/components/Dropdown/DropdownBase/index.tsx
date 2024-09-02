@@ -1,13 +1,13 @@
-import useClickOutside from '@/hooks/useClickOutSide';
 import clsx from 'clsx';
-import { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
+import useClickOutside from '@/hooks/useClickOutSide';
 import Typography from '../../Typography';
 import DropdownItem from './DropdownItem';
 import DropdownItems from './DropdownItems';
 import DropdownTrigger from './DropdownTrigger';
-import { DropdownContextValue, DropdownProps, ReturnType } from './types';
 import FormLabel from '@/core/components/FormLabel';
+import { DropdownContextValue, DropdownProps, ReturnType } from './types';
 
 export const DropdownContext = createContext<DropdownContextValue | undefined>(
   undefined,
@@ -23,23 +23,35 @@ const DropdownBase = ({
   content,
   feedback,
   feedbackColor = 'error',
-  ...formLabelProps
+  labelColor,
+  required,
+  sub,
 }: DropdownProps) => {
   const [isToggle, setIsToggle] = useState(false);
   const { contentRef } = useClickOutside<HTMLDivElement>(() =>
     setIsToggle(false),
   );
   const isVisibleContent = !readOnly && !disabled && isToggle;
+  const hasInputLabel = label || sub;
 
   return (
     <DropdownContext.Provider
       value={{ isToggle, setIsToggle, readOnly, disabled }}
     >
       <div ref={contentRef} className={clsx(className, 'relative')}>
-        {label && (
-          <label className='mb-2 inline-block'>
-            <FormLabel label={label} {...formLabelProps} />
-          </label>
+        {hasInputLabel && (
+          <div className='mb-2 flex items-center justify-between'>
+            {label && (
+              <label>
+                <FormLabel
+                  label={label}
+                  labelColor={labelColor}
+                  required={required}
+                />
+              </label>
+            )}
+            {sub && sub}
+          </div>
         )}
         {trigger}
         {isVisibleContent && content}
