@@ -31,8 +31,10 @@ const DropdownTrigger = forwardRef(
         type='button'
         onClick={onClickHandler}
         className={clsx(
-          'cursor-pointer whitespace-nowrap bg-white',
-          isDisabled && '!cursor-not-allowed bg-gray-09',
+          'whitespace-nowrap',
+          isDisabled
+            ? 'cursor-not-allowed bg-gray-09'
+            : 'cursor-pointer bg-white',
           className,
         )}
         aria-haspopup='listbox'
