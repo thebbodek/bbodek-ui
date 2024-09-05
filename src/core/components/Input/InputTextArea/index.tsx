@@ -25,12 +25,13 @@ const InputTextArea = forwardRef(
       readOnly = false,
       disabled = false,
       rootClassName,
+      inputRootClassName,
       className,
       required = false,
       value,
       onChange,
       autoComplete = 'off',
-      maxLength = 150,
+      maxLength,
       error = false,
       name,
       sub,
@@ -45,7 +46,7 @@ const InputTextArea = forwardRef(
     const currentInputValueLength = (inputValue as string)?.length || 0;
 
     const onChangeTextArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      if ((e.target?.value ?? '').length > maxLength) return;
+      if (maxLength && (e.target?.value ?? '').length > maxLength) return;
 
       onChangeHandler(e);
     };
@@ -57,7 +58,8 @@ const InputTextArea = forwardRef(
         rootClassName={rootClassName}
         inputRootClassName={clsx(
           'flex-v-stack',
-          TEXT_AREA_HEIGHT[textAreaHeight],
+          textAreaHeight && TEXT_AREA_HEIGHT[textAreaHeight],
+          inputRootClassName,
         )}
         feedback={feedback}
         error={error}
@@ -82,11 +84,13 @@ const InputTextArea = forwardRef(
           />
         }
         endComponent={
-          <Typography
-            className='ml-auto'
-            color='gray-05'
-            text={`${currentInputValueLength} / ${maxLength}`}
-          />
+          maxLength && (
+            <Typography
+              className='ml-auto'
+              color='gray-05'
+              text={`${currentInputValueLength} / ${maxLength}`}
+            />
+          )
         }
         required={required}
         labelColor={labelColor}

@@ -45,16 +45,14 @@ export const Default = (props: InputTextAreaProps) => {
     setCurrentValue(e.target.value);
 
   return (
-    <div className='w-[30rem]'>
-      <InputTextArea
-        label={label}
-        onChange={onChangeHandler}
-        value={currentValue}
-        placeholder='검색하기'
-        maxLength={maxLength ?? 150}
-        textAreaHeight={textAreaHeight ?? 'h-213'}
-        {...rest}
-      />
-    </div>
+    <InputTextArea
+      label={label}
+      onChange={onChangeHandler}
+      maxLength={50}
+      inputRootClassName={'w-[30rem] h-[10rem]'}
+      value={currentValue}
+      placeholder='검색하기'
+      {...rest}
+    />
   );
 };

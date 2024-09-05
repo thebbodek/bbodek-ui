@@ -13,6 +13,7 @@ export interface InputTextAreaProps
       InputBaseProps<'div'>,
       | 'feedback'
       | 'rootClassName'
+      | 'inputRootClassName'
       | 'label'
       | 'labelColor'
       | 'borderColor'
@@ -22,6 +23,6 @@ export interface InputTextAreaProps
       | 'sub'
     >,
     Pick<UseInputProps, 'regCallback'> {
-  textAreaHeight: TextAreaSizeType;
-  maxLength: React.TextareaHTMLAttributes<HTMLTextAreaElement>['maxLength'];
+  textAreaHeight?: TextAreaSizeType;
+  maxLength?: React.TextareaHTMLAttributes<HTMLTextAreaElement>['maxLength'];
 }
