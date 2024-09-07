@@ -42,7 +42,7 @@ const DefaultLayout = () => {
           전체 날짜 변경
         </button>
         <InputDatePicker
-          variants='period'
+          variants='single'
           overlay={overlay}
           getPeriodDates={getDate}
           externalDates={myDates}
@@ -83,6 +83,7 @@ const InputDatePickerInModalPopUpLayout = () => {
       return (
         <ModalPopUp isOpen={isOpen}>
           <InputDatePicker
+            dateLabel={['사용일', '종료일']}
             overlay={inputDatePickerOverlay}
             useTab={false}
             getPeriodDates={getDate}

@@ -22,7 +22,7 @@ export interface DatePickerProps
   isOpen: boolean;
   close: DatePickerCalendarProps['onDateClick'];
   useTab?: boolean;
-  dateLabel?: DatePickerCalendarProps['label'];
+  dateLabel: DatePickerCalendarProps['label'];
   hasDatePickerTitle?: boolean;
 }
 

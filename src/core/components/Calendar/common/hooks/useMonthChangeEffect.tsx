@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 
 import { HOLIDAYS, Weekdays } from '@/constants';
 import { CalendarDateDto } from '@/core/components/Calendar/common/types/CalendarDateDto';
+import { getDayjs } from '@/utilities/day';
 
 export const useMonthChangeEffect = (
   selectedDayjs: dayjs.Dayjs,
@@ -12,26 +13,23 @@ export const useMonthChangeEffect = (
     function getNewCalendarDates() {
       const newCalendarDates: CalendarDateDto[][] = [];
       let calendarWeekDates: CalendarDateDto[] = [];
+
       let calendarDate: dayjs.Dayjs =
         selectedDayjs.startOf('month').startOf('week').get('d') ===
         Weekdays.SUNDAY
           ? selectedDayjs.startOf('month').startOf('week')
           : selectedDayjs.subtract(1, 'month').endOf('month').startOf('week');
 
-      while (
-        selectedDayjs.endOf('month').get('d') === Weekdays.SATURDAY
-          ? calendarDate.isBefore(
-              selectedDayjs.add(1, 'month').startOf('month'),
-            )
-          : calendarDate.isBefore(
-              selectedDayjs.add(1, 'month').startOf('month').endOf('week'),
-            )
-      ) {
+      const totalWeeks = 6;
+      const endCalendarDate = calendarDate.add(totalWeeks * 7, 'day');
+
+      while (calendarDate.isBefore(endCalendarDate)) {
         calendarWeekDates.push({
           dayjs: calendarDate,
           isThisMonth: calendarDate.isSame(selectedDayjs, 'month'),
           isToday:
-            calendarDate.format('YYYY-MM-DD') === dayjs().format('YYYY-MM-DD'),
+            calendarDate.format('YYYY-MM-DD') ===
+            getDayjs().format('YYYY-MM-DD'),
           isHoliday: HOLIDAYS.includes(calendarDate.get('d')),
         });
 

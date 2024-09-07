@@ -7,13 +7,14 @@ import { CalendarHeader } from '@/core/components/Calendar/common/subs/CalendarH
 import { CalendarWeekDayComponent } from '@/core/components/Calendar/common/subs/CalendarWeekdayComponent';
 import { CalendarDateDto } from '@/core/components/Calendar/common/types/CalendarDateDto';
 import { DATE_PICKER_TYPE } from './constants';
-import { CalendarComponentDaySubText } from './subs/CalendarComponentDaySubText';
-import { CalendarComponentDayText } from './subs/CalendarComponentDayText';
 import {
   DatePickerCalendarProps,
   DatePickerType,
   PeriodDates,
 } from './types/DatePickerCalendarProps';
+import { getDayjs, today } from '@/utilities/day';
+import { CalendarComponentDayText } from '@/core/components/Calendar/DatePickerCalendar/subs/CalendarComponentDayText';
+import { CalendarComponentDaySubText } from '@/core/components/Calendar/DatePickerCalendar/subs/CalendarComponentDaySubText';
 
 export interface UseDatePickerCalendarResponse {
   models: {
@@ -72,7 +73,7 @@ export const useDatePickerCalendar = ({
 
           return;
         } else {
-          if (!dayjs(periodDates.startDate).isAfter(calendarDate.dayjs)) {
+          if (!getDayjs(periodDates.startDate).isAfter(calendarDate.dayjs)) {
             newPeriodDates.endDate = currentDate;
           } else {
             newPeriodDates.startDate = currentDate;
@@ -94,8 +95,8 @@ export const useDatePickerCalendar = ({
         return;
       }
       const newPeriodDateArray: string[] = [];
-      const startDate: dayjs.Dayjs = dayjs(periodDates.startDate);
-      const endDate: dayjs.Dayjs = dayjs(periodDates.endDate);
+      const startDate: dayjs.Dayjs = getDayjs(periodDates.startDate);
+      const endDate: dayjs.Dayjs = getDayjs(periodDates.endDate);
       const diffDate: number = endDate.diff(startDate, 'day');
 
       for (let i = 0; i <= diffDate; i++) {
@@ -121,7 +122,7 @@ export const useDatePickerCalendar = ({
 
 const DatePickerCalendar = ({
   variants = DATE_PICKER_TYPE['SINGLE'],
-  label = ['사용일'],
+  label,
   initialDate,
   exceptionDay,
   periodDates,
@@ -138,7 +139,7 @@ const DatePickerCalendar = ({
   const { date: exceptionDate = '', label: exceptionLabel = '' } =
     exceptionDay ?? {};
   const { models: commonModels, operations: commonOperations } = useCalendar(
-    initialDate ? dayjs(initialDate) : dayjs(),
+    initialDate ? getDayjs(initialDate) : today,
   );
   const { models, operations } = useDatePickerCalendar({ isFixStartDate });
 
@@ -164,7 +165,7 @@ const DatePickerCalendar = ({
       const newPeriodDates = models.periodDates;
       newPeriodDates.startDate = periodDates.startDate;
       operations.setPeriodDates({ ...newPeriodDates });
-      commonOperations.setInitialSelectedDayjs(dayjs(periodDates.startDate));
+      commonOperations.setInitialSelectedDayjs(getDayjs(periodDates.startDate));
     }
   }, []);
 
@@ -193,26 +194,24 @@ const DatePickerCalendar = ({
     if (!cutoffDate && !cutoffAfterDate) return false;
 
     return (
-      (!!cutoffDate && dayjs(calendarDate).isBefore(cutoffDate)) ||
-      (!!cutoffAfterDate && dayjs(calendarDate).isAfter(cutoffAfterDate))
+      (!!cutoffDate && getDayjs(calendarDate).isBefore(cutoffDate)) ||
+      (!!cutoffAfterDate && getDayjs(calendarDate).isAfter(cutoffAfterDate))
     );
   };
 
   return (
     <div className={'flex-v-stack h-full w-full'}>
       <CalendarHeader
-        currentMonth={commonModels.selectedDayjs
-          .locale('ko')
-          .format('YYYY. MM')}
+        currentMonth={commonModels.selectedDayjs}
         onPreviousMonthClick={commonOperations.onPreviousMonthClick}
         onNextMonthClick={commonOperations.onNextMonthClick}
         monthButtonStatus={monthButtonStatus}
       />
       <CalendarWeekDayComponent className='text-gray-06' />
-      <div className={clsx('mt-4 grid flex-1 gap-y-2')}>
-        {commonModels.calendarDates.map(
-          (calendarWeekDates: CalendarDateDto[], index: number) => (
-            <div key={index} className={clsx('grid grid-cols-7')}>
+      <div className={clsx('mt-4 grid flex-1')}>
+        {commonModels.calendarDates.map((calendarWeekDates, index: number) => {
+          return (
+            <div key={index} className={'grid grid-cols-7'}>
               {calendarWeekDates.map(
                 (calendarDate: CalendarDateDto, index: number) => {
                   const disabled =
@@ -276,8 +275,8 @@ const DatePickerCalendar = ({
                 },
               )}
             </div>
-          ),
-        )}
+          );
+        })}
       </div>
     </div>
   );

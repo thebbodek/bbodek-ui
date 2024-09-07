@@ -19,7 +19,7 @@ export interface DatePickerCalendarProps
   isFixStartDate?: boolean;
   initialDate?: string;
   periodDates: PeriodDates;
-  label?: string[];
+  label: string[];
   disabledDates?: string[];
   afterAllDate?: boolean;
   cutoffDate?: string;
