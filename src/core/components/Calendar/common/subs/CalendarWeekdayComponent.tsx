@@ -1,9 +1,9 @@
 import clsx from 'clsx';
-import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 
 import { Weekdays } from '@/constants';
 import Typography from '@/core/components/Typography';
+import { getDayjs } from '@/utilities/day';
 
 export const CalendarWeekDayComponent = ({
   className,
@@ -11,7 +11,7 @@ export const CalendarWeekDayComponent = ({
   className?: string;
 }) => {
   const convertWeekdayNumberToString = (weekdayNumber: number) => {
-    return dayjs()
+    return getDayjs()
       .startOf('week')
       .add(weekdayNumber, 'day')
       .locale('ko')

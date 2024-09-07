@@ -3,6 +3,7 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 import Typography from '@/core/components/Typography';
 import { MONTH_BUTTON_STATUS } from '../constants';
 import { CalendarHeaderProps } from '../types/CalendarHeader';
+import { getDayjs } from '@/utilities/day';
 
 export const CalendarHeader = ({
   currentMonth,
@@ -10,6 +11,8 @@ export const CalendarHeader = ({
   onNextMonthClick,
   monthButtonStatus = MONTH_BUTTON_STATUS['IDLE'],
 }: CalendarHeaderProps) => {
+  const year = getDayjs(currentMonth).format('YYYY.');
+  const month = getDayjs(currentMonth).format('MM');
   const isDisabledMonthBtn =
     monthButtonStatus === MONTH_BUTTON_STATUS['DISABLE_BOTH'];
   const isDisablePrev =
@@ -34,12 +37,21 @@ export const CalendarHeader = ({
       >
         <CaretLeft className={iconClassNames} />
       </button>
-      <Typography
-        className='text-center md:text-head-02-regular'
-        color='black'
-        theme='subhead-01-medium'
-        text={currentMonth}
-      />
+      <div
+        className={'flex min-w-[6rem] items-center justify-between text-black'}
+      >
+        <Typography
+          className='text-center md:text-head-02-regular'
+          theme='subhead-01-medium'
+          text={year}
+        />
+        <Typography
+          className='text-center md:text-head-02-regular'
+          color='black'
+          theme='subhead-01-medium'
+          text={month}
+        />
+      </div>
       <button
         type='button'
         className={buttonClassNames}

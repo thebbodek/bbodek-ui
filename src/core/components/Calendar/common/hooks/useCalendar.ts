@@ -4,10 +4,11 @@ import { useCallback, useState } from 'react';
 import { useMonthChangeEffect } from '@/core/components/Calendar/common/hooks/useMonthChangeEffect';
 import { CalendarDateDto } from '@/core/components/Calendar/common/types/CalendarDateDto';
 import { UseCalendarResponse } from '@/core/components/Calendar/common/types/UseCalendarResponse';
+import { today } from '@/utilities/day';
 
 export const useCalendar = (initialDate?: dayjs.Dayjs): UseCalendarResponse => {
   const [selectedDayjs, setSelectedDayjs] = useState<dayjs.Dayjs>(
-    initialDate || dayjs(),
+    initialDate || today,
   );
   const [calendarDates, setCalendarDates] = useState<CalendarDateDto[][]>([[]]);
 

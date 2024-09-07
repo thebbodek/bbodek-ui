@@ -1,7 +1,9 @@
+import dayjs from 'dayjs';
+
 import { MONTH_BUTTON_STATUS } from '../constants';
 
 export interface CalendarHeaderProps {
-  currentMonth: string;
+  currentMonth: dayjs.Dayjs;
   onPreviousMonthClick?: () => void;
   onNextMonthClick?: () => void;
   monthButtonStatus?: MonthButtonStatusTypes;

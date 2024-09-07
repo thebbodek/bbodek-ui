@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import { useEffect } from 'react';
 
 import { CalendarDayComponent } from '@/core/components/Calendar/ScheduleCalendar/subs/CalendarDayComponent';
@@ -7,6 +6,7 @@ import { useCalendar } from '@/core/components/Calendar/common/hooks/useCalendar
 import { CalendarHeader } from '@/core/components/Calendar/common/subs/CalendarHeader';
 import { CalendarWeekDayComponent } from '@/core/components/Calendar/common/subs/CalendarWeekdayComponent';
 import { PeriodDates } from '../DatePickerCalendar/types/DatePickerCalendarProps';
+import { getDayjs, today } from '@/utilities/day';
 
 const ScheduleCalendar = ({
   initialDate,
@@ -17,7 +17,7 @@ const ScheduleCalendar = ({
   monthButtonStatus,
 }: CalendarComponentProps) => {
   const { models, operations } = useCalendar(
-    initialDate ? dayjs(initialDate * 1000) : dayjs(),
+    initialDate ? getDayjs(initialDate * 1000) : today,
   );
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const ScheduleCalendar = ({
   return (
     <div className={'flex h-full w-full flex-col'}>
       <CalendarHeader
-        currentMonth={models.selectedDayjs.locale('ko').format('YYYY. MM')}
+        currentMonth={models.selectedDayjs}
         onPreviousMonthClick={operations.onPreviousMonthClick}
         onNextMonthClick={operations.onNextMonthClick}
         monthButtonStatus={monthButtonStatus}

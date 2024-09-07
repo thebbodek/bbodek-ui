@@ -1,6 +1,5 @@
 import { CalendarBlank } from '@phosphor-icons/react';
 import clsx from 'clsx';
-import dayjs from 'dayjs';
 import { HTMLAttributes, useEffect, useId, useState } from 'react';
 
 import { DATE_PICKER_TYPE } from '../../Calendar/DatePickerCalendar/constants';
@@ -8,6 +7,7 @@ import { PeriodDates } from '../../Calendar/DatePickerCalendar/types/DatePickerC
 import InputBase from '../InputBase';
 import DatePicker from './DatePicker';
 import { InputDatePickerProps } from './types';
+import { getDayjs } from '@/utilities/day';
 
 const InputDatePicker = ({
   variants = DATE_PICKER_TYPE['PERIOD'],
@@ -42,8 +42,8 @@ const InputDatePicker = ({
     startDate: '',
     endDate: '',
   });
-  const startDate = dayjs(periodDates.startDate).format('YYYY. MM. DD');
-  const endDate = dayjs(periodDates.endDate).format('YYYY. MM. DD');
+  const startDate = getDayjs(periodDates.startDate).format('YYYY. MM. DD');
+  const endDate = getDayjs(periodDates.endDate).format('YYYY. MM. DD');
   const isDisabled = readOnly || disabled;
 
   const onDatePickerClick = (): Promise<PeriodDates> => {

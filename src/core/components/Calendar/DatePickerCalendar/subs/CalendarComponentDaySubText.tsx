@@ -31,8 +31,8 @@ export const CalendarComponentDaySubText = ({
 
     const hasCustomStartLabel = label && label[0];
     const hasCustomEndLabel = label && label[1];
-    const startLabel = hasCustomStartLabel ? label[0] : '시작일';
-    const endLabel = hasCustomEndLabel ? label[1] : '종료일';
+    const startLabel = hasCustomStartLabel && label[0];
+    const endLabel = hasCustomEndLabel && label[1];
 
     if (isStartDate || singleSelectedDate) return startLabel;
 
@@ -40,6 +40,7 @@ export const CalendarComponentDaySubText = ({
 
     if (calendarDate.isToday) {
       const todayLabel = isEndDate ? endLabel : '오늘';
+
       return todayLabel;
     }
 
@@ -50,7 +51,7 @@ export const CalendarComponentDaySubText = ({
     <Typography
       text={dayLabel()}
       theme='body-03-regular'
-      className='z-10 mt-0.5 h-[1.5rem] whitespace-nowrap md:text-body-02-regular'
+      className='flex h-[1.5rem] items-center justify-center whitespace-nowrap md:text-body-02-regular'
       color={isActiveDate ? 'primary-03' : 'gray-06'}
     />
   );

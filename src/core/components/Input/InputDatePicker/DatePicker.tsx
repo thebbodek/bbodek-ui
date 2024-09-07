@@ -103,10 +103,8 @@ const DatePicker = ({
         </header>
         <div
           className={clsx(
-            'overflow-y-auto px-4 pb-2 md:pt-3',
-            useTab
-              ? 'max-h-[calc(100vh-13rem)] pt-1'
-              : 'max-h-[calc(100vh-10rem)]',
+            'overflow-y-auto px-4',
+            useTab ? 'max-h-[calc(100vh-13rem)]' : 'max-h-[calc(100vh-10rem)]',
           )}
         >
           <DatePickerCalendar
