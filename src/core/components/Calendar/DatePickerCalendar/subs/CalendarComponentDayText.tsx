@@ -10,6 +10,7 @@ interface CalendarComponentDayTextProps {
   periodDateArray?: string[];
   disabled: boolean;
   isExceptionDate: boolean;
+  isTemporaryDate: boolean;
 }
 
 export const CalendarComponentDayText = ({
@@ -18,6 +19,7 @@ export const CalendarComponentDayText = ({
   periodDates,
   periodDateArray,
   isExceptionDate,
+  isTemporaryDate,
   disabled,
 }: CalendarComponentDayTextProps) => {
   const currentDate = calendarDate.dayjs.format('YYYY-MM-DD');
@@ -54,17 +56,23 @@ export const CalendarComponentDayText = ({
         className={clsx(
           'relative z-20 flex h-[2rem] items-center justify-center text-body-02-bold leading-none text-black md:h-[2.375rem] md:text-body-01-bold',
           !isExceptionDate && disabled
-            ? 'text-gray-05'
-            : isMarkedDate
+            ? !isActiveDate
+              ? 'text-gray-05'
+              : 'text-white'
+            : isMarkedDate || isTemporaryDate
               ? 'text-white'
               : 'text-black',
-          isMarkedDate &&
+          (isMarkedDate || isTemporaryDate) &&
             'h-[2rem] w-[2rem] rounded-full md:h-[2.375rem] md:w-[2.375rem]',
           isActiveDate && 'bg-primary-03',
           calendarDate.isToday &&
             'h-[2rem] w-[2rem] bg-gray-03 md:h-[2.375rem] md:w-[2.375rem]',
+          !isExceptionDate && !disabled && isTemporaryDate && 'bg-error',
           isExceptionDate && 'bg-gray-05',
-          isMarkedPeriod && 'w-full rounded-none bg-primary-00',
+          isMarkedPeriod &&
+            !isTemporaryDate &&
+            'w-full rounded-none bg-primary-00',
+          isMarkedPeriod && isTemporaryDate && '!w-full rounded-none bg-error',
           isMarkedPeriod && calendarDate.isToday && '!w-full !text-primary-03',
           isActiveDate && disabled && 'bg-primary-01',
         )}

@@ -7,6 +7,8 @@ interface CalendarComponentDaySubTextProps
   calendarDate: CalendarDateDto;
   isExceptionDate: boolean;
   exceptionDateLabel?: string;
+  isTemporaryDate: boolean;
+  disabled: boolean;
 }
 
 export const CalendarComponentDaySubText = ({
@@ -14,6 +16,8 @@ export const CalendarComponentDaySubText = ({
   periodDates,
   isExceptionDate,
   exceptionDateLabel,
+  isTemporaryDate,
+  disabled,
   label,
 }: CalendarComponentDaySubTextProps) => {
   const currentDate = calendarDate.dayjs.format('YYYY-MM-DD');
@@ -38,6 +42,8 @@ export const CalendarComponentDaySubText = ({
 
     if (isEndDate) return endLabel;
 
+    if (!disabled && isTemporaryDate) return '임시공휴일';
+
     if (calendarDate.isToday) {
       const todayLabel = isEndDate ? endLabel : '오늘';
 
@@ -47,12 +53,24 @@ export const CalendarComponentDaySubText = ({
     return '';
   };
 
+  const getLabelColor = () => {
+    if (isActiveDate) {
+      return 'primary-03';
+    }
+
+    if (isTemporaryDate) {
+      return 'error';
+    }
+
+    return 'gray-06';
+  };
+
   return (
     <Typography
       text={dayLabel()}
       theme='body-03-regular'
       className='flex h-[1.5rem] items-center justify-center whitespace-nowrap md:text-body-02-regular'
-      color={isActiveDate ? 'primary-03' : 'gray-06'}
+      color={getLabelColor()}
     />
   );
 };

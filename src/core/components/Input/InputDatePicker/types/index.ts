@@ -14,6 +14,7 @@ export interface DatePickerProps
     | 'cutoffAfterDate'
     | 'initialDate'
     | 'afterAllDate'
+    | 'temporaryDates'
   > {
   isFixStartDate?: boolean;
   variants?: DatePickerCalendarProps['variants'];
@@ -31,11 +32,6 @@ type CreateOverlayElement = (props: {
   close: () => void;
   exit: () => void;
 }) => JSX.Element;
-
-export interface ExternalDates {
-  startDate: string;
-  endDate: string | null;
-}
 
 export interface InputDatePickerProps
   extends Omit<

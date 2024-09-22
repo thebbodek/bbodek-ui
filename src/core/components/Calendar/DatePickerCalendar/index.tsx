@@ -132,6 +132,7 @@ const DatePickerCalendar = ({
   afterAllDate = false,
   monthButtonStatus,
   isFixStartDate = false,
+  temporaryDates,
   useHoliday = false,
   onRender,
   onDateClick,
@@ -229,6 +230,8 @@ const DatePickerCalendar = ({
                   const isExceptionDate = exceptionDay
                     ? exceptionDate === currentDate
                     : false;
+                  const isTemporaryDate =
+                    temporaryDates?.includes(currentDate) ?? false;
 
                   return (
                     <div key={index}>
@@ -260,11 +263,14 @@ const DatePickerCalendar = ({
                             periodDateArray={models.periodDateArray}
                             afterAllDate={afterAllDate}
                             isExceptionDate={isExceptionDate}
+                            isTemporaryDate={isTemporaryDate}
                           />
                           <CalendarComponentDaySubText
                             calendarDate={calendarDate}
                             periodDates={models.periodDates}
+                            disabled={disabled}
                             isExceptionDate={isExceptionDate}
+                            isTemporaryDate={isTemporaryDate}
                             exceptionDateLabel={exceptionLabel}
                             label={label}
                           />

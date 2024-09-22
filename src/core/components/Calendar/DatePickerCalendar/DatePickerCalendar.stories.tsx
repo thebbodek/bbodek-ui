@@ -31,6 +31,7 @@ export const SingleDatePicker = () => {
         initialDate='2024-02-05'
         periodDates={periodDates}
         onDateClick={onDateClick}
+        temporaryDates={['2024-10-01']}
       />
     </div>
   );
@@ -53,6 +54,7 @@ export const PeriodDatesPicker = () => {
         variants={DATE_PICKER_TYPE['PERIOD']}
         cutoffDate='2024-01-23'
         periodDates={periodDates}
+        temporaryDates={['2024-10-01']}
         onDateClick={onDateClick}
       />
     </div>

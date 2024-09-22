@@ -35,6 +35,7 @@ const InputDatePicker = ({
   feedbackColor,
   hasDatePickerTitle,
   sub,
+  temporaryDates,
 }: InputDatePickerProps &
   Omit<HTMLAttributes<HTMLInputElement>, 'disabled' | 'readOnly'>) => {
   const id = useId();
@@ -50,6 +51,7 @@ const InputDatePicker = ({
     return new Promise((resolve) => {
       overlay.open(({ isOpen, close }) => (
         <DatePicker
+          temporaryDates={temporaryDates}
           hasDatePickerTitle={hasDatePickerTitle}
           isFixStartDate={isFixStartDate}
           variants={variants}

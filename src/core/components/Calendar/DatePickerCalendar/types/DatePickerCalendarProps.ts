@@ -21,6 +21,7 @@ export interface DatePickerCalendarProps
   periodDates: PeriodDates;
   label: string[];
   disabledDates?: string[];
+  temporaryDates?: string[];
   afterAllDate?: boolean;
   cutoffDate?: string;
   cutoffAfterDate?: string;

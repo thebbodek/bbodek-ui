@@ -27,6 +27,7 @@ const DatePicker = ({
   closeButtonText = '닫기',
   dateLabel,
   hasDatePickerTitle = true,
+  temporaryDates,
 }: DatePickerProps) => {
   const id = useId();
   const [periodDates, setPeriodDates] = useState<PeriodDates>({
@@ -108,6 +109,7 @@ const DatePicker = ({
           )}
         >
           <DatePickerCalendar
+            temporaryDates={temporaryDates}
             isFixStartDate={isFixStartDate}
             variants={variants}
             cutoffDate={cutoffDate}
