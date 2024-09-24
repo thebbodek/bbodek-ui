@@ -12,10 +12,7 @@ const DropdownFilterItems = forwardRef(
     return (
       <DropdownBase.Items
         ref={ref}
-        className={clsx(
-          'flex-v-stack gap-y-6 overflow-hidden rounded-xl border border-gray-03 px-3 py-4',
-          className,
-        )}
+        className={clsx('gap-y-6 px-3 py-4', className)}
         {...props}
       />
     );
