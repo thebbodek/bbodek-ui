@@ -12,6 +12,7 @@ import DropdownItem from '../DropdownItem';
 import DropdownItems from '../DropdownItems';
 import DropdownTrigger from '../DropdownTrigger';
 import { FormLabelProps } from '@/core/components/FormLabel/types';
+import { InputSearchProps } from '@/core/components/Input/InputSearch/types';
 
 export interface DropdownProps extends Partial<FormLabelProps> {
   className?: string;
@@ -33,7 +34,11 @@ export interface DropdownContextValue
 export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {}
 
 export interface DropdownItemsProps extends HTMLAttributes<HTMLUListElement> {
+  rootClassName?: string;
   items: ReactNode[];
+  useSearch?: boolean;
+  inputProps?: Omit<InputSearchProps<'div'>, 'rootElement' | 'rounded'> &
+    Partial<Pick<InputSearchProps<'div'>, 'rounded'>>;
 }
 
 export interface DropdownTriggerProps

@@ -65,3 +65,34 @@ export const DropdownBaseWithIcon = () => {
     />
   );
 };
+
+export const DropdownBaseWithSearch = () => {
+  const [currentValue, setCurrentValue] = useState('');
+
+  const data = ['A반', 'B반', 'C반', 'D반', 'E반'];
+
+  const items = data.map((item, idx) => (
+    <DropdownBase.Item key={idx} onClick={() => setCurrentValue(item)}>
+      {item}
+    </DropdownBase.Item>
+  ));
+
+  return (
+    <DropdownBase
+      trigger={
+        <DropdownBase.Trigger>
+          {({ isToggle }) => (
+            <div className='flex items-center'>
+              {currentValue || '옵션을 선택해주세요'}
+              <CaretDown
+                size='16'
+                className={isToggle ? 'rotate-180' : 'rotate-0'}
+              />
+            </div>
+          )}
+        </DropdownBase.Trigger>
+      }
+      content={<DropdownBase.Items useSearch items={items} />}
+    />
+  );
+};
