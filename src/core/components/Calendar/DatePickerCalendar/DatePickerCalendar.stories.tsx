@@ -50,7 +50,7 @@ export const PeriodDatesPicker = () => {
   return (
     <div className={'w-[500px] rounded-3xl border py-6'}>
       <DatePickerCalendar
-        label={['사용일']}
+        label={['사용일', '종료일']}
         variants={DATE_PICKER_TYPE['PERIOD']}
         cutoffDate='2024-01-23'
         periodDates={periodDates}

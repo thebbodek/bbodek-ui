@@ -71,6 +71,7 @@ const InputDatePicker = ({
           useHoliday={useHoliday}
           disabledDates={disabledDates}
           closeButtonText={closeButtonText}
+          afterAllDate={afterAllDate}
         />
       ));
     });
