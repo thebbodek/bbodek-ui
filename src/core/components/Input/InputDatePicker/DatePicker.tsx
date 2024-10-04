@@ -28,21 +28,23 @@ const DatePicker = ({
   dateLabel,
   hasDatePickerTitle = true,
   temporaryDates,
+  afterAllDate,
 }: DatePickerProps) => {
   const id = useId();
   const [periodDates, setPeriodDates] = useState<PeriodDates>({
     startDate: '',
     endDate: '',
   });
-  const [tabSelected, setTabSelected] = useState('selectedDate');
-  const [isAfterAllDate, setIsAfterAllDate] = useState(false);
+  const [tabSelected, setTabSelected] = useState(
+    afterAllDate ? 'afterAllDate' : 'selectedDate',
+  );
   const tabData = [
     { key: 'selectedDate', label: '선택한 기간만 적용' },
     { key: 'afterAllDate', label: '선택일부터 모든 날짜 적용' },
   ];
 
   const handleClose = () => {
-    close(periodDates, isAfterAllDate);
+    close(periodDates, tabSelected === 'afterAllDate');
   };
 
   useEffect(() => {
@@ -63,7 +65,7 @@ const DatePicker = ({
     />
   ));
 
-  const onDateClick = (periodDates: PeriodDates, afterAllDate?: boolean) => {
+  const onDateClick = (periodDates: PeriodDates) => {
     setPeriodDates(
       !isFixStartDate
         ? periodDates!
@@ -72,7 +74,6 @@ const DatePicker = ({
             endDate: periodDates['endDate'],
           },
     );
-    setIsAfterAllDate(afterAllDate !== undefined && afterAllDate);
   };
 
   return (
@@ -98,7 +99,7 @@ const DatePicker = ({
           {useTab && (
             <GeneralTab
               items={tabItems}
-              className='mt-3 !rounded-xl !p-1.5 md:mt-4 md:p-2 [&_li]:rounded-lg [&_span]:p-1.5 [&_span]:text-body-02-bold md:[&_span]:p-2 md:[&_span]:text-body-01-bold'
+              className='mt-3 !rounded-xl !p-1.5 md:mt-4 md:p-2 [&_span]:!rounded-lg [&_span]:p-1.5 [&_span]:text-body-02-bold md:[&_span]:p-2 md:[&_span]:text-body-01-bold'
             />
           )}
         </header>

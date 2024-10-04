@@ -19,12 +19,20 @@ export default meta;
 
 const DefaultLayout = () => {
   const overlay = useOverlay();
-  const [myDates, setMyDates] = useState({
-    startDate: '',
-    endDate: '',
+  const [myDates, setMyDates] = useState<{
+    startDate: string;
+    endDate: string | null;
+  }>({
+    startDate: '2024-10-04',
+    endDate: null,
   });
-  const getDate = (periodDates: PeriodDates, isAfterAllDate?: boolean) =>
+  const getDate = (periodDates: PeriodDates, isAfterAllDate?: boolean) => {
+    setMyDates({
+      startDate: periodDates.startDate,
+      endDate: isAfterAllDate ? null : periodDates.endDate,
+    });
     console.log(periodDates, isAfterAllDate);
+  };
 
   const onDatesClick = () =>
     setMyDates({ startDate: '22222', endDate: '1111' });
@@ -45,11 +53,16 @@ const DefaultLayout = () => {
           variants='single'
           overlay={overlay}
           getPeriodDates={getDate}
-          externalDates={myDates}
+          externalDates={{
+            startDate: myDates.startDate,
+            endDate: myDates.endDate || '',
+          }}
           label='날짜 선택'
           initialDate='2024-02-05'
-          required
+          afterAllDate={myDates.endDate === null}
           dateLabel={['복구일']}
+          useTab
+          required
         />
         <Button
           type='submit'
