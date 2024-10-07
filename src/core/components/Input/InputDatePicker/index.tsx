@@ -19,6 +19,7 @@ const InputDatePicker = ({
   isFixStartDate,
   getPeriodDates,
   externalDates,
+  error = false,
   useTab = false,
   useHoliday = false,
   disabled = false,
@@ -107,6 +108,7 @@ const InputDatePicker = ({
       onClick={handleDatePicker}
       label={label}
       required={required}
+      error={error}
       feedback={feedback}
       feedbackColor={feedbackColor}
       disabled={disabled}

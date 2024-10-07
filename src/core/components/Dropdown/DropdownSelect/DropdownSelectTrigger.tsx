@@ -8,7 +8,7 @@ import { DropdownSelectTriggerProps } from './types';
 
 const DropdownSelectTrigger = forwardRef(
   (
-    { currentValue, ...props }: DropdownSelectTriggerProps,
+    { currentValue, error, ...props }: DropdownSelectTriggerProps,
     ref: React.Ref<HTMLButtonElement>,
   ) => {
     const { className, placeholder, ...rest } = props;
@@ -18,7 +18,8 @@ const DropdownSelectTrigger = forwardRef(
       <DropdownBase.Trigger
         ref={ref}
         className={clsx(
-          'flex h-[3.75rem] w-full items-center justify-between gap-x-2 overflow-hidden rounded-xl border border-gray-03 p-3',
+          'flex h-[3.75rem] w-full items-center justify-between gap-x-2 overflow-hidden rounded-xl border p-3',
+          error ? 'border-error' : ' border-gray-03',
           className,
         )}
         {...rest}

@@ -55,14 +55,14 @@ const DropdownBase = ({
         )}
         {trigger}
         {isVisibleContent && content}
+        {feedback ? (
+          <Typography
+            theme='body-03-regular'
+            color={feedbackColor}
+            text={feedback}
+          />
+        ) : null}
       </div>
-      {feedback ? (
-        <Typography
-          theme='body-03-regular'
-          color={feedbackColor}
-          text={feedback}
-        />
-      ) : null}
     </DropdownContext.Provider>
   );
 };
