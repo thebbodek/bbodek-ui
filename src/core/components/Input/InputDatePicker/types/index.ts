@@ -44,6 +44,7 @@ export interface InputDatePickerProps
     >,
     Pick<
       InputBaseProps<'input'>,
+      | 'error'
       | 'feedback'
       | 'feedbackColor'
       | 'disabled'

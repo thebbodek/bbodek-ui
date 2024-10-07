@@ -44,6 +44,7 @@ export interface DropdownItemsProps extends HTMLAttributes<HTMLUListElement> {
 export interface DropdownTriggerProps
   extends Omit<HTMLAttributes<HTMLButtonElement>, 'children'> {
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  error?: boolean;
   children:
     | ReactNode
     | ((
