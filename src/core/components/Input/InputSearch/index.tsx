@@ -38,7 +38,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
   });
   const SearchIcon = <MagnifyingGlass size='100%' className='text-gray-05' />;
   const el = rootRef.current;
-  const isForm = el instanceof HTMLFormElement;
+  const isForm = rootElement === 'form';
 
   const endComponent = () => {
     if (isForm) {
@@ -59,7 +59,9 @@ const InputSearch = <T extends React.ElementType = 'form'>({
 
     if (!formSubmitHandler) return;
 
-    el.reset();
+    const element = el as unknown as HTMLFormElement;
+
+    element.reset();
 
     onResetInputValue();
     formSubmitHandler(e);
@@ -79,7 +81,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
         'flex items-center overflow-hidden border border-gray-02 bg-white py-2 text-body-02-medium',
         INPUT_SEARCH_ROUNDED[rounded],
       )}
-      onSubmit={el instanceof HTMLFormElement ? onSubmitHandler : undefined}
+      onSubmit={isForm ? onSubmitHandler : undefined}
       sub={sub}
       inputComponent={
         <input
