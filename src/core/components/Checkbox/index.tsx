@@ -49,7 +49,7 @@ const Checkbox = forwardRef(
           {...props}
         />
         <div
-          className={`${CHECKBOX_SVG_SIZE[svgSize]} [&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-primary-03`}
+          className={`${CHECKBOX_SVG_SIZE[svgSize]} peer-disabled:text-gray-06 [&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-primary-03`}
         >
           {svg}
         </div>
