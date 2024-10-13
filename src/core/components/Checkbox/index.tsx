@@ -6,6 +6,8 @@ import { GAP } from '@/core/components/Button/ButtonBase/constants';
 import Typography from '../Typography';
 import { CHECK_BOX_GAP, CHECKBOX_SVG_SIZE, SVG_SIZE } from './constants';
 import { CheckboxProps } from './types';
+import { THEME_COLOR } from '@/constants/color';
+import { ThemeColors } from '@/types';
 
 const Checkbox = forwardRef(
   (
@@ -49,11 +51,21 @@ const Checkbox = forwardRef(
           {...props}
         />
         <div
-          className={`${CHECKBOX_SVG_SIZE[svgSize]} peer-disabled:text-gray-06 [&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-primary-03`}
+          className={`${CHECKBOX_SVG_SIZE[svgSize]} [&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-primary-03`}
         >
           {svg}
         </div>
-        {label && <Typography theme={theme} text={label} />}
+        {label && (
+          <Typography
+            theme={theme}
+            color={
+              (!disabled
+                ? THEME_COLOR['GRAY_08']
+                : THEME_COLOR['GRAY_06']) as ThemeColors
+            }
+            text={label}
+          />
+        )}
       </label>
     );
   },
