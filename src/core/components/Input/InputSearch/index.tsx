@@ -38,7 +38,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
   });
   const SearchIcon = <MagnifyingGlass size='100%' className='text-gray-05' />;
   const el = rootRef.current;
-  const isForm = rootElement === 'form';
+  const isForm = (rootElement || 'form') === 'form';
 
   const endComponent = () => {
     if (isForm) {
