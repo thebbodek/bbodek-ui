@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Meta } from '@storybook/react';
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
 import { FixedVirtualListProps } from '@/core/components/Virtual/FixedVirtualList/types';
 import FixedVirtualList from './index';
@@ -26,6 +26,7 @@ export const Default = ({
   itemHeight = 90,
   containerHeight = 500,
 }: Pick<FixedVirtualListProps, 'itemHeight' | 'containerHeight'>) => {
+  const listRef = useRef<HTMLUListElement | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [images, setImages] = useState<
     {
@@ -64,33 +65,43 @@ export const Default = ({
     return <div className={'animate-bounce'}>Empty...</div>;
   }
 
-  return (
-    <FixedVirtualList
-      listElement={'ul'}
-      itemHeight={itemHeight}
-      containerHeight={containerHeight}
-      itemsTotalCount={itemsTotalCount}
-      className={'w-[500px] bg-gray-02'}
-    >
-      {({ startIndex, endIndex, getTopPosition }) =>
-        images.slice(startIndex, endIndex).map((image, index) => {
-          const { id, author, download_url } = image;
+  const onChange = () => {
+    if (listRef.current && listRef.current.scrollTop !== 0) {
+      listRef.current!.scrollTop = 0;
+    }
+  };
 
-          return (
-            <FixedVirtualList.item
-              key={id}
-              element={'li'}
-              topPosition={getTopPosition({ index })}
-              height={itemHeight}
-              className={'gap-x-3'}
-            >
-              <ImageComponent key={download_url} src={download_url} />
-              <AuthorComponent key={author} author={author} />
-            </FixedVirtualList.item>
-          );
-        })
-      }
-    </FixedVirtualList>
+  return (
+    <>
+      <input onChange={onChange} />
+      <FixedVirtualList
+        listElement={'ul'}
+        itemHeight={itemHeight}
+        containerHeight={containerHeight}
+        itemsTotalCount={itemsTotalCount}
+        className={'w-[500px] bg-gray-02'}
+        ref={listRef}
+      >
+        {({ startIndex, endIndex, getTopPosition }) =>
+          images.slice(startIndex, endIndex).map((image, index) => {
+            const { id, author, download_url } = image;
+
+            return (
+              <FixedVirtualList.Item
+                key={id}
+                element={'li'}
+                topPosition={getTopPosition({ index })}
+                height={itemHeight}
+                className={'gap-x-3'}
+              >
+                <ImageComponent key={download_url} src={download_url} />
+                <AuthorComponent key={author} author={author} />
+              </FixedVirtualList.Item>
+            );
+          })
+        }
+      </FixedVirtualList>
+    </>
   );
 };
 
