@@ -11,8 +11,8 @@ export { default as DropdownBase } from '@/core/components/Dropdown/DropdownBase
 export { default as DropdownBaseItem } from '@/core/components/Dropdown/DropdownBase/DropdownItem';
 export { default as DropdownBaseItems } from '@/core/components/Dropdown/DropdownBase/DropdownItems';
 export { default as DropdownBaseTrigger } from '@/core/components/Dropdown/DropdownBase/DropdownTrigger';
-export { default as FixedVirtualList } from '@/core/components/Virtual/FixedVirtualList';
-export { default as FixedVirtualListItem } from '@/core/components/Virtual/FixedVirtualList/FixedVirtualListItem';
+export { default as VirtualList } from '@/core/components/Virtual/VirtualList';
+export { default as VirtualListItem } from '@/core/components/Virtual/VirtualList/VirtualListItem';
 export { default as DropdownFilter } from '@/core/components/Dropdown/DropdownFilter';
 export { default as DropdownFilterItem } from '@/core/components/Dropdown/DropdownFilter/DropdownFilterItem';
 export { default as DropdownFilterItems } from '@/core/components/Dropdown/DropdownFilter/DropdownFilterItems';
@@ -55,6 +55,7 @@ export { default as Tooltip } from '@/core/components/Tooltip';
 export { default as Typography } from '@/core/components/Typography';
 export { default as Chip } from '@/core/components/Chip';
 export { default as Chips } from '@/core/components/Chips';
-export * from '@/utilities/day';
 
 export { useInput } from '@/core/components/Input/hooks/useInput';
+export * from '@/utilities/day';
+export * from '@/utilities/ref';
