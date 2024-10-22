@@ -1,24 +1,24 @@
+import clsx from 'clsx';
 import React, {
   ElementType,
   forwardRef,
   useCallback,
+  useEffect,
   useRef,
   useState,
 } from 'react';
-import clsx from 'clsx';
 
-import FixedVirtualListItem from '@/core/components/Virtual/FixedVirtualList/FixedVirtualListItem';
 import {
-  FixedVirtualListProps,
   GetTopPositionParams,
   ReturnType,
-} from '@/core/components/Virtual/FixedVirtualList/types';
+  VirtualListProps,
+} from '@/core/components/Virtual/VirtualList/types';
 import { mergeRefs } from '@/utilities/ref';
+import VirtualListItem from '@/core/components/Virtual/VirtualList/VirtualListItem';
 
-const FixedVirtualList = forwardRef<HTMLElement, FixedVirtualListProps>(
+const VirtualList = forwardRef<HTMLElement, VirtualListProps>(
   (
     {
-      containerHeight,
       itemHeight,
       itemsTotalCount,
       rootElement: RootElement,
@@ -30,6 +30,7 @@ const FixedVirtualList = forwardRef<HTMLElement, FixedVirtualListProps>(
   ) => {
     const containerRef = useRef<HTMLElement | null>(null);
     const [scrollTop, setScrollTop] = useState(0);
+    const [containerHeight, setContainerHeight] = useState(0);
     const visibleCount = Math.ceil(containerHeight / itemHeight);
     const totalItemsHeight = itemHeight * itemsTotalCount;
     const classNames = clsx('overflow-y-auto', className);
@@ -52,14 +53,27 @@ const FixedVirtualList = forwardRef<HTMLElement, FixedVirtualListProps>(
       [startIndex, itemHeight],
     );
 
+    useEffect(() => {
+      const calculateContainerHeight = () => {
+        if (containerRef.current) {
+          setContainerHeight(containerRef.current.clientHeight);
+        }
+      };
+
+      calculateContainerHeight();
+
+      window.addEventListener('resize', calculateContainerHeight);
+
+      return () => {
+        window.removeEventListener('resize', calculateContainerHeight);
+      };
+    }, []);
+
     return (
       <RootComponent
         ref={mergeRefs(containerRef, ref)}
         className={classNames}
         onScroll={handleScroll}
-        style={{
-          height: `${containerHeight}px`,
-        }}
       >
         <ListComponent
           className={'relative'}
@@ -76,7 +90,7 @@ const FixedVirtualList = forwardRef<HTMLElement, FixedVirtualListProps>(
   },
 ) as unknown as ReturnType;
 
-FixedVirtualList.displayName = 'FixedVirtualList';
-FixedVirtualList.Item = FixedVirtualListItem;
+VirtualList.displayName = 'VirtualList';
+VirtualList.Item = VirtualListItem;
 
-export default FixedVirtualList;
+export default VirtualList;

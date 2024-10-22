@@ -2,30 +2,25 @@ import clsx from 'clsx';
 import { Meta } from '@storybook/react';
 import React, { memo, useEffect, useRef, useState } from 'react';
 
-import { FixedVirtualListProps } from '@/core/components/Virtual/FixedVirtualList/types';
-import FixedVirtualList from './index';
+import VirtualList from './index';
+import { VirtualListProps } from '@/core/components/Virtual/VirtualList/types';
 
 const meta = {
-  title: 'core/Virtual/FixedVirtualList',
-  component: FixedVirtualList,
+  title: 'core/Virtual/VirtualList',
+  component: VirtualList,
   argTypes: {
     itemHeight: {
       control: 'number',
-      description: 'FixedVirtualList item Height',
-    },
-    containerHeight: {
-      control: 'number',
-      description: 'FixedVirtualList container Height',
+      description: 'VirtualList item Height',
     },
   },
-} satisfies Meta<typeof FixedVirtualList>;
+} satisfies Meta<typeof VirtualList>;
 
 export default meta;
 
 export const Default = ({
   itemHeight = 90,
-  containerHeight = 500,
-}: Pick<FixedVirtualListProps, 'itemHeight' | 'containerHeight'>) => {
+}: Pick<VirtualListProps, 'itemHeight'>) => {
   const listRef = useRef<HTMLUListElement | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [images, setImages] = useState<
@@ -72,14 +67,13 @@ export const Default = ({
   };
 
   return (
-    <>
+    <div className={'flex-v-stack h-[500px]'}>
       <input onChange={onChange} />
-      <FixedVirtualList
+      <VirtualList
         listElement={'ul'}
         itemHeight={itemHeight}
-        containerHeight={containerHeight}
         itemsTotalCount={itemsTotalCount}
-        className={'w-[500px] bg-gray-02'}
+        className={'bg-gray-02'}
         ref={listRef}
       >
         {({ startIndex, endIndex, getTopPosition }) =>
@@ -87,7 +81,7 @@ export const Default = ({
             const { id, author, download_url } = image;
 
             return (
-              <FixedVirtualList.Item
+              <VirtualList.Item
                 key={id}
                 element={'li'}
                 topPosition={getTopPosition({ index })}
@@ -96,12 +90,12 @@ export const Default = ({
               >
                 <ImageComponent key={download_url} src={download_url} />
                 <AuthorComponent key={author} author={author} />
-              </FixedVirtualList.Item>
+              </VirtualList.Item>
             );
           })
         }
-      </FixedVirtualList>
-    </>
+      </VirtualList>
+    </div>
   );
 };
 

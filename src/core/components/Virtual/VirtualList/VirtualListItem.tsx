@@ -1,15 +1,15 @@
 import React, { ElementType, memo, PropsWithChildren } from 'react';
 import clsx from 'clsx';
 
-import { FixedVirtualListItemProps } from '@/core/components/Virtual/FixedVirtualList/types';
+import { VirtualListItemProps } from '@/core/components/Virtual/VirtualList/types';
 
-const FixedVirtualListItem = <T extends ElementType = 'div'>({
+const VirtualListItem = <T extends ElementType = 'div'>({
   topPosition,
   className,
   element: Element,
   children,
   height,
-}: PropsWithChildren<FixedVirtualListItemProps<T>>) => {
+}: PropsWithChildren<VirtualListItemProps<T>>) => {
   const Component: React.ElementType = Element || 'div';
   const classNames = clsx(
     'absolute left-0 right-0 top-0 flex items-center will-change-transform',
@@ -26,5 +26,4 @@ const FixedVirtualListItem = <T extends ElementType = 'div'>({
     </Component>
   );
 };
-
-export default memo(FixedVirtualListItem);
+export default memo(VirtualListItem);

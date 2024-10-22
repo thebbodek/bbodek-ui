@@ -6,9 +6,9 @@ import {
   RefAttributes,
 } from 'react';
 
-import FixedVirtualListItem from '@/core/components/Virtual/FixedVirtualList/FixedVirtualListItem';
+import VirtualListItem from '@/core/components/Virtual/VirtualList/VirtualListItem';
 
-export interface FixedVirtualChildrenProps {
+export interface VirtualListChildrenProps {
   startIndex: number;
   endIndex: number;
   getTopPosition: ({ index }: GetTopPositionParams) => string;
@@ -18,11 +18,10 @@ export interface GetTopPositionParams {
   index: number;
 }
 
-export interface FixedVirtualListProps<
+export interface VirtualListProps<
   T extends ElementType = 'div',
   P extends ElementType = 'div',
 > extends Pick<HTMLAttributes<HTMLElement>, 'className'> {
-  containerHeight: number;
   itemHeight: number;
   itemsTotalCount: number;
   rootElement?: T;
@@ -31,21 +30,21 @@ export interface FixedVirtualListProps<
     startIndex,
     endIndex,
     getTopPosition,
-  }: FixedVirtualChildrenProps) => ReactNode;
+  }: VirtualListChildrenProps) => ReactNode;
 }
 
-export interface FixedVirtualListItemProps<T extends ElementType = 'div'>
+export interface VirtualListItemProps<T extends ElementType = 'div'>
   extends Pick<HTMLAttributes<HTMLElement>, 'className'> {
   element?: T;
   topPosition: string;
   height: number;
 }
 
-export type FixedVirtualListComponent = ForwardRefExoticComponent<
-  FixedVirtualListProps<ElementType, ElementType> & RefAttributes<HTMLElement>
+export type VirtualListItemComponent = ForwardRefExoticComponent<
+  VirtualListProps<ElementType, ElementType> & RefAttributes<HTMLElement>
 >;
 
-export type ReturnType = FixedVirtualListComponent & {
+export type ReturnType = VirtualListItemComponent & {
   displayName: string;
-  Item: typeof FixedVirtualListItem;
+  Item: typeof VirtualListItem;
 };
