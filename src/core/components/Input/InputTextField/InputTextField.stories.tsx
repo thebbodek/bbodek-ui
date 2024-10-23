@@ -54,6 +54,8 @@ export const Default = (props: InputTextFieldProps) => {
         placeholder='placeholder'
         value={currentValue}
         onChange={onChangeHandler}
+        feedback={'test'}
+        feedbackColor={'gray-06'}
         required
         {...rest}
       />

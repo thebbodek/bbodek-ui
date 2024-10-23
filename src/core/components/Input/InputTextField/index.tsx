@@ -14,6 +14,7 @@ const InputTextField = forwardRef(
       label,
       regCallback,
       feedback,
+      feedbackColor,
       ...props
     }: InputTextFieldProps,
     ref: React.ComponentPropsWithRef<'input'>['ref'],
@@ -50,6 +51,7 @@ const InputTextField = forwardRef(
         readOnly={readOnly}
         disabled={disabled}
         feedback={feedback}
+        feedbackColor={feedbackColor}
         error={error}
         sub={sub}
         inputComponent={
