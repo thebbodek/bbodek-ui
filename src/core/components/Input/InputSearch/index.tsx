@@ -13,6 +13,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
   feedback,
   rounded,
   rootElement,
+  badge,
   ...props
 }: InputSearchProps<T> & React.ComponentPropsWithoutRef<'input'>) => {
   const id = useId();
@@ -77,6 +78,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
       readOnly={readOnly}
       disabled={disabled}
       rootClassName={rootClassName}
+      badge={badge}
       inputRootClassName={clsx(
         'flex items-center overflow-hidden border border-gray-02 bg-white py-2 text-body-02-medium',
         INPUT_SEARCH_ROUNDED[rounded],

@@ -15,6 +15,7 @@ export interface InputBaseProps<T extends React.ElementType>
   inputComponent: React.ReactNode;
   endComponent?: React.ReactNode;
   borderColor?: ThemeColors;
+  badge?: React.ReactNode;
   error?: boolean;
   readOnly?: boolean;
   disabled?: boolean;

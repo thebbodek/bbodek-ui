@@ -15,6 +15,7 @@ const InputTextField = forwardRef(
       regCallback,
       feedback,
       feedbackColor,
+      badge,
       ...props
     }: InputTextFieldProps,
     ref: React.ComponentPropsWithRef<'input'>['ref'],
@@ -52,6 +53,7 @@ const InputTextField = forwardRef(
         disabled={disabled}
         feedback={feedback}
         feedbackColor={feedbackColor}
+        badge={badge}
         error={error}
         sub={sub}
         inputComponent={

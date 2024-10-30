@@ -25,6 +25,7 @@ const InputBase = forwardRef(
       disabled = false,
       readOnly = false,
       required = false,
+      badge,
       sub,
       ...props
     }: InputBaseProps<T>,
@@ -33,7 +34,44 @@ const InputBase = forwardRef(
     const Component: React.ElementType = Element || 'div';
     const isDisabled = readOnly || disabled;
     const isVisibleEndComponent = !isDisabled && endComponent;
-    const hasInputLabel = label || sub;
+    const hasInputLabel = badge || label || sub;
+
+    const labelRenderer = () => {
+      if (badge && label) {
+        return (
+          <div className={'mb-2 flex items-center gap-x-0.5'}>
+            <div className={'flex-shrink-0'}>{badge}</div>
+            <div className='flex flex-1 items-center justify-between'>
+              {label && (
+                <label htmlFor={inputId}>
+                  <FormLabel
+                    label={label}
+                    labelColor={labelColor}
+                    required={required}
+                  />
+                </label>
+              )}
+              {sub && sub}
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <div className='mb-2 flex items-center justify-between'>
+          {label && (
+            <label htmlFor={inputId}>
+              <FormLabel
+                label={label}
+                labelColor={labelColor}
+                required={required}
+              />
+            </label>
+          )}
+          {sub && sub}
+        </div>
+      );
+    };
 
     return (
       <Component
@@ -41,20 +79,7 @@ const InputBase = forwardRef(
         className={clsx(label && 'flex-v-stack', rootClassName)}
         {...props}
       >
-        {hasInputLabel && (
-          <div className='mb-2 flex items-center justify-between'>
-            {label && (
-              <label htmlFor={inputId}>
-                <FormLabel
-                  label={label}
-                  labelColor={labelColor}
-                  required={required}
-                />
-              </label>
-            )}
-            {sub && sub}
-          </div>
-        )}
+        {hasInputLabel && labelRenderer()}
         <div
           className={cn(
             `flex items-center overflow-hidden rounded-xl border bg-white px-3 py-4 text-subhead-02-regular border-${borderColor}`,

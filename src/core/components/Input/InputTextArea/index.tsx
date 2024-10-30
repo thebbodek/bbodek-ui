@@ -16,6 +16,7 @@ const InputTextArea = forwardRef(
       textAreaHeight,
       regCallback,
       feedback,
+      badge,
       ...props
     }: InputTextAreaProps,
     ref: React.Ref<HTMLTextAreaElement>,
@@ -63,6 +64,7 @@ const InputTextArea = forwardRef(
         )}
         feedback={feedback}
         error={error}
+        badge={badge}
         readOnly={readOnly}
         disabled={disabled}
         sub={sub}

@@ -28,6 +28,7 @@ const InputDatePicker = ({
   className,
   inputClassName,
   afterAllDate,
+  badge,
   label,
   dateLabel,
   closeButtonText,
@@ -113,6 +114,7 @@ const InputDatePicker = ({
       feedbackColor={feedbackColor}
       disabled={disabled}
       readOnly={readOnly}
+      badge={badge}
       sub={sub}
       inputComponent={
         <input

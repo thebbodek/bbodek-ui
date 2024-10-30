@@ -51,6 +51,7 @@ export interface InputDatePickerProps
       | 'readOnly'
       | 'required'
       | 'sub'
+      | 'badge'
     > {
   inputClassName?: string;
   label?: string;

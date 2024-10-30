@@ -6,7 +6,7 @@ import { InputSelectProps } from './types';
 
 const InputSelect = forwardRef(
   (
-    { options, placeholder, value, ...props }: InputSelectProps,
+    { options, placeholder, value, badge, ...props }: InputSelectProps,
     ref: React.Ref<HTMLSelectElement>,
   ) => {
     const id = useId();
@@ -35,6 +35,7 @@ const InputSelect = forwardRef(
         inputRootClassName={'py-0 h-[3.75rem]'}
         error={error}
         sub={sub}
+        badge={badge}
         inputComponent={
           <select
             ref={ref}

@@ -9,7 +9,13 @@ export interface InputSearchProps<T extends React.ElementType>
     >,
     Pick<
       InputBaseProps<T>,
-      'feedback' | 'rootClassName' | 'error' | 'readOnly' | 'disabled' | 'sub'
+      | 'feedback'
+      | 'rootClassName'
+      | 'error'
+      | 'readOnly'
+      | 'disabled'
+      | 'sub'
+      | 'badge'
     >,
     Pick<UseInputProps, 'regCallback'> {
   rootElement?: T;

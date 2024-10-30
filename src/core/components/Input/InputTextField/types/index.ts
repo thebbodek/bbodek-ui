@@ -18,5 +18,6 @@ export interface InputTextFieldProps
       | 'disabled'
       | 'sub'
       | 'feedbackColor'
+      | 'badge'
     >,
     Pick<UseInputProps, 'regCallback'> {}

@@ -16,5 +16,6 @@ export interface InputPasswordProps
       | 'readOnly'
       | 'disabled'
       | 'sub'
+      | 'badge'
     >,
     Pick<UseInputProps, 'regCallback'> {}
