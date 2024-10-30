@@ -22,6 +22,7 @@ export interface DropdownProps extends Partial<FormLabelProps> {
   content: ReactNode;
   feedback?: ReactNode;
   feedbackColor?: ThemeColors;
+  badge?: ReactNode;
   sub?: ReactNode;
 }
 

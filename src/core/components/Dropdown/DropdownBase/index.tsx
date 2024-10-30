@@ -20,6 +20,7 @@ const DropdownBase = ({
   readOnly = false,
   disabled = false,
   trigger,
+  badge,
   content,
   feedback,
   feedbackColor = 'error',
@@ -32,15 +33,14 @@ const DropdownBase = ({
     setIsToggle(false),
   );
   const isVisibleContent = !readOnly && !disabled && isToggle;
-  const hasInputLabel = label || sub;
+  const hasInputLabel = badge || label || sub;
 
-  return (
-    <DropdownContext.Provider
-      value={{ isToggle, setIsToggle, readOnly, disabled }}
-    >
-      <div ref={contentRef} className={clsx(className, 'relative')}>
-        {hasInputLabel && (
-          <div className='mb-2 flex items-center justify-between'>
+  const labelRenderer = () => {
+    if (badge && label) {
+      return (
+        <div className={'mb-2 flex items-center gap-x-0.5'}>
+          <div className={'flex-shrink-0'}>{badge}</div>
+          <div className='flex flex-1 items-center justify-between'>
             {label && (
               <label>
                 <FormLabel
@@ -52,7 +52,32 @@ const DropdownBase = ({
             )}
             {sub && sub}
           </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className='mb-2 flex items-center justify-between'>
+        {label && (
+          <label>
+            <FormLabel
+              label={label}
+              labelColor={labelColor}
+              required={required}
+            />
+          </label>
         )}
+        {sub && sub}
+      </div>
+    );
+  };
+
+  return (
+    <DropdownContext.Provider
+      value={{ isToggle, setIsToggle, readOnly, disabled }}
+    >
+      <div ref={contentRef} className={clsx(className, 'relative')}>
+        {hasInputLabel && labelRenderer()}
         {trigger}
         {isVisibleContent && content}
         {feedback ? (
