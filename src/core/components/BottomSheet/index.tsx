@@ -1,12 +1,13 @@
 import { X } from '@phosphor-icons/react';
 import clsx from 'clsx';
-import { PropsWithChildren, forwardRef } from 'react';
+import { forwardRef, PropsWithChildren } from 'react';
 
 import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
 import ModalBase from '../Modal/ModalBase';
 import { VARIANTS } from '../Modal/ModalBase/constants';
 import Section from '../Section';
 import { BottomSheetProps } from './types';
+import useClickOutside from '@/hooks/useClickOutSide';
 
 const BottomSheet = forwardRef(
   (
@@ -19,6 +20,7 @@ const BottomSheet = forwardRef(
     }: PropsWithChildren<BottomSheetProps>,
     ref: React.Ref<HTMLDialogElement>,
   ) => {
+    const { contentRef } = useClickOutside<HTMLDivElement>(onClose);
     const { target, className, ...rest } = props;
     const CloseIcon = <X size='24' fill='#343330' />;
 
@@ -38,6 +40,7 @@ const BottomSheet = forwardRef(
             'h-full animate-bottom-sheet rounded-t-xl p-4',
             className,
           )}
+          ref={contentRef}
           hasRounded={false}
           hasShadow
         >
