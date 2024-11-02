@@ -1489,10 +1489,15 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@phosphor-icons/react@2.0.15":
-  version "2.0.15"
-  resolved "https://registry.yarnpkg.com/@phosphor-icons/react/-/react-2.0.15.tgz#4d8e28484d45649f53a6cd75db161cf8b8379e1d"
-  integrity sha512-PQKNcRrfERlC8gJGNz0su0i9xVmeubXSNxucPcbCLDd9u0cwJVTEyYK87muul/svf0UXFdL2Vl6bbeOhT1Mwow==
+"@phosphor-icons/core@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@phosphor-icons/core/-/core-2.1.1.tgz#62a4cfbec9772f1a613a647da214fbb96f3ad39d"
+  integrity sha512-v4ARvrip4qBCImOE5rmPUylOEK4iiED9ZyKjcvzuezqMaiRASCHKcRIuvvxL/twvLpkfnEODCOJp5dM4eZilxQ==
+
+"@phosphor-icons/web@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@phosphor-icons/web/-/web-2.1.1.tgz#a456457f8be17199cb03aa172ce352cc107ae707"
+  integrity sha512-QjrfbItu5Rb2i37GzsKxmrRHfZPTVk3oXSPBnQ2+oACDbQRWGAeB0AsvZw263n1nFouQuff+khOCtRbrc6+k+A==
 
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"

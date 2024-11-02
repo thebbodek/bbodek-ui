@@ -1,4 +1,3 @@
-import { CaretDown } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import { forwardRef, MouseEvent, Ref, useContext } from 'react';
 
@@ -8,6 +7,7 @@ import { DropdownMultipleTriggerProps, ValueWithLabelType } from './types';
 import { DropdownContextValue } from '@/core/components/Dropdown/DropdownBase/types';
 import { DROPDOWN_MULTIPLE_VARIANT } from '@/core/components/Dropdown/DropdownMultiple/constants';
 import Chip from '@/core/components/Chip';
+import Icon from '@/core/components/Icon';
 
 const DropdownMultipleTrigger = forwardRef(
   <T extends ValueWithLabelType>(
@@ -92,10 +92,10 @@ const DropdownMultipleTrigger = forwardRef(
           </ul>
         )}
         {!isDisabled ? (
-          <CaretDown
-            size='24'
+          <Icon
+            iconKey={'caret-down'}
             className={clsx(
-              'flex-shrink-0 text-gray-06',
+              'flex-shrink-0 text-[1.5rem] text-gray-06',
               isVisibleContent ? 'rotate-180' : 'rotate-0',
             )}
             weight='fill'

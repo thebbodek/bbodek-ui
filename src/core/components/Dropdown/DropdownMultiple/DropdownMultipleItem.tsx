@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { ComponentPropsWithRef, forwardRef, useId } from 'react';
-import { Check } from '@phosphor-icons/react';
 
 import { DropdownMultipleItemProps } from '@/core/components/Dropdown/DropdownMultiple/types';
+import Icon from '@/core/components/Icon';
 
 const DropdownMultipleItem = forwardRef(
   (
@@ -41,11 +41,12 @@ const DropdownMultipleItem = forwardRef(
             readOnly={readOnly}
             {...props}
           />
-          <Check
-            weight='bold'
-            className={clsx(
-              '-mt-[2px] flex-shrink-0 text-gray-03 peer-checked:text-primary-03',
-            )}
+          <Icon
+            iconKey={'check'}
+            className={
+              '-mt-[2px] flex-shrink-0 text-gray-03 peer-checked:text-primary-03'
+            }
+            weight={'bold'}
           />
         </label>
       </li>

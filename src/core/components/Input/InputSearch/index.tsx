@@ -1,4 +1,3 @@
-import { MagnifyingGlass } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import { useId, useRef } from 'react';
 
@@ -6,6 +5,7 @@ import { useInput } from '@/core/components/Input/hooks/useInput';
 import InputBase from '../InputBase';
 import { INPUT_SEARCH_ROUNDED } from './constants';
 import { InputSearchProps } from './types';
+import Icon from '@/core/components/Icon';
 
 const InputSearch = <T extends React.ElementType = 'form'>({
   formSubmitHandler,
@@ -37,11 +37,18 @@ const InputSearch = <T extends React.ElementType = 'form'>({
     onChange,
     name,
   });
-  const SearchIcon = <MagnifyingGlass size='100%' className='text-gray-05' />;
+
   const el = rootRef.current;
   const isForm = (rootElement || 'form') === 'form';
 
   const endComponent = () => {
+    const SearchIcon = (
+      <Icon
+        iconKey={'magnifying-glass'}
+        className='text-[1.25rem] text-gray-05'
+      />
+    );
+
     if (isForm) {
       return (
         <button className='h-5 w-5' type='submit' aria-label='검색하기'>

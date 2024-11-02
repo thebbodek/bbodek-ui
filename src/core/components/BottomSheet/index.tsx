@@ -1,4 +1,3 @@
-import { X } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import { forwardRef, PropsWithChildren } from 'react';
 
@@ -8,6 +7,7 @@ import { VARIANTS } from '../Modal/ModalBase/constants';
 import Section from '../Section';
 import { BottomSheetProps } from './types';
 import useClickOutside from '@/hooks/useClickOutSide';
+import Icon from '@/core/components/Icon';
 
 const BottomSheet = forwardRef(
   (
@@ -22,7 +22,7 @@ const BottomSheet = forwardRef(
   ) => {
     const { contentRef } = useClickOutside<HTMLDivElement>(onClose);
     const { target, className, ...rest } = props;
-    const CloseIcon = <X size='24' fill='#343330' />;
+    const CloseIcon = <Icon className={'text-[1.5rem]'} iconKey={'x'} />;
 
     useBlockScrollingEffect(isOpen);
 

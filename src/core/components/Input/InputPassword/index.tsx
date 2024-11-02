@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { forwardRef, useId, useState } from 'react';
 
 import { useInput } from '@/core/components/Input/hooks/useInput';
-import { Eye, EyeSlash } from '@phosphor-icons/react';
 import InputBase from '../InputBase';
 import { InputPasswordProps } from './types';
+import Icon from '@/core/components/Icon';
 
 const InputPassword = forwardRef(
   (
@@ -40,10 +40,6 @@ const InputPassword = forwardRef(
       onChange,
       name,
     });
-    const ShowPasswordIcon = <Eye size={'100%'} weight='fill' fill='#C6CEDE' />;
-    const HidePasswordIcon = (
-      <EyeSlash size={'100%'} weight='fill' fill='#C6CEDE' />
-    );
 
     const onToggleShowPassword = () => setShowPassword((v) => !v);
 
@@ -87,7 +83,11 @@ const InputPassword = forwardRef(
             onClick={onToggleShowPassword}
             aria-label={showPassword ? '비밀번호 숨기기' : '비밀번호 보이기'}
           >
-            {showPassword ? HidePasswordIcon : ShowPasswordIcon}
+            <Icon
+              weight='fill'
+              className={'text-[1.5rem] text-gray-05'}
+              iconKey={showPassword ? 'eye-slash' : 'eye'}
+            />
           </button>
         }
       />

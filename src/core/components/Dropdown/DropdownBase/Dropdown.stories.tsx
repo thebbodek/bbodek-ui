@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
-
-import { CaretDown } from '@phosphor-icons/react';
 import { useState } from 'react';
+
 import DropdownBase from './index';
+import Icon from '@/core/components/Icon';
 
 const meta = {
   title: 'core/Dropdown/DropdownBase',
@@ -53,8 +53,8 @@ export const DropdownBaseWithIcon = () => {
           {({ isToggle }) => (
             <div className='flex items-center'>
               {currentValue || '옵션을 선택해주세요'}
-              <CaretDown
-                size='16'
+              <Icon
+                iconKey={'caret-down'}
                 className={isToggle ? 'rotate-180' : 'rotate-0'}
               />
             </div>
@@ -84,8 +84,8 @@ export const DropdownBaseWithSearch = () => {
           {({ isToggle }) => (
             <div className='flex items-center'>
               {currentValue || '옵션을 선택해주세요'}
-              <CaretDown
-                size='16'
+              <Icon
+                iconKey={'caret-down'}
                 className={isToggle ? 'rotate-180' : 'rotate-0'}
               />
             </div>

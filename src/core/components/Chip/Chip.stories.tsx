@@ -1,5 +1,4 @@
 import { Meta } from '@storybook/react';
-import { User } from '@phosphor-icons/react';
 import { useState } from 'react';
 
 import { colorThemeOptions } from '@/constants/theme';
@@ -7,6 +6,7 @@ import Chip from './index';
 import { ChipProps } from './types';
 import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
 import { SIZE } from '@/core/components/Label/constants';
+import Icon from '@/core/components/Icon';
 
 const meta = {
   title: 'core/Chip',
@@ -53,7 +53,7 @@ export const Default = (props: ChipProps<'div'>) => {
         colorTheme={props.colorTheme ?? 'primary'}
         size={props.size ?? 'medium'}
         rounded={props.rounded}
-        icon={<User size={18} />}
+        icon={<Icon iconKey={'user'} className={'text-[1.125rem]'} />}
         onClick={handleClick}
         onDelete={handleDelete}
       />

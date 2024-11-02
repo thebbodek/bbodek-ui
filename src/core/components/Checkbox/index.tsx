@@ -1,4 +1,3 @@
-import { CheckCircle, CheckSquare } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import React, { forwardRef, MouseEvent, useId } from 'react';
 
@@ -8,6 +7,7 @@ import { CHECK_BOX_GAP, CHECKBOX_SVG_SIZE, SVG_SIZE } from './constants';
 import { CheckboxProps } from './types';
 import { THEME_COLOR } from '@/constants/color';
 import { ThemeColors } from '@/types';
+import Icon from '@/core/components/Icon';
 
 const Checkbox = forwardRef(
   (
@@ -24,9 +24,6 @@ const Checkbox = forwardRef(
     ref: React.ComponentPropsWithRef<'input'>['ref'],
   ) => {
     const id = useId();
-    const RectangleCheckbox = <CheckSquare size='100%' weight='fill' />;
-    const CircleCheckbox = <CheckCircle size='100%' weight='fill' />;
-    const svg = !isCircle ? RectangleCheckbox : CircleCheckbox;
 
     return (
       <label
@@ -50,11 +47,14 @@ const Checkbox = forwardRef(
           disabled={disabled}
           {...props}
         />
-        <div
-          className={`${CHECKBOX_SVG_SIZE[svgSize]} [&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-primary-03`}
-        >
-          {svg}
-        </div>
+        <Icon
+          className={clsx(
+            CHECKBOX_SVG_SIZE[svgSize],
+            'text-gray-05 peer-checked:text-primary-03',
+          )}
+          iconKey={!isCircle ? 'check-square' : 'check-circle'}
+          weight='fill'
+        />
         {label && (
           <Typography
             theme={theme}

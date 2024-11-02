@@ -1,12 +1,12 @@
-import { X } from '@phosphor-icons/react';
 import clsx from 'clsx';
-import { PropsWithChildren, forwardRef } from 'react';
+import { forwardRef, PropsWithChildren } from 'react';
 
 import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
 import ModalBase from '../Modal/ModalBase';
 import Section from '../Section';
 import Typography from '../Typography';
 import { DrawerProps } from './types';
+import Icon from '@/core/components/Icon';
 
 const Drawer = forwardRef(
   (
@@ -21,7 +21,7 @@ const Drawer = forwardRef(
     ref: React.Ref<HTMLDialogElement>,
   ) => {
     const { target, className, ...rest } = props;
-    const CloseIcon = <X size='32' fill='#343330' />;
+    const CloseIcon = <Icon className={'text-[2rem]'} iconKey={'x'} />;
 
     useBlockScrollingEffect(isOpen);
 
