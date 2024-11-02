@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { forwardRef, useId } from 'react';
 
 import { useInput } from '@/core/components/Input/hooks/useInput';
-import { XCircle } from '@phosphor-icons/react';
 import InputBase from '../InputBase';
 import { InputTextFieldProps } from './types';
+import Icon from '@/core/components/Icon';
 
 const InputTextField = forwardRef(
   (
@@ -41,7 +41,13 @@ const InputTextField = forwardRef(
       onChange,
       name,
     });
-    const ResetIcon = <XCircle size='100%' weight='fill' fill='#A9B2C7' />;
+    const ResetIcon = (
+      <Icon
+        className={'rounded-full text-[1.75rem] text-gray-05'}
+        iconKey={'x-circle'}
+        weight={'fill'}
+      />
+    );
 
     return (
       <InputBase

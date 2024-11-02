@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 import { useRef, useState } from 'react';
-import { Plus } from '@phosphor-icons/react';
 
 import Chips from '@/core/components/Chips/index';
 import IconButton from '@/core/components/Button/IconButton';
+import Icon from '@/core/components/Icon';
 
 const meta = {
   title: 'core/Chips',
@@ -31,7 +31,7 @@ export const Default = () => {
         size={'h-29'}
         rounded={'rounded-full'}
         colorTheme={'primary'}
-        icon={<Plus weight={'bold'} />}
+        icon={<Icon iconKey={'plus'} weight={'bold'} />}
         className={'flex-shrink-0'}
         onClick={handleAdd}
       />

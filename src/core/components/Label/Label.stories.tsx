@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 
 import { colorThemeOptions } from '@/constants/theme';
-import { Info } from '@phosphor-icons/react';
 import Label from './index';
 import { LabelProps } from './types';
+import Icon from '@/core/components/Icon';
 
 const meta = {
   title: 'core/Label',
@@ -35,7 +35,7 @@ export const Primary = (props: LabelProps) => {
       colorTheme={props.colorTheme ?? 'primary'}
       size='small'
       label={props.label ?? 'small primary'}
-      icon={<Info />}
+      icon={<Icon iconKey={'info'} />}
     />
   );
 };
@@ -46,7 +46,7 @@ export const Error = (props: LabelProps) => {
       colorTheme={props.colorTheme ?? 'error'}
       size='medium'
       label={props.label ?? 'medium error'}
-      icon={<Info />}
+      icon={<Icon iconKey={'info'} />}
     />
   );
 };
@@ -57,7 +57,7 @@ export const Success = (props: LabelProps) => {
       colorTheme={props.colorTheme ?? 'success'}
       size='large'
       label={props.label ?? 'large success'}
-      icon={<Info />}
+      icon={<Icon iconKey={'info'} />}
     />
   );
 };

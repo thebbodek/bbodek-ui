@@ -16,10 +16,10 @@ export const GAP = {
 } as const;
 
 export const CHECKBOX_SVG_SIZE: Record<SvgSizeType, string> = {
-  [SVG_SIZE['SIZE_32']]: 'w-8 h-8',
-  [SVG_SIZE['SIZE_24']]: 'w-6 h-6',
-  [SVG_SIZE['SIZE_20']]: 'w-5 h-5',
-  [SVG_SIZE['SIZE_16']]: 'w-4 h-4',
+  [SVG_SIZE['SIZE_32']]: 'text-[2rem]',
+  [SVG_SIZE['SIZE_24']]: 'text-[1.5rem]',
+  [SVG_SIZE['SIZE_20']]: 'text-[1.25rem]',
+  [SVG_SIZE['SIZE_16']]: 'text-[1rem',
 };
 
 export const SvgSizeVariants = Object.values(SVG_SIZE);

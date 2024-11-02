@@ -48,6 +48,6 @@ export const Default = (props: CheckboxProps) => {
   return <Checkbox {...props} />;
 };
 
-export const Circle = () => {
-  return <Checkbox isCircle />;
+export const Circle = (props: CheckboxProps) => {
+  return <Checkbox {...props} isCircle />;
 };

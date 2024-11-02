@@ -1,4 +1,3 @@
-import { CalendarBlank } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import { useEffect, useId, useState } from 'react';
 
@@ -10,6 +9,7 @@ import ModalPopUp from '../../Modal/ModalPopUp';
 import GeneralTab from '../../Tab/GeneralTab/GeneralTab';
 import Typography from '../../Typography';
 import { DatePickerProps } from './types';
+import Icon from '@/core/components/Icon';
 
 const DatePicker = ({
   variants = DATE_PICKER_TYPE['PERIOD'],
@@ -87,7 +87,10 @@ const DatePicker = ({
         <header className='p-4'>
           {hasDatePickerTitle && (
             <div className='flex items-center gap-2'>
-              <CalendarBlank className='text-subhead-02-medium md:text-subhead-01-medium' />
+              <Icon
+                iconKey={'calendar-blank'}
+                className={'text-subhead-02-medium md:text-subhead-01-medium'}
+              />
               <Typography
                 element='h6'
                 text='날짜 선택'

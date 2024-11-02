@@ -1,10 +1,10 @@
-import { CaretDown } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 
 import Typography from '../../Typography';
 import DropdownBase from '../DropdownBase';
 import { DropdownSelectTriggerProps } from './types';
+import Icon from '@/core/components/Icon';
 
 const DropdownSelectTrigger = forwardRef(
   (
@@ -37,10 +37,10 @@ const DropdownSelectTrigger = forwardRef(
                 text={currentValue ? currentValue : placeholder ?? ''}
               />
               {!isDisabled ? (
-                <CaretDown
-                  size='24'
+                <Icon
+                  iconKey={'caret-down'}
                   className={clsx(
-                    'text-gray-06',
+                    'text-[1.5rem] text-gray-06',
                     isVisibleContent ? 'rotate-180' : 'rotate-0',
                   )}
                   weight='fill'

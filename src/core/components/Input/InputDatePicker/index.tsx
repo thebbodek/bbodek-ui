@@ -1,4 +1,3 @@
-import { CalendarBlank } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import { HTMLAttributes, useEffect, useId, useState } from 'react';
 
@@ -8,6 +7,7 @@ import InputBase from '../InputBase';
 import DatePicker from './DatePicker';
 import { InputDatePickerProps } from './types';
 import { getDayjs } from '@/utilities/day';
+import Icon from '@/core/components/Icon';
 
 const InputDatePicker = ({
   variants = DATE_PICKER_TYPE['PERIOD'],
@@ -138,7 +138,12 @@ const InputDatePicker = ({
           required={required}
         />
       }
-      endComponent={<CalendarBlank size={24} className='text-gray-05' />}
+      endComponent={
+        <Icon
+          iconKey={'calendar-blank'}
+          className={'text-[1.5rem] text-gray-05'}
+        />
+      }
     />
   );
 };

@@ -1,9 +1,9 @@
 import { forwardRef } from 'react';
 
-import { CaretDown } from '@phosphor-icons/react';
 import Typography from '../../Typography';
 import DropdownBase from '../DropdownBase';
 import { DropdownFilterTriggerProps } from './types';
+import Icon from '@/core/components/Icon';
 
 const DropdownFilterTrigger = forwardRef(
   (
@@ -19,12 +19,12 @@ const DropdownFilterTrigger = forwardRef(
               color='gray-06'
               text={currentValue}
             />
-            <CaretDown
-              size='16'
+            <Icon
+              iconKey={'caret-down'}
               className={
                 isToggle ? 'rotate-180 text-gray-06' : 'rotate-0 text-gray-06'
               }
-              weight='fill'
+              weight={'fill'}
             />
           </div>
         )}

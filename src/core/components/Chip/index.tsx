@@ -1,6 +1,5 @@
 import React, { ElementType, forwardRef, MouseEvent } from 'react';
 import clsx from 'clsx';
-import { X } from '@phosphor-icons/react';
 
 import Label from '@/core/components/Label';
 import { ChipProps } from '@/core/components/Chip/types';
@@ -11,6 +10,7 @@ import {
   CHIP_LABEL_STYLE,
 } from '@/core/components/Chip/constants';
 import { COLOR_THEME } from '@/constants/theme';
+import Icon from '@/core/components/Icon';
 
 const Chip = forwardRef(
   <T extends ElementType = 'div'>(
@@ -49,7 +49,7 @@ const Chip = forwardRef(
               'brightness-100 transition-all',
               CHIP_DELETE_BUTTON_STYLE[colorTheme],
             )}
-            icon={<X weight={'bold'} />}
+            icon={<Icon iconKey={'x'} weight={'bold'} />}
             onClick={handleDelete}
           />
         </>

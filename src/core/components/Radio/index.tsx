@@ -1,14 +1,14 @@
-import { RadioButton } from '@phosphor-icons/react';
 import clsx from 'clsx';
 import { forwardRef, useId } from 'react';
 
 import Typography from '../Typography';
-import { SVG_SIZE } from './constants';
 import { RadioProps } from './types';
+import Icon from '@/core/components/Icon';
+import { SVG_SIZE } from '@/core/components/Radio/constants';
 
 const Radio = forwardRef(
   (
-    { label, svgSize = SVG_SIZE['SIZE_24'], className, ...props }: RadioProps,
+    { label, svgSize = 'SIZE_24', className, ...props }: RadioProps,
     ref: React.ComponentPropsWithRef<'input'>['ref'],
   ) => {
     const id = useId();
@@ -29,13 +29,14 @@ const Radio = forwardRef(
           className='peer hidden'
           {...props}
         />
-        <div
-          className={
-            '[&>svg>path]:fill-[#C6CEDE] peer-checked:[&>svg>path]:fill-primary-03'
-          }
-        >
-          <RadioButton size={svgSize} weight='fill' />
-        </div>
+        <Icon
+          className={clsx(
+            SVG_SIZE[svgSize],
+            'text-gray-05 peer-checked:text-primary-03',
+          )}
+          iconKey={'radio-button'}
+          weight={'fill'}
+        />
         {label && <Typography text={label} />}
       </label>
     );

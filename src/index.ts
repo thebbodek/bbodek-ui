@@ -55,6 +55,7 @@ export { default as Tooltip } from '@/core/components/Tooltip';
 export { default as Typography } from '@/core/components/Typography';
 export { default as Chip } from '@/core/components/Chip';
 export { default as Chips } from '@/core/components/Chips';
+export { default as Icon } from '@/core/components/Icon';
 
 export { useInput } from '@/core/components/Input/hooks/useInput';
 export * from '@/utilities/day';

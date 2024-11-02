@@ -1,9 +1,8 @@
-import { CaretLeft, CaretRight } from '@phosphor-icons/react';
-
 import Typography from '@/core/components/Typography';
 import { MONTH_BUTTON_STATUS } from '../constants';
 import { CalendarHeaderProps } from '../types/CalendarHeader';
 import { getDayjs } from '@/utilities/day';
+import Icon from '@/core/components/Icon';
 
 export const CalendarHeader = ({
   currentMonth,
@@ -35,7 +34,7 @@ export const CalendarHeader = ({
         onClick={() => !isDisablePrev && onPreviousMonthClick?.()}
         disabled={isDisablePrev}
       >
-        <CaretLeft className={iconClassNames} />
+        <Icon iconKey={'caret-left'} className={iconClassNames} />
       </button>
       <div
         className={'flex min-w-[6rem] items-center justify-between text-black'}
@@ -58,7 +57,7 @@ export const CalendarHeader = ({
         onClick={() => !isDisableNext && onNextMonthClick?.()}
         disabled={isDisableNext}
       >
-        <CaretRight className={iconClassNames} />
+        <Icon iconKey={'caret-right'} className={iconClassNames} />
       </button>
     </div>
   );
