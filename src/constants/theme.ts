@@ -1,21 +1,35 @@
 import { ColorThemeType } from '@/types';
 
-export const COLOR_THEME = {
-  PRIMARY: 'primary',
+export const COLOR_THEME_VARIANT = {
+  LIGHT: 'light',
+  ALL: 'all',
+} as const;
+
+export const LIGHT_COLOR_THEME = {
   ERROR: 'error',
   WARNING: 'warning',
   SUCCESS: 'success',
   SECONDARY: 'secondary',
+} as const;
+
+export const COLOR_THEME = {
+  ...LIGHT_COLOR_THEME,
+  PRIMARY: 'primary',
   GRAY: 'gray',
   WHITE: 'white',
 } as const;
 
+export const COLOR_THEME_VARIANT_OPTIONS = {
+  [COLOR_THEME_VARIANT['LIGHT']]: LIGHT_COLOR_THEME,
+  [COLOR_THEME_VARIANT['ALL']]: COLOR_THEME,
+};
+
 export const COLOR_THEME_STYLES: Record<ColorThemeType, string> = {
   [COLOR_THEME['PRIMARY']]: 'bg-primary-03 text-white',
   [COLOR_THEME['SECONDARY']]: 'text-primary-03 bg-primary-00',
-  [COLOR_THEME['ERROR']]: 'text-rose-600 bg-rose-300 bg-opacity-20',
-  [COLOR_THEME['WARNING']]: 'text-amber-600 bg-amber-300 bg-opacity-20',
-  [COLOR_THEME['SUCCESS']]: 'text-green-600 bg-green-300 bg-opacity-20',
+  [COLOR_THEME['ERROR']]: 'text-rose-600 bg-[#FFEDEF]',
+  [COLOR_THEME['WARNING']]: 'text-amber-600 bg-[#FEF6DB]',
+  [COLOR_THEME['SUCCESS']]: 'text-green-600 bg-[#E7FCEE]',
   [COLOR_THEME['GRAY']]: 'text-gray-07 bg-gray-02',
   [COLOR_THEME['WHITE']]: 'text-gray-06 bg-white border border-gray-03',
 };

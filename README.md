@@ -68,7 +68,7 @@ export default function Home() {
 
   return (
     <>
-      <div id="modal"/>
+      <div id="portal"/>
       <ModalPopUp 
         className="w-[30rem] h-[30rem]" 
         isOpen={isOpen} 

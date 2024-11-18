@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     target: {
       control: 'text',
-      defaultValue: 'modal',
+      defaultValue: 'portal',
       description: 'BottomSheet Render Position Element id',
     },
     isOpen: {

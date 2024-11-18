@@ -80,7 +80,7 @@ const DefaultLayout = () => {
 export const Default = () => {
   return (
     <OverlayProvider>
-      <div id='modal' />
+      <div id='portal' />
       <DefaultLayout />
     </OverlayProvider>
   );
@@ -112,7 +112,7 @@ const InputDatePickerInModalPopUpLayout = () => {
 export const InputDatePickerInModalPopUp = () => {
   return (
     <OverlayProvider>
-      <div id='modal' />
+      <div id='portal' />
       <InputDatePickerInModalPopUpLayout />
     </OverlayProvider>
   );
