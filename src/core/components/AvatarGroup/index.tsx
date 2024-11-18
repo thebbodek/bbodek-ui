@@ -1,4 +1,4 @@
-import { cloneElement, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import clsx from 'clsx';
 
 import { AvatarGroupProps } from '@/core/components/AvatarGroup/types';
@@ -13,7 +13,6 @@ const AvatarGroup = ({
   spacing = SIZE['SMALL'],
   overflowPopover,
   className,
-  hasBorder,
   ...props
 }: PropsWithChildren<AvatarGroupProps>) => {
   const { size, rounded, disabled } = items[0].props;
@@ -28,7 +27,7 @@ const AvatarGroup = ({
       className={clsx('flex', AVATAR_SPACING[spacing], className)}
       {...props}
     >
-      {visibleItems.map((item) => cloneElement(item, { hasBorder }))}
+      {visibleItems}
       {isOverflow && (
         <Avatar
           colorTheme={'gray'}
@@ -42,7 +41,6 @@ const AvatarGroup = ({
           size={size}
           rounded={rounded}
           disabled={disabled}
-          hasBorder={hasBorder}
           showAllLetter
         >
           {`+${overflowCount}`}

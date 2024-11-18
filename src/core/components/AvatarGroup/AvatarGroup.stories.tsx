@@ -58,7 +58,6 @@ export const MaxAvatarGroup = (props: AvatarGroupProps) => {
         <AvatarGroup
           items={items}
           max={3}
-          hasBorder
           overflowPopover={({ overflowItems }) => (
             <Section className={'mt-1 flex flex-col gap-1 p-2'} hasBorder>
               {overflowItems.map((item) => (
@@ -80,7 +79,7 @@ export const TotalAvatarGroup = (props: AvatarGroupProps) => {
     <>
       <div id={'portal'} />
       <Section className={'overflow-hidden border p-4'}>
-        <AvatarGroup items={items} total={50} hasBorder />
+        <AvatarGroup items={items} total={50} />
       </Section>
     </>
   );

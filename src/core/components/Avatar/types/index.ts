@@ -13,6 +13,5 @@ export interface AvatarProps
   colorTheme?: ColorThemeType;
   popover?: ReactElement;
   showAllLetter?: boolean;
-  hasBorder?: boolean;
   disabled?: boolean;
 }

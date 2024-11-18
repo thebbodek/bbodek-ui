@@ -37,7 +37,6 @@ const Avatar = ({
   popover,
   onClick,
   showAllLetter = false,
-  hasBorder = false,
   ...props
 }: PropsWithChildren<AvatarProps>) => {
   const avatarRef = useRef<HTMLDivElement>(null);
@@ -104,7 +103,6 @@ const Avatar = ({
           'flex items-center justify-center overflow-hidden uppercase hover:z-[1]',
           disabled && 'cursor-not-allowed opacity-50',
           onClick && !disabled && 'cursor-pointer',
-          hasBorder && 'border-2 border-white',
           className,
           COLOR_THEME_STYLES[_colorTheme],
           AVATAR_SIZE[size],
