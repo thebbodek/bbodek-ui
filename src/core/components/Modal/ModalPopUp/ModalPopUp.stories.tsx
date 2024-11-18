@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     target: {
       control: 'text',
-      defaultValue: 'modal',
+      defaultValue: 'portal',
       description: 'Modal Render Position Element id',
     },
     isOpen: {
@@ -37,7 +37,7 @@ export const Default = (props: ModalPopUpProps) => {
 
   return (
     <>
-      <div id={props.target ?? 'modal'} />
+      <div id={props.target ?? 'portal'} />
       <ModalPopUp
         target={props.target}
         isOpen={props.isOpen || isOpen}

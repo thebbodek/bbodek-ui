@@ -26,7 +26,7 @@ const ModalPopUp = forwardRef(
 
     return (
       <ModalBase
-        target={target ?? 'modal'}
+        target={target ?? 'portal'}
         ref={ref}
         variants={VARIANTS['MODAL']}
         isOpen={isOpen}

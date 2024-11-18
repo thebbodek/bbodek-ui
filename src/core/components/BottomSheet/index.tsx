@@ -29,7 +29,7 @@ const BottomSheet = forwardRef(
     return (
       <ModalBase
         isOpen={isOpen}
-        target={target ?? 'modal'}
+        target={target ?? 'portal'}
         ref={ref}
         variants={VARIANTS['BOTTOM_SHEET']}
         {...rest}

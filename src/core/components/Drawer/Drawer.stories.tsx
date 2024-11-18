@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     target: {
       control: 'text',
-      defaultValue: 'modal',
+      defaultValue: 'portal',
       description: 'Modal Render Position Element id',
     },
     title: {

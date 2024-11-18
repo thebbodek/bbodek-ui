@@ -36,7 +36,7 @@ export { default as InputTextField } from '@/core/components/Input/InputTextFiel
 export { default as Label } from '@/core/components/Label';
 export { default as ModalBase } from '@/core/components/Modal/ModalBase';
 export { default as ModalPopUp } from '@/core/components/Modal/ModalPopUp';
-export { default as ModalPortal } from '@/core/components/Modal/ModalPortal';
+export { default as Portal } from '@/core/components/Portal';
 export { default as Radio } from '@/core/components/Radio';
 export { default as Section } from '@/core/components/Section';
 export { default as GeneralTab } from '@/core/components/Tab/GeneralTab/GeneralTab';
@@ -56,6 +56,8 @@ export { default as Typography } from '@/core/components/Typography';
 export { default as Chip } from '@/core/components/Chip';
 export { default as Chips } from '@/core/components/Chips';
 export { default as Icon } from '@/core/components/Icon';
+export { default as Avatar } from '@/core/components/Avatar';
+export { default as AvatarGroup } from '@/core/components/AvatarGroup';
 
 export { useInput } from '@/core/components/Input/hooks/useInput';
 export * from '@/utilities/day';

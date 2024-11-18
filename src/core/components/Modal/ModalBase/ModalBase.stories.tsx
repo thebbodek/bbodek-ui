@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     target: {
       control: 'text',
-      defaultValue: 'modal',
+      defaultValue: 'portal',
       description: 'Modal Render Position Element id',
     },
     variants: {
@@ -47,7 +47,7 @@ export const Default = (props: ModalBaseProps) => {
 
   return (
     <>
-      <div id={props.target ?? 'modal'} />
+      <div id={props.target ?? 'portal'} />
       <ModalBase
         variants={props.variants ?? 'modal'}
         isOpen={props.isOpen || isOpen}

@@ -1,14 +1,14 @@
 import clsx from 'clsx';
-import { PropsWithChildren, forwardRef } from 'react';
+import { forwardRef, PropsWithChildren } from 'react';
 
 import useClickOutside from '@/hooks/useClickOutSide';
-import ModalPortal from '../ModalPortal';
 import {
   MODAL_CONTENT_POSITION,
   MODAL_CONTENT_SIZE,
   MODAL_DIMMED_COLOR,
 } from './constants';
 import { ModalBaseProps } from './types';
+import Portal from '@/core/components/Portal';
 
 const ModalBase = forwardRef(
   (
@@ -29,7 +29,7 @@ const ModalBase = forwardRef(
     if (!isOpen) return null;
 
     return (
-      <ModalPortal target={target}>
+      <Portal target={target}>
         <dialog
           ref={ref}
           className={clsx(
@@ -45,7 +45,7 @@ const ModalBase = forwardRef(
             {children}
           </div>
         </dialog>
-      </ModalPortal>
+      </Portal>
     );
   },
 );
