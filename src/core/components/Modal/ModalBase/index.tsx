@@ -33,7 +33,7 @@ const ModalBase = forwardRef(
         <dialog
           ref={ref}
           className={clsx(
-            'h-full w-full overflow-hidden open:animate-fade-in',
+            'left-0 top-0 h-full w-full overflow-hidden open:animate-fade-in',
             MODAL_CONTENT_POSITION[variants],
             dimmed && MODAL_DIMMED_COLOR[variants],
             className,
