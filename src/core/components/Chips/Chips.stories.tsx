@@ -13,15 +13,25 @@ const meta = {
 export default meta;
 
 export const Default = () => {
-  const [values, setValues] = useState(['test', 'test2', 'test3']);
+  const [values, setValues] = useState([
+    { id: 'test', label: 'test' },
+    { id: 'test2', label: 'test2' },
+    { id: 'test3', label: 'test3' },
+  ]);
   const chipsRef = useRef<HTMLUListElement>(null);
 
-  const handleDelete = (item: string) => {
-    setValues((prevValue) => prevValue.filter((v) => v !== item));
+  const handleDelete = ({ id }: { id: string }) => {
+    setValues((prevValue) => prevValue.filter((item) => id !== item.id));
   };
 
   const handleAdd = () => {
-    setValues((prevValues) => [...prevValues, `test${prevValues.length + 1}`]);
+    setValues((prevValues) => [
+      ...prevValues,
+      {
+        id: `test${prevValues.length + 1}`,
+        label: `test${prevValues.length + 1}`,
+      },
+    ]);
   };
 
   return (
