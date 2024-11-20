@@ -19,12 +19,12 @@ const Chips = ({ className, rootRef, items, onDelete }: ChipsParams) => {
       ref={rootRef}
       className={clsx('flex items-center gap-x-2 overflow-x-auto', className)}
     >
-      {items.map((item) => (
+      {items.map(({ id, label }) => (
         <Chip
           element={'li'}
-          key={item}
-          label={item}
-          onDelete={onDelete && (() => onDelete(item))}
+          key={id}
+          label={label}
+          onDelete={onDelete && (() => onDelete({ id }))}
           className={'whitespace-nowrap px-3'}
         />
       ))}
