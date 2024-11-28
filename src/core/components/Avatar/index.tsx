@@ -8,8 +8,6 @@ import {
 import clsx from 'clsx';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-
-import { SIZE } from '@/core/components/Label/constants';
 import {
   BUTTON_ROUNDED,
   ROUNDED,
@@ -18,6 +16,7 @@ import { AvatarProps } from '@/core/components/Avatar/types';
 import {
   AVATAR_IMAGE_SIZE,
   AVATAR_SIZE,
+  AVATAR_SIZE_VARIANTS,
 } from '@/core/components/Avatar/constants';
 import { COLOR_THEME_STYLES } from '@/constants/theme';
 import { getFirstLetter } from '@/core/components/Avatar/utils/getFirstLetter';
@@ -29,7 +28,7 @@ const Avatar = ({
   src,
   alt,
   children,
-  size = SIZE['MEDIUM'],
+  size = AVATAR_SIZE_VARIANTS['MEDIUM'],
   rounded = ROUNDED['ROUNDED_FULL'],
   colorTheme,
   className,

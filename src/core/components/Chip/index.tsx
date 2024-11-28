@@ -19,6 +19,8 @@ const Chip = forwardRef(
       onDelete,
       colorTheme = COLOR_THEME['SECONDARY'],
       onClick,
+      color,
+      theme,
       rounded = ROUNDED['ROUNDED_FULL'],
       className,
       ...props
@@ -44,6 +46,8 @@ const Chip = forwardRef(
           <IconButton
             size={'h-20'}
             rounded={rounded}
+            color={color}
+            theme={theme}
             colorTheme={colorTheme}
             className={clsx(
               'brightness-100 transition-all',
@@ -61,6 +65,8 @@ const Chip = forwardRef(
         ref={ref}
         label={renderer()}
         rounded={rounded}
+        color={color}
+        theme={theme}
         colorTheme={colorTheme}
         className={clsx(
           onDelete && 'flex gap-2',

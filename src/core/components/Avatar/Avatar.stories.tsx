@@ -40,7 +40,7 @@ export const ImageAvatar = (props: AvatarProps) => {
         props.src ??
         'https://avatars.slack-edge.com/2023-11-20/6219341924786_0bca2ecf54cedd4adf1c_512.jpg'
       }
-      size={props.size ?? 'medium'}
+      size={props.size ?? 'xs'}
       rounded={props.rounded ?? 'rounded-full'}
     />
   );
@@ -50,7 +50,7 @@ export const BrokenImageAvatar = (props: AvatarProps) => {
   return (
     <Avatar
       src={props.src ?? 'https://image.thebbodek.com/broken.jpg'}
-      size={props.size ?? 'medium'}
+      size={props.size ?? 'md'}
       rounded={props.rounded ?? 'rounded-full'}
     />
   );
@@ -58,10 +58,7 @@ export const BrokenImageAvatar = (props: AvatarProps) => {
 
 export const LetterAvatar = (props: AvatarProps) => {
   return (
-    <Avatar
-      size={props.size ?? 'medium'}
-      rounded={props.rounded ?? 'rounded-full'}
-    >
+    <Avatar size={props.size ?? 'md'} rounded={props.rounded ?? 'rounded-full'}>
       {props.children ?? 'jinju'}
     </Avatar>
   );

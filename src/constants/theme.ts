@@ -15,6 +15,7 @@ export const LIGHT_COLOR_THEME = {
 export const COLOR_THEME = {
   ...LIGHT_COLOR_THEME,
   PRIMARY: 'primary',
+  PRIMARY_06: 'primary_06',
   GRAY: 'gray',
   WHITE: 'white',
 } as const;
@@ -26,6 +27,7 @@ export const COLOR_THEME_VARIANT_OPTIONS = {
 
 export const COLOR_THEME_STYLES: Record<ColorThemeType, string> = {
   [COLOR_THEME['PRIMARY']]: 'bg-primary-03 text-white',
+  [COLOR_THEME['PRIMARY_06']]: 'bg-primary-06 text-white',
   [COLOR_THEME['SECONDARY']]: 'text-primary-03 bg-primary-00',
   [COLOR_THEME['ERROR']]: 'text-rose-600 bg-[#FFEDEF]',
   [COLOR_THEME['WARNING']]: 'text-amber-600 bg-[#FEF6DB]',
