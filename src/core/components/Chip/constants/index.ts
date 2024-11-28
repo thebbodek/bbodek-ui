@@ -14,7 +14,7 @@ export const CHIP_DELETE_BUTTON_STYLE: Record<ColorThemeType, string> = {
 
 export const CHIP_LABEL_STYLE: Record<ColorThemeType, string> = {
   [COLOR_THEME['PRIMARY']]: 'hover:brightness-110',
-  [COLOR_THEME['PRIMARY_06']]: 'hover:brightness-110',
+  [COLOR_THEME['PRIMARY_06']]: 'hover:brightness-200',
   [COLOR_THEME['SECONDARY']]: 'hover:brightness-95',
   [COLOR_THEME['ERROR']]: 'hover:brightness-95',
   [COLOR_THEME['WARNING']]: 'hover:brightness-90',

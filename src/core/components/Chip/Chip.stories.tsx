@@ -50,7 +50,7 @@ export const Default = (props: ChipProps<'div'>) => {
       <Chip
         key={item}
         label={item}
-        colorTheme={props.colorTheme ?? 'primary'}
+        colorTheme={props.colorTheme ?? 'primary_06'}
         size={props.size ?? 'medium'}
         rounded={props.rounded}
         icon={<Icon iconKey={'user'} className={'text-[1.125rem]'} />}

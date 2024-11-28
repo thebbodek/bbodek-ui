@@ -75,7 +75,9 @@ const Chip = forwardRef(
         colorTheme={colorTheme}
         className={clsx(
           onDelete && 'flex gap-2',
-          onClick && `brightness-100 transition-all hover:brightness-95`,
+          onClick &&
+            !colorTheme &&
+            `brightness-100 transition-all hover:brightness-95`,
           colorTheme && CHIP_LABEL_STYLE[colorTheme],
           onClick ? 'cursor-pointer' : 'cursor-text',
           className,
