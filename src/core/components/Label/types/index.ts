@@ -9,7 +9,7 @@ export type SizeType = (typeof SIZE)[keyof typeof SIZE];
 
 export interface LabelProps<T extends ElementType = 'div'>
   extends Pick<HTMLAttributes<T>, 'className' | 'onClick' | 'title'>,
-    Pick<ButtonProps, 'theme' | 'color'> {
+    Pick<ButtonProps, 'theme' | 'color' | 'backgroundColor' | 'borderColor'> {
   label: ReactNode;
   element?: T;
   colorTheme?: ColorThemeType;

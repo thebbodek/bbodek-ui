@@ -20,6 +20,8 @@ const Chip = forwardRef(
       onClick,
       color,
       theme,
+      backgroundColor,
+      borderColor,
       rounded = ROUNDED['ROUNDED_FULL'],
       className,
       ...props
@@ -47,6 +49,8 @@ const Chip = forwardRef(
             rounded={rounded}
             color={color}
             theme={theme}
+            backgroundColor={backgroundColor}
+            borderColor={borderColor}
             colorTheme={colorTheme}
             className={clsx(
               'brightness-100 transition-all',
@@ -66,6 +70,8 @@ const Chip = forwardRef(
         rounded={rounded}
         color={color}
         theme={theme}
+        backgroundColor={backgroundColor}
+        borderColor={borderColor}
         colorTheme={colorTheme}
         className={clsx(
           onDelete && 'flex gap-2',

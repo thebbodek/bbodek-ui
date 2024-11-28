@@ -16,6 +16,8 @@ const Label = forwardRef(
       size = SIZE['MEDIUM'],
       color,
       theme,
+      backgroundColor,
+      borderColor,
       rounded,
       ...props
     }: LabelProps<T>,
@@ -31,6 +33,10 @@ const Label = forwardRef(
           'flex items-center justify-center gap-1',
           colorTheme && COLOR_THEME_STYLES[colorTheme],
           size && LABEL_SIZE[size],
+          color && `text-${color}`,
+          backgroundColor && `bg-${backgroundColor}`,
+          borderColor && `border border-${borderColor}`,
+          theme && `text-${theme}`,
           rounded ? BUTTON_ROUNDED[rounded] : LABEL_ROUNDED[size],
           className,
         )}
