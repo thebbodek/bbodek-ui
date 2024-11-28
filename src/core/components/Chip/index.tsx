@@ -9,7 +9,6 @@ import {
   CHIP_DELETE_BUTTON_STYLE,
   CHIP_LABEL_STYLE,
 } from '@/core/components/Chip/constants';
-import { COLOR_THEME } from '@/constants/theme';
 import Icon from '@/core/components/Icon';
 
 const Chip = forwardRef(
@@ -17,7 +16,7 @@ const Chip = forwardRef(
     {
       label,
       onDelete,
-      colorTheme = COLOR_THEME['SECONDARY'],
+      colorTheme,
       onClick,
       color,
       theme,
@@ -51,7 +50,7 @@ const Chip = forwardRef(
             colorTheme={colorTheme}
             className={clsx(
               'brightness-100 transition-all',
-              CHIP_DELETE_BUTTON_STYLE[colorTheme],
+              colorTheme && CHIP_DELETE_BUTTON_STYLE[colorTheme],
             )}
             icon={<Icon iconKey={'x'} weight={'bold'} />}
             onClick={handleDelete}
@@ -70,8 +69,8 @@ const Chip = forwardRef(
         colorTheme={colorTheme}
         className={clsx(
           onDelete && 'flex gap-2',
-          onClick &&
-            `brightness-100 transition-all hover:brightness-95 ${CHIP_LABEL_STYLE[colorTheme]}`,
+          onClick && `brightness-100 transition-all hover:brightness-95`,
+          colorTheme && CHIP_LABEL_STYLE[colorTheme],
           onClick ? 'cursor-pointer' : 'cursor-text',
           className,
         )}

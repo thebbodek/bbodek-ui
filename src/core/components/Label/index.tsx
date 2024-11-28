@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
 
-import { COLOR_THEME, COLOR_THEME_STYLES } from '@/constants/theme';
+import { COLOR_THEME_STYLES } from '@/constants/theme';
 import { BUTTON_ROUNDED } from '@/core/components/Button/ButtonBase/constants';
 import { LABEL_ROUNDED, LABEL_SIZE, SIZE } from './constants';
 import { LabelProps } from './types';
@@ -12,8 +12,10 @@ const Label = forwardRef(
       label,
       icon,
       element: Element,
-      colorTheme = COLOR_THEME['WHITE'],
+      colorTheme,
       size = SIZE['MEDIUM'],
+      color,
+      theme,
       rounded,
       ...props
     }: LabelProps<T>,
@@ -27,7 +29,7 @@ const Label = forwardRef(
         ref={ref}
         className={clsx(
           'flex items-center justify-center gap-1',
-          COLOR_THEME_STYLES[colorTheme],
+          colorTheme && COLOR_THEME_STYLES[colorTheme],
           size && LABEL_SIZE[size],
           rounded ? BUTTON_ROUNDED[rounded] : LABEL_ROUNDED[size],
           className,
