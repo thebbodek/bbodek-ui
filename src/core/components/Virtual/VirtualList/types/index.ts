@@ -23,6 +23,7 @@ export interface VirtualListProps<
   P extends ElementType = 'div',
 > extends Pick<HTMLAttributes<HTMLElement>, 'className'> {
   itemHeight: number;
+  listClassName?: HTMLAttributes<HTMLElement>['className'];
   itemsTotalCount: number;
   rootElement?: T;
   listElement?: P;

@@ -25,6 +25,7 @@ const VirtualList = forwardRef<HTMLElement, VirtualListProps>(
       rootElement: RootElement,
       listElement: ListElement,
       className,
+      listClassName,
       children,
     },
     ref,
@@ -78,7 +79,7 @@ const VirtualList = forwardRef<HTMLElement, VirtualListProps>(
         onScroll={handleScroll}
       >
         <ListComponent
-          className={'relative'}
+          className={clsx(listClassName && listClassName, '!relative')}
           style={{ height: `${totalItemsHeight}px` }}
         >
           {children({
