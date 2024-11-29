@@ -72,6 +72,7 @@ export const Default = ({
       <VirtualList
         listElement={'ul'}
         itemHeight={itemHeight}
+        gap={8}
         itemsTotalCount={itemsTotalCount}
         className={'bg-gray-02'}
         ref={listRef}

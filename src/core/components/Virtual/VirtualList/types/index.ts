@@ -26,6 +26,7 @@ export interface VirtualListProps<
   itemsTotalCount: number;
   rootElement?: T;
   listElement?: P;
+  gap?: number;
   children: ({
     startIndex,
     endIndex,

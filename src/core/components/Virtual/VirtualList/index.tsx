@@ -20,6 +20,7 @@ const VirtualList = forwardRef<HTMLElement, VirtualListProps>(
   (
     {
       itemHeight,
+      gap = 0,
       itemsTotalCount,
       rootElement: RootElement,
       listElement: ListElement,
@@ -28,15 +29,16 @@ const VirtualList = forwardRef<HTMLElement, VirtualListProps>(
     },
     ref,
   ) => {
+    const _itemHeight = itemHeight + gap;
     const containerRef = useRef<HTMLElement | null>(null);
     const [scrollTop, setScrollTop] = useState(0);
     const [containerHeight, setContainerHeight] = useState(0);
-    const visibleCount = Math.ceil(containerHeight / itemHeight);
-    const totalItemsHeight = itemHeight * itemsTotalCount;
+    const visibleCount = Math.ceil(containerHeight / _itemHeight);
+    const totalItemsHeight = _itemHeight * itemsTotalCount;
     const classNames = clsx('overflow-y-auto', className);
     const RootComponent: ElementType = RootElement || 'div';
     const ListComponent: ElementType = ListElement || 'div';
-    const startIndex = Math.floor(scrollTop / itemHeight);
+    const startIndex = Math.floor(scrollTop / _itemHeight);
     const endIndex = Math.min(itemsTotalCount - 1, startIndex + visibleCount);
 
     const handleScroll = () => {
@@ -49,8 +51,8 @@ const VirtualList = forwardRef<HTMLElement, VirtualListProps>(
 
     const getTopPosition = useCallback(
       ({ index }: GetTopPositionParams) =>
-        `${(startIndex + index) * itemHeight}px`,
-      [startIndex, itemHeight],
+        `${(startIndex + index) * _itemHeight}px`,
+      [startIndex, _itemHeight],
     );
 
     useEffect(() => {
