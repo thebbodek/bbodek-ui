@@ -36,7 +36,12 @@ export const Default = () => {
 
   return (
     <div className={'flex max-w-[300px] gap-2'}>
-      <Chips rootRef={chipsRef} items={values} onDelete={handleDelete} />
+      <Chips
+        rootRef={chipsRef}
+        items={values}
+        onDelete={handleDelete}
+        colorTheme={'secondary'}
+      />
       <IconButton
         size={'h-29'}
         rounded={'rounded-full'}
