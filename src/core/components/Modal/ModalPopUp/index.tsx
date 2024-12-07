@@ -1,7 +1,5 @@
 import clsx from 'clsx';
 import { forwardRef, PropsWithChildren } from 'react';
-
-import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
 import Section from '../../Section';
 import ModalBase from '../ModalBase';
 import { VARIANTS } from '../ModalBase/constants';
@@ -22,8 +20,6 @@ const ModalPopUp = forwardRef(
     ref: React.Ref<HTMLDialogElement>,
   ) => {
     const { target, className, ...rest } = props;
-
-    useBlockScrollingEffect(isOpen);
 
     return (
       <ModalBase

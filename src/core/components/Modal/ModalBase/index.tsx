@@ -67,8 +67,8 @@ const ModalBase = forwardRef(
           {cloneElement(_children, {
             ref: contentRef,
             className: clsx(
-              MODAL_CONTENT_SIZE[variants],
               _children.props.className,
+              MODAL_CONTENT_SIZE[variants],
             ),
           })}
         </dialog>

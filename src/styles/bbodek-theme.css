@@ -90,6 +90,12 @@
     padding-bottom: calc(env(safe-area-inset-bottom));
   }
 
+  .safe-area-bottom-pb {
+    padding-bottom: 1rem;
+    padding-bottom: calc(constant(safe-area-inset-bottom + 1rem));
+    padding-bottom: calc(env(safe-area-inset-bottom + 1rem));
+  }
+
   .safe-area-y {
     @apply safe-area-top safe-area-bottom;
   }
