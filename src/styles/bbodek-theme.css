@@ -65,3 +65,50 @@
     url('./fonts/Pretendard-Bold.woff') format('woff'),
     url('./fonts/Pretendard-Bold.otf') format('opentype');
 }
+
+
+@layer utilities {
+  .text-ellipsis-line-clamp-1 {
+    @apply line-clamp-1 text-ellipsis break-words;
+  }
+
+  .text-ellipsis-line-clamp-2 {
+    @apply line-clamp-2 text-ellipsis break-words;
+  }
+
+  .text-ellipsis-line-clamp-3 {
+    @apply line-clamp-3 text-ellipsis break-words;
+  }
+
+  .safe-area-top {
+    padding-top: calc(constant(safe-area-inset-top));
+    padding-top: calc(env(afe-area-inset-top));
+  }
+
+  .safe-area-bottom {
+    padding-bottom: calc(constant(safe-area-inset-bottom));
+    padding-bottom: calc(env(safe-area-inset-bottom));
+  }
+
+  .safe-area-y {
+    @apply safe-area-top safe-area-bottom;
+  }
+
+  .safe-area-left {
+    padding-left: calc(constant(safe-area-inset-left) + 1rem);
+    padding-left: calc(env(safe-area-inset-left) + 1rem);
+  }
+
+  .safe-area-right {
+    padding-right: calc(constant(safe-area-inset-right) + 1rem);
+    padding-right: calc(env(safe-area-inset-right) + 1rem);
+  }
+
+  .safe-area-x {
+    @apply safe-area-left safe-area-right;
+  }
+
+  .safe-area {
+    @apply safe-area-top safe-area-bottom safe-area-left safe-area-right
+  }
+}

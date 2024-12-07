@@ -1,5 +1,11 @@
 import clsx from 'clsx';
-import { forwardRef, PropsWithChildren } from 'react';
+import {
+  cloneElement,
+  forwardRef,
+  isValidElement,
+  PropsWithChildren,
+  ReactElement,
+} from 'react';
 
 import useClickOutside from '@/hooks/useClickOutSide';
 import {
@@ -9,6 +15,7 @@ import {
 } from './constants';
 import { ModalBaseProps } from './types';
 import Portal from '@/core/components/Portal';
+import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
 
 const ModalBase = forwardRef(
   (
@@ -19,14 +26,30 @@ const ModalBase = forwardRef(
       dimmed = true,
       onClose,
       children,
+      useClickOutsideEvent = true,
       ...props
     }: PropsWithChildren<ModalBaseProps>,
     ref: React.Ref<HTMLDialogElement>,
   ) => {
-    const { contentRef } = useClickOutside<HTMLDivElement>(onClose);
+    const { contentRef } = useClickOutside<HTMLDivElement>(
+      onClose,
+      useClickOutsideEvent,
+    );
     const { className, ...rest } = props;
 
-    if (!isOpen) return null;
+    useBlockScrollingEffect(isOpen);
+
+    if (!isOpen || !children) return null;
+
+    const isReactElement = (children: unknown): children is ReactElement => {
+      return isValidElement(children);
+    };
+
+    const _children = isReactElement(children) ? (
+      children
+    ) : (
+      <div>{children}</div>
+    );
 
     return (
       <Portal target={target}>
@@ -41,9 +64,13 @@ const ModalBase = forwardRef(
           open={isOpen}
           {...rest}
         >
-          <div ref={contentRef} className={MODAL_CONTENT_SIZE[variants]}>
-            {children}
-          </div>
+          {cloneElement(_children, {
+            ref: contentRef,
+            className: clsx(
+              MODAL_CONTENT_SIZE[variants],
+              _children.props.className,
+            ),
+          })}
         </dialog>
       </Portal>
     );

@@ -16,6 +16,7 @@ const ModalPopUp = forwardRef(
       rounded = ROUNDED['ROUNDED_20'],
       hasRounded = true,
       hasShadow = true,
+      useClickOutsideEvent = true,
       ...props
     }: PropsWithChildren<ModalPopUpProps>,
     ref: React.Ref<HTMLDialogElement>,
@@ -29,6 +30,7 @@ const ModalPopUp = forwardRef(
         target={target ?? 'portal'}
         ref={ref}
         variants={VARIANTS['MODAL']}
+        useClickOutsideEvent={useClickOutsideEvent}
         isOpen={isOpen}
         {...rest}
       >

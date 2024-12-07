@@ -12,4 +12,5 @@ export interface ModalBaseProps
   isOpen: boolean;
   dimmed?: boolean;
   onClose?: () => void;
+  useClickOutsideEvent?: boolean;
 }

@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { forwardRef, PropsWithChildren } from 'react';
 
-import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
 import ModalBase from '../Modal/ModalBase';
 import Section from '../Section';
 import Typography from '../Typography';
@@ -16,6 +15,7 @@ const Drawer = forwardRef(
       onClose,
       children,
       isOpen,
+      useClickOutsideEvent = true,
       ...props
     }: PropsWithChildren<DrawerProps>,
     ref: React.Ref<HTMLDialogElement>,
@@ -23,14 +23,13 @@ const Drawer = forwardRef(
     const { target, className, ...rest } = props;
     const CloseIcon = <Icon className={'text-[2rem]'} iconKey={'x'} />;
 
-    useBlockScrollingEffect(isOpen);
-
     return (
       <ModalBase
         target={target ?? 'drawer'}
         ref={ref}
         variants={'drawer'}
         isOpen={isOpen}
+        useClickOutsideEvent={useClickOutsideEvent}
         {...rest}
       >
         <Section

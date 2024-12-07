@@ -5,5 +5,8 @@ import { ModalBaseProps } from '../../ModalBase/types';
 
 export interface ModalPopUpProps
   extends Pick<SectionProps<'section'>, 'hasRounded' | 'hasShadow' | 'rounded'>,
-    Pick<ModalBaseProps, 'target' | 'isOpen' | 'onClose'>,
+    Pick<
+      ModalBaseProps,
+      'target' | 'isOpen' | 'onClose' | 'useClickOutsideEvent'
+    >,
     HTMLAttributes<HTMLElement> {}

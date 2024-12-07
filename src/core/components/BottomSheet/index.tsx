@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 import { forwardRef, PropsWithChildren } from 'react';
 
-import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
 import ModalBase from '../Modal/ModalBase';
 import { VARIANTS } from '../Modal/ModalBase/constants';
-import Section from '../Section';
 import { BottomSheetProps } from './types';
-import useClickOutside from '@/hooks/useClickOutSide';
 import Icon from '@/core/components/Icon';
+import {
+  BOTTOM_SHEET_ROUNDED_VARIANTS,
+  BOTTOM_SHEET_ROUNDED_VARIANTS_MAPPER,
+} from '@/core/components/BottomSheet/constants';
 
 const BottomSheet = forwardRef(
   (
@@ -16,15 +17,14 @@ const BottomSheet = forwardRef(
       children,
       isOpen,
       useCloseBtn = false,
+      useClickOutsideEvent = true,
+      rounded = BOTTOM_SHEET_ROUNDED_VARIANTS['ROUNDED_8'],
       ...props
     }: PropsWithChildren<BottomSheetProps>,
     ref: React.Ref<HTMLDialogElement>,
   ) => {
-    const { contentRef } = useClickOutside<HTMLDivElement>(onClose);
     const { target, className, ...rest } = props;
     const CloseIcon = <Icon className={'text-[1.5rem]'} iconKey={'x'} />;
-
-    useBlockScrollingEffect(isOpen);
 
     return (
       <ModalBase
@@ -32,17 +32,16 @@ const BottomSheet = forwardRef(
         target={target ?? 'portal'}
         ref={ref}
         variants={VARIANTS['BOTTOM_SHEET']}
+        onClose={onClose}
+        useClickOutsideEvent={useClickOutsideEvent}
         {...rest}
       >
-        <Section
-          element='div'
+        <div
           className={clsx(
-            'h-full animate-bottom-sheet rounded-t-xl p-4',
+            'animate-bottom-sheet overflow-y-hidden p-4',
+            BOTTOM_SHEET_ROUNDED_VARIANTS_MAPPER[rounded],
             className,
           )}
-          ref={contentRef}
-          hasRounded={false}
-          hasShadow
         >
           {useCloseBtn ? (
             <div className='mb-4 flex'>
@@ -56,7 +55,7 @@ const BottomSheet = forwardRef(
             </div>
           ) : null}
           {children}
-        </Section>
+        </div>
       </ModalBase>
     );
   },
