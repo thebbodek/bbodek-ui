@@ -38,23 +38,24 @@ const BottomSheet = forwardRef(
       >
         <div
           className={clsx(
-            'animate-bottom-sheet overflow-y-hidden px-4 pt-4',
+            'animate-bottom-sheet overflow-y-hidden',
             BOTTOM_SHEET_ROUNDED_VARIANTS_MAPPER[rounded],
-            className,
           )}
         >
-          {useCloseBtn ? (
-            <div className='mb-4 flex'>
-              <button
-                className='ml-auto'
-                onClick={onClose}
-                aria-label='창 닫기'
-              >
-                {CloseIcon}
-              </button>
-            </div>
-          ) : null}
-          {children}
+          <div className={clsx('p-4', className)}>
+            {useCloseBtn ? (
+              <div className='mb-4 flex'>
+                <button
+                  className='ml-auto'
+                  onClick={onClose}
+                  aria-label='창 닫기'
+                >
+                  {CloseIcon}
+                </button>
+              </div>
+            ) : null}
+            {children}
+          </div>
         </div>
       </ModalBase>
     );
