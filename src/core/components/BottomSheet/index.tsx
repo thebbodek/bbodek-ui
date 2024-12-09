@@ -18,7 +18,7 @@ const BottomSheet = forwardRef(
       isOpen,
       useCloseBtn = false,
       useClickOutsideEvent = true,
-      rounded = BOTTOM_SHEET_ROUNDED_VARIANTS['ROUNDED_8'],
+      rounded = BOTTOM_SHEET_ROUNDED_VARIANTS['ROUNDED_12'],
       ...props
     }: PropsWithChildren<BottomSheetProps>,
     ref: React.Ref<HTMLDialogElement>,
