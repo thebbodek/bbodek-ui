@@ -13,4 +13,5 @@ export const FILL_COLOR_THEME_STYLES: Record<ColorThemeType, string> = {
   [COLOR_THEME['GRAY']]: 'fill-gray-02',
   [COLOR_THEME['WHITE']]: 'fill-white',
   [COLOR_THEME['DARK']]: 'fill-gray-600',
+  [COLOR_THEME['INFO']]: 'fill-[#F8F5FF]',
 };
