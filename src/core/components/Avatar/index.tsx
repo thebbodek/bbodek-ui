@@ -1,28 +1,25 @@
-import {
-  MouseEvent,
-  PropsWithChildren,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { MouseEvent, PropsWithChildren, useRef, useState } from 'react';
 import clsx from 'clsx';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+
 import {
   BUTTON_ROUNDED,
   ROUNDED,
 } from '@/core/components/Button/ButtonBase/constants';
-import { AvatarProps } from '@/core/components/Avatar/types';
+import { COLOR_THEME_STYLES } from '@/constants/theme';
 import {
   AVATAR_IMAGE_SIZE,
   AVATAR_SIZE,
   AVATAR_SIZE_VARIANTS,
 } from '@/core/components/Avatar/constants';
-import { COLOR_THEME_STYLES } from '@/constants/theme';
-import { getFirstLetter } from '@/core/components/Avatar/utils/getFirstLetter';
-import { getColorTheme } from '@/utilities/getColorTheme';
+import { AvatarProps } from '@/core/components/Avatar/types';
+import { getFirstLetter } from '@/utilities/letter';
+import { ColorThemeType } from '@/types';
 import Icon from '@/core/components/Icon';
 import AvatarPopoverPortal from '@/core/components/Avatar/AvatarPopoverPortal';
+import useInitEffect from '@/hooks/useInitEffect';
+import getAvatarColorTheme from '@/core/components/Avatar/utils/getAvatarColorTheme';
 
 const Avatar = ({
   src,
@@ -36,16 +33,22 @@ const Avatar = ({
   popover,
   onClick,
   showAllLetter = false,
+  useRandomColorTheme = false,
   ...props
 }: PropsWithChildren<AvatarProps>) => {
   const avatarRef = useRef<HTMLDivElement>(null);
   const [hasImageError, setHasImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const _colorTheme = useMemo(
-    () => getColorTheme({ colorTheme, variant: 'light' }),
-    [colorTheme],
-  );
+  const [avatarColorTheme, setAvatarColorTheme] = useState<ColorThemeType>();
+
+  const updateAvatarColorTheme = () => {
+    setAvatarColorTheme(
+      getAvatarColorTheme({ colorTheme, alt, useRandomColorTheme }),
+    );
+  };
+
+  useInitEffect(updateAvatarColorTheme);
 
   const renderer = () => {
     if (hasImageError && alt) return showAllLetter ? alt : getFirstLetter(alt);
@@ -103,7 +106,7 @@ const Avatar = ({
           disabled && 'cursor-not-allowed opacity-50',
           onClick && !disabled && 'cursor-pointer',
           className,
-          COLOR_THEME_STYLES[_colorTheme],
+          avatarColorTheme && COLOR_THEME_STYLES[avatarColorTheme],
           AVATAR_SIZE[size],
           BUTTON_ROUNDED[rounded],
         )}

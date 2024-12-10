@@ -62,3 +62,5 @@ export { default as AvatarGroup } from '@/core/components/AvatarGroup';
 export { useInput } from '@/core/components/Input/hooks/useInput';
 export * from '@/utilities/day';
 export * from '@/utilities/ref';
+export * from '@/utilities/letter';
+export * from '@/utilities/colorTheme';

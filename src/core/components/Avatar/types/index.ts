@@ -1,7 +1,8 @@
 import { HTMLAttributes, ReactElement } from 'react';
+
+import { AVATAR_SIZE_VARIANTS } from '@/core/components/Avatar/constants';
 import { RoundedType } from '@/core/components/Button/ButtonBase/types';
 import { ColorThemeType } from '@/types';
-import { AVATAR_SIZE_VARIANTS } from '@/core/components/Avatar/constants';
 
 export type AvatarSizeVariants =
   (typeof AVATAR_SIZE_VARIANTS)[keyof typeof AVATAR_SIZE_VARIANTS];
@@ -15,5 +16,6 @@ export interface AvatarProps
   colorTheme?: ColorThemeType;
   popover?: ReactElement;
   showAllLetter?: boolean;
+  useRandomColorTheme?: boolean;
   disabled?: boolean;
 }

@@ -10,6 +10,7 @@ export const LIGHT_COLOR_THEME = {
   WARNING: 'warning',
   SUCCESS: 'success',
   SECONDARY: 'secondary',
+  INFO: 'info',
 } as const;
 
 export const COLOR_THEME = {
@@ -35,6 +36,7 @@ export const COLOR_THEME_STYLES: Record<ColorThemeType, string> = {
   [COLOR_THEME['SUCCESS']]: 'text-green-600 bg-[#E7FCEE]',
   [COLOR_THEME['GRAY']]: 'text-gray-07 bg-gray-02',
   [COLOR_THEME['WHITE']]: 'text-gray-06 bg-white border border-gray-03',
+  [COLOR_THEME['INFO']]: 'text-[#7239EA] bg-[#F8F5FF]',
   [COLOR_THEME['DARK']]: 'text-white bg-gray-600',
 };
 

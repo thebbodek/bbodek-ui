@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 import Avatar from './index';
 import { AvatarProps } from './types';
 import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
-import { SIZE } from '@/core/components/Label/constants';
+import { AVATAR_SIZE_VARIANTS } from '@/core/components/Avatar/constants';
 
 const meta = {
   title: 'core/Avatar',
@@ -19,7 +19,7 @@ const meta = {
     },
     size: {
       control: 'select',
-      options: Object.values(SIZE),
+      options: Object.values(AVATAR_SIZE_VARIANTS),
       description: 'Avatar Size',
     },
     rounded: {
@@ -58,7 +58,12 @@ export const BrokenImageAvatar = (props: AvatarProps) => {
 
 export const LetterAvatar = (props: AvatarProps) => {
   return (
-    <Avatar size={props.size ?? 'md'} rounded={props.rounded ?? 'rounded-full'}>
+    <Avatar
+      size={props.size ?? 'md'}
+      alt={props.alt ?? 'jinju'}
+      rounded={props.rounded ?? 'rounded-full'}
+      useRandomColorTheme
+    >
       {props.children ?? 'jinju'}
     </Avatar>
   );
