@@ -38,7 +38,7 @@ const BottomSheet = forwardRef(
       >
         <div
           className={clsx(
-            'animate-bottom-sheet overflow-y-hidden',
+            'safe-area-bottom animate-bottom-sheet overflow-y-hidden bg-white',
             BOTTOM_SHEET_ROUNDED_VARIANTS_MAPPER[rounded],
           )}
         >

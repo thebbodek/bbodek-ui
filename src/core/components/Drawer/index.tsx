@@ -34,7 +34,10 @@ const Drawer = forwardRef(
       >
         <Section
           element='div'
-          className={clsx('h-full w-[29.1875rem] animate-drawer', className)}
+          className={clsx(
+            'safe-area-bottom w-[29.1875rem] animate-drawer bg-white',
+            className,
+          )}
           hasRounded={false}
           hasShadow
         >

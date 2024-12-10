@@ -21,5 +21,5 @@ export const MODAL_DIMMED_COLOR: Record<VariantsType, string> = {
 export const MODAL_CONTENT_SIZE: Record<VariantsType, string> = {
   [VARIANTS.MODAL]: 'h-auto',
   [VARIANTS.DRAWER]: 'h-full',
-  [VARIANTS.BOTTOM_SHEET]: 'h-auto safe-area-bottom bg-white',
+  [VARIANTS.BOTTOM_SHEET]: 'h-auto',
 } as const;
