@@ -32,11 +32,8 @@ const members = ['강준영', '정휘영', '박진주', '김미림', '이준호'
 const items = members.map((member) => (
   <Avatar
     key={member}
-    popover={
-      <Section className={'mt-1 flex flex-col gap-1 p-2'} hasBorder>
-        {member}
-      </Section>
-    }
+    popover={<>{member}</>}
+    popoverOptions={{ colorTheme: 'white', className: 'p-2' }}
     alt={member}
   >
     {member}
@@ -51,19 +48,18 @@ export const MaxAvatarGroup = (props: AvatarGroupProps) => {
         <AvatarGroup
           items={items}
           max={3}
+          popoverOptions={{ colorTheme: 'white', className: 'p-2' }}
           overflowPopover={({ overflowItems }) => (
-            <Section className={'mt-1 flex flex-col gap-1 p-2'} hasBorder>
+            <ul className={'flex-v-stack gap-y-1'}>
               {overflowItems.map((item) => (
-                <div key={item.alt} className={'flex items-center gap-2'}>
-                  {
-                    <Avatar size={'sm'} alt={item.alt}>
-                      {item.children}
-                    </Avatar>
-                  }
+                <li key={item.alt} className={'flex items-center gap-2'}>
+                  <Avatar size={'sm'} alt={item.alt}>
+                    {item.children}
+                  </Avatar>
                   {item.alt}
-                </div>
+                </li>
               ))}
-            </Section>
+            </ul>
           )}
         />
       </Section>
