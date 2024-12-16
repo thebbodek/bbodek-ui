@@ -1,10 +1,4 @@
-import {
-  MouseEvent,
-  PropsWithChildren,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { MouseEvent, PropsWithChildren, useMemo, useState } from 'react';
 import clsx from 'clsx';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -23,27 +17,28 @@ import { AvatarProps } from '@/core/components/Avatar/types';
 import { getFirstLetter } from '@/utilities/letter';
 import Icon from '@/core/components/Icon';
 import getAvatarColorTheme from '@/core/components/Avatar/utils/getAvatarColorTheme';
-import AvatarPopoverPortal from '@/core/components/Avatar/AvatarPopoverPortal';
+import Popover from '@/core/components/Popover';
 
 const Avatar = ({
   src,
   alt,
   children,
+  popover,
+  popoverOptions,
+  rootRef,
+  useHover = true,
   size = AVATAR_SIZE_VARIANTS['MEDIUM'],
   rounded = ROUNDED['ROUNDED_FULL'],
   colorTheme,
   className,
   disabled = false,
-  popover,
   onClick,
   showAllLetter = false,
   useRandomColorTheme = false,
   ...props
 }: PropsWithChildren<AvatarProps>) => {
-  const avatarRef = useRef<HTMLDivElement>(null);
   const [hasImageError, setHasImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
   const _colorTheme = useMemo(
     () => getAvatarColorTheme({ colorTheme, alt, useRandomColorTheme }),
     [colorTheme, alt, useRandomColorTheme],
@@ -97,29 +92,29 @@ const Avatar = ({
   };
 
   return (
-    <>
-      <div
-        ref={avatarRef}
-        className={clsx(
-          'flex items-center justify-center overflow-hidden uppercase hover:z-[1]',
-          disabled && 'cursor-not-allowed opacity-50',
-          onClick && !disabled && 'cursor-pointer',
-          className,
-          COLOR_THEME_STYLES[_colorTheme],
-          AVATAR_SIZE[size],
-          BUTTON_ROUNDED[rounded],
-        )}
-        onClick={handleClick}
-        {...props}
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
-      >
-        {renderer()}
-        {isOpen && popover && (
-          <AvatarPopoverPortal targetRef={avatarRef} popover={popover} />
-        )}
-      </div>
-    </>
+    <Popover
+      trigger={
+        <div
+          className={clsx(
+            'flex items-center justify-center overflow-hidden uppercase hover:z-[1]',
+            disabled && 'cursor-not-allowed opacity-50',
+            onClick && !disabled && 'cursor-pointer',
+            className,
+            COLOR_THEME_STYLES[_colorTheme],
+            AVATAR_SIZE[size],
+            BUTTON_ROUNDED[rounded],
+          )}
+          onClick={handleClick}
+          {...props}
+        >
+          {renderer()}
+        </div>
+      }
+      popover={popover}
+      rootRef={rootRef}
+      popoverOptions={popoverOptions}
+      useHover={useHover}
+    />
   );
 };
 
