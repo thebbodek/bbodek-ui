@@ -18,13 +18,24 @@ export const useUpdatePopoverPositionEffect = ({
 
     if (!trigger || !current || !root) return;
 
-    const style = getPopoverPosition({
-      trigger,
-      current,
-      root,
-      gap,
-    });
+    const updatePosition = () => {
+      const style = getPopoverPosition({
+        trigger,
+        current,
+        root,
+        gap,
+      });
+      setStyle((prevStyle) => ({ ...prevStyle, ...style }));
+    };
 
-    setStyle(style);
+    const observer = new ResizeObserver(updatePosition);
+    observer.observe(root);
+    observer.observe(trigger);
+
+    if (isOpen) {
+      updatePosition();
+    }
+
+    return () => observer.disconnect();
   }, [triggerRef, rootRef, popoverRef, isOpen]);
 };

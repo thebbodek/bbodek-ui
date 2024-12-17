@@ -6,7 +6,7 @@ export const getPopoverPosition = ({
   trigger,
   current,
   root,
-  gap = 4,
+  gap = 0,
 }: GetPopoverPositionProps) => {
   const {
     left,
@@ -15,6 +15,7 @@ export const getPopoverPosition = ({
     width: triggerWidth,
   } = trigger.getBoundingClientRect();
   const style = {
+    zIndex: 10000,
     opacity: 1,
     left,
     top: bottom,

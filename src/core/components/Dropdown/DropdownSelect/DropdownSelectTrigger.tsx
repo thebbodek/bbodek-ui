@@ -18,8 +18,8 @@ const DropdownSelectTrigger = forwardRef(
       <DropdownBase.Trigger
         ref={ref}
         className={clsx(
-          'flex h-[3.75rem] w-full items-center justify-between gap-x-2 overflow-hidden rounded-xl border p-3',
-          error ? 'border-error' : ' border-gray-03',
+          'bbodek-select',
+          error ? 'border-error' : 'border-gray-03',
           className,
         )}
         {...rest}
@@ -31,8 +31,7 @@ const DropdownSelectTrigger = forwardRef(
           return (
             <>
               <Typography
-                theme='subhead-02-regular'
-                className={clsx(isDisabled && 'mr-[1.75rem]')}
+                className={clsx(isDisabled && 'mr-[1.725rem]')}
                 color={!isDisabled && !showPlaceholder ? 'gray-08' : 'gray-05'}
                 text={currentValue ? currentValue : placeholder ?? ''}
               />
@@ -40,10 +39,9 @@ const DropdownSelectTrigger = forwardRef(
                 <Icon
                   iconKey={'caret-down'}
                   className={clsx(
-                    'text-[1.5rem] text-gray-06',
+                    'text-[1.1rem] text-gray-06',
                     isVisibleContent ? 'rotate-180' : 'rotate-0',
                   )}
-                  weight='fill'
                 />
               ) : null}
             </>

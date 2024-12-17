@@ -1,4 +1,4 @@
-import { cloneElement, CSSProperties, MouseEvent, useState } from 'react';
+import { cloneElement, MouseEvent, useState } from 'react';
 
 import { PopoverProps } from '@/core/components/Popover/types';
 import { useRootScrollLockEffect } from '@/core/components/Popover/hooks/effects/useRootScrollLockEffect';
@@ -16,22 +16,17 @@ const Popover = ({
   rootClassName,
 }: PopoverProps) => {
   const isFunction = typeof popover === 'function';
-  const { gap, ...props } = popoverOptions ?? {};
+  const { gap = 4, ...props } = popoverOptions ?? {};
   const [isOpen, setIsOpen] = useState(false);
-  const [style, setStyle] = useState<CSSProperties>({
-    opacity: 0,
-    paddingTop: gap,
-  });
   const close = () => setIsOpen(false);
   const { contentRef: triggerRef } = useClickOutside<HTMLDivElement>(
     close,
     useClickOutsideEvent,
   );
-  const { popoverRef } = usePopoverPosition({
+  const { popoverRef, style } = usePopoverPosition({
     isOpen,
     triggerRef,
     rootRef,
-    setStyle,
     gap,
   });
 
@@ -54,7 +49,7 @@ const Popover = ({
     >
       {cloneElement(trigger, { onClick: isFunction ? handleClick : undefined })}
       {isOpen && popover && (
-        <div className={'fixed'} style={style}>
+        <div style={style}>
           <Section ref={popoverRef} element={'div'} {...props}>
             {isFunction ? popover({ close }) : popover}
           </Section>
