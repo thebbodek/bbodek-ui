@@ -13,8 +13,8 @@ const DropdownFilterItem = forwardRef(
       <DropdownBase.Item
         ref={ref}
         className={clsx(
-          'text-body-01-regular text-gray-08 hover:font-bold',
-          checked && 'font-bold',
+          'text-body-02-regular transition-colors hover:text-primary-03',
+          checked ? 'text-primary-03' : 'text-gray-08',
           className,
         )}
         {...props}

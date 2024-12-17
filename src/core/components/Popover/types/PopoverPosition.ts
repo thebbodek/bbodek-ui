@@ -6,7 +6,6 @@ export interface UseUpdatePopoverPositionProps
   extends Pick<PopoverProps, 'rootRef'> {
   isOpen: boolean;
   triggerRef: RefObject<HTMLElement>;
-  setStyle: Dispatch<SetStateAction<CSSProperties>>;
   gap?: number;
 }
 
@@ -20,4 +19,5 @@ export interface GetPopoverPositionProps
 export interface UseUpdatePopoverPositionEffectProps
   extends UseUpdatePopoverPositionProps {
   popoverRef: RefObject<HTMLDivElement>;
+  setStyle: Dispatch<SetStateAction<CSSProperties>>;
 }

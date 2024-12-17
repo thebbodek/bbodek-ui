@@ -71,7 +71,7 @@ const InputTextArea = forwardRef(
         inputComponent={
           <textarea
             ref={ref}
-            className={clsx('bbodek-field w-full resize-none', className)}
+            className={clsx('bbodek-field resize-none', className)}
             autoComplete={autoComplete}
             onChange={onChangeTextArea}
             required={required}
