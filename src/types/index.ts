@@ -1,4 +1,4 @@
-import { COLOR_THEME } from '@/constants/theme';
+import { COLOR_THEME, COLOR_THEME_VARIANT } from '@/constants/theme';
 
 export type ThemeColors =
   | 'white'
@@ -49,3 +49,6 @@ export type ThemeTypography =
   | 'body-03-bold';
 
 export type ColorThemeType = (typeof COLOR_THEME)[keyof typeof COLOR_THEME];
+
+export type ColorThemeVariant =
+  (typeof COLOR_THEME_VARIANT)[keyof typeof COLOR_THEME_VARIANT];
