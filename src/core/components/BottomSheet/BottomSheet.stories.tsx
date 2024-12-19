@@ -44,6 +44,7 @@ export const Default = (props: BottomSheetProps) => {
             target={props.target ?? 'bar'}
             isOpen={props.isOpen || isOpen}
             onClose={onToggle}
+            useCloseBtn
             useClickOutsideEvent
           >
             BottomSheet

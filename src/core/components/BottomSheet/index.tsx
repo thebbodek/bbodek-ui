@@ -9,6 +9,7 @@ import {
   BOTTOM_SHEET_ROUNDED_VARIANTS,
   BOTTOM_SHEET_ROUNDED_VARIANTS_MAPPER,
 } from '@/core/components/BottomSheet/constants';
+import IconButton from '@/core/components/Button/IconButton';
 
 const BottomSheet = forwardRef(
   (
@@ -44,15 +45,20 @@ const BottomSheet = forwardRef(
         >
           <div className={clsx('p-4', className)}>
             {useCloseBtn ? (
-              <div className='mb-4 flex'>
-                <button
-                  className='ml-auto'
-                  onClick={onClose}
-                  aria-label='창 닫기'
-                >
-                  {CloseIcon}
-                </button>
-              </div>
+              <IconButton
+                className={'ml-auto'}
+                size={'h-24'}
+                backgroundColor={'gray-02'}
+                onClick={onClose}
+                aria-label='창 닫기'
+                icon={
+                  <Icon
+                    className={'text-[0.8125rem] text-gray-07'}
+                    iconKey={'x'}
+                    weight={'bold'}
+                  />
+                }
+              />
             ) : null}
             {children}
           </div>
