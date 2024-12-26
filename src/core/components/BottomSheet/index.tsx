@@ -20,12 +20,12 @@ const BottomSheet = forwardRef(
       useCloseBtn = false,
       useClickOutsideEvent = true,
       rounded = BOTTOM_SHEET_ROUNDED_VARIANTS['ROUNDED_12'],
+      isFullScreen = false,
       ...props
     }: PropsWithChildren<BottomSheetProps>,
     ref: React.Ref<HTMLDialogElement>,
   ) => {
     const { target, className, ...rest } = props;
-    const CloseIcon = <Icon className={'text-[1.5rem]'} iconKey={'x'} />;
 
     return (
       <ModalBase
@@ -40,10 +40,10 @@ const BottomSheet = forwardRef(
         <div
           className={clsx(
             'safe-area-bottom animate-bottom-sheet overflow-y-hidden bg-white',
-            BOTTOM_SHEET_ROUNDED_VARIANTS_MAPPER[rounded],
+            !isFullScreen && BOTTOM_SHEET_ROUNDED_VARIANTS_MAPPER[rounded],
           )}
         >
-          <div className={clsx('p-4', className)}>
+          <div className={clsx('p-4', isFullScreen && 'h-[100svh]', className)}>
             {useCloseBtn ? (
               <IconButton
                 className={'ml-auto'}

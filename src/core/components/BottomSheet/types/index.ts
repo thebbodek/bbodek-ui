@@ -13,5 +13,6 @@ export interface BottomSheetProps
     >,
     Omit<HTMLAttributes<HTMLElement>, 'title'> {
   useCloseBtn?: boolean;
+  isFullScreen?: boolean;
   rounded?: ButtonBottomSheetRoundedTypes;
 }
