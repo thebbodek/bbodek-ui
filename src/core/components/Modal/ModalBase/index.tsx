@@ -12,6 +12,7 @@ import {
   MODAL_CONTENT_POSITION,
   MODAL_CONTENT_SIZE,
   MODAL_DIMMED_COLOR,
+  VARIANTS,
 } from './constants';
 import { ModalBaseProps } from './types';
 import Portal from '@/core/components/Portal';
@@ -56,7 +57,8 @@ const ModalBase = forwardRef(
         <dialog
           ref={ref}
           className={clsx(
-            'safe-area-bottom left-0 top-0 h-full w-full overflow-hidden open:animate-fade-in',
+            'left-0 top-0 h-full w-full overflow-hidden open:animate-fade-in',
+            variants === VARIANTS['MODAL'] && 'safe-area-bottom',
             MODAL_CONTENT_POSITION[variants],
             dimmed && MODAL_DIMMED_COLOR[variants],
             className,
