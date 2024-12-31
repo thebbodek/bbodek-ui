@@ -12,6 +12,9 @@ const AvatarGroup = ({
   total = items.length,
   spacing = SIZE['SMALL'],
   overflowPopover,
+  rootRef,
+  popoverOptions,
+  useHover = true,
   className,
   ...props
 }: PropsWithChildren<AvatarGroupProps>) => {
@@ -38,6 +41,9 @@ const AvatarGroup = ({
                 })
               : overflowPopover
           }
+          rootRef={rootRef}
+          popoverOptions={popoverOptions}
+          useHover={useHover}
           size={size}
           rounded={rounded}
           disabled={disabled}
