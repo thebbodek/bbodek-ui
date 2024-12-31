@@ -3,64 +3,69 @@
 @tailwind utilities;
 
 @layer components {
-  .flex-h-stack {
-    @apply flex flex-row;
-  }
+    .flex-h-stack {
+        @apply flex flex-row;
+    }
 
-  .flex-v-stack {
-    @apply flex flex-col;
-  }
+    .flex-v-stack {
+        @apply flex flex-col;
+    }
 
-  .bbodek-field {
-    @apply w-full flex-1 bg-transparent text-gray-08 outline-none placeholder:text-gray-05 read-only:text-gray-05 disabled:text-gray-05;
-  }
+    .bbodek-field {
+        @apply w-full flex-1 text-gray-08 outline-none placeholder:text-gray-05 read-only:text-gray-05 disabled:text-gray-05;
+    }
+
+    .bbodek-field-padding {
+        @apply px-3 py-2.5;
+    }
+
+    .bbodek-select {
+        @apply flex w-full items-center justify-between gap-x-2.5 overflow-hidden rounded-lg border border-gray-03 bbodek-field-padding;
+    }
 }
 
 @layer base {
-  html {
-    font-family: 'Pretendard', system-ui, sans-serif;
-  }
+    html {
+        font-family: 'Pretendard', system-ui, sans-serif;
+    }
 
-  input[type='number'] {
-    margin: 0;
-    appearance: textfield;
-    -moz-appearance: textfield;
-  }
+    input[type='number'] {
+        margin: 0;
+        appearance: textfield;
+        -moz-appearance: textfield;
+    }
 
-  input[type='number']::-webkit-outer-spin-button,
-  input[type='number']::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
+    input[type='number']::-webkit-outer-spin-button,
+    input[type='number']::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
 }
 
 @font-face {
-  font-family: 'Pretendard';
-  font-weight: 400;
-  font-display: swap;
-  src:
-    local('Pretendard'),
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-display: swap;
+    src: local('Pretendard'),
     url('./fonts/Pretendard-Regular.woff2') format('woff2'),
     url('./fonts/Pretendard-Regular.woff') format('woff'),
     url('./fonts/Pretendard-Regular.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Pretendard';
-  font-weight: 500;
-  font-display: swap;
-  src:
-    local('Pretendard'),
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-display: swap;
+    src: local('Pretendard'),
     url('./fonts/Pretendard-Medium.woff2') format('woff2'),
     url('./fonts/Pretendard-Medium.woff') format('woff'),
     url('./fonts/Pretendard-Medium.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Pretendard';
-  font-weight: 700;
-  font-display: swap;
-  src:
-    local('Pretendard'),
+    font-family: 'Pretendard';
+    font-weight: 700;
+    font-display: swap;
+    src: local('Pretendard'),
     url('./fonts/Pretendard-Bold.woff2') format('woff2'),
     url('./fonts/Pretendard-Bold.woff') format('woff'),
     url('./fonts/Pretendard-Bold.otf') format('opentype');
@@ -68,47 +73,47 @@
 
 
 @layer utilities {
-  .text-ellipsis-line-clamp-1 {
-    @apply line-clamp-1 text-ellipsis break-words;
-  }
+    .text-ellipsis-line-clamp-1 {
+        @apply line-clamp-1 text-ellipsis break-words;
+    }
 
-  .text-ellipsis-line-clamp-2 {
-    @apply line-clamp-2 text-ellipsis break-words;
-  }
+    .text-ellipsis-line-clamp-2 {
+        @apply line-clamp-2 text-ellipsis break-words;
+    }
 
-  .text-ellipsis-line-clamp-3 {
-    @apply line-clamp-3 text-ellipsis break-words;
-  }
+    .text-ellipsis-line-clamp-3 {
+        @apply line-clamp-3 text-ellipsis break-words;
+    }
 
-  .safe-area-top {
-    padding-top: calc(constant(safe-area-inset-top));
-    padding-top: calc(env(afe-area-inset-top));
-  }
+    .safe-area-top {
+        padding-top: calc(constant(safe-area-inset-top));
+        padding-top: calc(env(afe-area-inset-top));
+    }
 
-  .safe-area-bottom {
-    padding-bottom: calc(constant(safe-area-inset-bottom));
-    padding-bottom: calc(env(safe-area-inset-bottom));
-  }
+    .safe-area-bottom {
+        padding-bottom: calc(constant(safe-area-inset-bottom));
+        padding-bottom: calc(env(safe-area-inset-bottom));
+    }
 
-  .safe-area-y {
-    @apply safe-area-top safe-area-bottom;
-  }
+    .safe-area-y {
+        @apply safe-area-top safe-area-bottom;
+    }
 
-  .safe-area-left {
-    padding-left: calc(constant(safe-area-inset-left) + 1rem);
-    padding-left: calc(env(safe-area-inset-left) + 1rem);
-  }
+    .safe-area-left {
+        padding-left: calc(constant(safe-area-inset-left) + 1rem);
+        padding-left: calc(env(safe-area-inset-left) + 1rem);
+    }
 
-  .safe-area-right {
-    padding-right: calc(constant(safe-area-inset-right) + 1rem);
-    padding-right: calc(env(safe-area-inset-right) + 1rem);
-  }
+    .safe-area-right {
+        padding-right: calc(constant(safe-area-inset-right) + 1rem);
+        padding-right: calc(env(safe-area-inset-right) + 1rem);
+    }
 
-  .safe-area-x {
-    @apply safe-area-left safe-area-right;
-  }
+    .safe-area-x {
+        @apply safe-area-left safe-area-right;
+    }
 
-  .safe-area {
-    @apply safe-area-top safe-area-bottom safe-area-left safe-area-right
-  }
+    .safe-area {
+        @apply safe-area-top safe-area-bottom safe-area-left safe-area-right
+    }
 }

@@ -44,8 +44,10 @@ const DropdownMultipleTrigger = forwardRef(
         role={'button'}
         onClick={onClickHandler}
         className={clsx(
-          'flex min-h-[3.75rem] w-full items-center justify-between gap-x-2 overflow-hidden rounded-xl border border-gray-03 p-3',
-          isDisabled ? '!cursor-not-allowed bg-gray-09' : 'cursor-pointer',
+          'bbodek-select whitespace-nowrap',
+          isDisabled
+            ? 'cursor-not-allowed bg-gray-09'
+            : 'cursor-pointer bg-white',
           className,
         )}
         aria-haspopup='listbox'
@@ -56,7 +58,6 @@ const DropdownMultipleTrigger = forwardRef(
       >
         {showPlaceholder || isText ? (
           <Typography
-            theme='subhead-02-regular'
             color={!showPlaceholder && !isDisabled ? 'gray-08' : 'gray-05'}
             text={
               !showPlaceholder
@@ -65,14 +66,14 @@ const DropdownMultipleTrigger = forwardRef(
             }
             className={clsx(
               'flex-1 truncate text-start',
-              isDisabled && 'mr-[1.75rem]',
+              isDisabled && 'mr-[1.725rem]',
             )}
           />
         ) : (
           <ul
             className={clsx(
               'flex flex-wrap gap-2',
-              isDisabled && 'mr-[1.75rem]',
+              isDisabled && 'mr-[1.725rem]',
             )}
           >
             {currentValues.map(({ label, value }) => (
@@ -95,10 +96,9 @@ const DropdownMultipleTrigger = forwardRef(
           <Icon
             iconKey={'caret-down'}
             className={clsx(
-              'flex-shrink-0 text-[1.5rem] text-gray-06',
+              'text-[1.1rem] text-gray-06',
               isVisibleContent ? 'rotate-180' : 'rotate-0',
             )}
-            weight='fill'
           />
         ) : null}
       </div>

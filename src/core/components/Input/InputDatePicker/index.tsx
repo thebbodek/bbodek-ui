@@ -100,7 +100,7 @@ const InputDatePicker = ({
     <InputBase
       inputId={id}
       inputRootClassName={clsx(
-        'relative h-[3.75rem] cursor-pointer',
+        'relative cursor-pointer',
         {
           'cursor-not-allowed': isDisabled,
         },
@@ -141,7 +141,7 @@ const InputDatePicker = ({
       endComponent={
         <Icon
           iconKey={'calendar-blank'}
-          className={'text-[1.5rem] text-gray-05'}
+          className={'text-[120%] text-gray-05'}
         />
       }
     />

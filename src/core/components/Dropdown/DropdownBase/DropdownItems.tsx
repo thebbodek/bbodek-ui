@@ -12,9 +12,10 @@ const DropdownItems = forwardRef(
       items,
       useSearch,
       inputProps,
+      style,
       ...props
     }: DropdownItemsProps,
-    ref: React.Ref<HTMLUListElement>,
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     const {
       rounded,
@@ -25,11 +26,13 @@ const DropdownItems = forwardRef(
 
     return (
       <div
+        ref={ref}
         className={clsx(
-          'border-gary-02 absolute z-10 mt-2 min-w-full overflow-hidden whitespace-nowrap rounded-xl border bg-white ',
+          'overflow-hidden rounded-lg border border-gray-03 bg-white',
           useSearch && 'flex-v-stack',
           rootClassName,
         )}
+        style={style}
         role='listbox'
       >
         {useSearch && (
@@ -38,13 +41,16 @@ const DropdownItems = forwardRef(
             rootElement={'div'}
             placeholder={placeholder ?? '검색어를 입력하세요'}
             rootClassName={clsx(
-              'border-b border-b-gray-02 px-3 py-2',
+              'border-b border-b-gray-02 p-2',
               inputRootClassName,
             )}
             {...restInputProps}
           />
         )}
-        <ul ref={ref} className={clsx('flex-v-stack', className)} {...props}>
+        <ul
+          className={clsx('flex-v-stack whitespace-nowrap', className)}
+          {...props}
+        >
           {items}
         </ul>
       </div>
