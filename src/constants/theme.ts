@@ -18,6 +18,7 @@ export const COLOR_THEME = {
   PRIMARY_06: 'primary_06',
   GRAY: 'gray',
   WHITE: 'white',
+  DARK: 'dark',
 } as const;
 
 export const COLOR_THEME_VARIANT_OPTIONS = {
@@ -34,6 +35,7 @@ export const COLOR_THEME_STYLES: Record<ColorThemeType, string> = {
   [COLOR_THEME['SUCCESS']]: 'text-green-600 bg-[#E7FCEE]',
   [COLOR_THEME['GRAY']]: 'text-gray-07 bg-gray-02',
   [COLOR_THEME['WHITE']]: 'text-gray-06 bg-white border border-gray-03',
+  [COLOR_THEME['DARK']]: 'text-white bg-gray-600',
 };
 
 export const colorThemeOptions = Object.values(COLOR_THEME).map(
