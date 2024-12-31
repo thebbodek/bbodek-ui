@@ -17,29 +17,30 @@ import { AvatarProps } from '@/core/components/Avatar/types';
 import { getFirstLetter } from '@/utilities/letter';
 import { ColorThemeType } from '@/types';
 import Icon from '@/core/components/Icon';
-import AvatarPopoverPortal from '@/core/components/Avatar/AvatarPopoverPortal';
 import useInitEffect from '@/hooks/useInitEffect';
 import getAvatarColorTheme from '@/core/components/Avatar/utils/getAvatarColorTheme';
+import Popover from '@/core/components/Popover';
 
 const Avatar = ({
   src,
   alt,
   children,
+  popover,
+  popoverOptions,
+  rootRef,
+  useHover = true,
   size = AVATAR_SIZE_VARIANTS['MEDIUM'],
   rounded = ROUNDED['ROUNDED_FULL'],
   colorTheme,
   className,
   disabled = false,
-  popover,
   onClick,
   showAllLetter = false,
   useRandomColorTheme = false,
   ...props
 }: PropsWithChildren<AvatarProps>) => {
-  const avatarRef = useRef<HTMLDivElement>(null);
   const [hasImageError, setHasImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
   const [avatarColorTheme, setAvatarColorTheme] = useState<ColorThemeType>();
 
   const updateAvatarColorTheme = () => {
@@ -98,29 +99,29 @@ const Avatar = ({
   };
 
   return (
-    <>
-      <div
-        ref={avatarRef}
-        className={clsx(
-          'flex items-center justify-center overflow-hidden uppercase hover:z-[1]',
-          disabled && 'cursor-not-allowed opacity-50',
-          onClick && !disabled && 'cursor-pointer',
-          className,
-          avatarColorTheme && COLOR_THEME_STYLES[avatarColorTheme],
-          AVATAR_SIZE[size],
-          BUTTON_ROUNDED[rounded],
-        )}
-        onClick={handleClick}
-        {...props}
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
-      >
-        {renderer()}
-        {isOpen && popover && (
-          <AvatarPopoverPortal targetRef={avatarRef} popover={popover} />
-        )}
-      </div>
-    </>
+    <Popover
+      trigger={
+        <div
+          className={clsx(
+            'flex items-center justify-center overflow-hidden uppercase hover:z-[1]',
+            disabled && 'cursor-not-allowed opacity-50',
+            onClick && !disabled && 'cursor-pointer',
+            className,
+            avatarColorTheme && COLOR_THEME_STYLES[avatarColorTheme],
+            AVATAR_SIZE[size],
+            BUTTON_ROUNDED[rounded],
+          )}
+          onClick={handleClick}
+          {...props}
+        >
+          {renderer()}
+        </div>
+      }
+      popover={popover}
+      rootRef={rootRef}
+      popoverOptions={popoverOptions}
+      useHover={useHover}
+    />
   );
 };
 

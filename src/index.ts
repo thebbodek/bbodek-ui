@@ -51,15 +51,16 @@ export { default as TableHead } from '@/core/components/Table/TableHead';
 export { default as TableRow } from '@/core/components/Table/TableRow';
 export { default as TextEditor } from '@/core/components/TextEditor';
 export { default as Toggle } from '@/core/components/Toggle';
-export { default as Tooltip } from '@/core/components/Tooltip';
 export { default as Typography } from '@/core/components/Typography';
 export { default as Chip } from '@/core/components/Chip';
 export { default as Chips } from '@/core/components/Chips';
 export { default as Icon } from '@/core/components/Icon';
 export { default as Avatar } from '@/core/components/Avatar';
 export { default as AvatarGroup } from '@/core/components/AvatarGroup';
+export { default as Popover } from '@/core/components/Popover';
 
 export { useInput } from '@/core/components/Input/hooks/useInput';
+export * from '@/core/components/Popover/utils/getPopoverPosition';
 export * from '@/utilities/day';
 export * from '@/utilities/ref';
 export * from '@/utilities/letter';
