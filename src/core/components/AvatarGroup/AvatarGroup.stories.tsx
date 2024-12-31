@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import AvatarGroup from './';
-import { AvatarGroupProps } from './types';
 import { SIZE } from '@/core/components/Label/constants';
+import { AvatarGroupProps } from './types';
+import AvatarGroup from './index';
 import Avatar from '@/core/components/Avatar';
 import Section from '@/core/components/Section';
 
@@ -28,14 +28,7 @@ const meta = {
 
 export default meta;
 
-const members = [
-  'jun ho',
-  'hwi young',
-  'ji hye',
-  'mi rim',
-  'jun young',
-  'jin ju',
-];
+const members = ['강준영', '정휘영', '박진주', '김미림', '이준호', '김지혜'];
 const items = members.map((member) => (
   <Avatar
     key={member}
@@ -62,7 +55,11 @@ export const MaxAvatarGroup = (props: AvatarGroupProps) => {
             <Section className={'mt-1 flex flex-col gap-1 p-2'} hasBorder>
               {overflowItems.map((item) => (
                 <div key={item.alt} className={'flex items-center gap-2'}>
-                  {<Avatar size={'small'}>{item.children}</Avatar>}
+                  {
+                    <Avatar size={'sm'} alt={item.alt}>
+                      {item.children}
+                    </Avatar>
+                  }
                   {item.alt}
                 </div>
               ))}
