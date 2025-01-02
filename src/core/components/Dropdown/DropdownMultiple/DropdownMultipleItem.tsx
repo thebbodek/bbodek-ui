@@ -24,8 +24,8 @@ const DropdownMultipleItem = forwardRef(
         <label
           htmlFor={id}
           className={clsx(
-            'flex items-center justify-between text-body-01-regular text-gray-08 hover:font-bold',
-            checked && 'font-bold',
+            'flex items-center justify-between text-body-01-regular transition-colors hover:text-primary-03',
+            checked ? 'text-primary-03' : 'text-gray-08',
             isDisabled ? 'cursor-not-allowed' : 'cursor-pointer',
             className,
           )}

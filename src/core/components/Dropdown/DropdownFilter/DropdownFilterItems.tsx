@@ -7,12 +7,12 @@ import { DropdownItemsProps } from '../DropdownBase/types';
 const DropdownFilterItems = forwardRef(
   (
     { className, ...props }: DropdownItemsProps,
-    ref: React.Ref<HTMLUListElement>,
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     return (
       <DropdownBase.Items
         ref={ref}
-        className={clsx('gap-y-6 px-3 py-4', className)}
+        className={clsx('bbodek-field-padding gap-y-1.5', className)}
         {...props}
       />
     );

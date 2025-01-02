@@ -106,7 +106,7 @@ const Avatar = ({
       trigger={
         <div
           className={clsx(
-            'flex items-center justify-center overflow-hidden uppercase hover:z-[1]',
+            'relative flex items-center justify-center overflow-hidden uppercase hover:z-[1]',
             disabled && 'cursor-not-allowed opacity-50',
             onClick && !disabled && 'cursor-pointer',
             className,
