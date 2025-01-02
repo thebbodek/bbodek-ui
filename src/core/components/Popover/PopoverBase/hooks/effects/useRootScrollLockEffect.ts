@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { PopoverProps } from '@/core/components/Popover/types';
+import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 
 export const useRootScrollLockEffect = ({
   isOpen,

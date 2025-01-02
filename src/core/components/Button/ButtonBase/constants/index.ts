@@ -23,6 +23,8 @@ export const GAP = {
   GAP_12: 'gap-12',
   GAP_10: 'gap-10',
   GAP_8: 'gap-8',
+  GAP_6: 'gap-6',
+  GAP_4: 'gap-4',
 } as const;
 
 export const BUTTON_SIZE: Record<SizeType, string> = {
@@ -48,4 +50,6 @@ export const BUTTON_GAP: Record<GapType, string> = {
   [GAP['GAP_12']]: 'gap-x-3',
   [GAP['GAP_10']]: 'gap-x-2.5',
   [GAP['GAP_8']]: 'gap-x-2',
+  [GAP['GAP_6']]: 'gap-x-1.5',
+  [GAP['GAP_4']]: 'gap-x-1',
 };

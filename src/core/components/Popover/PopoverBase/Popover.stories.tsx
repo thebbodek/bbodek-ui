@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 import { useRef } from 'react';
 
-import { PopoverProps } from '@/core/components/Popover/types';
+import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import Popover from './index';
 import Button from '@/core/components/Button/Button';
 import Section from '@/core/components/Section';

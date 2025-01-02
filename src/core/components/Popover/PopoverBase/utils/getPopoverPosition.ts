@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-import { GetPopoverPositionProps } from '@/core/components/Popover/types/PopoverPosition';
+import { GetPopoverPositionProps } from '@/core/components/Popover/PopoverBase/types/PopoverPosition';
 
 export const getPopoverPosition = ({
   trigger,
