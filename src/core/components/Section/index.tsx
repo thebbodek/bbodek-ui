@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React, { forwardRef, PropsWithChildren } from 'react';
 
 import { ROUNDED, SECTION_ROUNDED } from './constants';
+import { COLOR_THEME_STYLES } from '@/constants/theme';
 import { SectionProps } from './types';
 
 const Section = forwardRef(
@@ -9,6 +10,10 @@ const Section = forwardRef(
     {
       children,
       rounded = ROUNDED['ROUNDED_8'],
+      colorTheme,
+      color,
+      backgroundColor,
+      borderColor = 'gray-02',
       hasRounded = true,
       hasBorder = false,
       hasShadow = false,
@@ -19,14 +24,18 @@ const Section = forwardRef(
   ) => {
     const { className, ...rest } = props;
     const Component: React.ElementType = Element || 'section';
+    const hasColor = color || colorTheme || backgroundColor;
 
     return (
       <Component
         ref={ref}
         className={clsx(
-          'bg-white',
+          !colorTheme && color && `text-${color}`,
+          !colorTheme && backgroundColor && `bg-${backgroundColor}`,
+          colorTheme && COLOR_THEME_STYLES[colorTheme],
+          !hasColor && 'bg-white',
           hasRounded && SECTION_ROUNDED[rounded],
-          hasBorder && 'border border-gray-02',
+          hasBorder && `border border-${borderColor}`,
           hasShadow && 'shadow-section',
           className,
         )}
