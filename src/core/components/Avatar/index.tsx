@@ -23,7 +23,7 @@ import { AvatarProps } from '@/core/components/Avatar/types';
 import { getFirstLetter } from '@/utilities/letter';
 import Icon from '@/core/components/Icon';
 import getAvatarColorTheme from '@/core/components/Avatar/utils/getAvatarColorTheme';
-import Popover from '@/core/components/Popover';
+import Popover from '@/core/components/Popover/PopoverBase';
 
 const Avatar = ({
   src,
