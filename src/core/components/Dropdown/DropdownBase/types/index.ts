@@ -13,13 +13,18 @@ import DropdownItems from '../DropdownItems';
 import DropdownTrigger from '../DropdownTrigger';
 import { FormLabelProps } from '@/core/components/FormLabel/types';
 import { InputSearchProps } from '@/core/components/Input/InputSearch/types';
+import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
+import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
 
-export interface DropdownProps extends Partial<FormLabelProps> {
+export interface DropdownProps
+  extends Partial<FormLabelProps>,
+    Pick<PopoverProps, 'rootRef'>,
+    Pick<ModalBaseProps, 'useClickOutsideEvent'> {
   className?: string;
   disabled?: boolean;
   readOnly?: boolean;
   trigger: ReactNode;
-  content: ReactNode;
+  content: ReactElement;
   feedback?: ReactNode;
   feedbackColor?: ThemeColors;
   badge?: ReactNode;

@@ -51,6 +51,7 @@ export { default as TableHead } from '@/core/components/Table/TableHead';
 export { default as TableRow } from '@/core/components/Table/TableRow';
 export { default as TextEditor } from '@/core/components/TextEditor';
 export { default as Toggle } from '@/core/components/Toggle';
+export { default as Tooltip } from '@/core/components/Tooltip';
 export { default as Typography } from '@/core/components/Typography';
 export { default as Chip } from '@/core/components/Chip';
 export { default as Chips } from '@/core/components/Chips';
