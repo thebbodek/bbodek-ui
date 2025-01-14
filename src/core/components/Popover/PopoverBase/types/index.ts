@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactElement, RefObject } from 'react';
 
 import { SectionProps } from '@/core/components/Section/types';
-import { UseUpdatePopoverPositionProps } from '@/core/components/Popover/types/PopoverPosition';
+import { UseUpdatePopoverPositionProps } from '@/core/components/Popover/PopoverBase/types/PopoverPosition';
 import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
 
 export interface PopoverProps
@@ -12,7 +12,13 @@ export interface PopoverProps
   useHover?: boolean;
   popoverOptions?: Pick<
     SectionProps<'div'>,
-    'color' | 'colorTheme' | 'backgroundColor' | 'borderColor' | 'className'
+    | 'color'
+    | 'colorTheme'
+    | 'backgroundColor'
+    | 'borderColor'
+    | 'className'
+    | 'hasBorder'
+    | 'hasShadow'
   > &
     Pick<UseUpdatePopoverPositionProps, 'gap'>;
   rootClassName?: HTMLAttributes<HTMLDivElement>['className'];

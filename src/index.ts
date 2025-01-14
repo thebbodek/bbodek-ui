@@ -57,10 +57,12 @@ export { default as Chips } from '@/core/components/Chips';
 export { default as Icon } from '@/core/components/Icon';
 export { default as Avatar } from '@/core/components/Avatar';
 export { default as AvatarGroup } from '@/core/components/AvatarGroup';
-export { default as Popover } from '@/core/components/Popover';
+export { default as Popover } from '@/core/components/Popover/PopoverBase';
+export { default as Menu } from '@/core/components/Menu';
+export { default as InfoPopover } from '@/core/components/Popover/InfoPopover';
 
 export { useInput } from '@/core/components/Input/hooks/useInput';
-export * from '@/core/components/Popover/utils/getPopoverPosition';
+export * from '@/core/components/Popover/PopoverBase/utils/getPopoverPosition';
 export * from '@/utilities/day';
 export * from '@/utilities/ref';
 export * from '@/utilities/letter';
