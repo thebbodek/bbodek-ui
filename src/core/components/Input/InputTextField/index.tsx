@@ -43,7 +43,7 @@ const InputTextField = forwardRef(
     });
     const ResetIcon = (
       <Icon
-        className={'rounded-full text-[1.75rem] text-gray-05'}
+        className={'rounded-full text-[120%] text-gray-05'}
         iconKey={'x-circle'}
         weight={'fill'}
       />
@@ -54,7 +54,6 @@ const InputTextField = forwardRef(
         inputId={id}
         label={label}
         rootClassName={rootClassName}
-        inputRootClassName='h-[3.75rem]'
         readOnly={readOnly}
         disabled={disabled}
         feedback={feedback}
@@ -83,7 +82,10 @@ const InputTextField = forwardRef(
         endComponent={
           <button
             type='button'
-            className={clsx('h-7 w-7', inputValue ? 'visible' : 'invisible')}
+            className={clsx(
+              'flex h-5 w-5 items-center justify-center',
+              inputValue ? 'visible' : 'invisible',
+            )}
             onClick={onResetInputValue}
             aria-label='초기화'
           >

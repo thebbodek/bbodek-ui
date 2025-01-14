@@ -48,7 +48,6 @@ const InputPassword = forwardRef(
         inputId={id}
         label={label}
         rootClassName={rootClassName}
-        inputRootClassName='h-[3.75rem]'
         error={error}
         readOnly={readOnly}
         disabled={disabled}
@@ -85,7 +84,7 @@ const InputPassword = forwardRef(
           >
             <Icon
               weight='fill'
-              className={'text-[1.5rem] text-gray-05'}
+              className={'text-[120%] text-gray-05'}
               iconKey={showPassword ? 'eye-slash' : 'eye'}
             />
           </button>
