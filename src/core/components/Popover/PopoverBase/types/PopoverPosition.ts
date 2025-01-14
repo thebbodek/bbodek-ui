@@ -1,6 +1,6 @@
 import { CSSProperties, Dispatch, RefObject, SetStateAction } from 'react';
 
-import { PopoverProps } from '@/core/components/Popover/types';
+import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 
 export interface UseUpdatePopoverPositionProps
   extends Pick<PopoverProps, 'rootRef'> {
