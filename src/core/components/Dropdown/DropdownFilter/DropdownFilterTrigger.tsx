@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import clsx from 'clsx';
 
 import Typography from '../../Typography';
 import DropdownBase from '../DropdownBase';
@@ -21,9 +22,10 @@ const DropdownFilterTrigger = forwardRef(
             />
             <Icon
               iconKey={'caret-down'}
-              className={
-                isToggle ? 'rotate-180 text-gray-06' : 'rotate-0 text-gray-06'
-              }
+              className={clsx(
+                'text-gray-06',
+                isToggle ? 'rotate-180' : 'rotate-0',
+              )}
               weight={'fill'}
             />
           </div>

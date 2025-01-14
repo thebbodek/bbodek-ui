@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React, { createContext, useState } from 'react';
 
 import useClickOutside from '@/hooks/useClickOutSide';
@@ -8,6 +7,7 @@ import DropdownItems from './DropdownItems';
 import DropdownTrigger from './DropdownTrigger';
 import FormLabel from '@/core/components/FormLabel';
 import { DropdownContextValue, DropdownProps, ReturnType } from './types';
+import { usePopoverPosition } from '@/core/components/Popover/PopoverBase/hooks/usePopoverPosition';
 
 export const DropdownContext = createContext<DropdownContextValue | undefined>(
   undefined,
@@ -27,18 +27,27 @@ const DropdownBase = ({
   labelColor,
   required,
   sub,
+  rootRef,
+  useClickOutsideEvent = true,
 }: DropdownProps) => {
   const [isToggle, setIsToggle] = useState(false);
-  const { contentRef } = useClickOutside<HTMLDivElement>(() =>
-    setIsToggle(false),
+  const { contentRef } = useClickOutside<HTMLDivElement>(
+    () => setIsToggle(false),
+    useClickOutsideEvent,
   );
   const isVisibleContent = !readOnly && !disabled && isToggle;
   const hasInputLabel = badge || label || sub;
+  const { popoverRef, style } = usePopoverPosition({
+    isOpen: isToggle,
+    triggerRef: contentRef,
+    rootRef,
+    gap: 4,
+  });
 
   const labelRenderer = () => {
     if (badge && label) {
       return (
-        <div className={'mb-2 flex items-center gap-x-0.5'}>
+        <div className={'mb-1.5 flex items-center gap-x-0.5'}>
           <div className={'flex-shrink-0'}>{badge}</div>
           <div className='flex flex-1 items-center justify-between'>
             {label && (
@@ -57,7 +66,7 @@ const DropdownBase = ({
     }
 
     return (
-      <div className='mb-2 flex items-center justify-between'>
+      <div className='mb-1.5 flex items-center justify-between'>
         {label && (
           <label>
             <FormLabel
@@ -76,10 +85,14 @@ const DropdownBase = ({
     <DropdownContext.Provider
       value={{ isToggle, setIsToggle, readOnly, disabled }}
     >
-      <div ref={contentRef} className={clsx(className, 'relative')}>
+      <div ref={contentRef} className={className}>
         {hasInputLabel && labelRenderer()}
         {trigger}
-        {isVisibleContent && content}
+        {isVisibleContent && (
+          <div ref={popoverRef} style={style}>
+            {content}
+          </div>
+        )}
         {feedback ? (
           <Typography
             theme='body-03-regular'

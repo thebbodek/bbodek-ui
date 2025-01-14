@@ -32,7 +32,6 @@ const InputSelect = forwardRef(
         label={label}
         inputId={id}
         rootClassName={rootClassName}
-        inputRootClassName={'py-0 h-[3.75rem]'}
         error={error}
         sub={sub}
         badge={badge}
@@ -40,7 +39,7 @@ const InputSelect = forwardRef(
           <select
             ref={ref}
             className={clsx(
-              'w-full cursor-pointer text-subhead-02-regular outline-none',
+              'w-full cursor-pointer outline-none',
               !value && !isSelectedValue ? 'text-gray-05' : 'text-gray-08',
               className,
             )}
