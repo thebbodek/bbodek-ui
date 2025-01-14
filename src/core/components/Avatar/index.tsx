@@ -19,7 +19,7 @@ import { ColorThemeType } from '@/types';
 import Icon from '@/core/components/Icon';
 import useInitEffect from '@/hooks/useInitEffect';
 import getAvatarColorTheme from '@/core/components/Avatar/utils/getAvatarColorTheme';
-import Popover from '@/core/components/Popover';
+import Popover from '@/core/components/Popover/PopoverBase';
 
 const Avatar = ({
   src,

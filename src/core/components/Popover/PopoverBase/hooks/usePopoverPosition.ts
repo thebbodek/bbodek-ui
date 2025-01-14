@@ -1,7 +1,7 @@
 import { CSSProperties, useRef, useState } from 'react';
 
-import { useUpdatePopoverPositionEffect } from '@/core/components/Popover/hooks/effects/useUpdatePopoverPositionEffect';
-import { UseUpdatePopoverPositionProps } from '@/core/components/Popover/types/PopoverPosition';
+import { useUpdatePopoverPositionEffect } from '@/core/components/Popover/PopoverBase/hooks/effects/useUpdatePopoverPositionEffect';
+import { UseUpdatePopoverPositionProps } from '@/core/components/Popover/PopoverBase/types/PopoverPosition';
 
 export const usePopoverPosition = ({
   gap,
