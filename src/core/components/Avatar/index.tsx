@@ -62,13 +62,13 @@ const Avatar = ({
         <div
           className={clsx(
             'relative flex items-center overflow-hidden uppercase hover:z-[1]',
-            (!isLoading || !useImage) && 'justify-center',
             disabled && 'cursor-not-allowed opacity-50',
             onClick && !disabled && 'cursor-pointer',
             className,
-            COLOR_THEME_STYLES[avatarColorTheme],
             AVATAR_SIZE[size],
             BUTTON_ROUNDED[rounded],
+            (!isLoading || !useImage) &&
+              `justify-center ${COLOR_THEME_STYLES[avatarColorTheme]}`,
           )}
           onClick={handleClick}
           {...props}
