@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { Dispatch, HTMLAttributes, SetStateAction } from 'react';
 
 import { AVATAR_SIZE_VARIANTS } from '@/core/components/Avatar/constants';
 import { RoundedType } from '@/core/components/Button/ButtonBase/types';
@@ -19,4 +19,13 @@ export interface AvatarProps
   showAllLetter?: boolean;
   useRandomColorTheme?: boolean;
   disabled?: boolean;
+}
+
+export interface AvatarContentProps
+  extends Pick<AvatarProps, 'alt' | 'src'>,
+    Required<Pick<AvatarProps, 'size' | 'rounded' | 'showAllLetter'>> {
+  hasImageError: boolean;
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  setHasImageError: Dispatch<SetStateAction<boolean>>;
 }
