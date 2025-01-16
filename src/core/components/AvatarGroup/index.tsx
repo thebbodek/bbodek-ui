@@ -12,7 +12,6 @@ const AvatarGroup = ({
   total = items.length,
   spacing = SIZE['SMALL'],
   overflowPopover,
-  rootRef,
   popoverOptions,
   useHover = true,
   className,
@@ -41,7 +40,6 @@ const AvatarGroup = ({
                 })
               : overflowPopover
           }
-          rootRef={rootRef}
           popoverOptions={popoverOptions}
           useHover={useHover}
           size={size}

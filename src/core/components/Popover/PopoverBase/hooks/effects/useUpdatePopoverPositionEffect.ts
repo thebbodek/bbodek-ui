@@ -5,31 +5,36 @@ import { UseUpdatePopoverPositionEffectProps } from '@/core/components/Popover/P
 
 export const useUpdatePopoverPositionEffect = ({
   isOpen,
-  rootRef,
   triggerRef,
   popoverRef,
   setStyle,
   gap,
 }: UseUpdatePopoverPositionEffectProps) => {
   useEffect(() => {
-    const root = rootRef ? rootRef.current : document.body;
     const trigger = triggerRef.current;
     const current = popoverRef.current;
 
-    if (!trigger || !current || !root) return;
+    if (!trigger || !current) return;
+
+    const root = current.closest('.popover-root') || document.body;
 
     const updatePosition = () => {
       const style = getPopoverPosition({
         trigger,
         current,
-        root,
+        root: root as HTMLElement,
         gap,
       });
 
-      setStyle((prevStyle) => ({ ...prevStyle, ...style }));
+      setStyle((prevStyle) => ({
+        ...prevStyle,
+        ...style,
+        opacity: isOpen ? 1 : 0,
+      }));
     };
 
     const observer = new ResizeObserver(updatePosition);
+
     observer.observe(root);
     observer.observe(trigger);
 
@@ -38,5 +43,5 @@ export const useUpdatePopoverPositionEffect = ({
     }
 
     return () => observer.disconnect();
-  }, [triggerRef, rootRef, popoverRef, isOpen]);
+  }, [triggerRef, popoverRef, isOpen]);
 };

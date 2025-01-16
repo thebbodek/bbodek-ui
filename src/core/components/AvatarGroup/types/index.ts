@@ -5,7 +5,7 @@ import { AvatarProps } from '@/core/components/Avatar/types';
 
 export interface AvatarGroupProps
   extends HTMLAttributes<HTMLDivElement>,
-    Pick<AvatarProps, 'popoverOptions' | 'rootRef' | 'useHover'> {
+    Pick<AvatarProps, 'popoverOptions' | 'useHover'> {
   items: ReactElement[];
   max?: number;
   total?: number;

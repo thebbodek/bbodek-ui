@@ -39,7 +39,7 @@ const InputBase = forwardRef(
     const labelRenderer = () => {
       if (badge && label) {
         return (
-          <div className={'mb-1.5 flex items-center gap-x-0.5'}>
+          <div className={'mb-2 flex items-center gap-x-0.5'}>
             <div className={'flex-shrink-0'}>{badge}</div>
             <div className='flex flex-1 items-center justify-between'>
               {label && (
@@ -58,7 +58,7 @@ const InputBase = forwardRef(
       }
 
       return (
-        <div className='mb-1.5 flex items-center justify-between'>
+        <div className='mb-2 flex items-center justify-between'>
           {label && (
             <label htmlFor={inputId}>
               <FormLabel

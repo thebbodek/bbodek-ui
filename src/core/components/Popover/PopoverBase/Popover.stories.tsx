@@ -15,14 +15,10 @@ const meta = {
 
 export default meta;
 
-const ListItem = ({
-  rootRef,
-  index,
-}: Pick<PopoverProps, 'rootRef'> & { index: number }) => {
+const ListItem = ({ index }: { index: number }) => {
   return (
     <li className='flex border-b p-2 first:justify-end last:border-b-0 even:justify-center'>
       <Popover
-        rootRef={rootRef}
         trigger={
           <Button
             size={'h-40'}
@@ -60,11 +56,11 @@ export const Default = (props: PopoverProps) => {
     <Section
       ref={rootRef}
       element={'ul'}
-      className={'max-h-[16rem] w-60 overflow-y-auto'}
+      className={'popover-root max-h-[16rem] w-60 overflow-y-auto'}
       hasBorder
     >
       {Array.from({ length: 5 }).map((_, i) => (
-        <ListItem key={i} rootRef={rootRef} index={i + 1} />
+        <ListItem key={i} index={i + 1} />
       ))}
     </Section>
   );

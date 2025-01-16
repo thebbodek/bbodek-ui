@@ -63,7 +63,7 @@ export { default as Menu } from '@/core/components/Menu';
 export { default as InfoPopover } from '@/core/components/Popover/InfoPopover';
 
 export { useInput } from '@/core/components/Input/hooks/useInput';
-export * from '@/core/components/Popover/PopoverBase/utils/getPopoverPosition';
+export { getPopoverPosition } from '@/core/components/Popover/PopoverBase/utils/getPopoverPosition';
 export * from '@/utilities/day';
 export * from '@/utilities/ref';
 export * from '@/utilities/letter';
