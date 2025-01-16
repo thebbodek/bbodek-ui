@@ -24,7 +24,6 @@ const Avatar = ({
   children,
   popover,
   popoverOptions,
-  rootRef,
   useHover = true,
   size = AVATAR_SIZE_VARIANTS['MEDIUM'],
   rounded = ROUNDED['ROUNDED_FULL'],
@@ -89,7 +88,6 @@ const Avatar = ({
         </div>
       }
       popover={popover}
-      rootRef={rootRef}
       popoverOptions={popoverOptions}
       useHover={useHover}
     />

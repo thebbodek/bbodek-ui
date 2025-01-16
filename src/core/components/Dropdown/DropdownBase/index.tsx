@@ -27,7 +27,6 @@ const DropdownBase = ({
   labelColor,
   required,
   sub,
-  rootRef,
   useClickOutsideEvent = true,
 }: DropdownProps) => {
   const [isToggle, setIsToggle] = useState(false);
@@ -40,7 +39,6 @@ const DropdownBase = ({
   const { popoverRef, style } = usePopoverPosition({
     isOpen: isToggle,
     triggerRef: contentRef,
-    rootRef,
     gap: 4,
   });
 

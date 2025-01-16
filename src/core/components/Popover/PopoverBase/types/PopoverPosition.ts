@@ -1,9 +1,6 @@
 import { CSSProperties, Dispatch, RefObject, SetStateAction } from 'react';
 
-import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
-
-export interface UseUpdatePopoverPositionProps
-  extends Pick<PopoverProps, 'rootRef'> {
+export interface UseUpdatePopoverPositionProps {
   isOpen: boolean;
   triggerRef: RefObject<HTMLElement>;
   gap?: number;

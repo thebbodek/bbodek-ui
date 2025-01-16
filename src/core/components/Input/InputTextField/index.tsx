@@ -43,7 +43,7 @@ const InputTextField = forwardRef(
     });
     const ResetIcon = (
       <Icon
-        className={'rounded-full text-[120%] text-gray-05'}
+        className={'rounded-full text-[140%] text-gray-05'}
         iconKey={'x-circle'}
         weight={'fill'}
       />
@@ -83,7 +83,7 @@ const InputTextField = forwardRef(
           <button
             type='button'
             className={clsx(
-              'flex h-5 w-5 items-center justify-center',
+              'flex h-6 w-6 items-center justify-center',
               inputValue ? 'visible' : 'invisible',
             )}
             onClick={onResetInputValue}

@@ -8,7 +8,6 @@ export interface PopoverProps
   extends Pick<ModalBaseProps, 'useClickOutsideEvent'> {
   trigger: ReactElement;
   popover?: ((props: { close: () => void }) => ReactElement) | ReactElement;
-  rootRef?: RefObject<HTMLElement>;
   useHover?: boolean;
   popoverOptions?: Pick<
     SectionProps<'div'>,
@@ -22,4 +21,9 @@ export interface PopoverProps
   > &
     Pick<UseUpdatePopoverPositionProps, 'gap'>;
   rootClassName?: HTMLAttributes<HTMLDivElement>['className'];
+}
+
+export interface UseScrollLockOutSideEffectProps {
+  isOpen: boolean;
+  ref: RefObject<Element>;
 }
