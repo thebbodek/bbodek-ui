@@ -64,6 +64,7 @@ export { default as InfoPopover } from '@/core/components/Popover/InfoPopover';
 
 export { useInput } from '@/core/components/Input/hooks/useInput';
 export { getPopoverPosition } from '@/core/components/Popover/PopoverBase/utils/getPopoverPosition';
+export { usePopoverPosition } from '@/core/components/Popover/PopoverBase/hooks/usePopoverPosition';
 export * from '@/utilities/day';
 export * from '@/utilities/ref';
 export * from '@/utilities/letter';
