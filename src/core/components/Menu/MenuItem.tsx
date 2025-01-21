@@ -23,9 +23,9 @@ const MenuItem = <T extends ElementType = 'button'>({
     Component === 'button' ? { disabled, type: 'button' } : {};
 
   const handleClick = (e: MouseEvent<T>) => {
-    e.preventDefault();
-
-    if (!disabled) {
+    if (disabled) {
+      e.preventDefault();
+    } else {
       onClick?.(e);
     }
   };
@@ -33,9 +33,8 @@ const MenuItem = <T extends ElementType = 'button'>({
   return (
     <li
       className={clsx(
-        'text-body-02-medium',
-        !disabled && 'rounded-md transition-all',
-        MENU_ITEM_THEME[colorTheme],
+        'min-w-fit text-body-02-medium',
+        !disabled && `rounded-md transition-all ${MENU_ITEM_THEME[colorTheme]}`,
       )}
     >
       <Component
