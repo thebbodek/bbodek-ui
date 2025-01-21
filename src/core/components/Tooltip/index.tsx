@@ -1,7 +1,12 @@
 import {
   arrow,
+  autoUpdate,
+  flip,
   FloatingArrow,
+  FloatingPortal,
   offset,
+  safePolygon,
+  shift,
   useFloating,
   useHover,
   useInteractions,
@@ -33,12 +38,18 @@ const Tooltip = ({
   theme = THEME_TYPOGRAPHY['BODY_02_REGULAR'] as ThemeTypography,
   colorTheme = COLOR_THEME['DARK'],
   gap = 5,
-  hasArrow = true,
+  hasArrow = false,
   hidden = false,
   isKeepFloating = false,
 }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(!hidden && isKeepFloating);
   const arrowRef = useRef(null);
+
+  const onOpenChange = (open: boolean) => {
+    if (!isKeepFloating && !hidden) {
+      setIsOpen(open);
+    }
+  };
 
   const {
     refs: { setFloating, setReference },
@@ -46,17 +57,21 @@ const Tooltip = ({
     context,
   } = useFloating({
     open: isOpen,
-    onOpenChange: setIsOpen,
+    onOpenChange,
     placement,
+    whileElementsMounted: autoUpdate,
     middleware: [
-      arrow({
-        element: arrowRef,
-      }),
+      arrow({ element: arrowRef }),
       offset(hasArrow ? gap + ARROW_HEIGHT : gap),
+      flip(),
+      shift(),
     ],
   });
 
-  const hover = useHover(context, { enabled: !hidden && !isKeepFloating });
+  const hover = useHover(context, {
+    enabled: !hidden && !isKeepFloating,
+    handleClose: safePolygon({ blockPointerEvents: true }),
+  });
   const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
 
   useUpdateIsOpenEffect({ hidden, isKeepFloating, setIsOpen });
@@ -71,29 +86,31 @@ const Tooltip = ({
         {children}
       </div>
       {isOpen && (
-        <div
-          ref={setFloating}
-          style={floatingStyles}
-          {...getFloatingProps()}
-          className={clsx(
-            `relative z-50 break-keep rounded-md px-2 py-1 text-${theme}`,
-            BUTTON_ROUNDED[rounded],
-            COLOR_THEME_STYLES[colorTheme],
-            className,
-          )}
-        >
-          {content}
-          {hasArrow && (
-            <FloatingArrow
-              ref={arrowRef}
-              context={context}
-              width={12}
-              height={ARROW_HEIGHT}
-              tipRadius={2}
-              className={clsx(FILL_COLOR_THEME_STYLES[colorTheme])}
-            />
-          )}
-        </div>
+        <FloatingPortal>
+          <div
+            ref={setFloating}
+            style={floatingStyles}
+            {...getFloatingProps()}
+            className={clsx(
+              `break-keep rounded-[0.375rem] px-2.5 py-1 text-${theme} animate-[fade-in_.1s_ease-in-out_1]`,
+              BUTTON_ROUNDED[rounded],
+              COLOR_THEME_STYLES[colorTheme],
+              className,
+            )}
+          >
+            {content}
+            {hasArrow && (
+              <FloatingArrow
+                ref={arrowRef}
+                context={context}
+                width={ARROW_HEIGHT + 6}
+                height={ARROW_HEIGHT}
+                tipRadius={2}
+                className={clsx(FILL_COLOR_THEME_STYLES[colorTheme])}
+              />
+            )}
+          </div>
+        </FloatingPortal>
       )}
     </>
   );

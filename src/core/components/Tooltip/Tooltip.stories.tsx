@@ -76,8 +76,28 @@ export default meta;
 export const Default = ({ content, placement, ...props }: TooltipProps) => {
   return (
     <Tooltip
-      content={content || 'Hi, I am a tooltip'}
-      placement={placement || 'top'}
+      content={content ?? 'Hi, I am a tooltip'}
+      placement={placement ?? 'top'}
+      {...props}
+    >
+      <div className={'bg-primary-03 p-2 text-white'}>Hover Me</div>
+    </Tooltip>
+  );
+};
+
+export const KeepFloatingTooltip = ({
+  content,
+  placement,
+  isKeepFloating,
+  hasArrow,
+  ...props
+}: TooltipProps) => {
+  return (
+    <Tooltip
+      content={content ?? 'Hi, I am a tooltip'}
+      placement={placement ?? 'top'}
+      isKeepFloating={isKeepFloating ?? true}
+      hasArrow={hasArrow ?? true}
       {...props}
     >
       <div className={'bg-primary-03 p-2 text-white'}>Hover Me</div>

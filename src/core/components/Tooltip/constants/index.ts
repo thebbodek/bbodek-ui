@@ -1,7 +1,7 @@
 import { COLOR_THEME } from '@/constants/theme';
 import { ColorThemeType } from '@/types';
 
-export const ARROW_HEIGHT = 6;
+export const ARROW_HEIGHT = 7;
 
 export const FILL_COLOR_THEME_STYLES: Record<ColorThemeType, string> = {
   [COLOR_THEME['PRIMARY']]: 'fill-primary-03',
