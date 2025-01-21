@@ -92,7 +92,7 @@ const Tooltip = ({
             style={floatingStyles}
             {...getFloatingProps()}
             className={clsx(
-              `break-keep rounded-[0.375rem] px-2.5 py-1 text-${theme} animate-[fade-in_.1s_ease-in-out_1]`,
+              `break-keep rounded-[0.375rem] px-2.5 py-1 text-${theme} z-[10000] animate-[fade-in_.1s_ease-in-out_1]`,
               BUTTON_ROUNDED[rounded],
               COLOR_THEME_STYLES[colorTheme],
               className,
