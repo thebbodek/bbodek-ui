@@ -15,6 +15,7 @@ const AvatarGroup = ({
   popoverOptions,
   useHover = true,
   className,
+  onClick,
   ...props
 }: PropsWithChildren<AvatarGroupProps>) => {
   const { size, rounded, disabled } = items[0].props;
@@ -26,7 +27,13 @@ const AvatarGroup = ({
 
   return (
     <div
-      className={clsx('flex', AVATAR_SPACING[spacing], className)}
+      className={clsx(
+        'flex',
+        AVATAR_SPACING[spacing],
+        onClick && 'cursor-pointer',
+        className,
+      )}
+      onClick={onClick}
       {...props}
     >
       {visibleItems}
