@@ -22,15 +22,20 @@ export const Default = () => {
         />
       }
       items={[
-        <Menu.Item key={'update'} content={'수정'} />,
+        <Menu.Item content={'수정'} />,
         <Menu.Item
-          key={'delete'}
+          element={'a'}
+          href={'https://internal.thebbodek.com'}
+          target={'_blank'}
+          content={'인터널 바로가기'}
+          rightIcon={<Icon iconKey={'arrow-square-out'} weight={'fill'} />}
+        />,
+        <Menu.Item
           content={'삭제'}
           colorTheme={'error'}
           rightIcon={<Icon iconKey={'trash'} weight={'bold'} />}
         />,
       ]}
-      popoverOptions={{ className: 'w-20' }}
     />
   );
 };
