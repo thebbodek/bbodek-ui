@@ -12,6 +12,7 @@ const Popover = ({
   useHover = false,
   useClickOutsideEvent = true,
   rootClassName,
+  onClick,
 }: PopoverProps) => {
   const isFunction = typeof popover === 'function';
   const {
@@ -33,9 +34,13 @@ const Popover = ({
   });
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+    onClick?.(e);
 
-    setIsOpen((v) => (v ? popoverRef.current!.contains(e.target as Node) : !v));
+    if (useHover) return;
+
+    setIsOpen((v) =>
+      popover && v ? popoverRef.current!.contains(e.target as Node) : !v,
+    );
   };
 
   return (
