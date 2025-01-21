@@ -37,7 +37,7 @@ export const COLOR_THEME_STYLES: Record<ColorThemeType, string> = {
   [COLOR_THEME['GRAY']]: 'text-gray-07 bg-gray-02',
   [COLOR_THEME['WHITE']]: 'text-gray-06 bg-white border border-gray-03',
   [COLOR_THEME['INFO']]: 'text-[#7239EA] bg-[#F8F5FF]',
-  [COLOR_THEME['DARK']]: 'text-white bg-gray-07',
+  [COLOR_THEME['DARK']]: 'text-white bg-gray-600',
 };
 
 export const colorThemeOptions = Object.values(COLOR_THEME).map(

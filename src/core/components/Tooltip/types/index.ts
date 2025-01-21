@@ -2,6 +2,7 @@ import {
   Dispatch,
   HTMLAttributes,
   PropsWithChildren,
+  ReactNode,
   SetStateAction,
 } from 'react';
 import { UseFloatingOptions } from '@floating-ui/react';
@@ -15,7 +16,7 @@ export interface TooltipProps
     Pick<Partial<UseFloatingOptions>, 'placement'>,
     Pick<ButtonProps, 'colorTheme' | 'rounded'>,
     Pick<TypographyProps, 'theme'> {
-  content: string;
+  content: ReactNode;
   hasArrow?: boolean;
   hidden?: boolean;
   rootClassName?: HTMLAttributes<HTMLDivElement>['className'];
