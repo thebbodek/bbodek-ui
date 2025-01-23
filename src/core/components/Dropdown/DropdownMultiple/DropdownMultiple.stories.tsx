@@ -32,18 +32,14 @@ export const Default = () => {
 
   const items = data.map((item, idx) => {
     const { value, label } = item;
-    const isChecked = currentValues.some(({ value: v }) => v === value);
+    const checked = currentValues.some(({ value: v }) => v === value);
 
     return (
       <DropdownMultiple.Item
         key={idx}
-        checked={isChecked}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          e.stopPropagation();
-
-          const { checked } = e.target;
-
-          if (checked) {
+        checked={checked}
+        onClick={() => {
+          if (!checked) {
             setCurrentValues((prev) => [...prev, item]);
           } else {
             setCurrentValues((prev) =>
@@ -51,6 +47,7 @@ export const Default = () => {
             );
           }
         }}
+        disabled={item.value === 1}
       >
         {label}
       </DropdownMultiple.Item>
@@ -101,18 +98,14 @@ export const DropdownMultipleWithSearch = () => {
 
   const items = filteredData.map((item, idx) => {
     const { value, label } = item;
-    const isChecked = currentValues.some(({ value: v }) => v === value);
+    const checked = currentValues.some(({ value: v }) => v === value);
 
     return (
       <DropdownMultiple.Item
         key={idx}
-        checked={isChecked}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          e.stopPropagation();
-
-          const { checked } = e.target;
-
-          if (checked) {
+        checked={checked}
+        onClick={() => {
+          if (!checked) {
             setCurrentValues((prev) => [...prev, item]);
           } else {
             setCurrentValues((prev) =>

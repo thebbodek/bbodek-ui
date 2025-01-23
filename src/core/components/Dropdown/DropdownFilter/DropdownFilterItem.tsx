@@ -1,22 +1,19 @@
+import { forwardRef, Ref } from 'react';
 import clsx from 'clsx';
-import { forwardRef } from 'react';
 
-import DropdownBase from '../DropdownBase';
 import { DropdownFilterItemProps } from './types';
+import DropdownBase from '../DropdownBase';
 
 const DropdownFilterItem = forwardRef(
   (
     { className, children, checked, ...props }: DropdownFilterItemProps,
-    ref: React.Ref<HTMLLIElement>,
+    ref: Ref<HTMLDivElement>,
   ) => {
     return (
       <DropdownBase.Item
         ref={ref}
-        className={clsx(
-          'text-body-02-regular transition-colors hover:text-primary-03',
-          checked ? 'text-primary-03' : 'text-gray-08',
-          className,
-        )}
+        checked={checked}
+        className={clsx('text-body-02-regular', className)}
         {...props}
       >
         {children}

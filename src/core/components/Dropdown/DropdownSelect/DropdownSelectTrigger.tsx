@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 
+import { DropdownSelectTriggerProps } from './types';
 import Typography from '../../Typography';
 import DropdownBase from '../DropdownBase';
-import { DropdownSelectTriggerProps } from './types';
-import Icon from '@/core/components/Icon';
+import DropdownSelectIcon from '@/core/components/Dropdown/DropdownSelect/DropdownSelectIcon';
 
 const DropdownSelectTrigger = forwardRef(
   (
@@ -13,6 +13,7 @@ const DropdownSelectTrigger = forwardRef(
   ) => {
     const { className, placeholder, ...rest } = props;
     const showPlaceholder = placeholder && !currentValue;
+    const label = currentValue ? currentValue : placeholder ?? '';
 
     return (
       <DropdownBase.Trigger
@@ -31,18 +32,16 @@ const DropdownSelectTrigger = forwardRef(
           return (
             <>
               <Typography
-                className={clsx(isDisabled && 'mr-[1.725rem]')}
+                className={clsx(
+                  'block truncate',
+                  isDisabled && 'mr-[1.725rem]',
+                )}
+                text={label}
+                title={label}
                 color={!isDisabled && !showPlaceholder ? 'gray-08' : 'gray-05'}
-                text={currentValue ? currentValue : placeholder ?? ''}
               />
               {!isDisabled ? (
-                <Icon
-                  iconKey={'caret-down'}
-                  className={clsx(
-                    'text-[1.1rem] text-gray-06',
-                    isVisibleContent ? 'rotate-180' : 'rotate-0',
-                  )}
-                />
+                <DropdownSelectIcon isVisibleContent={isVisibleContent} />
               ) : null}
             </>
           );

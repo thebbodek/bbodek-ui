@@ -12,15 +12,15 @@
     }
 
     .bbodek-field {
-        @apply w-full flex-1 text-gray-08 outline-none placeholder:text-gray-05 read-only:text-gray-05 disabled:text-gray-05;
+        @apply w-full flex-1 text-gray-08 bg-transparent outline-none placeholder:text-gray-05 read-only:text-gray-05 disabled:text-gray-05;
     }
 
     .bbodek-field-padding {
-        @apply px-3 py-2.5;
+        @apply px-3 py-2;
     }
 
     .bbodek-select {
-        @apply flex w-full items-center justify-between gap-x-2.5 overflow-hidden rounded-lg border border-gray-03 bbodek-field-padding;
+        @apply flex w-full items-center justify-between gap-x-2.5 overflow-hidden rounded-lg border border-gray-03 bbodek-field-padding text-start;
     }
 }
 

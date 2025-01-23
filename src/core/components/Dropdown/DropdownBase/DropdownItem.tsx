@@ -16,27 +16,41 @@ const DropdownItem = forwardRef(
       children,
       onClick,
       className,
+      checked,
+      disabled = false,
+      useCloseOnItemClick = true,
       ...props
     }: PropsWithChildren<DropdownItemProps>,
-    ref: Ref<HTMLLIElement>,
+    ref: Ref<HTMLDivElement>,
   ) => {
     const { setIsToggle } = useContext(DropdownContext) as DropdownContextValue;
 
-    const onClickHandler = (e: MouseEvent<HTMLLIElement>) => {
-      setIsToggle(false);
+    const onClickHandler = (e: MouseEvent<HTMLDivElement>) => {
+      if (disabled) return;
+
+      useCloseOnItemClick && setIsToggle(false);
       onClick?.(e);
     };
 
     return (
-      <li
+      <div
         ref={ref}
         role='option'
         onClick={onClickHandler}
-        className={clsx('cursor-pointer', className)}
+        className={clsx(
+          'w-full rounded-md p-2',
+          !disabled
+            ? checked
+              ? 'font-medium text-primary-03'
+              : 'text-gray-07'
+            : 'text-gray-03',
+          disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-00',
+          className,
+        )}
         {...props}
       >
         {children}
-      </li>
+      </div>
     );
   },
 );

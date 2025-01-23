@@ -9,6 +9,7 @@ export const useUpdatePopoverPositionEffect = ({
   popoverRef,
   setStyle,
   gap,
+  applyMaxWidth,
 }: UseUpdatePopoverPositionEffectProps) => {
   useEffect(() => {
     const trigger = triggerRef.current;
@@ -24,6 +25,7 @@ export const useUpdatePopoverPositionEffect = ({
         current,
         root: root as HTMLElement,
         gap,
+        applyMaxWidth,
       });
 
       setStyle((prevStyle) => ({

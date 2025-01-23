@@ -6,7 +6,8 @@ import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
 
 export interface PopoverProps
   extends Pick<ModalBaseProps, 'useClickOutsideEvent'>,
-    Pick<HTMLAttributes<HTMLDivElement>, 'onClick'> {
+    Pick<HTMLAttributes<HTMLDivElement>, 'onClick'>,
+    Pick<UseUpdatePopoverPositionProps, 'applyMaxWidth'> {
   trigger: ReactElement;
   popover?: ((props: { close: () => void }) => ReactElement) | ReactElement;
   useHover?: boolean;

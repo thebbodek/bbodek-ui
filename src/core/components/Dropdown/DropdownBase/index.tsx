@@ -1,4 +1,5 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useState } from 'react';
+import clsx from 'clsx';
 
 import useClickOutside from '@/hooks/useClickOutSide';
 import Typography from '../../Typography';
@@ -27,6 +28,7 @@ const DropdownBase = ({
   labelColor,
   required,
   sub,
+  applyMaxWidth = false,
   useClickOutsideEvent = true,
 }: DropdownProps) => {
   const [isToggle, setIsToggle] = useState(false);
@@ -40,6 +42,7 @@ const DropdownBase = ({
     isOpen: isToggle,
     triggerRef: contentRef,
     gap: 4,
+    applyMaxWidth,
   });
 
   const labelRenderer = () => {
@@ -83,14 +86,16 @@ const DropdownBase = ({
     <DropdownContext.Provider
       value={{ isToggle, setIsToggle, readOnly, disabled }}
     >
-      <div ref={contentRef} className={className}>
+      <div className={clsx('flex-v-stack', className)}>
         {hasInputLabel && labelRenderer()}
-        {trigger}
-        {isVisibleContent && (
-          <div ref={popoverRef} style={style}>
-            {content}
-          </div>
-        )}
+        <div ref={contentRef}>
+          {trigger}
+          {isVisibleContent && (
+            <div ref={popoverRef} style={style}>
+              {content}
+            </div>
+          )}
+        </div>
         {feedback ? (
           <Typography
             theme='body-03-regular'

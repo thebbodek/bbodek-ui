@@ -1,8 +1,9 @@
+import { forwardRef, Ref, useRef } from 'react';
 import clsx from 'clsx';
-import { forwardRef } from 'react';
 
 import { DropdownItemsProps } from './types';
 import InputSearch from '@/core/components/Input/InputSearch';
+import VirtualList from '@/core/components/Virtual/VirtualList';
 
 const DropdownItems = forwardRef(
   (
@@ -12,11 +13,12 @@ const DropdownItems = forwardRef(
       items,
       useSearch,
       inputProps,
-      style,
-      ...props
+      gap,
+      itemHeight = 40,
     }: DropdownItemsProps,
-    ref: React.Ref<HTMLDivElement>,
+    ref: Ref<HTMLDivElement>,
   ) => {
+    const listRef = useRef<HTMLUListElement>(null);
     const {
       rounded,
       rootClassName: inputRootClassName,
@@ -28,11 +30,10 @@ const DropdownItems = forwardRef(
       <div
         ref={ref}
         className={clsx(
-          'overflow-hidden rounded-lg border border-gray-03 bg-white',
+          'overflow-hidden rounded-lg border border-gray-03 bg-white shadow-md shadow-gray-03',
           useSearch && 'flex-v-stack',
           rootClassName,
         )}
-        style={style}
         role='listbox'
       >
         {useSearch && (
@@ -47,12 +48,27 @@ const DropdownItems = forwardRef(
             {...restInputProps}
           />
         )}
-        <ul
-          className={clsx('flex-v-stack whitespace-nowrap', className)}
-          {...props}
+        <VirtualList
+          ref={listRef}
+          listElement={'ul'}
+          itemHeight={itemHeight}
+          itemsTotalCount={items.length}
+          gap={gap}
+          className={clsx('overflow-x-hidden whitespace-nowrap p-1', className)}
         >
-          {items}
-        </ul>
+          {({ startIndex, endIndex, getTopPosition }) =>
+            items.slice(startIndex, endIndex).map((item, index) => (
+              <VirtualList.Item
+                key={index}
+                element={'li'}
+                topPosition={getTopPosition({ index })}
+                height={itemHeight}
+              >
+                {item}
+              </VirtualList.Item>
+            ))
+          }
+        </VirtualList>
       </div>
     );
   },

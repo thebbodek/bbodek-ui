@@ -12,6 +12,7 @@ const Popover = ({
   useHover = false,
   useClickOutsideEvent = true,
   rootClassName,
+  applyMaxWidth = false,
   onClick,
 }: PopoverProps) => {
   const isFunction = typeof popover === 'function';
@@ -31,6 +32,7 @@ const Popover = ({
     isOpen,
     triggerRef,
     gap,
+    applyMaxWidth,
   });
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {

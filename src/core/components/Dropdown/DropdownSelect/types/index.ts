@@ -1,18 +1,17 @@
 import { ReactElement } from 'react';
 
-import { TypographyProps } from '@/core/components/Typography/types';
 import {
   DropdownItemProps,
   DropdownProps,
   DropdownTriggerProps,
 } from '../../DropdownBase/types';
 import DropdownSelectItem from '../DropdownSelectItem';
-import DropdownSelectItems from '../DropdownSelectItems';
 import DropdownSelectTrigger from '../DropdownSelectTrigger';
+import DropdownItems from '@/core/components/Dropdown/DropdownBase/DropdownItems';
 
 export interface DropdownSelectTriggerProps
   extends Omit<DropdownTriggerProps, 'children'> {
-  currentValue: TypographyProps['text'];
+  currentValue: string;
 }
 
 export interface DropdownSelectItemProps extends DropdownItemProps {
@@ -24,6 +23,6 @@ type DropdownSelect = (props: DropdownProps) => ReactElement;
 export type ReturnType = DropdownSelect & {
   displayName: string;
   Trigger: typeof DropdownSelectTrigger;
-  Items: typeof DropdownSelectItems;
+  Items: typeof DropdownItems;
   Item: typeof DropdownSelectItem;
 };

@@ -14,11 +14,12 @@ const DropdownFilterTrigger = forwardRef(
     return (
       <DropdownBase.Trigger ref={ref} {...props}>
         {({ isToggle }) => (
-          <div className='flex items-center justify-between gap-x-1'>
+          <div className='flex items-center justify-between gap-x-1 text-start'>
             <Typography
               theme='body-02-regular'
               color='gray-06'
               text={currentValue}
+              className={'block flex-1 truncate'}
             />
             <Icon
               iconKey={'caret-down'}
