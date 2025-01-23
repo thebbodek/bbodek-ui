@@ -50,7 +50,7 @@ const Checkbox = forwardRef(
         <Icon
           className={clsx(
             CHECKBOX_SVG_SIZE[svgSize],
-            'text-gray-05 peer-checked:text-primary-03',
+            'text-gray-05 peer-checked:text-primary-03 peer-disabled:text-gray-03',
           )}
           iconKey={!isCircle ? 'check-square' : 'check-circle'}
           weight='fill'
@@ -61,7 +61,7 @@ const Checkbox = forwardRef(
             color={
               (!disabled
                 ? THEME_COLOR['GRAY_08']
-                : THEME_COLOR['GRAY_06']) as ThemeColors
+                : THEME_COLOR['GRAY_03']) as ThemeColors
             }
             text={label}
           />

@@ -39,6 +39,10 @@ const meta = {
       control: 'boolean',
       description: 'Checkbox Icon Circled',
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Checkbox Icon disabled',
+    },
   },
 } satisfies Meta<typeof Checkbox>;
 
