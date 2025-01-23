@@ -10,8 +10,8 @@ const InfoPopover = ({
   ...props
 }: InfoPopoverProps) => {
   const ITEMS = () => {
-    return items.map(({ title, description }) => (
-      <li key={title + description}>
+    return items.map(({ title, description }, idx) => (
+      <li key={idx}>
         <div className={'flex gap-x-1'}>
           <Typography
             theme={'body-02-bold'}
