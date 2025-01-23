@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react';
+import clsx from 'clsx';
 
 import { AVATAR_IMAGE_SIZE } from '@/core/components/Avatar/constants';
 import { AvatarContentProps } from '@/core/components/Avatar/types';
@@ -28,7 +29,10 @@ const AvatarContent = ({
           <img
             src={src}
             alt={alt || ''}
-            className={'h-full w-full object-cover'}
+            className={clsx(
+              'h-full w-full object-cover',
+              isLoading ? 'hidden' : 'block',
+            )}
             width={AVATAR_IMAGE_SIZE[size]}
             height={AVATAR_IMAGE_SIZE[size]}
             onLoad={() => setIsLoading(false)}

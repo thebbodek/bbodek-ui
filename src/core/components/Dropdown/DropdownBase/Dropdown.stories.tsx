@@ -18,13 +18,18 @@ export const Default = () => {
   const data = ['A반', 'B반', 'C반', 'D반', 'E반'];
 
   const items = data.map((item) => (
-    <DropdownBase.Item onClick={() => setCurrentValue(item)}>
+    <DropdownBase.Item
+      key={item}
+      checked={item === currentValue}
+      onClick={() => setCurrentValue(item)}
+    >
       {item}
     </DropdownBase.Item>
   ));
 
   return (
     <DropdownBase
+      className={'w-60'}
       trigger={
         <DropdownBase.Trigger>
           {currentValue || '옵션을 선택해주세요'}
@@ -40,14 +45,19 @@ export const DropdownBaseWithIcon = () => {
 
   const data = ['A반', 'B반', 'C반', 'D반', 'E반'];
 
-  const items = data.map((item, idx) => (
-    <DropdownBase.Item key={idx} onClick={() => setCurrentValue(item)}>
+  const items = data.map((item) => (
+    <DropdownBase.Item
+      key={item}
+      checked={item === currentValue}
+      onClick={() => setCurrentValue(item)}
+    >
       {item}
     </DropdownBase.Item>
   ));
 
   return (
     <DropdownBase
+      className={'w-60'}
       trigger={
         <DropdownBase.Trigger>
           {({ isToggle }) => (
@@ -71,14 +81,19 @@ export const DropdownBaseWithSearch = () => {
 
   const data = ['A반', 'B반', 'C반', 'D반', 'E반'];
 
-  const items = data.map((item, idx) => (
-    <DropdownBase.Item key={idx} onClick={() => setCurrentValue(item)}>
+  const items = data.map((item) => (
+    <DropdownBase.Item
+      key={item}
+      checked={item === currentValue}
+      onClick={() => setCurrentValue(item)}
+    >
       {item}
     </DropdownBase.Item>
   ));
 
   return (
     <DropdownBase
+      className={'w-60'}
       trigger={
         <DropdownBase.Trigger>
           {({ isToggle }) => (

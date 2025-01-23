@@ -18,9 +18,9 @@ export const useOutSideScrollLockEffect = ({
   };
 
   const handleOnScrollEvent = (el: HTMLElement) => {
-    el.addEventListener('scroll', handleScrollLock);
-    el.addEventListener('wheel', handleScrollLock);
-    el.addEventListener('touchmove', handleScrollLock);
+    el.addEventListener('scroll', handleScrollLock, { passive: false });
+    el.addEventListener('wheel', handleScrollLock, { passive: false });
+    el.addEventListener('touchmove', handleScrollLock, { passive: false });
   };
 
   const handleOffScrollEvent = (el: HTMLElement) => {

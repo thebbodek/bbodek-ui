@@ -14,14 +14,18 @@ import DropdownTrigger from '../DropdownTrigger';
 import { FormLabelProps } from '@/core/components/FormLabel/types';
 import { InputSearchProps } from '@/core/components/Input/InputSearch/types';
 import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
+import { MenuProps } from '@/core/components/Menu/types';
+import { VirtualListProps } from '@/core/components/Virtual/VirtualList/types';
+import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 
 export interface DropdownProps
   extends Partial<FormLabelProps>,
-    Pick<ModalBaseProps, 'useClickOutsideEvent'> {
+    Pick<ModalBaseProps, 'useClickOutsideEvent'>,
+    Pick<PopoverProps, 'applyMaxWidth'> {
   className?: string;
   disabled?: boolean;
   readOnly?: boolean;
-  trigger: ReactNode;
+  trigger: ReactElement;
   content: ReactElement;
   feedback?: ReactNode;
   feedbackColor?: ThemeColors;
@@ -35,9 +39,17 @@ export interface DropdownContextValue
   setIsToggle: Dispatch<SetStateAction<boolean>>;
 }
 
-export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {}
+export interface DropdownItemProps
+  extends HTMLAttributes<HTMLDivElement>,
+    Pick<MenuProps, 'useCloseOnItemClick'> {
+  checked: boolean;
+  useCloseOnItemClick?: boolean;
+  disabled?: boolean;
+}
 
-export interface DropdownItemsProps extends HTMLAttributes<HTMLUListElement> {
+export interface DropdownItemsProps
+  extends Pick<HTMLAttributes<HTMLUListElement>, 'className'>,
+    Partial<Pick<VirtualListProps, 'itemHeight' | 'gap'>> {
   rootClassName?: string;
   items: ReactNode[];
   useSearch?: boolean;

@@ -5,8 +5,8 @@ import {
   DropdownTriggerProps,
 } from '../../DropdownBase/types';
 import DropdownFilterItem from '../DropdownFilterItem';
-import DropdownFilterItems from '../DropdownFilterItems';
 import DropdownFilterTrigger from '../DropdownFilterTrigger';
+import DropdownItems from '@/core/components/Dropdown/DropdownBase/DropdownItems';
 
 export interface DropdownFilterTriggerProps
   extends Omit<DropdownTriggerProps, 'children'> {
@@ -22,6 +22,6 @@ type DropdownFilter = (props: DropdownProps) => React.ReactElement;
 export type ReturnType = DropdownFilter & {
   displayName: string;
   Trigger: typeof DropdownFilterTrigger;
-  Items: typeof DropdownFilterItems;
+  Items: typeof DropdownItems;
   Item: typeof DropdownFilterItem;
 };

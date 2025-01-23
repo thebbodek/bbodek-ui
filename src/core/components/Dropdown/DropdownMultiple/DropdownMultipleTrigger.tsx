@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 import { forwardRef, MouseEvent, Ref, useContext } from 'react';
 
-import Typography from '../../Typography';
 import { DropdownContext } from '../DropdownBase';
 import { DropdownMultipleTriggerProps, ValueWithLabelType } from './types';
 import { DropdownContextValue } from '@/core/components/Dropdown/DropdownBase/types';
 import { DROPDOWN_MULTIPLE_VARIANT } from '@/core/components/Dropdown/DropdownMultiple/constants';
 import Chip from '@/core/components/Chip';
-import Icon from '@/core/components/Icon';
+import DropdownSelectIcon from '@/core/components/Dropdown/DropdownSelect/DropdownSelectIcon';
+import Typography from '../../Typography';
 
 const DropdownMultipleTrigger = forwardRef(
   <T extends ValueWithLabelType>(
@@ -92,15 +92,9 @@ const DropdownMultipleTrigger = forwardRef(
             ))}
           </ul>
         )}
-        {!isDisabled ? (
-          <Icon
-            iconKey={'caret-down'}
-            className={clsx(
-              'text-[1.1rem] text-gray-06',
-              isVisibleContent ? 'rotate-180' : 'rotate-0',
-            )}
-          />
-        ) : null}
+        {!isDisabled && (
+          <DropdownSelectIcon isVisibleContent={isVisibleContent} />
+        )}
       </div>
     );
   },

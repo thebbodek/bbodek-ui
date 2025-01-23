@@ -1,13 +1,13 @@
-import { forwardRef, useContext } from 'react';
-
+import { forwardRef, Ref, useContext } from 'react';
 import clsx from 'clsx';
+
 import { DropdownContext } from './index';
 import { DropdownContextValue, DropdownTriggerProps } from './types';
 
 const DropdownTrigger = forwardRef(
   (
     { onClick, className, children, ...props }: DropdownTriggerProps,
-    ref: React.Ref<HTMLButtonElement>,
+    ref: Ref<HTMLButtonElement>,
   ) => {
     const { isToggle, readOnly, disabled, setIsToggle } = useContext(
       DropdownContext,
@@ -31,7 +31,6 @@ const DropdownTrigger = forwardRef(
         type='button'
         onClick={onClickHandler}
         className={clsx(
-          'whitespace-nowrap',
           isDisabled
             ? 'cursor-not-allowed bg-gray-09'
             : 'cursor-pointer bg-white',

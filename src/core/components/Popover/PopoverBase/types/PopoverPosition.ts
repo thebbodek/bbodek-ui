@@ -1,6 +1,7 @@
 import { CSSProperties, Dispatch, RefObject, SetStateAction } from 'react';
 
-export interface UseUpdatePopoverPositionProps {
+export interface UseUpdatePopoverPositionProps
+  extends Pick<GetPopoverPositionProps, 'applyMaxWidth'> {
   isOpen: boolean;
   triggerRef: RefObject<HTMLElement>;
   gap?: number;
@@ -11,6 +12,7 @@ export interface GetPopoverPositionProps
   root: HTMLElement;
   trigger: HTMLElement;
   current: HTMLElement;
+  applyMaxWidth?: boolean;
 }
 
 export interface UseUpdatePopoverPositionEffectProps

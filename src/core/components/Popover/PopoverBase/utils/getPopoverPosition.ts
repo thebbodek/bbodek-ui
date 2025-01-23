@@ -7,6 +7,7 @@ export const getPopoverPosition = ({
   current,
   root,
   gap = 0,
+  applyMaxWidth,
 }: GetPopoverPositionProps) => {
   const {
     left,
@@ -21,6 +22,7 @@ export const getPopoverPosition = ({
     top: bottom,
     paddingTop: gap,
     minWidth: triggerWidth,
+    maxWidth: applyMaxWidth ? triggerWidth : 'none',
   } as CSSProperties;
   const { width, height } = current.getBoundingClientRect();
   const { bottom: rootBottom, right: rootRight } = root.getBoundingClientRect();

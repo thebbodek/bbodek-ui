@@ -61,7 +61,7 @@ const Avatar = ({
         <div
           className={clsx(
             'relative flex items-center overflow-hidden uppercase hover:z-[1]',
-            disabled && 'cursor-not-allowed opacity-50',
+            disabled && 'cursor-not-allowed opacity-30',
             onClick && !disabled && 'cursor-pointer',
             className,
             AVATAR_SIZE[size],
