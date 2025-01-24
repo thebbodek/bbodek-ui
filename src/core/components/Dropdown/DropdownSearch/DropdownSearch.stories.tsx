@@ -109,7 +109,7 @@ export const CustomDropdownSearch = () => {
       placeholder={'유저 이름 또는 이메일을 입력해주세요'}
       inputPlaceholder={'유저 이름 또는 이메일을 입력해주세요'}
       className={'h-[3.625rem] w-[20rem]'}
-      itemHeight={56}
+      virtualOptions={{ itemHeight: 56 }}
       onChange={(value) => setCurrentValue(value)}
       disabled={isLoading}
     />

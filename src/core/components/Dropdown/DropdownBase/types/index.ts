@@ -48,13 +48,15 @@ export interface DropdownItemProps
 }
 
 export interface DropdownItemsProps
-  extends Pick<HTMLAttributes<HTMLUListElement>, 'className'>,
-    Partial<Pick<VirtualListProps, 'itemHeight' | 'gap'>> {
+  extends Pick<HTMLAttributes<HTMLUListElement>, 'className'> {
   rootClassName?: string;
   items: ReactNode[];
   useSearch?: boolean;
   inputProps?: Omit<InputSearchProps<'div'>, 'rootElement' | 'rounded'> &
     Partial<Pick<InputSearchProps<'div'>, 'rounded'>>;
+  virtualOptions?: Partial<
+    Pick<VirtualListProps, 'itemHeight' | 'gap' | 'listClassName'>
+  >;
 }
 
 export interface DropdownTriggerProps

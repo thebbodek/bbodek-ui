@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { cloneElement, createContext, useState } from 'react';
 import clsx from 'clsx';
 
 import useClickOutside from '@/hooks/useClickOutSide';
@@ -89,7 +89,9 @@ const DropdownBase = ({
       <div className={clsx('flex-v-stack', className)}>
         {hasInputLabel && labelRenderer()}
         <div ref={contentRef}>
-          {trigger}
+          {cloneElement(trigger, {
+            className: clsx(trigger.props.className, className),
+          })}
           {isVisibleContent && (
             <div ref={popoverRef} style={style}>
               {content}

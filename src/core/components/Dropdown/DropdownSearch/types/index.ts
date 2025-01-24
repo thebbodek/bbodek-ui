@@ -24,7 +24,7 @@ export interface DropdownSearchOption<T extends DropdownSearchValueType> {
 export interface DropdownSearchProps<T extends DropdownSearchValueType>
   extends Omit<DropdownProps, 'trigger' | 'content'>,
     Pick<DropdownTriggerProps, 'error' | 'placeholder'>,
-    Pick<DropdownItemsProps, 'itemHeight'> {
+    Pick<DropdownItemsProps, 'virtualOptions'> {
   options: DropdownSearchOption<T>[];
   currentValue: T | undefined;
   onChange?: (value: T) => void;
@@ -46,7 +46,7 @@ export interface DropdownSearchTriggerProps<T extends DropdownSearchValueType>
 export interface DropdownSearchItemsProps<T extends DropdownSearchValueType>
   extends Pick<
       DropdownSearchProps<T>,
-      'currentValue' | 'onChange' | 'itemHeight'
+      'currentValue' | 'onChange' | 'virtualOptions'
     >,
     Pick<DropdownSearchTriggerProps<T>, 'updateSearchValue'> {
   filteredOptions: DropdownSearchProps<T>['options'];

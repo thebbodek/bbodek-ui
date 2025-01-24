@@ -12,7 +12,7 @@ const DropdownSearchItems = <T extends DropdownSearchValueType>({
   filteredOptions,
   onChange,
   updateSearchValue,
-  itemHeight,
+  virtualOptions,
 }: DropdownSearchItemsProps<T>) => {
   const renderer = () => {
     if (!isSearching) {
@@ -56,7 +56,7 @@ const DropdownSearchItems = <T extends DropdownSearchValueType>({
   return (
     <DropdownBase.Items
       className={'max-h-[12rem]'}
-      itemHeight={itemHeight}
+      virtualOptions={virtualOptions}
       items={renderer()}
     />
   );

@@ -4,6 +4,7 @@ import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import { usePopoverPosition } from '@/core/components/Popover/PopoverBase/hooks/usePopoverPosition';
 import useClickOutside from '@/hooks/useClickOutSide';
 import Section from '@/core/components/Section';
+import Portal from '@/core/components/Portal';
 
 const Popover = ({
   trigger,
@@ -55,17 +56,19 @@ const Popover = ({
     >
       {trigger}
       {isOpen && popover && (
-        <div style={style}>
-          <Section
-            backgroundColor={backgroundColor}
-            hasShadow={hasShadow}
-            {...props}
-            ref={popoverRef}
-            element={'div'}
-          >
-            {isFunction ? popover({ close }) : popover}
-          </Section>
-        </div>
+        <Portal>
+          <div style={style}>
+            <Section
+              backgroundColor={backgroundColor}
+              hasShadow={hasShadow}
+              {...props}
+              ref={popoverRef}
+              element={'div'}
+            >
+              {isFunction ? popover({ close }) : popover}
+            </Section>
+          </div>
+        </Portal>
       )}
     </div>
   );

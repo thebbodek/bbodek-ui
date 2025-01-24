@@ -13,8 +13,7 @@ const DropdownItems = forwardRef(
       items,
       useSearch,
       inputProps,
-      gap,
-      itemHeight = 40,
+      virtualOptions,
     }: DropdownItemsProps,
     ref: Ref<HTMLDivElement>,
   ) => {
@@ -25,12 +24,13 @@ const DropdownItems = forwardRef(
       placeholder,
       ...restInputProps
     } = inputProps ?? {};
+    const { itemHeight = 40, ...props } = virtualOptions ?? {};
 
     return (
       <div
         ref={ref}
         className={clsx(
-          'overflow-hidden rounded-lg border border-gray-03 bg-white shadow-md shadow-gray-03',
+          'overflow-hidden rounded-lg border border-gray-03 bg-white shadow-md',
           useSearch && 'flex-v-stack',
           rootClassName,
         )}
@@ -53,8 +53,8 @@ const DropdownItems = forwardRef(
           listElement={'ul'}
           itemHeight={itemHeight}
           itemsTotalCount={items.length}
-          gap={gap}
           className={clsx('overflow-x-hidden whitespace-nowrap p-1', className)}
+          {...props}
         >
           {({ startIndex, endIndex, getTopPosition }) =>
             items.slice(startIndex, endIndex).map((item, index) => (

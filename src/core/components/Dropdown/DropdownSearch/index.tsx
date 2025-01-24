@@ -18,7 +18,8 @@ const DropdownSearch = <T extends DropdownSearchValueType>({
   inputPlaceholder = '검색어를 입력해주세요',
   error,
   onChange,
-  itemHeight,
+  virtualOptions,
+  rootClassName,
   ...props
 }: DropdownSearchProps<T>) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -69,9 +70,10 @@ const DropdownSearch = <T extends DropdownSearchValueType>({
           filteredOptions={filteredOptions}
           onChange={onChange}
           updateSearchValue={updateSearchValue}
-          itemHeight={itemHeight}
+          virtualOptions={virtualOptions}
         />
       }
+      className={rootClassName}
       {...props}
     />
   );
