@@ -1,12 +1,21 @@
 import clsx from 'clsx';
 import React, { forwardRef, MouseEvent, useId } from 'react';
 
+import {
+  CHECK_BOX_GAP,
+  CHECKBOX_CIRCLE_ICON_KEY,
+  CHECKBOX_COLOR_THEME,
+  CHECKBOX_ICON_KEY,
+  CHECKBOX_SVG_SIZE,
+  CHECKBOX_TYPE,
+  SVG_SIZE,
+} from './constants';
 import { GAP } from '@/core/components/Button/ButtonBase/constants';
-import Typography from '../Typography';
-import { CHECK_BOX_GAP, CHECKBOX_SVG_SIZE, SVG_SIZE } from './constants';
-import { CheckboxProps } from './types';
 import { THEME_COLOR } from '@/constants/color';
+import { COLOR_THEME } from '@/constants/theme';
 import { ThemeColors } from '@/types';
+import { CheckboxProps } from './types';
+import Typography from '../Typography';
 import Icon from '@/core/components/Icon';
 
 const Checkbox = forwardRef(
@@ -14,11 +23,14 @@ const Checkbox = forwardRef(
     {
       label,
       theme,
+      type = CHECKBOX_TYPE['CHECK'],
       svgSize = SVG_SIZE['SIZE_24'],
       gap = GAP['GAP_10'],
       isCircle = false,
       className,
       disabled,
+      iconKey,
+      colorTheme = COLOR_THEME['PRIMARY'],
       ...props
     }: CheckboxProps,
     ref: React.ComponentPropsWithRef<'input'>['ref'],
@@ -50,9 +62,12 @@ const Checkbox = forwardRef(
         <Icon
           className={clsx(
             CHECKBOX_SVG_SIZE[svgSize],
-            'text-gray-05 peer-checked:text-primary-03 peer-disabled:text-gray-03',
+            CHECKBOX_COLOR_THEME[colorTheme],
+            `text-gray-05 peer-disabled:text-gray-03`,
           )}
-          iconKey={!isCircle ? 'check-square' : 'check-circle'}
+          iconKey={
+            !isCircle ? CHECKBOX_ICON_KEY[type] : CHECKBOX_CIRCLE_ICON_KEY[type]
+          }
           weight='fill'
         />
         {label && (
