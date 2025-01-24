@@ -6,6 +6,7 @@ export const ARROW_HEIGHT = 7;
 export const FILL_COLOR_THEME_STYLES: Record<ColorThemeType, string> = {
   [COLOR_THEME['PRIMARY']]: 'fill-primary-03',
   [COLOR_THEME['PRIMARY_06']]: 'fill-primary-06',
+  [COLOR_THEME['PRIMARY_01']]: 'fill-primary-01',
   [COLOR_THEME['SECONDARY']]: 'fill-primary-00',
   [COLOR_THEME['ERROR']]: 'fill-[#FFEDEF]',
   [COLOR_THEME['WARNING']]: 'fill-[#FEF6DB]',

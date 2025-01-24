@@ -1,4 +1,11 @@
-import { GapType, SvgSizeType } from '../types';
+import { COLOR_THEME } from '@/constants/theme';
+import {
+  CheckBoxColorTheme,
+  CheckboxType,
+  GapType,
+  SvgSizeType,
+} from '../types';
+import { IconComponentProps } from '@/core/components/Icon/types';
 
 export const SVG_SIZE = {
   SIZE_32: 'size-32',
@@ -30,6 +37,38 @@ export const CHECK_BOX_GAP: Record<GapType, string> = {
   [GAP['GAP_8']]: 'gap-x-2',
   [GAP['GAP_6']]: 'gap-x-1.5',
   [GAP['GAP_4']]: 'gap-x-1',
+};
+
+export const CHECKBOX_TYPE = {
+  CHECK: 'check',
+  HALF: 'half',
+} as const;
+
+export const CHECKBOX_ICON_KEY: Record<
+  CheckboxType,
+  IconComponentProps['iconKey']
+> = {
+  [CHECKBOX_TYPE['CHECK']]: 'check-square',
+  [CHECKBOX_TYPE['HALF']]: 'minus-square',
+} as const;
+
+export const CHECKBOX_CIRCLE_ICON_KEY: Record<
+  CheckboxType,
+  IconComponentProps['iconKey']
+> = {
+  [CHECKBOX_TYPE['CHECK']]: 'check-circle',
+  [CHECKBOX_TYPE['HALF']]: 'minus-circle',
+} as const;
+
+export const CHECKBOX_COLOR_THEME: Record<CheckBoxColorTheme, string> = {
+  [COLOR_THEME['PRIMARY']]: 'peer-checked:text-primary-03',
+  [COLOR_THEME['PRIMARY_06']]: 'peer-checked:text-primary-06',
+  [COLOR_THEME['PRIMARY_01']]: 'peer-checked:text-primary-01',
+  [COLOR_THEME['SECONDARY']]: 'peer-checked:text-primary-00',
+  [COLOR_THEME['ERROR']]: 'peer-checked:text-error',
+  [COLOR_THEME['WARNING']]: 'peer-checked:text-warning',
+  [COLOR_THEME['SUCCESS']]: 'peer-checked:text-success',
+  [COLOR_THEME['INFO']]: 'peer-checked:text-[#7239EA]',
 };
 
 export const CheckBoxGapVariants = Object.values(CHECK_BOX_GAP);

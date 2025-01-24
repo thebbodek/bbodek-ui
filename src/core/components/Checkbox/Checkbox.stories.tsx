@@ -3,11 +3,13 @@ import { Meta } from '@storybook/react';
 import Checkbox from './index';
 import { CheckboxProps } from './types';
 import {
+  CHECKBOX_TYPE,
   CheckBoxGapVariants,
   GAP,
   SvgSizeVariants,
 } from '@/core/components/Checkbox/constants';
 import { TypographyOptions } from '@/constants/typography';
+import { COLOR_THEME } from '@/constants/theme';
 
 const meta = {
   title: 'core/Checkbox',
@@ -38,6 +40,16 @@ const meta = {
     isCircle: {
       control: 'boolean',
       description: 'Checkbox Icon Circled',
+    },
+    type: {
+      control: 'select',
+      options: Object.values(CHECKBOX_TYPE),
+      description: 'Checkbox Icon Type',
+    },
+    colorTheme: {
+      control: 'select',
+      options: Object.values(COLOR_THEME),
+      description: 'Checkbox Color Theme',
     },
     disabled: {
       control: 'boolean',
