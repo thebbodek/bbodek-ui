@@ -23,6 +23,8 @@ const MenuItem = <T extends ElementType = 'button'>({
     Component === 'button' ? { disabled, type: 'button' } : {};
 
   const handleClick = (e: MouseEvent<T>) => {
+    e.stopPropagation();
+
     if (disabled) {
       e.preventDefault();
     } else {
