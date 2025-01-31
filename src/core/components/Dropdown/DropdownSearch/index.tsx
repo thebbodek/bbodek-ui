@@ -19,6 +19,7 @@ const DropdownSearch = <T extends DropdownSearchValueType>({
   error,
   onChange,
   itemHeight,
+  rootClassName,
   ...props
 }: DropdownSearchProps<T>) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -72,6 +73,7 @@ const DropdownSearch = <T extends DropdownSearchValueType>({
           itemHeight={itemHeight}
         />
       }
+      className={rootClassName}
       {...props}
     />
   );
