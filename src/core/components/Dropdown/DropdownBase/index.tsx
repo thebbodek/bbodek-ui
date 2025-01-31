@@ -1,7 +1,6 @@
 import { createContext, useState } from 'react';
 import clsx from 'clsx';
 
-import useClickOutside from '@/hooks/useClickOutSide';
 import Typography from '../../Typography';
 import DropdownItem from './DropdownItem';
 import DropdownItems from './DropdownItems';
@@ -32,17 +31,15 @@ const DropdownBase = ({
   useClickOutsideEvent = true,
 }: DropdownProps) => {
   const [isToggle, setIsToggle] = useState(false);
-  const { contentRef } = useClickOutside<HTMLDivElement>(
-    () => setIsToggle(false),
-    useClickOutsideEvent,
-  );
+  const close = () => setIsToggle(false);
   const isVisibleContent = !readOnly && !disabled && isToggle;
   const hasInputLabel = badge || label || sub;
-  const { popoverRef, style } = usePopoverPosition({
+  const { triggerRef, popoverRef, style } = usePopoverPosition({
     isOpen: isToggle,
-    triggerRef: contentRef,
     gap: 4,
     applyMaxWidth,
+    close,
+    useClickOutsideEvent,
   });
 
   const labelRenderer = () => {
@@ -88,7 +85,7 @@ const DropdownBase = ({
     >
       <div className={clsx('flex-v-stack', className)}>
         {hasInputLabel && labelRenderer()}
-        <div ref={contentRef}>
+        <div ref={triggerRef}>
           {trigger}
           {isVisibleContent && (
             <div ref={popoverRef} style={style}>

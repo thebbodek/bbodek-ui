@@ -21,11 +21,22 @@ export interface AvatarProps
   disabled?: boolean;
 }
 
-export interface AvatarContentProps
-  extends Pick<AvatarProps, 'alt' | 'src'>,
-    Required<Pick<AvatarProps, 'size' | 'rounded' | 'showAllLetter'>> {
+export interface AvatarTriggerProps
+  extends Omit<AvatarProps, 'popover' | 'popoverOptions' | 'useHover'> {
   hasImageError: boolean;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
   setHasImageError: Dispatch<SetStateAction<boolean>>;
 }
+
+export interface AvatarContentProps
+  extends Pick<
+      AvatarTriggerProps,
+      | 'alt'
+      | 'src'
+      | 'hasImageError'
+      | 'setHasImageError'
+      | 'setIsLoading'
+      | 'isLoading'
+    >,
+    Required<Pick<AvatarTriggerProps, 'size' | 'rounded' | 'showAllLetter'>> {}
