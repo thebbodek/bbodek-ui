@@ -2,14 +2,16 @@ import { HTMLAttributes, ReactElement, RefObject } from 'react';
 
 import { SectionProps } from '@/core/components/Section/types';
 import { UseUpdatePopoverPositionProps } from '@/core/components/Popover/PopoverBase/types/PopoverPosition';
-import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
+
+export interface PopoverChildrenProps {
+  close: () => void;
+}
 
 export interface PopoverProps
-  extends Pick<ModalBaseProps, 'useClickOutsideEvent'>,
-    Pick<HTMLAttributes<HTMLDivElement>, 'onClick'>,
+  extends Pick<HTMLAttributes<HTMLDivElement>, 'onClick'>,
     Pick<UseUpdatePopoverPositionProps, 'applyMaxWidth'> {
   trigger: ReactElement;
-  popover?: ((props: { close: () => void }) => ReactElement) | ReactElement;
+  popover: ((props: PopoverChildrenProps) => ReactElement) | ReactElement;
   useHover?: boolean;
   popoverOptions?: Pick<
     SectionProps<'div'>,

@@ -53,15 +53,18 @@ export const Default = (props: PopoverProps) => {
   const rootRef = useRef(null);
 
   return (
-    <Section
-      ref={rootRef}
-      element={'ul'}
-      className={'popover-root max-h-[16rem] w-60 overflow-y-auto'}
-      hasBorder
-    >
-      {Array.from({ length: 5 }).map((_, i) => (
-        <ListItem key={i} index={i + 1} />
-      ))}
-    </Section>
+    <>
+      <div id={'portal'} />
+      <Section
+        ref={rootRef}
+        element={'ul'}
+        className={'popover-root max-h-[16rem] w-60 overflow-y-auto'}
+        hasBorder
+      >
+        {Array.from({ length: 5 }).map((_, i) => (
+          <ListItem key={i} index={i + 1} />
+        ))}
+      </Section>
+    </>
   );
 };

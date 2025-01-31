@@ -40,7 +40,7 @@ const Menu = ({
       popoverOptions={{
         backgroundColor: 'white',
         hasShadow: true,
-        className: clsx('p-1.5', className),
+        className: clsx('p-1', className),
         ...rest,
       }}
       {...props}

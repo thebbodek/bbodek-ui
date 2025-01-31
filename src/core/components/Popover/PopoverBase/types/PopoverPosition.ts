@@ -1,22 +1,25 @@
 import { CSSProperties, Dispatch, RefObject, SetStateAction } from 'react';
+import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
+import { PopoverChildrenProps } from '@/core/components/Popover/PopoverBase/types/index';
 
-export interface UseUpdatePopoverPositionProps
-  extends Pick<GetPopoverPositionProps, 'applyMaxWidth'> {
-  isOpen: boolean;
-  triggerRef: RefObject<HTMLElement>;
-  gap?: number;
-}
-
-export interface GetPopoverPositionProps
-  extends Pick<UseUpdatePopoverPositionProps, 'gap'> {
+export interface GetPopoverPositionProps {
   root: HTMLElement;
   trigger: HTMLElement;
   current: HTMLElement;
   applyMaxWidth?: boolean;
+  gap?: number;
+}
+
+export interface UseUpdatePopoverPositionProps
+  extends Pick<GetPopoverPositionProps, 'applyMaxWidth' | 'gap'>,
+    Pick<ModalBaseProps, 'useClickOutsideEvent'>,
+    PopoverChildrenProps {
+  isOpen: boolean;
 }
 
 export interface UseUpdatePopoverPositionEffectProps
-  extends UseUpdatePopoverPositionProps {
+  extends Omit<UseUpdatePopoverPositionProps, 'close'> {
   popoverRef: RefObject<HTMLDivElement>;
+  triggerRef: RefObject<HTMLDivElement>;
   setStyle: Dispatch<SetStateAction<CSSProperties>>;
 }

@@ -2,22 +2,24 @@ import { RefObject, useEffect } from 'react';
 
 const useClickOutSideEffect = (
   ref: RefObject<Element>,
-  onClose?: () => void,
+  onClose?: (e: MouseEvent) => void,
   useClickOutsideEvent?: boolean,
 ) => {
   useEffect(() => {
-    if (!useClickOutsideEvent) return;
-
     const onClickOutSide = (e: MouseEvent) => {
       if (!ref.current || ref.current.contains(e.target as Node)) return;
 
-      onClose?.();
+      onClose?.(e);
     };
 
-    document.addEventListener('mousedown', onClickOutSide);
+    if (useClickOutsideEvent) {
+      document.addEventListener('mousedown', onClickOutSide);
+    } else {
+      document.removeEventListener('mousedown', onClickOutSide);
+    }
 
     return () => document.removeEventListener('mousedown', onClickOutSide);
-  }, [ref.current]);
+  }, [ref.current, useClickOutsideEvent]);
 };
 
 export default useClickOutSideEffect;

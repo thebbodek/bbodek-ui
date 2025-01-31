@@ -1,8 +1,9 @@
 import { useRef } from 'react';
+
 import useClickOutSideEffect from './effects/useClickOutSideEffect';
 
 const useClickOutside = <T extends Element>(
-  onClose?: () => void,
+  onClose?: (e: MouseEvent) => void,
   useClickOutsideEvent?: boolean,
 ) => {
   const contentRef = useRef<T | null>(null);
