@@ -63,7 +63,7 @@ const Checkbox = forwardRef(
           className={clsx(
             CHECKBOX_SVG_SIZE[svgSize],
             CHECKBOX_COLOR_THEME[colorTheme],
-            `text-gray-05 peer-disabled:text-gray-03`,
+            `text-gray-05 peer-disabled:opacity-50`,
           )}
           iconKey={
             !isCircle ? CHECKBOX_ICON_KEY[type] : CHECKBOX_CIRCLE_ICON_KEY[type]

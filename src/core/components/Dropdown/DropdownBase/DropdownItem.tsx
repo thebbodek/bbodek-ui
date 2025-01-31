@@ -8,6 +8,8 @@ import {
 import clsx from 'clsx';
 
 import { DropdownContext } from './index';
+import { LIGHT_COLOR_THEME } from '@/constants/theme';
+import { MENU_ITEM_THEME } from '@/core/components/Menu/constants';
 import { DropdownContextValue, DropdownItemProps } from './types';
 
 const DropdownItem = forwardRef(
@@ -19,6 +21,7 @@ const DropdownItem = forwardRef(
       checked,
       disabled = false,
       useCloseOnItemClick = true,
+      colorTheme = LIGHT_COLOR_THEME['SECONDARY'],
       ...props
     }: PropsWithChildren<DropdownItemProps>,
     ref: Ref<HTMLDivElement>,
@@ -44,7 +47,9 @@ const DropdownItem = forwardRef(
               ? 'font-medium text-primary-03'
               : 'text-gray-07'
             : 'text-gray-03',
-          disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-00',
+          disabled
+            ? 'cursor-not-allowed'
+            : `cursor-pointer ${MENU_ITEM_THEME[colorTheme]}`,
           className,
         )}
         {...props}

@@ -11,9 +11,9 @@ export type GapType = (typeof GAP)[keyof typeof GAP];
 
 export type CheckboxType = (typeof CHECKBOX_TYPE)[keyof typeof CHECKBOX_TYPE];
 
-export type CheckBoxColorTheme = Exclude<
+export type CheckBoxColorTheme = Extract<
   ColorThemeType,
-  'gray' | 'white' | 'dark'
+  'primary' | 'error' | 'primary_01'
 >;
 
 export interface CheckboxProps

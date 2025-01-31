@@ -14,7 +14,7 @@ import DropdownTrigger from '../DropdownTrigger';
 import { FormLabelProps } from '@/core/components/FormLabel/types';
 import { InputSearchProps } from '@/core/components/Input/InputSearch/types';
 import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
-import { MenuProps } from '@/core/components/Menu/types';
+import { MenuItemColorTheme, MenuProps } from '@/core/components/Menu/types';
 import { VirtualListProps } from '@/core/components/Virtual/VirtualList/types';
 import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 
@@ -45,6 +45,7 @@ export interface DropdownItemProps
   checked: boolean;
   useCloseOnItemClick?: boolean;
   disabled?: boolean;
+  colorTheme?: MenuItemColorTheme;
 }
 
 export interface DropdownItemsProps

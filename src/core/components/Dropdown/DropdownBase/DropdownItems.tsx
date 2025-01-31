@@ -30,7 +30,7 @@ const DropdownItems = forwardRef(
       <div
         ref={ref}
         className={clsx(
-          'overflow-hidden rounded-lg border border-gray-03 bg-white shadow-md shadow-gray-03',
+          'overflow-hidden rounded-lg border border-gray-03 bg-white shadow-md',
           useSearch && 'flex-v-stack',
           rootClassName,
         )}
