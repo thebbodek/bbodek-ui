@@ -62,13 +62,8 @@ export const CHECKBOX_CIRCLE_ICON_KEY: Record<
 
 export const CHECKBOX_COLOR_THEME: Record<CheckBoxColorTheme, string> = {
   [COLOR_THEME['PRIMARY']]: 'peer-checked:text-primary-03',
-  [COLOR_THEME['PRIMARY_06']]: 'peer-checked:text-primary-06',
   [COLOR_THEME['PRIMARY_01']]: 'peer-checked:text-primary-01',
-  [COLOR_THEME['SECONDARY']]: 'peer-checked:text-primary-00',
   [COLOR_THEME['ERROR']]: 'peer-checked:text-error',
-  [COLOR_THEME['WARNING']]: 'peer-checked:text-warning',
-  [COLOR_THEME['SUCCESS']]: 'peer-checked:text-success',
-  [COLOR_THEME['INFO']]: 'peer-checked:text-[#7239EA]',
 };
 
 export const CheckBoxGapVariants = Object.values(CHECK_BOX_GAP);
