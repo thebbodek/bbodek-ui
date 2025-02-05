@@ -13,11 +13,12 @@ const DropdownSearchItems = <T extends DropdownSearchValueType>({
   onChange,
   updateSearchValue,
   itemHeight,
+  itemsClassName,
 }: DropdownSearchItemsProps<T>) => {
+  const hasSearchedOptions = !isSearching && filteredOptions.length > 0;
+
   const renderer = () => {
     if (!isSearching) {
-      const hasSearchedOptions = filteredOptions.length > 0;
-
       if (hasSearchedOptions) {
         return filteredOptions.map((option) => (
           <DropdownSearchItem
@@ -32,7 +33,7 @@ const DropdownSearchItems = <T extends DropdownSearchValueType>({
         return [
           <div
             key={'empty'}
-            className='flex h-[5rem] flex-1 items-center justify-center text-center text-body-01-medium text-gray-05'
+            className='flex flex-1 items-center justify-center text-center text-body-01-medium text-gray-05'
           >
             검색된 결과가 없습니다
           </div>,
@@ -41,10 +42,7 @@ const DropdownSearchItems = <T extends DropdownSearchValueType>({
     }
 
     return [
-      <div
-        key={'loading'}
-        className='flex h-[5rem] flex-1 items-center justify-center'
-      >
+      <div key={'loading'} className='flex flex-1 items-center justify-center'>
         <Icon
           iconKey='circle-notch'
           className='animate-spin text-subhead-01-regular'
@@ -55,8 +53,8 @@ const DropdownSearchItems = <T extends DropdownSearchValueType>({
 
   return (
     <DropdownBase.Items
-      className={'max-h-[12rem]'}
-      itemHeight={itemHeight}
+      className={itemsClassName || 'max-h-[12rem]'}
+      itemHeight={isSearching || !hasSearchedOptions ? 80 : itemHeight}
       items={renderer()}
     />
   );

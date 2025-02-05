@@ -29,9 +29,13 @@ const DropdownBase = ({
   sub,
   applyMaxWidth = false,
   useClickOutsideEvent = true,
+  onClose,
 }: DropdownProps) => {
   const [isToggle, setIsToggle] = useState(false);
-  const close = () => setIsToggle(false);
+  const close = () => {
+    setIsToggle(false);
+    onClose?.();
+  };
   const isVisibleContent = !readOnly && !disabled && isToggle;
   const hasInputLabel = badge || label || sub;
   const { triggerRef, popoverRef, style } = usePopoverPosition({
@@ -45,7 +49,7 @@ const DropdownBase = ({
   const labelRenderer = () => {
     if (badge && label) {
       return (
-        <div className={'mb-1.5 flex items-center gap-x-0.5'}>
+        <div className={'mb-0.5 flex items-center gap-x-0.5'}>
           <div className={'flex-shrink-0'}>{badge}</div>
           <div className='flex flex-1 items-center justify-between'>
             {label && (
@@ -64,7 +68,7 @@ const DropdownBase = ({
     }
 
     return (
-      <div className='mb-1.5 flex items-center justify-between'>
+      <div className='mb-0.5 flex items-center justify-between'>
         {label && (
           <label>
             <FormLabel
@@ -83,7 +87,7 @@ const DropdownBase = ({
     <DropdownContext.Provider
       value={{ isToggle, setIsToggle, readOnly, disabled }}
     >
-      <div className={clsx('flex-v-stack', className)}>
+      <div className={clsx('flex-v-stack gap-y-1', className)}>
         {hasInputLabel && labelRenderer()}
         <div ref={triggerRef}>
           {trigger}

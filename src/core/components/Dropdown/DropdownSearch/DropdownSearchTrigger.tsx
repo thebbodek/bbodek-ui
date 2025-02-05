@@ -22,6 +22,7 @@ const DropdownSearchTrigger = <T extends DropdownSearchValueType>({
   inputPlaceholder,
   error,
   updateSearchValue,
+  close,
   ...props
 }: DropdownSearchTriggerProps<T>) => {
   const { isToggle } = useContext(DropdownContext) as DropdownContextValue;
@@ -36,7 +37,7 @@ const DropdownSearchTrigger = <T extends DropdownSearchValueType>({
 
   const onToggle = () => {
     if (isToggle) {
-      updateSearchValue('');
+      close();
     } else {
       inputRef.current?.focus();
     }
