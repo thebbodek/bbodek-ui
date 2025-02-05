@@ -20,7 +20,7 @@ import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 
 export interface DropdownProps
   extends Partial<FormLabelProps>,
-    Pick<ModalBaseProps, 'useClickOutsideEvent'>,
+    Pick<ModalBaseProps, 'useClickOutsideEvent' | 'onClose'>,
     Pick<PopoverProps, 'applyMaxWidth'> {
   className?: string;
   disabled?: boolean;

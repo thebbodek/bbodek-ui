@@ -30,6 +30,7 @@ export interface DropdownSearchProps<T extends DropdownSearchValueType>
   onChange?: (value: T) => void;
   rootClassName?: HTMLAttributes<HTMLDivElement>['className'];
   inputPlaceholder?: string;
+  itemsClassName?: DropdownItemsProps['className'];
 }
 
 export interface DropdownSearchTriggerProps<T extends DropdownSearchValueType>
@@ -41,12 +42,13 @@ export interface DropdownSearchTriggerProps<T extends DropdownSearchValueType>
   searchValue: string;
   inputRef: MutableRefObject<HTMLInputElement | null>;
   updateSearchValue: (value: string) => void;
+  close: () => void;
 }
 
 export interface DropdownSearchItemsProps<T extends DropdownSearchValueType>
   extends Pick<
       DropdownSearchProps<T>,
-      'currentValue' | 'onChange' | 'itemHeight'
+      'currentValue' | 'onChange' | 'itemHeight' | 'itemsClassName'
     >,
     Pick<DropdownSearchTriggerProps<T>, 'updateSearchValue'> {
   filteredOptions: DropdownSearchProps<T>['options'];

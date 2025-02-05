@@ -20,6 +20,8 @@ const DropdownSearch = <T extends DropdownSearchValueType>({
   onChange,
   itemHeight,
   rootClassName,
+  onClose,
+  itemsClassName,
   ...props
 }: DropdownSearchProps<T>) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -44,6 +46,11 @@ const DropdownSearch = <T extends DropdownSearchValueType>({
     transitionSearch(value);
   };
 
+  const handleClose = () => {
+    updateSearchValue('');
+    onClose?.();
+  };
+
   useEffect(() => {
     setFilteredOptions(options);
   }, [options]);
@@ -61,6 +68,7 @@ const DropdownSearch = <T extends DropdownSearchValueType>({
           inputRef={inputRef}
           inputPlaceholder={inputPlaceholder}
           updateSearchValue={updateSearchValue}
+          close={handleClose}
         />
       }
       content={
@@ -71,9 +79,11 @@ const DropdownSearch = <T extends DropdownSearchValueType>({
           onChange={onChange}
           updateSearchValue={updateSearchValue}
           itemHeight={itemHeight}
+          itemsClassName={itemsClassName}
         />
       }
       className={rootClassName}
+      onClose={handleClose}
       {...props}
     />
   );
