@@ -17,7 +17,7 @@ export const useUpdatePopoverPositionEffect = ({
 
     if (!trigger || !current) return;
 
-    const root = current.closest('.popover-root') || document.body;
+    const root = trigger.closest('.popover-root') || document.body;
 
     const updatePosition = () => {
       const style = getPopoverPosition({
