@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { forwardRef, PropsWithChildren } from 'react';
 
-import { ROUNDED, SECTION_ROUNDED } from './constants';
+import { ROUNDED, SECTION_ROUNDED, SECTION_SHADOW, SHADOW } from './constants';
 import { COLOR_THEME_STYLES } from '@/constants/theme';
 import { SectionProps } from './types';
 
@@ -10,6 +10,7 @@ const Section = forwardRef(
     {
       children,
       rounded = ROUNDED['ROUNDED_8'],
+      shadow = SHADOW['SHADOW_SECTION'],
       colorTheme,
       color,
       backgroundColor,
@@ -35,8 +36,8 @@ const Section = forwardRef(
           colorTheme && COLOR_THEME_STYLES[colorTheme],
           !hasColor && 'bg-white',
           hasRounded && SECTION_ROUNDED[rounded],
+          hasShadow && SECTION_SHADOW[shadow],
           hasBorder && `border border-${borderColor}`,
-          hasShadow && 'shadow-section',
           className,
         )}
         {...rest}
