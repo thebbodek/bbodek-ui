@@ -22,6 +22,7 @@ export interface PopoverProps
     | 'className'
     | 'hasBorder'
     | 'hasShadow'
+    | 'shadow'
   > &
     Pick<UseUpdatePopoverPositionProps, 'gap'>;
   rootClassName?: HTMLAttributes<HTMLDivElement>['className'];

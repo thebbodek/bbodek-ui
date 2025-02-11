@@ -1,5 +1,6 @@
 import { MouseEvent, useState } from 'react';
 
+import { SHADOW } from '@/core/components/Section/constants';
 import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import { usePopoverPosition } from '@/core/components/Popover/PopoverBase/hooks/usePopoverPosition';
 import Section from '@/core/components/Section';
@@ -19,6 +20,7 @@ const Popover = ({
     gap = 4,
     hasShadow = true,
     backgroundColor = 'white',
+    shadow = SHADOW['SHADOW_MD'],
     ...props
   } = popoverOptions ?? {};
   const [isOpen, setIsOpen] = useState(false);
@@ -58,6 +60,7 @@ const Popover = ({
             <Section
               backgroundColor={backgroundColor}
               hasShadow={hasShadow}
+              shadow={shadow}
               {...props}
               ref={popoverRef}
               element={'div'}

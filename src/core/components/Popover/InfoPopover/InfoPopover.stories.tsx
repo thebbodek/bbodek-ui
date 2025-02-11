@@ -34,20 +34,27 @@ export const Default = () => {
   ];
 
   return (
-    <InfoPopover
-      heading={'정보 설명'}
-      trigger={
-        <IconButton
-          colorTheme={'warning'}
-          rounded={'rounded-full'}
-          icon={
-            <Icon iconKey={'question'} weight={'bold'} className={'text-lg'} />
-          }
-          size={'h-40'}
-        />
-      }
-      items={data}
-      popoverOptions={{ className: 'w-32' }}
-    />
+    <>
+      <div id={'portal'} />
+      <InfoPopover
+        heading={'정보 설명'}
+        trigger={
+          <IconButton
+            colorTheme={'warning'}
+            rounded={'rounded-full'}
+            icon={
+              <Icon
+                iconKey={'question'}
+                weight={'bold'}
+                className={'text-lg'}
+              />
+            }
+            size={'h-40'}
+          />
+        }
+        items={data}
+        popoverOptions={{ className: 'w-32' }}
+      />
+    </>
   );
 };
