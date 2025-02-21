@@ -39,7 +39,7 @@ const InputBase = forwardRef(
     const labelRenderer = () => {
       if (badge && label) {
         return (
-          <div className={'mb-2 flex items-center gap-x-0.5'}>
+          <div className={'flex items-center gap-x-0.5'}>
             <div className={'flex-shrink-0'}>{badge}</div>
             <div className='flex flex-1 items-center justify-between'>
               {label && (
@@ -58,7 +58,7 @@ const InputBase = forwardRef(
       }
 
       return (
-        <div className='mb-2 flex items-center justify-between'>
+        <div className='flex items-center justify-between'>
           {label && (
             <label htmlFor={inputId}>
               <FormLabel
@@ -76,14 +76,13 @@ const InputBase = forwardRef(
     return (
       <Component
         ref={ref}
-        className={clsx(label && 'flex-v-stack', rootClassName)}
+        className={clsx('flex-v-stack gap-y-1', rootClassName)}
         {...props}
       >
         {hasInputLabel && labelRenderer()}
         <div
           className={cn(
             `bbodek-field-padding flex items-center overflow-hidden rounded-lg border bg-white border-${borderColor}`,
-            feedback && 'mb-1',
             inputRootClassName,
             isDisabled && 'bg-gray-09',
             error && 'border-error',
@@ -98,6 +97,7 @@ const InputBase = forwardRef(
             theme='body-03-regular'
             color={feedbackColor}
             text={feedback}
+            className='mt-0.5'
           />
         ) : null}
       </Component>
