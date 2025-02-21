@@ -27,7 +27,9 @@ export interface DropdownSearchProps<T extends DropdownSearchValueType>
     Pick<DropdownItemsProps, 'itemHeight'> {
   options: DropdownSearchOption<T>[];
   currentValue: T | undefined;
-  onChange?: (value: T) => void;
+  onChange?: ({
+    value,
+  }: Pick<DropdownSearchOption<T>, 'label' | 'value'>) => void;
   rootClassName?: HTMLAttributes<HTMLDivElement>['className'];
   inputPlaceholder?: string;
   itemsClassName?: DropdownItemsProps['className'];

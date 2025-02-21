@@ -31,7 +31,7 @@ const DropdownSearchItem = <T extends DropdownSearchValueType>({
       checked={checked}
       className={clsx('text-body-01-regular', sub && 'flex items-center gap-2')}
       onClick={() => {
-        onChange?.(value);
+        onChange?.({ label, value });
         updateSearchValue('');
       }}
       disabled={disabled}
