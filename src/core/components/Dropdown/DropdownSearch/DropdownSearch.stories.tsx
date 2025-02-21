@@ -27,7 +27,7 @@ export const Default = () => {
       currentValue={currentValue}
       options={options}
       placeholder={'선택해주세요'}
-      onChange={(value) => {
+      onChange={({ value }) => {
         setCurrentValue(value);
       }}
       className={'w-60'}
@@ -110,7 +110,7 @@ export const CustomDropdownSearch = () => {
       inputPlaceholder={'유저 이름 또는 이메일을 입력해주세요'}
       className={'h-[3.625rem] w-[20rem]'}
       itemHeight={56}
-      onChange={(value) => setCurrentValue(value)}
+      onChange={({ value }) => setCurrentValue(value)}
       disabled={isLoading}
     />
   );
