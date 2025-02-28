@@ -22,6 +22,7 @@ export interface TooltipProps
   rootClassName?: HTMLAttributes<HTMLDivElement>['className'];
   gap?: number;
   isKeepFloating?: boolean;
+  useCloseButton?: boolean;
 }
 
 export interface UseUpdateIsOpenEffectProps

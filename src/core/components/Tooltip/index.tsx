@@ -27,6 +27,8 @@ import { THEME_TYPOGRAPHY } from '@/constants/typography';
 import { TooltipProps } from '@/core/components/Tooltip/types';
 import { ThemeTypography } from '@/types';
 import { useUpdateIsOpenEffect } from '@/core/components/Tooltip/hooks/effects/useUpdateIsOpenEffect';
+import IconButton from '@/core/components/Button/IconButton';
+import Icon from '@/core/components/Icon';
 
 const Tooltip = ({
   content,
@@ -41,6 +43,7 @@ const Tooltip = ({
   hasArrow = false,
   hidden = false,
   isKeepFloating = false,
+  useCloseButton = false,
 }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(!hidden && isKeepFloating);
   const arrowRef = useRef(null);
@@ -50,6 +53,8 @@ const Tooltip = ({
       setIsOpen(open);
     }
   };
+
+  const handleClose = () => setIsOpen(false);
 
   const {
     refs: { setFloating, setReference },
@@ -92,13 +97,21 @@ const Tooltip = ({
             style={floatingStyles}
             {...getFloatingProps()}
             className={clsx(
-              `break-keep rounded-[0.375rem] px-2.5 py-1 text-${theme} z-[10000] animate-[fade-in_.1s_ease-in-out_1]`,
+              `break-keep rounded-[0.375rem] py-1 text-${theme} z-[10000] animate-[fade-in_.1s_ease-in-out_1]`,
+              useCloseButton ? 'flex gap-x-1 pl-2.5 pr-1' : 'px-2.5',
               BUTTON_ROUNDED[rounded],
               COLOR_THEME_STYLES[colorTheme],
               className,
             )}
           >
             {content}
+            {useCloseButton && (
+              <IconButton
+                size={'h-20'}
+                icon={<Icon iconKey={'x'} className={'mt-0.5 text-[1.2em]'} />}
+                onClick={handleClose}
+              />
+            )}
             {hasArrow && (
               <FloatingArrow
                 ref={arrowRef}

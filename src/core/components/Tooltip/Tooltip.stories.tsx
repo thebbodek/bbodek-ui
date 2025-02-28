@@ -90,14 +90,23 @@ export const KeepFloatingTooltip = ({
   placement,
   isKeepFloating,
   hasArrow,
+  useCloseButton,
   ...props
 }: TooltipProps) => {
   return (
     <Tooltip
-      content={content ?? 'Hi, I am a tooltip'}
+      content={
+        content ?? (
+          <>
+            Hi, I am a tooltip
+            <br /> with multiple lines
+          </>
+        )
+      }
       placement={placement ?? 'top'}
       isKeepFloating={isKeepFloating ?? true}
       hasArrow={hasArrow ?? true}
+      useCloseButton={useCloseButton ?? true}
       {...props}
     >
       <div className={'bg-primary-03 p-2 text-white'}>Hover Me</div>
