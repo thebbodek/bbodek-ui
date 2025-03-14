@@ -23,8 +23,12 @@ export { default as DropdownMultiple } from '@/core/components/Dropdown/Dropdown
 export { default as DropdownMultipleItem } from '@/core/components/Dropdown/DropdownMultiple/DropdownMultipleItem';
 export { default as DropdownMultipleTrigger } from '@/core/components/Dropdown/DropdownMultiple/DropdownMultipleTrigger';
 export { default as DropdownSearch } from '@/core/components/Dropdown/DropdownSearch';
-export { default as DropdownSearchItem } from '@/core/components/Dropdown/DropdownSearch/DropdownSearchItem';
 export { default as DropdownSearchTrigger } from '@/core/components/Dropdown/DropdownSearch/DropdownSearchTrigger';
+export { default as DropdownSearchItems } from '@/core/components/Dropdown/DropdownSearch/DropdownSearchItems';
+export { default as DropdownSearchLegacy } from '@/core/components/Dropdown/DropdownSearchLegacy';
+export { default as DropdownSearchLegacyItems } from '@/core/components/Dropdown/DropdownSearchLegacy/DropdownSearchLegacyItems';
+export { default as DropdownSearchLegacyItem } from '@/core/components/Dropdown/DropdownSearchLegacy/DropdownSearchLegacyItem';
+export { default as DropdownSearchLegacyTrigger } from '@/core/components/Dropdown/DropdownSearchLegacy/DropdownSearchLegacyTrigger';
 export { default as FormLabel } from '@/core/components/FormLabel';
 export { default as InputBase } from '@/core/components/Input/InputBase';
 export { default as InputDatePicker } from '@/core/components/Input/InputDatePicker';

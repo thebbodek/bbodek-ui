@@ -1,61 +1,72 @@
+import { useRef } from 'react';
+import clsx from 'clsx';
+
+import DropdownSelect from '@/core/components/Dropdown/DropdownSelect';
 import {
   DropdownSearchItemsProps,
+  DropdownSearchLabelType,
   DropdownSearchValueType,
 } from '@/core/components/Dropdown/DropdownSearch/types';
-import Icon from '@/core/components/Icon';
-import DropdownSearchItem from '@/core/components/Dropdown/DropdownSearch/DropdownSearchItem';
-import DropdownBase from '@/core/components/Dropdown/DropdownBase';
 
-const DropdownSearchItems = <T extends DropdownSearchValueType>({
+const DropdownSearchItems = <
+  T extends DropdownSearchValueType,
+  P extends DropdownSearchLabelType,
+>({
   currentValue,
-  isSearching,
   filteredOptions,
   onChange,
-  updateSearchValue,
-  itemHeight,
-  itemsClassName,
-}: DropdownSearchItemsProps<T>) => {
-  const hasSearchedOptions = !isSearching && filteredOptions.length > 0;
+  searchValue,
+  onSearchChange,
+  itemsProps,
+}: DropdownSearchItemsProps<T, P>) => {
+  const { inputProps, className, itemHeight, ...props } = itemsProps ?? {};
+  const inputRef = useRef<HTMLInputElement>(null);
+  const hasSearchedOptions = filteredOptions.length > 0;
+
+  const ITEMS = filteredOptions.map(({ label, value, sub, disabled }) => (
+    <DropdownSelect.Item
+      key={value}
+      checked={currentValue === value}
+      onClick={() => {
+        onChange?.({ label, value });
+        onSearchChange('');
+      }}
+      className={clsx(sub && 'flex items-center gap-2')}
+      disabled={disabled}
+    >
+      {label}
+      {sub && <div className={'flex-shrink-0'}>{sub}</div>}
+    </DropdownSelect.Item>
+  ));
 
   const renderer = () => {
-    if (!isSearching) {
-      if (hasSearchedOptions) {
-        return filteredOptions.map((option) => (
-          <DropdownSearchItem
-            key={option.value}
-            option={option}
-            currentValue={currentValue}
-            onChange={onChange}
-            updateSearchValue={updateSearchValue}
-          />
-        ));
-      } else {
-        return [
-          <div
-            key={'empty'}
-            className='flex flex-1 items-center justify-center text-center text-body-01-medium text-gray-05'
-          >
-            검색된 결과가 없습니다
-          </div>,
-        ];
-      }
+    if (hasSearchedOptions) {
+      return ITEMS;
+    } else {
+      return [
+        <div
+          key={'empty'}
+          className='flex flex-1 items-center justify-center text-body-01-medium text-gray-05'
+        >
+          검색된 결과가 없습니다
+        </div>,
+      ];
     }
-
-    return [
-      <div key={'loading'} className='flex flex-1 items-center justify-center'>
-        <Icon
-          iconKey='circle-notch'
-          className='animate-spin text-subhead-01-regular'
-        />
-      </div>,
-    ];
   };
 
   return (
-    <DropdownBase.Items
-      className={itemsClassName || 'max-h-[12rem]'}
-      itemHeight={isSearching || !hasSearchedOptions ? 80 : itemHeight}
+    <DropdownSelect.Items
       items={renderer()}
+      inputProps={{
+        value: searchValue,
+        onChange: (e) => onSearchChange(e.target.value),
+        inputRef,
+        ...inputProps,
+      }}
+      itemHeight={!hasSearchedOptions ? 100 : itemHeight}
+      className={clsx('max-h-[14rem]', className)}
+      {...props}
+      useSearch
     />
   );
 };

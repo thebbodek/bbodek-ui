@@ -89,7 +89,7 @@ const DropdownBase = ({
     >
       <div className={clsx('flex-v-stack gap-y-1', className)}>
         {hasInputLabel && labelRenderer()}
-        <div ref={triggerRef}>
+        <div ref={triggerRef} className={'flex-1'}>
           {trigger}
           {isVisibleContent && (
             <div ref={popoverRef} style={style}>

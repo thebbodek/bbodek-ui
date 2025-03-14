@@ -14,6 +14,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
   rounded,
   rootElement,
   badge,
+  inputRef,
   ...props
 }: InputSearchProps<T> & React.ComponentPropsWithoutRef<'input'>) => {
   const id = useId();
@@ -94,6 +95,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
       sub={sub}
       inputComponent={
         <input
+          ref={inputRef}
           id={id}
           className={clsx('bbodek-field', className)}
           type='text'

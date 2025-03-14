@@ -1,53 +1,49 @@
-import { useEffect, useRef, useState, useTransition } from 'react';
+import { useEffect, useState } from 'react';
 
+import { filterSearch } from '@/utilities/search';
 import {
+  DropdownSearchLabelType,
   DropdownSearchOption,
   DropdownSearchProps,
   DropdownSearchValueType,
-} from './types';
-import { filterSearch } from '@/utilities/search';
-import DropdownBase from '../DropdownBase';
-import DropdownSearchTrigger from '@/core/components/Dropdown/DropdownSearch/DropdownSearchTrigger';
+} from '@/core/components/Dropdown/DropdownSearch/types';
+import DropdownSelect from '@/core/components/Dropdown/DropdownSelect';
 import DropdownSearchItems from '@/core/components/Dropdown/DropdownSearch/DropdownSearchItems';
+import DropdownSearchTrigger from '@/core/components/Dropdown/DropdownSearch/DropdownSearchTrigger';
 
-const DropdownSearch = <T extends DropdownSearchValueType>({
+const DropdownSearch = <
+  T extends DropdownSearchValueType,
+  P extends DropdownSearchLabelType,
+>({
   currentValue,
   options,
-  className,
-  placeholder,
-  inputPlaceholder = '검색어를 입력해주세요',
-  error,
   onChange,
-  itemHeight,
-  rootClassName,
   onClose,
-  itemsClassName,
+  itemsProps,
+  triggerProps,
+  placeholder,
   ...props
-}: DropdownSearchProps<T>) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [isSearching, startTransition] = useTransition();
+}: DropdownSearchProps<T, P>) => {
   const [searchValue, setSearchValue] = useState('');
   const [filteredOptions, setFilteredOptions] = useState<
-    DropdownSearchOption<T>[]
+    DropdownSearchOption<T, P>[]
   >([]);
 
-  const transitionSearch = (keyword: string) => {
-    startTransition(() => {
-      const searchedOptions = options.filter(({ label, text }) =>
-        filterSearch({ str: text ?? (label as string), keyword }),
-      );
+  const updateFilterOptions = (keyword: string) => {
+    const searchedOptions = options.filter(({ label, text }) =>
+      filterSearch({ str: text ?? (label as string), keyword }),
+    );
 
-      setFilteredOptions(searchedOptions);
-    });
+    setFilteredOptions(searchedOptions);
   };
 
-  const updateSearchValue = (value: string) => {
+  const onSearchChange = (value: string) => {
     setSearchValue(value);
-    transitionSearch(value);
+    updateFilterOptions(value);
   };
 
   const handleClose = () => {
-    updateSearchValue('');
+    onSearchChange('');
     onClose?.();
   };
 
@@ -56,33 +52,26 @@ const DropdownSearch = <T extends DropdownSearchValueType>({
   }, [options]);
 
   return (
-    <DropdownBase
+    <DropdownSelect
       trigger={
         <DropdownSearchTrigger
-          options={options}
           currentValue={currentValue}
-          className={className}
+          options={options}
+          triggerProps={triggerProps}
           placeholder={placeholder}
-          error={error}
-          searchValue={searchValue}
-          inputRef={inputRef}
-          inputPlaceholder={inputPlaceholder}
-          updateSearchValue={updateSearchValue}
-          close={handleClose}
+          onClose={handleClose}
         />
       }
       content={
         <DropdownSearchItems
-          isSearching={isSearching}
           currentValue={currentValue}
           filteredOptions={filteredOptions}
           onChange={onChange}
-          updateSearchValue={updateSearchValue}
-          itemHeight={itemHeight}
-          itemsClassName={itemsClassName}
+          searchValue={searchValue}
+          onSearchChange={onSearchChange}
+          itemsProps={itemsProps}
         />
       }
-      className={rootClassName}
       onClose={handleClose}
       {...props}
     />

@@ -1,17 +1,17 @@
 import clsx from 'clsx';
 
 import {
-  DropdownSearchItemProps,
-  DropdownSearchValueType,
-} from '@/core/components/Dropdown/DropdownSearch/types';
+  DropdownSearchLegacyItemProps,
+  DropdownSearchLegacyValueType,
+} from '@/core/components/Dropdown/DropdownSearchLegacy/types';
 import DropdownBase from '@/core/components/Dropdown/DropdownBase';
 
-const DropdownSearchItem = <T extends DropdownSearchValueType>({
+const DropdownSearchLegacyItem = <T extends DropdownSearchLegacyValueType>({
   currentValue,
   option,
   onChange,
   updateSearchValue,
-}: DropdownSearchItemProps<T>) => {
+}: DropdownSearchLegacyItemProps<T>) => {
   const { label, value, sub, disabled = false } = option;
   const checked = currentValue === value;
   const isString = typeof label === 'string';
@@ -42,4 +42,4 @@ const DropdownSearchItem = <T extends DropdownSearchValueType>({
   );
 };
 
-export default DropdownSearchItem;
+export default DropdownSearchLegacyItem;
