@@ -39,6 +39,7 @@ export const useUpdatePopoverPositionEffect = ({
 
     observer.observe(root);
     observer.observe(trigger);
+    observer.observe(current);
 
     if (isOpen) {
       updatePosition();

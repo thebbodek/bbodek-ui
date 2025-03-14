@@ -7,6 +7,7 @@ import useClickOutside from '@/hooks/useClickOutSide';
 
 export const usePopoverPosition = ({
   close,
+  useClickOutsideEvent = true,
   ...props
 }: UseUpdatePopoverPositionProps) => {
   const { gap, isOpen } = props;
@@ -17,7 +18,7 @@ export const usePopoverPosition = ({
     }
 
     close();
-  }, isOpen);
+  }, useClickOutsideEvent && isOpen);
   const [style, setStyle] = useState<CSSProperties>({
     position: 'fixed',
     opacity: 0,

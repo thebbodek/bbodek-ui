@@ -31,6 +31,7 @@ const DropdownTrigger = forwardRef(
         type='button'
         onClick={onClickHandler}
         className={clsx(
+          'h-full',
           isDisabled
             ? 'cursor-not-allowed bg-gray-09'
             : 'cursor-pointer bg-white',

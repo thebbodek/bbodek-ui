@@ -1,4 +1,4 @@
-import { forwardRef, Ref, useRef } from 'react';
+import { forwardRef, Ref, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 
 import { DropdownItemsProps } from './types';
@@ -23,8 +23,15 @@ const DropdownItems = forwardRef(
       rounded,
       rootClassName: inputRootClassName,
       placeholder,
+      inputRef,
       ...restInputProps
     } = inputProps ?? {};
+
+    useEffect(() => {
+      if (!inputRef || !inputRef['current'] || !useSearch) return;
+
+      inputRef.current.focus();
+    }, [inputRef, useSearch]);
 
     return (
       <div
@@ -41,6 +48,7 @@ const DropdownItems = forwardRef(
             rounded={rounded ?? 'rounded-8'}
             rootElement={'div'}
             placeholder={placeholder ?? '검색어를 입력하세요'}
+            inputRef={inputRef}
             rootClassName={clsx(
               'border-b border-b-gray-02 p-2',
               inputRootClassName,

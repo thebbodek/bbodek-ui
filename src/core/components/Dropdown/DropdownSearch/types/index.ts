@@ -1,66 +1,72 @@
-import {
-  HTMLAttributes,
-  MutableRefObject,
-  ReactElement,
-  ReactNode,
-} from 'react';
+import { ReactElement, ReactNode } from 'react';
 
+import { DropdownSelectTriggerProps } from '@/core/components/Dropdown/DropdownSelect/types';
 import {
   DropdownItemsProps,
   DropdownProps,
-  DropdownTriggerProps,
 } from '@/core/components/Dropdown/DropdownBase/types';
 
 export type DropdownSearchValueType = string | null | number;
 
-export interface DropdownSearchOption<T extends DropdownSearchValueType> {
-  label: string | ReactElement;
+export type DropdownSearchLabelType = string | ReactElement;
+
+export interface DropdownSearchOnChangeReturnType<
+  T extends DropdownSearchValueType,
+  P extends DropdownSearchLabelType,
+> extends Pick<DropdownSearchOption<T, P>, 'label' | 'value'> {}
+
+export interface DropdownSearchOption<
+  T extends DropdownSearchValueType,
+  P extends DropdownSearchLabelType,
+> {
+  label: P;
   value: T;
   text?: string;
   sub?: ReactNode;
   disabled?: boolean;
 }
 
-export interface DropdownSearchProps<T extends DropdownSearchValueType>
-  extends Omit<DropdownProps, 'trigger' | 'content'>,
-    Pick<DropdownTriggerProps, 'error' | 'placeholder'>,
-    Pick<DropdownItemsProps, 'itemHeight'> {
-  options: DropdownSearchOption<T>[];
+export interface DropdownSearchProps<
+  T extends DropdownSearchValueType,
+  P extends DropdownSearchLabelType,
+> extends Omit<DropdownProps, 'trigger' | 'content'>,
+    Pick<DropdownSelectTriggerProps, 'placeholder'> {
+  options: DropdownSearchOption<T, P>[];
   currentValue: T | undefined;
-  onChange?: ({
-    value,
-  }: Pick<DropdownSearchOption<T>, 'label' | 'value'>) => void;
-  rootClassName?: HTMLAttributes<HTMLDivElement>['className'];
-  inputPlaceholder?: string;
-  itemsClassName?: DropdownItemsProps['className'];
+  onChange?: ({ value }: DropdownSearchOnChangeReturnType<T, P>) => void;
+  triggerProps?: Omit<
+    DropdownSelectTriggerProps,
+    'currentValue' | 'placeholder'
+  >;
+  itemsProps?: Omit<
+    DropdownItemsProps,
+    'useSearch' | 'items' | 'inputProps'
+  > & {
+    inputProps?: Omit<
+      DropdownItemsProps['inputProps'],
+      'value' | 'onChange' | 'inputRef'
+    >;
+  };
 }
 
-export interface DropdownSearchTriggerProps<T extends DropdownSearchValueType>
-  extends Omit<DropdownTriggerProps, 'children' | 'currentValue'>,
-    Pick<
-      DropdownSearchProps<T>,
-      'currentValue' | 'error' | 'placeholder' | 'options' | 'inputPlaceholder'
-    > {
-  searchValue: string;
-  inputRef: MutableRefObject<HTMLInputElement | null>;
-  updateSearchValue: (value: string) => void;
-  close: () => void;
-}
-
-export interface DropdownSearchItemsProps<T extends DropdownSearchValueType>
-  extends Pick<
-      DropdownSearchProps<T>,
-      'currentValue' | 'onChange' | 'itemHeight' | 'itemsClassName'
-    >,
-    Pick<DropdownSearchTriggerProps<T>, 'updateSearchValue'> {
-  filteredOptions: DropdownSearchProps<T>['options'];
-  isSearching: boolean;
-}
-
-export interface DropdownSearchItemProps<T extends DropdownSearchValueType>
-  extends Pick<
-    DropdownSearchItemsProps<T>,
-    'currentValue' | 'onChange' | 'updateSearchValue'
+export interface DropdownSearchItemsProps<
+  T extends DropdownSearchValueType,
+  P extends DropdownSearchLabelType,
+> extends Pick<
+    DropdownSearchProps<T, P>,
+    'currentValue' | 'onChange' | 'itemsProps'
   > {
-  option: DropdownSearchOption<T>;
+  filteredOptions: DropdownSearchOption<T, P>[];
+  onSearchChange: (value: string) => void;
+  searchValue: string;
+}
+
+export interface DropdownSearchTriggerProps<
+  T extends DropdownSearchValueType,
+  P extends DropdownSearchLabelType,
+> extends Pick<
+    DropdownSearchProps<T, P>,
+    'currentValue' | 'options' | 'triggerProps' | 'placeholder'
+  > {
+  onClose: () => void;
 }

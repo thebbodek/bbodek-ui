@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 import {
   DropdownItemProps,
@@ -11,7 +11,7 @@ import DropdownItems from '@/core/components/Dropdown/DropdownBase/DropdownItems
 
 export interface DropdownSelectTriggerProps
   extends Omit<DropdownTriggerProps, 'children'> {
-  currentValue: string;
+  currentValue: ReactNode;
 }
 
 export interface DropdownSelectItemProps extends DropdownItemProps {

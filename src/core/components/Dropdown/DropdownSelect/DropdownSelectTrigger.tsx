@@ -28,18 +28,25 @@ const DropdownSelectTrigger = forwardRef(
         {({ isToggle, disabled, readOnly }) => {
           const isDisabled = readOnly || disabled;
           const isVisibleContent = !readOnly && !disabled && isToggle;
+          const isString = typeof label === 'string';
 
           return (
             <>
-              <Typography
-                className={clsx(
-                  'block truncate',
-                  isDisabled && 'mr-[1.725rem]',
-                )}
-                text={label}
-                title={label}
-                color={!isDisabled && !showPlaceholder ? 'gray-08' : 'gray-05'}
-              />
+              {isString ? (
+                <Typography
+                  className={clsx(
+                    'block truncate',
+                    isDisabled && 'mr-[1.725rem]',
+                  )}
+                  text={label}
+                  title={label}
+                  color={
+                    !isDisabled && !showPlaceholder ? 'gray-08' : 'gray-05'
+                  }
+                />
+              ) : (
+                label
+              )}
               {!isDisabled ? (
                 <DropdownSelectIcon isVisibleContent={isVisibleContent} />
               ) : null}

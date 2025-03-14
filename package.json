@@ -28,6 +28,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
+    "ngrok": "ngrok http 6006 --domain=bbodek.ngrok.io",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\""
   },
   "peerDependencies": {
