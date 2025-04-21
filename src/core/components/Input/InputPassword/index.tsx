@@ -84,7 +84,7 @@ const InputPassword = forwardRef(
           >
             <Icon
               weight='fill'
-              className={'text-[120%] text-gray-05'}
+              className={'text-gray-05 text-[120%]'}
               iconKey={showPassword ? 'eye-slash' : 'eye'}
             />
           </button>

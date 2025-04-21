@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import { OverlayProvider, useOverlay } from '@toss/use-overlay';
+import { overlay, OverlayProvider } from 'overlay-kit';
 import { useState } from 'react';
 
 import Button from '../../Button/Button';
@@ -18,7 +18,6 @@ const meta = {
 export default meta;
 
 const DefaultLayout = () => {
-  const overlay = useOverlay();
   const [myDates, setMyDates] = useState<{
     startDate: string;
     endDate: string | null;
@@ -51,7 +50,6 @@ const DefaultLayout = () => {
         </button>
         <InputDatePicker
           variants='single'
-          overlay={overlay}
           getPeriodDates={getDate}
           externalDates={{
             startDate: myDates.startDate,
@@ -87,8 +85,6 @@ export const Default = () => {
 };
 
 const InputDatePickerInModalPopUpLayout = () => {
-  const overlay = useOverlay();
-  const inputDatePickerOverlay = useOverlay();
   const getDate = (periodDates: PeriodDates) => console.log(periodDates);
 
   const onOverlay = () => {
@@ -97,7 +93,6 @@ const InputDatePickerInModalPopUpLayout = () => {
         <ModalPopUp isOpen={isOpen}>
           <InputDatePicker
             dateLabel={['사용일', '종료일']}
-            overlay={inputDatePickerOverlay}
             useTab={false}
             getPeriodDates={getDate}
           />

@@ -5,14 +5,14 @@ import { UseUpdatePopoverPositionProps } from '@/core/components/Popover/Popover
 import { useOutSideScrollLockEffect } from '@/core/components/Popover/PopoverBase/hooks/effects/useOutSideScrollLockEffect';
 import useClickOutside from '@/hooks/useClickOutSide';
 
-export const usePopoverPosition = ({
+export const usePopoverPosition = <T extends Element>({
   close,
   useClickOutsideEvent = true,
   ...props
 }: UseUpdatePopoverPositionProps) => {
   const { gap, isOpen } = props;
-  const triggerRef = useRef<HTMLDivElement>(null);
-  const { contentRef: popoverRef } = useClickOutside<HTMLDivElement>((e) => {
+  const triggerRef = useRef<T | null>(null);
+  const { contentRef: popoverRef } = useClickOutside<T>((e) => {
     if (!triggerRef.current || triggerRef.current.contains(e.target as Node)) {
       return;
     }

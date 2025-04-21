@@ -29,7 +29,7 @@ export const Default = () => {
     <DropdownFilter
       trigger={
         <DropdownFilter.Trigger
-          className='w-[10rem] rounded-lg border border-gray-03 px-2.5 py-2'
+          className='border-gray-03 w-[10rem] rounded-lg border px-2.5 py-2'
           currentValue={currentValue || '선택해주세요'}
         />
       }

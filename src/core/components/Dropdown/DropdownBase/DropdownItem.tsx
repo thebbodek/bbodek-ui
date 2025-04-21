@@ -44,7 +44,7 @@ const DropdownItem = forwardRef(
           'w-full rounded-md p-2',
           !disabled
             ? checked
-              ? 'font-medium text-primary-03'
+              ? 'text-primary-03 font-medium'
               : 'text-gray-07'
             : 'text-gray-03',
           disabled

@@ -1,10 +1,12 @@
 import type { Preview } from '@storybook/react';
+import { fn } from '@storybook/test';
+
 import '../src/styles/bbodek-theme.css';
 
 const preview: Preview = {
   parameters: {
     layout: 'centered',
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { onClick: fn() },
     controls: {
       expanded: true,
       matchers: {

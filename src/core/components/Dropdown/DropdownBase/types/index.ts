@@ -7,16 +7,17 @@ import {
   SetStateAction,
 } from 'react';
 
+import { FormLabelProps } from '@/core/components/FormLabel/types';
+import { InputSearchProps } from '@/core/components/Input/InputSearch/types';
+import { MenuItemColorTheme, MenuProps } from '@/core/components/Menu/types';
+import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
+import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
+import { TypographyProps } from '@/core/components/Typography/types';
+import { VirtualListProps } from '@/core/components/Virtual/VirtualList/types';
 import { ThemeColors } from '@/types';
 import DropdownItem from '../DropdownItem';
 import DropdownItems from '../DropdownItems';
 import DropdownTrigger from '../DropdownTrigger';
-import { FormLabelProps } from '@/core/components/FormLabel/types';
-import { InputSearchProps } from '@/core/components/Input/InputSearch/types';
-import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
-import { MenuItemColorTheme, MenuProps } from '@/core/components/Menu/types';
-import { VirtualListProps } from '@/core/components/Virtual/VirtualList/types';
-import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 
 export interface DropdownProps
   extends Partial<FormLabelProps>,
@@ -60,6 +61,7 @@ export interface DropdownItemsProps
 
 export interface DropdownTriggerProps
   extends Omit<HTMLAttributes<HTMLButtonElement>, 'children'> {
+  placeholder?: TypographyProps['text'];
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   error?: boolean;
   children:

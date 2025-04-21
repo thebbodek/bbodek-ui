@@ -35,13 +35,13 @@ const Drawer = forwardRef(
         <Section
           element='div'
           className={clsx(
-            'safe-area-bottom w-[29.1875rem] animate-drawer bg-white',
+            'animate-drawer safe-area-bottom w-[29.1875rem] bg-white',
             className,
           )}
           hasRounded={false}
           hasShadow
         >
-          <header className="flex-v-stack gap-y-6 px-4 pt-6 after:h-[0.0625rem] after:bg-gray-02 after:content-['']">
+          <header className="flex-v-stack after:bg-gray-02 gap-y-6 px-4 pt-6 after:h-[0.0625rem] after:content-['']">
             <div className='flex items-center justify-between'>
               <div className={clsx(titleSub && 'flex items-center gap-x-2')}>
                 <Typography

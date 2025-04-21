@@ -1,5 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 
+import DropdownItems from '@/core/components/Dropdown/DropdownBase/DropdownItems';
 import {
   DropdownItemProps,
   DropdownProps,
@@ -7,7 +8,6 @@ import {
 } from '../../DropdownBase/types';
 import DropdownSelectItem from '../DropdownSelectItem';
 import DropdownSelectTrigger from '../DropdownSelectTrigger';
-import DropdownItems from '@/core/components/Dropdown/DropdownBase/DropdownItems';
 
 export interface DropdownSelectTriggerProps
   extends Omit<DropdownTriggerProps, 'children'> {

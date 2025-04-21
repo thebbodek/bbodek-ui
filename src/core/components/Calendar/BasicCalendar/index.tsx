@@ -30,12 +30,12 @@ const BasicCalendar = ({ dottedDates }: BasicCalendarProps) => {
                         className={clsx(
                           'relative flex h-8 items-center justify-center leading-none',
                           {
-                            "before:absolute before:-start-1 before:top-0 before:block before:h-[3px] before:w-[3px] before:rounded-full before:bg-primary-03 before:content-['']":
+                            "before:bg-primary-03 before:absolute before:-start-1 before:top-0 before:block before:h-[3px] before:w-[3px] before:rounded-full before:content-['']":
                               dottedDates &&
                               dottedDates.includes(
                                 calendarDate.dayjs.format('YYYY-MM-DD'),
                               ),
-                            'w-8 rounded-full bg-gray-03': calendarDate.isToday,
+                            'bg-gray-03 w-8 rounded-full': calendarDate.isToday,
                             'text-gray-03': !calendarDate.isThisMonth,
                           },
                         )}

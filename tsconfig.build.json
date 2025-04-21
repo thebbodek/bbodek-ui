@@ -2,7 +2,9 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "outDir": "dist",
-    "declaration": true
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true
   },
   "exclude": ["node_modules", "**/*.stories.tsx"]
 }

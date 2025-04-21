@@ -46,13 +46,13 @@ const Toggle = ({
       />
       <div
         className={clsx(
-          'relative rounded-full bg-gray-03 transition-all peer-checked:bg-primary-03 peer-disabled:cursor-not-allowed peer-disabled:bg-gray-09 peer-checked:[&>.circle]:-left-[0.125rem]',
+          'bg-gray-03 peer-checked:bg-primary-03 peer-disabled:bg-gray-09 relative rounded-full transition-all peer-disabled:cursor-not-allowed peer-checked:[&>.circle]:-left-[0.125rem]',
           TOGGLE_SIZE[size],
         )}
       >
         <div
           className={clsx(
-            'circle absolute left-[0.125rem] top-1/2 -translate-y-1/2 translate-x-0 transform rounded-full border border-solid border-gray-03 bg-white transition-all',
+            'circle border-gray-03 absolute top-1/2 left-[0.125rem] translate-x-0 -translate-y-1/2 transform rounded-full border border-solid bg-white transition-all',
             TOGGLE_CIRCLE_SIZE[size],
           )}
         />

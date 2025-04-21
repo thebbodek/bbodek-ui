@@ -37,7 +37,7 @@ const DropdownSearchLegacyItem = <T extends DropdownSearchLegacyValueType>({
       disabled={disabled}
     >
       {renderer()}
-      {sub && <div className={'flex-shrink-0'}>{sub}</div>}
+      {sub && <div className={'shrink-0'}>{sub}</div>}
     </DropdownBase.Item>
   );
 };

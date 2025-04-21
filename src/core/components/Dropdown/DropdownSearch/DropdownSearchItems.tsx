@@ -35,7 +35,7 @@ const DropdownSearchItems = <
       disabled={disabled}
     >
       {label}
-      {sub && <div className={'flex-shrink-0'}>{sub}</div>}
+      {sub && <div className={'shrink-0'}>{sub}</div>}
     </DropdownSelect.Item>
   ));
 
@@ -46,7 +46,7 @@ const DropdownSearchItems = <
       return [
         <div
           key={'empty'}
-          className='flex flex-1 items-center justify-center text-body-01-medium text-gray-05'
+          className='text-body-01-medium text-gray-05 flex flex-1 items-center justify-center'
         >
           검색된 결과가 없습니다
         </div>,

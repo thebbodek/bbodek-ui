@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, RefObject, useState } from 'react';
 
 import { SHADOW } from '@/core/components/Section/constants';
 import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
@@ -25,7 +25,7 @@ const Popover = ({
   } = popoverOptions ?? {};
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
-  const { triggerRef, popoverRef, style } = usePopoverPosition({
+  const { triggerRef, popoverRef, style } = usePopoverPosition<HTMLDivElement>({
     isOpen,
     gap,
     applyMaxWidth,

@@ -35,14 +35,14 @@ const MenuItem = <T extends ElementType = 'button'>({
   return (
     <li
       className={clsx(
-        'min-w-fit text-body-02-medium',
+        'text-body-02-medium min-w-fit',
         !disabled && `rounded-md transition-all ${MENU_ITEM_THEME[colorTheme]}`,
       )}
     >
       <Component
         className={clsx(
           'flex w-full items-center p-2 text-start',
-          disabled && 'cursor-not-allowed text-gray-04',
+          disabled && 'text-gray-04 cursor-not-allowed',
           (leftIcon || rightIcon) && gap && BUTTON_GAP[gap],
           className,
         )}

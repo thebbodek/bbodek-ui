@@ -1,7 +1,7 @@
 import { RefObject, useEffect } from 'react';
 
 const useClickOutSideEffect = (
-  ref: RefObject<Element>,
+  ref: RefObject<Element | null>,
   onClose?: (e: MouseEvent) => void,
   useClickOutsideEvent?: boolean,
 ) => {

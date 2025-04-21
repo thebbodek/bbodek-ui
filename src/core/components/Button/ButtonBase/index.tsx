@@ -42,7 +42,7 @@ const ButtonBase = forwardRef(
         ref={ref}
         type={'button'}
         className={clsx(
-          'flex items-center justify-center disabled:cursor-not-allowed disabled:border-gray-03 disabled:bg-gray-03 disabled:text-white',
+          'disabled:border-gray-03 disabled:bg-gray-03 flex items-center justify-center disabled:cursor-not-allowed disabled:text-white',
           `text-${theme ?? defaultButtonTheme}`,
           !colorTheme && color && `text-${color}`,
           !colorTheme && backgroundColor && `bg-${backgroundColor}`,

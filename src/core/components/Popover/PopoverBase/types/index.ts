@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactElement, RefObject } from 'react';
 
-import { SectionProps } from '@/core/components/Section/types';
 import { UseUpdatePopoverPositionProps } from '@/core/components/Popover/PopoverBase/types/PopoverPosition';
+import { SectionProps } from '@/core/components/Section/types';
 
 export interface PopoverChildrenProps {
   close: () => void;
@@ -30,5 +30,5 @@ export interface PopoverProps
 
 export interface UseScrollLockOutSideEffectProps {
   isOpen: boolean;
-  ref: RefObject<Element>;
+  ref: RefObject<Element | null>;
 }

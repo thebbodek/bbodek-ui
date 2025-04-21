@@ -87,7 +87,7 @@ const DropdownSearchLegacyTrigger = <T extends DropdownSearchLegacyValueType>({
                     : ''
                 }
                 className={clsx(
-                  'absolute bottom-0 left-0 right-0 top-0 focus:outline-none',
+                  'absolute top-0 right-0 bottom-0 left-0 focus:outline-hidden',
                   !isToggle
                     ? 'h-0 w-[2px]'
                     : 'h-full min-h-fit w-full bg-white',

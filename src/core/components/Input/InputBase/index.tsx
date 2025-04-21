@@ -40,7 +40,7 @@ const InputBase = forwardRef(
       if (badge && label) {
         return (
           <div className={'flex items-center gap-x-0.5'}>
-            <div className={'flex-shrink-0'}>{badge}</div>
+            <div className={'shrink-0'}>{badge}</div>
             <div className='flex flex-1 items-center justify-between'>
               {label && (
                 <label htmlFor={inputId}>

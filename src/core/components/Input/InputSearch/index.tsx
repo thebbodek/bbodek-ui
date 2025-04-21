@@ -46,7 +46,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
     const SearchIcon = (
       <Icon
         iconKey={'magnifying-glass'}
-        className='text-[1.25rem] text-gray-05'
+        className='text-gray-05 text-[1.25rem]'
       />
     );
 
@@ -88,7 +88,7 @@ const InputSearch = <T extends React.ElementType = 'form'>({
       rootClassName={rootClassName}
       badge={badge}
       inputRootClassName={clsx(
-        'flex items-center overflow-hidden border border-gray-02 bg-white py-2 text-body-02-medium',
+        'border-gray-02 text-body-02-medium flex items-center overflow-hidden border bg-white py-2',
         INPUT_SEARCH_ROUNDED[rounded],
       )}
       onSubmit={isForm ? onSubmitHandler : undefined}

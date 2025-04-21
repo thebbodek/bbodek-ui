@@ -20,7 +20,7 @@ const FormLabel = forwardRef(
     return (
       <div ref={ref} className={`flex text-${labelColor} text-${labelTheme}`}>
         {label}
-        {required && <span className='ml-0.5 text-primary-03'>*</span>}
+        {required && <span className='text-primary-03 ml-0.5'>*</span>}
         {labelSubText && (
           <Typography
             className='ml-3'

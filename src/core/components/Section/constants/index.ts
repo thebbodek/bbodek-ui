@@ -15,11 +15,11 @@ export const SECTION_ROUNDED: Record<RoundedType, string> = {
   [ROUNDED['ROUNDED_12']]: 'rounded-xl',
   [ROUNDED['ROUNDED_8']]: 'rounded-lg',
   [ROUNDED['ROUNDED_6']]: 'rounded-md',
-  [ROUNDED['ROUNDED_2']]: 'rounded-sm',
+  [ROUNDED['ROUNDED_2']]: 'rounded-xs',
 };
 
 export const SHADOW = {
-  SHADOW_SM: 'shadow-sm',
+  SHADOW_SM: 'shadow-xs',
   SHADOW_MD: 'shadow-md',
   SHADOW_LG: 'shadow-lg',
   SHADOW_XL: 'shadow-xl',
@@ -27,7 +27,7 @@ export const SHADOW = {
 };
 
 export const SECTION_SHADOW: Record<ShadowType, string> = {
-  [SHADOW['SHADOW_SM']]: 'shadow-sm',
+  [SHADOW['SHADOW_SM']]: 'shadow-xs',
   [SHADOW['SHADOW_MD']]: 'shadow-md',
   [SHADOW['SHADOW_LG']]: 'shadow-lg',
   [SHADOW['SHADOW_XL']]: 'shadow-xl',

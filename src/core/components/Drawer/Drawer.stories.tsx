@@ -45,9 +45,9 @@ export const Default = (props: DrawerProps) => {
 
   return (
     <>
-      <header className='h-14 bg-gray-01'>Header</header>
+      <header className='bg-gray-01 h-14'>Header</header>
       <div className='flex h-[calc(100vh-4rem)]'>
-        <nav className='w-[15rem] border-r border-gray-01'>SideBar</nav>
+        <nav className='border-gray-01 w-[15rem] border-r'>SideBar</nav>
         <main className='relative flex-1'>
           <div id={props.target ?? 'bar'} />
           <Drawer

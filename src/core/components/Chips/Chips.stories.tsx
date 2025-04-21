@@ -47,7 +47,7 @@ export const Default = () => {
         rounded={'rounded-full'}
         colorTheme={'primary'}
         icon={<Icon iconKey={'plus'} weight={'bold'} />}
-        className={'flex-shrink-0'}
+        className={'shrink-0'}
         onClick={handleAdd}
       />
     </div>

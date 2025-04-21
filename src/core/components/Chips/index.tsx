@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
 import clsx from 'clsx';
+import { useEffect } from 'react';
 
-import { ChipsParams } from '@/core/components/Chips/types';
 import Chip from '@/core/components/Chip';
+import { ChipsProps } from '@/core/components/Chips/types';
 
 const Chips = ({
   className,
@@ -10,7 +10,7 @@ const Chips = ({
   items,
   onDelete,
   ...props
-}: ChipsParams) => {
+}: ChipsProps) => {
   useEffect(() => {
     if (!rootRef.current) return;
 

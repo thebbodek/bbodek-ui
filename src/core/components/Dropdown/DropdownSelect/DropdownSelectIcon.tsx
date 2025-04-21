@@ -11,7 +11,7 @@ const DropdownSelectIcon = ({
     <Icon
       iconKey={'caret-down'}
       className={clsx(
-        'shrink-0 text-[1.1rem] text-gray-06',
+        'text-gray-06 shrink-0 text-[1.1rem]',
         isVisibleContent ? 'rotate-180' : 'rotate-0',
       )}
     />

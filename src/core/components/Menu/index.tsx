@@ -1,9 +1,15 @@
-import { cloneElement, Fragment, MouseEvent } from 'react';
 import clsx from 'clsx';
+import {
+  cloneElement,
+  Fragment,
+  HTMLAttributes,
+  MouseEvent,
+  ReactElement,
+} from 'react';
 
+import MenuPopoverItem from '@/core/components/Menu/MenuItem';
 import { MenuProps, MenuReturnType } from '@/core/components/Menu/types';
 import Popover from '@/core/components/Popover/PopoverBase';
-import MenuPopoverItem from '@/core/components/Menu/MenuItem';
 
 const Menu = ({
   items,
@@ -20,7 +26,9 @@ const Menu = ({
         <ul className={clsx('flex-v-stack min-w-fit', rootClassName)}>
           {items.map((item, index) => {
             const isFunction = typeof item === 'function';
-            const Item = !isFunction ? item : item({ close });
+            const Item = (!isFunction ? item : item({ close })) as ReactElement<
+              HTMLAttributes<HTMLElement>
+            >;
 
             return (
               <Fragment key={index}>

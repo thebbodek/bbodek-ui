@@ -47,7 +47,7 @@ export const CalendarDayComponent = ({
                     className={clsx(
                       'relative my-1 flex h-[1.5rem] items-center justify-center',
                       {
-                        'w-[1.5rem] rounded-full bg-gray-01':
+                        'bg-gray-01 w-[1.5rem] rounded-full':
                           calendarDate.isToday,
                         'text-gray-03': !calendarDate.isThisMonth,
                       },
@@ -63,7 +63,7 @@ export const CalendarDayComponent = ({
                         key={index}
                         text={`(${quantity})`}
                         theme='body-02-bold'
-                        className='absolute top-1/2 -translate-y-1/2 translate-x-[calc(100%+0.25rem)]'
+                        className='absolute top-1/2 translate-x-[calc(100%+0.25rem)] -translate-y-1/2'
                         color={`${
                           !calendarDate.isThisMonth
                             ? 'gray-03'
@@ -113,13 +113,15 @@ export const CalendarDayComponent = ({
                                 <Typography
                                   element='p'
                                   theme='body-03-bold'
-                                  text={`${schedulesData[
-                                    markedDate
-                                  ].markedDates?.slice(
-                                    3,
-                                    schedulesData[markedDate].markedDates
-                                      ?.length ?? 0,
-                                  ).length}개 더보기`}
+                                  text={`${
+                                    schedulesData[
+                                      markedDate
+                                    ].markedDates?.slice(
+                                      3,
+                                      schedulesData[markedDate].markedDates
+                                        ?.length ?? 0,
+                                    ).length
+                                  }개 더보기`}
                                   color='gray-06'
                                 />
                               </div>

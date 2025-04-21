@@ -32,7 +32,7 @@ export const CalendarWeekDayComponent = ({
           text={convertWeekdayNumberToString(weekdayNumber)}
           theme='body-02-regular'
           color='gray-06'
-          className='!text-inherit md:text-body-01-regular'
+          className='md:text-body-01-regular text-inherit!'
         />
       ))}
     </div>

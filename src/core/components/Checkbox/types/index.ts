@@ -1,9 +1,9 @@
 import { InputHTMLAttributes } from 'react';
 
-import { CHECKBOX_TYPE, GAP, SVG_SIZE } from '../constants';
-import { ColorThemeType } from '@/types';
-import { TypographyProps } from '@/core/components/Typography/types';
 import { IconComponentProps } from '@/core/components/Icon/types';
+import { TypographyProps } from '@/core/components/Typography/types';
+import { ColorThemeType } from '@/types';
+import { CHECKBOX_TYPE, GAP, SVG_SIZE } from '../constants';
 
 export type SvgSizeType = (typeof SVG_SIZE)[keyof typeof SVG_SIZE];
 

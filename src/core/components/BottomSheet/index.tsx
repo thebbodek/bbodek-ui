@@ -39,7 +39,7 @@ const BottomSheet = forwardRef(
       >
         <div
           className={clsx(
-            'safe-area-bottom animate-bottom-sheet overflow-y-hidden bg-white',
+            'animate-bottom-sheet safe-area-bottom overflow-y-hidden bg-white',
             !isFullScreen && BOTTOM_SHEET_ROUNDED_VARIANTS_MAPPER[rounded],
           )}
         >
@@ -53,7 +53,7 @@ const BottomSheet = forwardRef(
                 aria-label='창 닫기'
                 icon={
                   <Icon
-                    className={'text-[0.8125rem] text-gray-07'}
+                    className={'text-gray-07 text-[0.8125rem]'}
                     iconKey={'x'}
                     weight={'bold'}
                   />

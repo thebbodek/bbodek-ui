@@ -231,5 +231,4 @@ export default {
     { pattern: /text-subhead-/ },
     { pattern: /text-body-/ },
   ],
-  plugins: [],
 };

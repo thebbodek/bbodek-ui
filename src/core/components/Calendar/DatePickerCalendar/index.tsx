@@ -82,7 +82,7 @@ const DatePickerCalendar = ({
         onNextMonthClick={commonOperations.onNextMonthClick}
         monthButtonStatus={monthButtonStatus}
       />
-      <CalendarWeekDayComponent className='mb-4 text-gray-06' />
+      <CalendarWeekDayComponent className='text-gray-06 mb-4' />
       <div className={'flex-1'}>
         {commonModels.calendarDates.map((calendarWeekDates, index) => (
           <DatePickerCalendarWeek
