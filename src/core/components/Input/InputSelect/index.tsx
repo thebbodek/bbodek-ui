@@ -39,7 +39,7 @@ const InputSelect = forwardRef(
           <select
             ref={ref}
             className={clsx(
-              'w-full cursor-pointer outline-none',
+              'w-full cursor-pointer outline-hidden',
               !value && !isSelectedValue ? 'text-gray-05' : 'text-gray-08',
               className,
             )}

@@ -1,18 +1,18 @@
-import { MouseEvent, PropsWithChildren } from 'react';
 import clsx from 'clsx';
+import { MouseEvent, PropsWithChildren } from 'react';
 
+import { COLOR_THEME_STYLES } from '@/constants/theme';
+import AvatarContent from '@/core/components/Avatar/AvatarContent';
 import {
   AVATAR_SIZE,
   AVATAR_SIZE_VARIANTS,
 } from '@/core/components/Avatar/constants';
+import { AvatarTriggerProps } from '@/core/components/Avatar/types';
+import getAvatarColorTheme from '@/core/components/Avatar/utils/getAvatarColorTheme';
 import {
   BUTTON_ROUNDED,
   ROUNDED,
 } from '@/core/components/Button/ButtonBase/constants';
-import { COLOR_THEME_STYLES } from '@/constants/theme';
-import { AvatarTriggerProps } from '@/core/components/Avatar/types';
-import getAvatarColorTheme from '@/core/components/Avatar/utils/getAvatarColorTheme';
-import AvatarContent from '@/core/components/Avatar/AvatarContent';
 
 const AvatarTrigger = ({
   src,

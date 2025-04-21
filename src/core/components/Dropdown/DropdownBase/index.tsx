@@ -38,7 +38,7 @@ const DropdownBase = ({
   };
   const isVisibleContent = !readOnly && !disabled && isToggle;
   const hasInputLabel = badge || label || sub;
-  const { triggerRef, popoverRef, style } = usePopoverPosition({
+  const { triggerRef, popoverRef, style } = usePopoverPosition<HTMLDivElement>({
     isOpen: isToggle,
     gap: 4,
     applyMaxWidth,
@@ -50,7 +50,7 @@ const DropdownBase = ({
     if (badge && label) {
       return (
         <div className={'flex items-center gap-x-0.5'}>
-          <div className={'flex-shrink-0'}>{badge}</div>
+          <div className={'shrink-0'}>{badge}</div>
           <div className='flex flex-1 items-center justify-between'>
             {label && (
               <label>

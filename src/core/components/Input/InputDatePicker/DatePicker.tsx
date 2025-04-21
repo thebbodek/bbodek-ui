@@ -80,7 +80,7 @@ const DatePicker = ({
     <ModalPopUp isOpen={isOpen}>
       <div
         className={clsx(
-          'w-[calc(100vw-1rem)] min-w-[20rem] max-w-[26rem] rounded-xl bg-white',
+          'w-[calc(100vw-1rem)] max-w-[26rem] min-w-[20rem] rounded-xl bg-white',
           { 'max-w-[35rem]': useTab },
         )}
       >
@@ -102,7 +102,7 @@ const DatePicker = ({
           {useTab && (
             <GeneralTab
               items={tabItems}
-              className='mt-3 !rounded-xl !p-1.5 md:mt-4 md:p-2 [&_span]:!rounded-lg [&_span]:p-1.5 [&_span]:text-body-02-bold md:[&_span]:p-2 md:[&_span]:text-body-01-bold'
+              className='[&_span]:text-body-02-bold md:[&_span]:text-body-01-bold mt-3 rounded-xl! p-1.5! md:mt-4 md:p-2 [&_span]:rounded-lg! [&_span]:p-1.5 md:[&_span]:p-2'
             />
           )}
         </header>

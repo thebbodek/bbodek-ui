@@ -1,10 +1,10 @@
-import { PropsWithChildren } from 'react';
 import clsx from 'clsx';
+import { PropsWithChildren } from 'react';
 
+import Avatar from '@/core/components/Avatar';
+import { AVATAR_SPACING } from '@/core/components/AvatarGroup/constants';
 import { AvatarGroupProps } from '@/core/components/AvatarGroup/types';
 import { SIZE } from '@/core/components/Label/constants';
-import { AVATAR_SPACING } from '@/core/components/AvatarGroup/constants';
-import Avatar from '@/core/components/Avatar';
 
 const AvatarGroup = ({
   items,

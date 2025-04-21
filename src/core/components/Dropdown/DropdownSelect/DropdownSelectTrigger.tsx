@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import { DropdownSelectTriggerProps } from './types';
+import DropdownSelectIcon from '@/core/components/Dropdown/DropdownSelect/DropdownSelectIcon';
 import Typography from '../../Typography';
 import DropdownBase from '../DropdownBase';
-import DropdownSelectIcon from '@/core/components/Dropdown/DropdownSelect/DropdownSelectIcon';
+import { DropdownSelectTriggerProps } from './types';
 
 const DropdownSelectTrigger = forwardRef(
   (
@@ -13,7 +13,7 @@ const DropdownSelectTrigger = forwardRef(
   ) => {
     const { className, placeholder, ...rest } = props;
     const showPlaceholder = placeholder && !currentValue;
-    const label = currentValue ? currentValue : placeholder ?? '';
+    const label = currentValue ? currentValue : (placeholder ?? '');
 
     return (
       <DropdownBase.Trigger

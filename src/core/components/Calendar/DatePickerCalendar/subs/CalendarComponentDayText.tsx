@@ -46,7 +46,7 @@ export const CalendarComponentDayText = ({
   return (
     <div
       className={clsx('relative flex flex-col items-center justify-between', {
-        "before:absolute before:z-20 before:block before:h-full before:w-1/2 before:translate-x-1/2 before:bg-primary-00 before:content-['']":
+        "before:bg-primary-00 before:absolute before:z-20 before:block before:h-full before:w-1/2 before:translate-x-1/2 before:content-['']":
           isStartDate || isEndDate || (afterAllDate && singleSelectedDate),
         'before:translate-x-1/2': isStartDate,
         'before:translate-x-[-50%]': isEndDate,
@@ -54,7 +54,7 @@ export const CalendarComponentDayText = ({
     >
       <div
         className={clsx(
-          'relative z-20 flex h-[2rem] items-center justify-center text-body-02-bold leading-none text-black md:h-[2.375rem] md:text-body-01-bold',
+          'text-body-02-bold md:text-body-01-bold relative z-20 flex h-[2rem] items-center justify-center leading-none text-black md:h-[2.375rem]',
           !isExceptionDate && disabled
             ? !isActiveDate
               ? 'text-gray-05'
@@ -66,14 +66,14 @@ export const CalendarComponentDayText = ({
             'h-[2rem] w-[2rem] rounded-full md:h-[2.375rem] md:w-[2.375rem]',
           isActiveDate && 'bg-primary-03',
           calendarDate.isToday &&
-            'h-[2rem] w-[2rem] bg-gray-03 md:h-[2.375rem] md:w-[2.375rem]',
+            'bg-gray-03 h-[2rem] w-[2rem] md:h-[2.375rem] md:w-[2.375rem]',
           !isExceptionDate && !disabled && isTemporaryDate && 'bg-error',
           isExceptionDate && 'bg-gray-05',
           isMarkedPeriod &&
             !isTemporaryDate &&
-            'w-full rounded-none bg-primary-00',
-          isMarkedPeriod && isTemporaryDate && '!w-full rounded-none bg-error',
-          isMarkedPeriod && calendarDate.isToday && '!w-full !text-primary-03',
+            'bg-primary-00 w-full rounded-none',
+          isMarkedPeriod && isTemporaryDate && 'bg-error w-full! rounded-none',
+          isMarkedPeriod && calendarDate.isToday && 'text-primary-03! w-full!',
           isActiveDate && disabled && 'bg-primary-01',
         )}
       >

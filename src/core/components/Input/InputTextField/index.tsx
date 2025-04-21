@@ -43,7 +43,7 @@ const InputTextField = forwardRef(
     });
     const ResetIcon = (
       <Icon
-        className={'rounded-full text-[140%] text-gray-05'}
+        className={'text-gray-05 rounded-full text-[140%]'}
         iconKey={'x-circle'}
         weight={'fill'}
       />

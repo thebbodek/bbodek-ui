@@ -37,7 +37,7 @@ const DropdownItems = forwardRef(
       <div
         ref={ref}
         className={clsx(
-          'overflow-hidden rounded-lg border border-gray-03 bg-white shadow-md',
+          'border-gray-03 overflow-hidden rounded-lg border bg-white shadow-md',
           useSearch && 'flex-v-stack',
           rootClassName,
         )}
@@ -50,7 +50,7 @@ const DropdownItems = forwardRef(
             placeholder={placeholder ?? '검색어를 입력하세요'}
             inputRef={inputRef}
             rootClassName={clsx(
-              'border-b border-b-gray-02 p-2',
+              'border-b-gray-02 border-b p-2',
               inputRootClassName,
             )}
             {...restInputProps}
@@ -62,7 +62,7 @@ const DropdownItems = forwardRef(
           itemHeight={itemHeight}
           itemsTotalCount={items.length}
           gap={gap}
-          className={clsx('overflow-x-hidden whitespace-nowrap p-1', className)}
+          className={clsx('overflow-x-hidden p-1 whitespace-nowrap', className)}
         >
           {({ startIndex, endIndex, getTopPosition }) =>
             items.slice(startIndex, endIndex).map((item, index) => (

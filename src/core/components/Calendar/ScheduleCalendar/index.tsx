@@ -45,8 +45,8 @@ const ScheduleCalendar = ({
         onNextMonthClick={operations.onNextMonthClick}
         monthButtonStatus={monthButtonStatus}
       />
-      <CalendarWeekDayComponent className='gap-x-[1px] border border-b-0 border-gray-03 bg-gray-03 py-1 text-gray-07' />
-      <div className='flex-v-stack gap-y-[1px] border border-t-0 border-gray-03 bg-gray-03'>
+      <CalendarWeekDayComponent className='border-gray-03 bg-gray-03 text-gray-07 gap-x-[1px] border border-b-0 py-1' />
+      <div className='flex-v-stack border-gray-03 bg-gray-03 gap-y-[1px] border border-t-0'>
         <CalendarDayComponent
           defaultQuantity={defaultQuantity}
           schedulesData={schedulesData}

@@ -14,7 +14,7 @@ const TableTab = forwardRef(
     return (
       <ul
         ref={ref}
-        className={clsx('flex border-b border-gray-01', className)}
+        className={clsx('border-gray-01 flex border-b', className)}
         {...rest}
       >
         {items}

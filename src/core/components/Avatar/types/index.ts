@@ -2,14 +2,14 @@ import { Dispatch, HTMLAttributes, SetStateAction } from 'react';
 
 import { AVATAR_SIZE_VARIANTS } from '@/core/components/Avatar/constants';
 import { RoundedType } from '@/core/components/Button/ButtonBase/types';
-import { ColorThemeType } from '@/types';
 import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
+import { ColorThemeType } from '@/types';
 
 export type AvatarSizeVariants =
   (typeof AVATAR_SIZE_VARIANTS)[keyof typeof AVATAR_SIZE_VARIANTS];
 
 export interface AvatarProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'content'>,
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'content' | 'popover'>,
     Partial<Omit<PopoverProps, 'trigger'>> {
   src?: string;
   alt?: string;

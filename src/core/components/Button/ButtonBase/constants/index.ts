@@ -43,7 +43,7 @@ export const BUTTON_ROUNDED: Record<RoundedType, string> = {
   [ROUNDED['ROUNDED_FULL']]: 'rounded-full',
   [ROUNDED['ROUNDED_12']]: 'rounded-xl',
   [ROUNDED['ROUNDED_6']]: 'rounded-md',
-  [ROUNDED['ROUNDED_2']]: 'rounded-sm',
+  [ROUNDED['ROUNDED_2']]: 'rounded-xs',
 };
 
 export const BUTTON_GAP: Record<GapType, string> = {

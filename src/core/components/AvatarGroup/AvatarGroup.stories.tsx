@@ -32,7 +32,7 @@ const members = ['강준영', '정휘영', '박진주', '김미림', '이준호'
 const items = members.map((member) => (
   <Avatar
     key={member}
-    popover={<>{member}</>}
+    popover={() => <>{member}</>}
     popoverOptions={{ colorTheme: 'white', className: 'p-2' }}
     alt={member}
   >

@@ -1,9 +1,9 @@
 import { ElementType, HTMLAttributes, ReactElement } from 'react';
 
 import { ButtonProps } from '@/core/components/Button/Button/types';
-import { LightColorThemeType } from '@/types';
-import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import MenuPopoverItem from '@/core/components/Menu/MenuItem';
+import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
+import { LightColorThemeType } from '@/types';
 
 export interface MenuProps
   extends Omit<PopoverProps, 'popover'>,

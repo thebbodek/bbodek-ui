@@ -1,7 +1,8 @@
 import { HTMLAttributes, RefObject } from 'react';
+
 import { ChipProps } from '@/core/components/Chip/types';
 
-export interface ChipsParams
+export interface ChipsProps
   extends Pick<HTMLAttributes<HTMLUListElement>, 'className'>,
     Pick<
       ChipProps<'li'>,
@@ -13,7 +14,7 @@ export interface ChipsParams
       | 'backgroundColor'
       | 'borderColor'
     > {
-  rootRef: RefObject<HTMLUListElement>;
+  rootRef: RefObject<HTMLUListElement | null>;
   items: ({ id: string } & Pick<ChipProps<'li'>, 'label' | 'icon'>)[];
   onDelete?: (item: { id: string }) => void;
 }

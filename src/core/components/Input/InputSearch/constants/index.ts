@@ -11,5 +11,5 @@ export const INPUT_SEARCH_ROUNDED: Record<RoundedType, string> = {
   [ROUNDED['ROUNDED_FULL']]: 'rounded-full',
   [ROUNDED['ROUNDED_12']]: 'rounded-xl',
   [ROUNDED['ROUNDED_8']]: 'rounded-lg',
-  [ROUNDED['ROUNDED_4']]: 'rounded',
+  [ROUNDED['ROUNDED_4']]: 'rounded-sm',
 };

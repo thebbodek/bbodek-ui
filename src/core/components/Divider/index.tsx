@@ -5,6 +5,6 @@ export default function Divider({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={clsx('h-[1px] w-full bg-gray-02', className)} {...props} />
+    <div className={clsx('bg-gray-02 h-[1px] w-full', className)} {...props} />
   );
 }

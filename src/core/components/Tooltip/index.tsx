@@ -11,24 +11,24 @@ import {
   useHover,
   useInteractions,
 } from '@floating-ui/react';
-import { useRef, useState } from 'react';
 import clsx from 'clsx';
+import { useRef, useState } from 'react';
 
+import { COLOR_THEME, COLOR_THEME_STYLES } from '@/constants/theme';
+import { THEME_TYPOGRAPHY } from '@/constants/typography';
 import {
   BUTTON_ROUNDED,
   ROUNDED,
 } from '@/core/components/Button/ButtonBase/constants';
+import IconButton from '@/core/components/Button/IconButton';
+import Icon from '@/core/components/Icon';
 import {
   ARROW_HEIGHT,
   FILL_COLOR_THEME_STYLES,
 } from '@/core/components/Tooltip/constants';
-import { COLOR_THEME, COLOR_THEME_STYLES } from '@/constants/theme';
-import { THEME_TYPOGRAPHY } from '@/constants/typography';
+import { useUpdateIsOpenEffect } from '@/core/components/Tooltip/hooks/effects/useUpdateIsOpenEffect';
 import { TooltipProps } from '@/core/components/Tooltip/types';
 import { ThemeTypography } from '@/types';
-import { useUpdateIsOpenEffect } from '@/core/components/Tooltip/hooks/effects/useUpdateIsOpenEffect';
-import IconButton from '@/core/components/Button/IconButton';
-import Icon from '@/core/components/Icon';
 
 const Tooltip = ({
   content,
@@ -97,8 +97,8 @@ const Tooltip = ({
             style={floatingStyles}
             {...getFloatingProps()}
             className={clsx(
-              `break-keep rounded-[0.375rem] py-1 text-${theme} z-[10000] animate-[fade-in_.1s_ease-in-out_1]`,
-              useCloseButton ? 'flex gap-x-1 pl-2.5 pr-1' : 'px-2.5',
+              `rounded-[0.375rem] py-1 break-keep text-${theme} z-[10000] animate-[fade-in_.1s_ease-in-out_1]`,
+              useCloseButton ? 'flex gap-x-1 pr-1 pl-2.5' : 'px-2.5',
               BUTTON_ROUNDED[rounded],
               COLOR_THEME_STYLES[colorTheme],
               className,

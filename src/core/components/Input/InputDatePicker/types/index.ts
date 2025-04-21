@@ -1,3 +1,5 @@
+import { InputHTMLAttributes } from 'react';
+
 import {
   DatePickerCalendarProps,
   PeriodDates,
@@ -27,12 +29,6 @@ export interface DatePickerProps
   hasDatePickerTitle?: boolean;
 }
 
-type CreateOverlayElement = (props: {
-  isOpen: boolean;
-  close: () => void;
-  exit: () => void;
-}) => JSX.Element;
-
 export interface InputDatePickerProps
   extends Omit<
       DatePickerProps,
@@ -52,13 +48,10 @@ export interface InputDatePickerProps
       | 'required'
       | 'sub'
       | 'badge'
-    > {
+      | 'className'
+    >,
+    Pick<InputHTMLAttributes<HTMLInputElement>, 'placeholder'> {
   inputClassName?: string;
   label?: string;
   getPeriodDates: DatePickerCalendarProps['onDateClick'];
-  overlay: {
-    open: (overlayElement: CreateOverlayElement) => void;
-    close: () => void;
-    exit: () => void;
-  };
 }

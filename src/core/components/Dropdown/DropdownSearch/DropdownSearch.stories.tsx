@@ -349,7 +349,7 @@ export const CustomDropdownSearch = () => {
       label: (
         <div className={'flex items-center gap-2.5'}>
           <Avatar
-            className={'flex-shrink-0'}
+            className={'shrink-0'}
             src={url}
             alt={author}
             disabled={disabled}

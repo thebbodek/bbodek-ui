@@ -1,10 +1,10 @@
 import { ReactElement, ReactNode } from 'react';
 
-import { DropdownSelectTriggerProps } from '@/core/components/Dropdown/DropdownSelect/types';
 import {
   DropdownItemsProps,
   DropdownProps,
 } from '@/core/components/Dropdown/DropdownBase/types';
+import { DropdownSelectTriggerProps } from '@/core/components/Dropdown/DropdownSelect/types';
 
 export type DropdownSearchValueType = string | null | number;
 

@@ -7,6 +7,8 @@ import {
   ReactElement,
 } from 'react';
 
+import Portal from '@/core/components/Portal';
+import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
 import useClickOutside from '@/hooks/useClickOutSide';
 import {
   MODAL_CONTENT_POSITION,
@@ -15,8 +17,6 @@ import {
   VARIANTS,
 } from './constants';
 import { ModalBaseProps } from './types';
-import Portal from '@/core/components/Portal';
-import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
 
 const ModalBase = forwardRef(
   (
@@ -57,7 +57,7 @@ const ModalBase = forwardRef(
         <dialog
           ref={ref}
           className={clsx(
-            'left-0 top-0 h-full w-full overflow-hidden open:animate-fade-in',
+            'open:animate-fade-in top-0 left-0 h-full w-full overflow-hidden',
             variants === VARIANTS['MODAL'] && 'safe-area-bottom',
             MODAL_CONTENT_POSITION[variants],
             dimmed && MODAL_DIMMED_COLOR[variants],

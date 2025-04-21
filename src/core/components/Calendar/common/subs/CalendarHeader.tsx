@@ -40,12 +40,12 @@ export const CalendarHeader = ({
         className={'flex min-w-[6rem] items-center justify-between text-black'}
       >
         <Typography
-          className='text-center md:text-head-02-regular'
+          className='md:text-head-02-regular text-center'
           theme='subhead-01-medium'
           text={year}
         />
         <Typography
-          className='text-center md:text-head-02-regular'
+          className='md:text-head-02-regular text-center'
           color='black'
           theme='subhead-01-medium'
           text={month}

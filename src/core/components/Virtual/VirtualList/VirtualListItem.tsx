@@ -12,7 +12,7 @@ const VirtualListItem = <T extends ElementType = 'div'>({
 }: PropsWithChildren<VirtualListItemProps<T>>) => {
   const Component: React.ElementType = Element || 'div';
   const classNames = clsx(
-    'absolute left-0 right-0 top-0 flex items-center will-change-transform',
+    'absolute top-0 right-0 left-0 flex items-center will-change-transform',
     className,
   );
   const style = {

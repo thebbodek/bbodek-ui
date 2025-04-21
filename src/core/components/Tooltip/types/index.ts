@@ -1,3 +1,4 @@
+import { UseFloatingOptions } from '@floating-ui/react';
 import {
   Dispatch,
   HTMLAttributes,
@@ -5,7 +6,6 @@ import {
   ReactNode,
   SetStateAction,
 } from 'react';
-import { UseFloatingOptions } from '@floating-ui/react';
 
 import { ButtonProps } from '@/core/components/Button/Button/types';
 import { TypographyProps } from '@/core/components/Typography/types';

@@ -1,19 +1,19 @@
 import clsx from 'clsx';
-import { HTMLAttributes, useEffect, useId, useState } from 'react';
+import { overlay } from 'overlay-kit';
+import { useEffect, useId, useState } from 'react';
 
+import Icon from '@/core/components/Icon';
+import { getDayjs } from '@/utilities/day';
 import { DATE_PICKER_TYPE } from '../../Calendar/DatePickerCalendar/constants';
 import { PeriodDates } from '../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps';
 import InputBase from '../InputBase';
 import DatePicker from './DatePicker';
 import { InputDatePickerProps } from './types';
-import { getDayjs } from '@/utilities/day';
-import Icon from '@/core/components/Icon';
 
 const InputDatePicker = ({
   variants = DATE_PICKER_TYPE['PERIOD'],
   cutoffDate,
   cutoffAfterDate,
-  overlay,
   disabledDates,
   initialDate,
   isFixStartDate,
@@ -38,8 +38,7 @@ const InputDatePicker = ({
   hasDatePickerTitle,
   sub,
   temporaryDates,
-}: InputDatePickerProps &
-  Omit<HTMLAttributes<HTMLInputElement>, 'disabled' | 'readOnly'>) => {
+}: InputDatePickerProps) => {
   const id = useId();
   const [periodDates, setPeriodDates] = useState<PeriodDates>({
     startDate: '',
@@ -50,33 +49,30 @@ const InputDatePicker = ({
   const isDisabled = readOnly || disabled;
 
   const onDatePickerClick = (): Promise<PeriodDates> => {
-    return new Promise((resolve) => {
-      overlay.open(({ isOpen, close }) => (
-        <DatePicker
-          temporaryDates={temporaryDates}
-          hasDatePickerTitle={hasDatePickerTitle}
-          isFixStartDate={isFixStartDate}
-          variants={variants}
-          disabled={isDisabled}
-          isOpen={isOpen}
-          close={(periodDates: PeriodDates, isAfterAllDate?: boolean) => {
-            resolve(periodDates);
-            getPeriodDates(periodDates, isAfterAllDate);
-            close();
-          }}
-          dateLabel={dateLabel}
-          initialDate={initialDate}
-          cutoffDate={cutoffDate}
-          cutoffAfterDate={cutoffAfterDate}
-          externalDates={periodDates}
-          useTab={useTab}
-          useHoliday={useHoliday}
-          disabledDates={disabledDates}
-          closeButtonText={closeButtonText}
-          afterAllDate={afterAllDate}
-        />
-      ));
-    });
+    return overlay.openAsync(({ isOpen, close }) => (
+      <DatePicker
+        temporaryDates={temporaryDates}
+        hasDatePickerTitle={hasDatePickerTitle}
+        isFixStartDate={isFixStartDate}
+        variants={variants}
+        disabled={isDisabled}
+        isOpen={isOpen}
+        close={(periodDates: PeriodDates, isAfterAllDate?: boolean) => {
+          getPeriodDates(periodDates, isAfterAllDate);
+          close(periodDates);
+        }}
+        dateLabel={dateLabel}
+        initialDate={initialDate}
+        cutoffDate={cutoffDate}
+        cutoffAfterDate={cutoffAfterDate}
+        externalDates={periodDates}
+        useTab={useTab}
+        useHoliday={useHoliday}
+        disabledDates={disabledDates}
+        closeButtonText={closeButtonText}
+        afterAllDate={afterAllDate}
+      />
+    ));
   };
 
   const handleDatePicker = async () => {
@@ -141,7 +137,7 @@ const InputDatePicker = ({
       endComponent={
         <Icon
           iconKey={'calendar-blank'}
-          className={'text-[120%] text-gray-05'}
+          className={'text-gray-05 text-[120%]'}
         />
       }
     />

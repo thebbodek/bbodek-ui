@@ -69,7 +69,7 @@ export const CalendarComponentDaySubText = ({
     <Typography
       text={dayLabel()}
       theme='body-03-regular'
-      className='flex h-[1.5rem] items-center justify-center whitespace-nowrap md:text-body-02-regular'
+      className='md:text-body-02-regular flex h-[1.5rem] items-center justify-center whitespace-nowrap'
       color={getLabelColor()}
     />
   );

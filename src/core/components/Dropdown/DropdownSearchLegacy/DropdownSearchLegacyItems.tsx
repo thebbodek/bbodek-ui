@@ -34,7 +34,7 @@ const DropdownSearchLegacyItems = <T extends DropdownSearchLegacyValueType>({
         return [
           <div
             key={'empty'}
-            className='flex flex-1 items-center justify-center text-center text-body-01-medium text-gray-05'
+            className='text-body-01-medium text-gray-05 flex flex-1 items-center justify-center text-center'
           >
             검색된 결과가 없습니다
           </div>,
@@ -46,7 +46,7 @@ const DropdownSearchLegacyItems = <T extends DropdownSearchLegacyValueType>({
       <div key={'loading'} className='flex flex-1 items-center justify-center'>
         <Icon
           iconKey='circle-notch'
-          className='animate-spin text-subhead-01-regular'
+          className='text-subhead-01-regular animate-spin'
         />
       </div>,
     ];
