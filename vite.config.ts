@@ -14,6 +14,6 @@ export default defineConfig({
       formats: ['es'],
       fileName: (format) => `bbodek-ui.${format}.js`,
     },
-    rollupOptions: { external: ['react', 'react-dom'] },
+    rollupOptions: { external: ['react', 'react-dom', 'overlay-kit'] },
   },
 });
