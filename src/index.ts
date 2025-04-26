@@ -110,6 +110,7 @@ export type {
 export type {
   DropdownMultipleItemProps,
   DropdownMultipleTriggerProps,
+  ValueWithLabel,
   ValueWithLabelType,
 } from '@/core/components/Dropdown/DropdownMultiple/types';
 export type {
