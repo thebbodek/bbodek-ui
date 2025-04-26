@@ -110,9 +110,11 @@ export type {
 export type {
   DropdownMultipleItemProps,
   DropdownMultipleTriggerProps,
+  ValueWithLabelType,
 } from '@/core/components/Dropdown/DropdownMultiple/types';
 export type {
   DropdownSearchItemsProps,
+  DropdownSearchOnChangeReturnType,
   DropdownSearchOption,
   DropdownSearchProps,
   DropdownSearchTriggerProps,
@@ -138,7 +140,10 @@ export type { MenuItemProps, MenuProps } from '@/core/components/Menu/types';
 export type { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
 export type { ModalPopUpProps } from '@/core/components/Modal/ModalPopUp/types';
 export type { InfoPopoverProps } from '@/core/components/Popover/InfoPopover/types';
-export type { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
+export type {
+  PopoverChildrenProps,
+  PopoverProps,
+} from '@/core/components/Popover/PopoverBase/types';
 export type { PortalProps } from '@/core/components/Portal/types';
 export type { RadioProps } from '@/core/components/Radio/types';
 export type { SectionProps } from '@/core/components/Section/types';
