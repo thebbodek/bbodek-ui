@@ -92,7 +92,10 @@ export type {
   PeriodDates,
   UseDatePickerCalendarResponse,
 } from '@/core/components/Calendar/DatePickerCalendar/types/DatePickerCalendarProps';
-export type { CalendarComponentProps } from '@/core/components/Calendar/ScheduleCalendar/types/CalendarComponentProps';
+export type {
+  CalendarComponentProps,
+  SchedulesDataProps,
+} from '@/core/components/Calendar/ScheduleCalendar/types/CalendarComponentProps';
 export type { CheckboxProps } from '@/core/components/Checkbox/types';
 export type { ChipProps } from '@/core/components/Chip/types';
 export type { ChipsProps } from '@/core/components/Chips/types';
