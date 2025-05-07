@@ -1,3 +1,6 @@
+// styles
+import './styles/bbodek-theme.css';
+
 // components
 export { default as Avatar } from '@/core/components/Avatar';
 export { default as AvatarGroup } from '@/core/components/AvatarGroup';
