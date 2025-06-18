@@ -7,6 +7,9 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     return mergeConfig(config, {
       plugins: [tsconfigPaths()],
+      server: {
+        allowedHosts: ['bbodek.ngrok.io'],
+      },
     });
   },
   addons: [
