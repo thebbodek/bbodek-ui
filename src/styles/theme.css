@@ -1,0 +1,142 @@
+@theme {
+  --color-white: #ffffff;
+  --color-black: #101828;
+  --color-gray-09: #f5f5f5;
+  --color-gray-08: #1c273e;
+  --color-gray-07: #333d52;
+  --color-gray-06: #7c8497;
+  --color-gray-05: #a9b2c7;
+  --color-gray-04: #8588a1;
+  --color-gray-03: #dbe1ed;
+  --color-gray-02: #eaeef6;
+  --color-gray-01: #eff2f9;
+  --color-gray-00: #f8faff;
+  --color-primary-06: #002f75;
+  --color-primary-05: #003c96;
+  --color-primary-04: #004dc0;
+  --color-primary-03: #206fe4;
+  --color-primary-02: #3d89fa;
+  --color-primary-01: #9dc5ff;
+  --color-primary-00: #deebff;
+  --color-error: #ff5260;
+  --color-warning: #ffbb6a;
+  --color-success: #79d4b4;
+  --color-transparent: transparent;
+
+  --text-head-01-regular: 1.75rem;
+  --text-head-01-regular--line-height: 1.5;
+  --text-head-01-regular--font-weight: 400;
+  --text-head-01-medium: 1.75rem;
+  --text-head-01-medium--line-height: 1.5;
+  --text-head-01-medium--font-weight: 500;
+  --text-head-01-bold: 1.75rem;
+  --text-head-01-bold--line-height: 1.5;
+  --text-head-01-bold--font-weight: 700;
+
+  --text-head-02-regular: 1.5rem;
+  --text-head-02-regular--line-height: 1.5;
+  --text-head-02-regular--font-weight: 400;
+  --text-head-02-medium: 1.5rem;
+  --text-head-02-medium--line-height: 1.5;
+  --text-head-02-medium--font-weight: 500;
+  --text-head-02-bold: 1.5rem;
+  --text-head-02-bold--line-height: 1.5;
+  --text-head-02-bold--font-weight: 700;
+
+  --text-subhead-01-regular: 1.25rem;
+  --text-subhead-01-regular--line-height: 1.5;
+  --text-subhead-01-regular--font-weight: 400;
+  --text-subhead-01-medium: 1.25rem;
+  --text-subhead-01-medium--line-height: 1.5;
+  --text-subhead-01-medium--font-weight: 500;
+  --text-subhead-01-bold: 1.25rem;
+  --text-subhead-01-bold--line-height: 1.5;
+  --text-subhead-01-bold--font-weight: 700;
+
+  --text-subhead-02-regular: 1.125rem;
+  --text-subhead-02-regular--line-height: 1.5;
+  --text-subhead-02-regular--font-weight: 400;
+  --text-subhead-02-medium: 1.125rem;
+  --text-subhead-02-medium--line-height: 1.5;
+  --text-subhead-02-medium--font-weight: 500;
+  --text-subhead-02-bold: 1.125rem;
+  --text-subhead-02-bold--line-height: 1.5;
+  --text-subhead-02-bold--font-weight: 700;
+
+  --text-body-01-regular: 1rem;
+  --text-body-01-regular--line-height: 1.5;
+  --text-body-01-regular--font-weight: 400;
+  --text-body-01-medium: 1rem;
+  --text-body-01-medium--line-height: 1.5;
+  --text-body-01-medium--font-weight: 500;
+  --text-body-01-bold: 1rem;
+  --text-body-01-bold--line-height: 1.5;
+  --text-body-01-bold--font-weight: 700;
+
+  --text-body-02-regular: 0.875rem;
+  --text-body-02-regular--line-height: 1.5;
+  --text-body-02-regular--font-weight: 400;
+  --text-body-02-medium: 0.875rem;
+  --text-body-02-medium--line-height: 1.5;
+  --text-body-02-medium--font-weight: 500;
+  --text-body-02-bold: 0.875rem;
+  --text-body-02-bold--line-height: 1.5;
+  --text-body-02-bold--font-weight: 700;
+
+  --text-body-03-regular: 0.75rem;
+  --text-body-03-regular--line-height: 1.5;
+  --text-body-03-regular--font-weight: 400;
+  --text-body-03-medium: 0.75rem;
+  --text-body-03-medium--line-height: 1.5;
+  --text-body-03-medium--font-weight: 500;
+  --text-body-03-bold: 0.75rem;
+  --text-body-03-bold--line-height: 1.5;
+  --text-body-03-bold--font-weight: 700;
+
+  --shadow-section: 0 0.25rem 1.25rem 0.25rem rgba(0, 0, 0, 0.04);
+
+  --radius-default: 1.25rem;
+
+  --font-pretendard: 'Pretendard';
+
+  --animation-fade-in: fade-in 0.2s cubic-bezier(0, 0, 0.5, 1);
+  --animation-popup: popup 0.2s cubic-bezier(0, 0, 0.5, 1);
+  --animation-drawer: drawer 0.2s cubic-bezier(0, 0, 0.5, 1);
+  --animation-bottom-sheet: bottom-sheet 0.2s cubic-bezier(0, 0, 0.5, 1);
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes popup {
+    0% {
+      transform: translateY(1rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes drawer {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes bottom-sheet {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
