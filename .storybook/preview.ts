@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import '../src/styles/bbodek-theme.css';
+import '../src/styles/global.css';
 
 const preview: Preview = {
   parameters: {
