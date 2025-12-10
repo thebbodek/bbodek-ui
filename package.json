@@ -38,15 +38,15 @@
     "dayjs": "^1.11.13",
     "overlay-kit": "^1.7.0",
     "postcss": "^8.4.31",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "react-loading-skeleton": "^3.5.0",
     "tailwindcss": "^4.1.4"
   },
   "peerDependencies": {
     "overlay-kit": "^1.7.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",
@@ -65,8 +65,8 @@
     "@stylistic/eslint-plugin": "^1.4.0",
     "@stylistic/eslint-plugin-ts": "^1.4.0",
     "@types/node": "^22.14.1",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/react": "^19.2.1",
+    "@types/react-dom": "^19.2.1",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "@vitejs/plugin-react": "^4.4.1",
