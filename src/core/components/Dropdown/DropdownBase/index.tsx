@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { createContext, useState } from 'react';
+import { createContext, useRef, useState } from 'react';
 
 import Typography from '../../Typography';
 import DropdownItem from './DropdownItem';
@@ -32,6 +32,7 @@ const DropdownBase = ({
   onClose,
 }: DropdownProps) => {
   const [isToggle, setIsToggle] = useState(false);
+  const listboxRef = useRef<HTMLDivElement | null>(null);
   const close = () => {
     setIsToggle(false);
     onClose?.();
@@ -85,7 +86,7 @@ const DropdownBase = ({
 
   return (
     <DropdownContext.Provider
-      value={{ isToggle, setIsToggle, readOnly, disabled }}
+      value={{ isToggle, setIsToggle, readOnly, disabled, listboxRef }}
     >
       <div className={clsx('flex-v-stack gap-y-1', className)}>
         {hasInputLabel && labelRenderer()}

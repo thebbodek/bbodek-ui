@@ -1,17 +1,17 @@
 import clsx from 'clsx';
-import { forwardRef, Ref, useContext } from 'react';
+import { forwardRef, KeyboardEvent, Ref, useContext } from 'react';
 
 import { DropdownContext } from './index';
 import { DropdownContextValue, DropdownTriggerProps } from './types';
+import { KEYBOARD_DOWN_KEY } from '@/core/components/Dropdown/DropdownBase/constants';
 
 const DropdownTrigger = forwardRef(
   (
     { onClick, className, children, ...props }: DropdownTriggerProps,
     ref: Ref<HTMLButtonElement>,
   ) => {
-    const { isToggle, readOnly, disabled, setIsToggle } = useContext(
-      DropdownContext,
-    ) as DropdownContextValue;
+    const { isToggle, readOnly, disabled, setIsToggle, listboxRef } =
+      useContext(DropdownContext) as DropdownContextValue;
     const content =
       typeof children === 'function'
         ? children({ isToggle, readOnly, disabled })
@@ -25,11 +25,22 @@ const DropdownTrigger = forwardRef(
       onClick?.(e);
     };
 
+    const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+      if (isDisabled) return;
+
+      if (isToggle && e.key === KEYBOARD_DOWN_KEY.ARROW_DOWN) {
+        e.preventDefault();
+
+        listboxRef && listboxRef.current?.focus();
+      }
+    };
+
     return (
       <button
         ref={ref}
         type='button'
         onClick={onClickHandler}
+        onKeyDown={onKeyDown}
         className={clsx(
           'h-full',
           isDisabled

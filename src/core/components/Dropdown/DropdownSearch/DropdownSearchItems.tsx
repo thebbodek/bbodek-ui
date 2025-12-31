@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useRef } from 'react';
 
+import { SEARCH_DROPDOWN_EMPTY_ITEM_KEY } from '@/core/components/Dropdown/DropdownSearch/constants';
 import {
   DropdownSearchItemsProps,
   DropdownSearchLabelType,
@@ -45,7 +46,7 @@ const DropdownSearchItems = <
     } else {
       return [
         <div
-          key={'empty'}
+          key={SEARCH_DROPDOWN_EMPTY_ITEM_KEY}
           className='text-body-01-medium text-gray-05 flex flex-1 items-center justify-center'
         >
           검색된 결과가 없습니다
@@ -64,7 +65,7 @@ const DropdownSearchItems = <
         ...inputProps,
       }}
       itemHeight={!hasSearchedOptions ? 100 : itemHeight}
-      className={clsx('max-h-[14rem]', className)}
+      className={clsx('max-h-56', className)}
       {...props}
       useSearch
     />
