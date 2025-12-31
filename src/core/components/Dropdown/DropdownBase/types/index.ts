@@ -4,12 +4,17 @@ import {
   MouseEvent,
   ReactElement,
   ReactNode,
+  RefObject,
   SetStateAction,
 } from 'react';
 
-import DropdownItem from '../DropdownItem';
-import DropdownItems from '../DropdownItems';
-import DropdownTrigger from '../DropdownTrigger';
+import {
+  DROPDOWN_ITEM_STATE,
+  KEYBOARD_DOWN_KEY,
+} from '@/core/components/Dropdown/DropdownBase/constants';
+import DropdownItem from '@/core/components/Dropdown/DropdownBase/DropdownItem';
+import DropdownItems from '@/core/components/Dropdown/DropdownBase/DropdownItems';
+import DropdownTrigger from '@/core/components/Dropdown/DropdownBase/DropdownTrigger';
 import { FormLabelProps } from '@/core/components/FormLabel/types';
 import { InputSearchProps } from '@/core/components/Input/InputSearch/types';
 import { MenuItemColorTheme, MenuProps } from '@/core/components/Menu/types';
@@ -41,12 +46,14 @@ export interface DropdownContextValue extends Pick<
 > {
   isToggle: boolean;
   setIsToggle: Dispatch<SetStateAction<boolean>>;
+  listboxRef: RefObject<HTMLDivElement | null>;
 }
 
 export interface DropdownItemProps
   extends
     HTMLAttributes<HTMLDivElement>,
     Pick<MenuProps, 'useCloseOnItemClick'> {
+  isFocus?: boolean;
   checked: boolean;
   useCloseOnItemClick?: boolean;
   disabled?: boolean;
@@ -58,7 +65,7 @@ export interface DropdownItemsProps
     Pick<HTMLAttributes<HTMLUListElement>, 'className'>,
     Partial<Pick<VirtualListProps, 'itemHeight' | 'gap'>> {
   rootClassName?: string;
-  items: ReactNode[];
+  items: ReactElement[];
   useSearch?: boolean;
   inputProps?: Omit<InputSearchProps<'div'>, 'rootElement' | 'rounded'> &
     Partial<Pick<InputSearchProps<'div'>, 'rounded'>>;
@@ -86,3 +93,9 @@ export type ReturnType = Dropdown & {
   Items: typeof DropdownItems;
   Item: typeof DropdownItem;
 };
+
+export type DropdownItemStateValue =
+  (typeof DROPDOWN_ITEM_STATE)[keyof typeof DROPDOWN_ITEM_STATE];
+
+export type KeyboardDownType =
+  (typeof KEYBOARD_DOWN_KEY)[keyof typeof KEYBOARD_DOWN_KEY];
