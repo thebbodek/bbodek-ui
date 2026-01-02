@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { filterSearch } from '@/utilities/search';
+import DropdownSearchItems from '@/core/components/Dropdown/DropdownSearch/DropdownSearchItems';
+import DropdownSearchTrigger from '@/core/components/Dropdown/DropdownSearch/DropdownSearchTrigger';
 import {
   DropdownSearchLabelType,
   DropdownSearchOption,
@@ -8,8 +9,7 @@ import {
   DropdownSearchValueType,
 } from '@/core/components/Dropdown/DropdownSearch/types';
 import DropdownSelect from '@/core/components/Dropdown/DropdownSelect';
-import DropdownSearchItems from '@/core/components/Dropdown/DropdownSearch/DropdownSearchItems';
-import DropdownSearchTrigger from '@/core/components/Dropdown/DropdownSearch/DropdownSearchTrigger';
+import { filterSearch } from '@/utilities/search';
 
 const DropdownSearch = <
   T extends DropdownSearchValueType,

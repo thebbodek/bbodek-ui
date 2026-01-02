@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { forwardRef } from 'react';
+
 import ButtonBase from '../ButtonBase';
 import { ROUNDED } from '../ButtonBase/constants';
 import { BUTTON_SIZE } from './constants';

@@ -29,7 +29,9 @@ export interface DropdownSearchOption<
 export interface DropdownSearchProps<
   T extends DropdownSearchValueType,
   P extends DropdownSearchLabelType,
-> extends Omit<DropdownProps, 'trigger' | 'content'>,
+>
+  extends
+    Omit<DropdownProps, 'trigger' | 'content'>,
     Pick<DropdownSelectTriggerProps, 'placeholder'> {
   options: DropdownSearchOption<T, P>[];
   currentValue: T | undefined;
@@ -53,9 +55,9 @@ export interface DropdownSearchItemsProps<
   T extends DropdownSearchValueType,
   P extends DropdownSearchLabelType,
 > extends Pick<
-    DropdownSearchProps<T, P>,
-    'currentValue' | 'onChange' | 'itemsProps'
-  > {
+  DropdownSearchProps<T, P>,
+  'currentValue' | 'onChange' | 'itemsProps'
+> {
   filteredOptions: DropdownSearchOption<T, P>[];
   onSearchChange: (value: string) => void;
   searchValue: string;
@@ -65,8 +67,8 @@ export interface DropdownSearchTriggerProps<
   T extends DropdownSearchValueType,
   P extends DropdownSearchLabelType,
 > extends Pick<
-    DropdownSearchProps<T, P>,
-    'currentValue' | 'options' | 'triggerProps' | 'placeholder'
-  > {
+  DropdownSearchProps<T, P>,
+  'currentValue' | 'options' | 'triggerProps' | 'placeholder'
+> {
   onClose: () => void;
 }

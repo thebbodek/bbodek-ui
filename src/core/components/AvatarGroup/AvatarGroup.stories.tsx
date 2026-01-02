@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 
-import { SIZE } from '@/core/components/Label/constants';
-import { AvatarGroupProps } from './types';
 import AvatarGroup from './index';
+import { AvatarGroupProps } from './types';
 import Avatar from '@/core/components/Avatar';
+import { SIZE } from '@/core/components/Label/constants';
 import Section from '@/core/components/Section';
 
 const meta = {

@@ -1,5 +1,3 @@
-import DropdownItems from '@/core/components/Dropdown/DropdownBase/DropdownItems';
-import { TypographyProps } from '@/core/components/Typography/types';
 import {
   DropdownItemProps,
   DropdownProps,
@@ -7,9 +5,13 @@ import {
 } from '../../DropdownBase/types';
 import DropdownFilterItem from '../DropdownFilterItem';
 import DropdownFilterTrigger from '../DropdownFilterTrigger';
+import DropdownItems from '@/core/components/Dropdown/DropdownBase/DropdownItems';
+import { TypographyProps } from '@/core/components/Typography/types';
 
-export interface DropdownFilterTriggerProps
-  extends Omit<DropdownTriggerProps, 'children'> {
+export interface DropdownFilterTriggerProps extends Omit<
+  DropdownTriggerProps,
+  'children'
+> {
   currentValue: TypographyProps['text'];
 }
 

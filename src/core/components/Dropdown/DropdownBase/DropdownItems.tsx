@@ -1,5 +1,5 @@
-import { forwardRef, Ref, useEffect, useRef } from 'react';
 import clsx from 'clsx';
+import { forwardRef, Ref, useEffect, useRef } from 'react';
 
 import { DropdownItemsProps } from './types';
 import InputSearch from '@/core/components/Input/InputSearch';

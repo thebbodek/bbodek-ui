@@ -1,12 +1,12 @@
-import { createContext, useState } from 'react';
 import clsx from 'clsx';
+import { createContext, useState } from 'react';
 
 import Typography from '../../Typography';
 import DropdownItem from './DropdownItem';
 import DropdownItems from './DropdownItems';
 import DropdownTrigger from './DropdownTrigger';
-import FormLabel from '@/core/components/FormLabel';
 import { DropdownContextValue, DropdownProps, ReturnType } from './types';
+import FormLabel from '@/core/components/FormLabel';
 import { usePopoverPosition } from '@/core/components/Popover/PopoverBase/hooks/usePopoverPosition';
 
 export const DropdownContext = createContext<DropdownContextValue | undefined>(

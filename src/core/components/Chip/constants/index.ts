@@ -1,5 +1,5 @@
-import { ColorThemeType } from '@/types';
 import { COLOR_THEME } from '@/constants/theme';
+import { ColorThemeType } from '@/types';
 
 export const CHIP_DELETE_BUTTON_STYLE: Record<ColorThemeType, string> = {
   [COLOR_THEME['PRIMARY']]: 'hover:brightness-90',

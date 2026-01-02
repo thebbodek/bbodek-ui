@@ -7,9 +7,6 @@ import {
   ReactElement,
 } from 'react';
 
-import Portal from '@/core/components/Portal';
-import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
-import useClickOutside from '@/hooks/useClickOutSide';
 import {
   MODAL_CONTENT_POSITION,
   MODAL_CONTENT_SIZE,
@@ -17,6 +14,9 @@ import {
   VARIANTS,
 } from './constants';
 import { ModalBaseProps } from './types';
+import Portal from '@/core/components/Portal';
+import { useBlockScrollingEffect } from '@/hooks/effects/useBlockScrollingEffect';
+import useClickOutside from '@/hooks/useClickOutSide';
 
 const ModalBase = forwardRef(
   (

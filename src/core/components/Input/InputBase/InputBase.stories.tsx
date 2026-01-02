@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 import { useId, useState } from 'react';
 
-import { ColorOptions } from '@/constants/color';
 import InputBase from './index';
 import { InputBaseProps } from './types';
+import { ColorOptions } from '@/constants/color';
 
 const meta = {
   title: 'core/Input/InputBase',

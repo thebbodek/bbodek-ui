@@ -1,9 +1,9 @@
-import { forwardRef, Ref } from 'react';
 import clsx from 'clsx';
+import { forwardRef, Ref } from 'react';
 
+import DropdownBase from '@/core/components/Dropdown/DropdownBase';
 import { DropdownMultipleItemProps } from '@/core/components/Dropdown/DropdownMultiple/types';
 import Icon from '@/core/components/Icon';
-import DropdownBase from '@/core/components/Dropdown/DropdownBase';
 
 const DropdownMultipleItem = forwardRef(
   (

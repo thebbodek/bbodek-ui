@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 import { forwardRef, MouseEvent, Ref, useContext } from 'react';
 
+import Typography from '../../Typography';
 import { DropdownContext } from '../DropdownBase';
 import { DropdownMultipleTriggerProps, ValueWithLabelType } from './types';
+import Chip from '@/core/components/Chip';
 import { DropdownContextValue } from '@/core/components/Dropdown/DropdownBase/types';
 import { DROPDOWN_MULTIPLE_VARIANT } from '@/core/components/Dropdown/DropdownMultiple/constants';
-import Chip from '@/core/components/Chip';
 import DropdownSelectIcon from '@/core/components/Dropdown/DropdownSelect/DropdownSelectIcon';
-import Typography from '../../Typography';
 
 const DropdownMultipleTrigger = forwardRef(
   <T extends ValueWithLabelType>(

@@ -1,11 +1,12 @@
-import { InputBaseProps } from '../../InputBase/types';
 import { UseInputProps } from '../../hooks/useInput';
+import { InputBaseProps } from '../../InputBase/types';
 import { SIZE } from '../constants';
 
 export type TextAreaSizeType = (typeof SIZE)[keyof typeof SIZE];
 
 export interface InputTextAreaProps
-  extends Omit<
+  extends
+    Omit<
       React.TextareaHTMLAttributes<HTMLTextAreaElement>,
       'disabled' | 'readOnly'
     >,

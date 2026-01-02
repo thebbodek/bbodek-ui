@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 import { useRef, useState } from 'react';
 
-import Chips from '@/core/components/Chips/index';
 import IconButton from '@/core/components/Button/IconButton';
+import Chips from '@/core/components/Chips/index';
 import Icon from '@/core/components/Icon';
 
 const meta = {

@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 
+import DropdownBase from '@/core/components/Dropdown/DropdownBase';
 import {
   DropdownSearchLegacyItemProps,
   DropdownSearchLegacyValueType,
 } from '@/core/components/Dropdown/DropdownSearchLegacy/types';
-import DropdownBase from '@/core/components/Dropdown/DropdownBase';
 
 const DropdownSearchLegacyItem = <T extends DropdownSearchLegacyValueType>({
   currentValue,

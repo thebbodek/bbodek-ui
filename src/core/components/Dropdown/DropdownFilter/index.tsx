@@ -1,8 +1,8 @@
-import { DropdownProps } from '../DropdownBase/types';
-import { ReturnType } from './types';
 import DropdownBase from '../DropdownBase';
+import { DropdownProps } from '../DropdownBase/types';
 import DropdownFilterItem from './DropdownFilterItem';
 import DropdownFilterTrigger from './DropdownFilterTrigger';
+import { ReturnType } from './types';
 import DropdownItems from '@/core/components/Dropdown/DropdownBase/DropdownItems';
 
 const DropdownFilter = ({ ...props }: DropdownProps) => {

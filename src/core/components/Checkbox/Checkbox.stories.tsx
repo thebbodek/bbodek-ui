@@ -2,14 +2,14 @@ import { Meta } from '@storybook/react';
 
 import Checkbox from './index';
 import { CheckboxProps } from './types';
+import { COLOR_THEME } from '@/constants/theme';
+import { TypographyOptions } from '@/constants/typography';
 import {
   CHECKBOX_TYPE,
   CheckBoxGapVariants,
   GAP,
   SvgSizeVariants,
 } from '@/core/components/Checkbox/constants';
-import { TypographyOptions } from '@/constants/typography';
-import { COLOR_THEME } from '@/constants/theme';
 
 const meta = {
   title: 'core/Checkbox',

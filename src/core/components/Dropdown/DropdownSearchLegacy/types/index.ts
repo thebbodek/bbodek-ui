@@ -25,7 +25,9 @@ export interface DropdownSearchLegacyOption<
 
 export interface DropdownSearchLegacyProps<
   T extends DropdownSearchLegacyValueType,
-> extends Omit<DropdownProps, 'trigger' | 'content'>,
+>
+  extends
+    Omit<DropdownProps, 'trigger' | 'content'>,
     Pick<DropdownTriggerProps, 'error' | 'placeholder'>,
     Pick<DropdownItemsProps, 'itemHeight'> {
   options: DropdownSearchLegacyOption<T>[];
@@ -40,7 +42,9 @@ export interface DropdownSearchLegacyProps<
 
 export interface DropdownSearchLegacyTriggerProps<
   T extends DropdownSearchLegacyValueType,
-> extends Omit<DropdownTriggerProps, 'children' | 'currentValue'>,
+>
+  extends
+    Omit<DropdownTriggerProps, 'children' | 'currentValue'>,
     Pick<
       DropdownSearchLegacyProps<T>,
       'currentValue' | 'error' | 'placeholder' | 'options' | 'inputPlaceholder'
@@ -53,7 +57,9 @@ export interface DropdownSearchLegacyTriggerProps<
 
 export interface DropdownSearchLegacyItemsProps<
   T extends DropdownSearchLegacyValueType,
-> extends Pick<
+>
+  extends
+    Pick<
       DropdownSearchLegacyProps<T>,
       'currentValue' | 'onChange' | 'itemHeight' | 'itemsClassName'
     >,
@@ -66,8 +72,8 @@ export interface DropdownSearchLegacyItemsProps<
 export interface DropdownSearchLegacyItemProps<
   T extends DropdownSearchLegacyValueType,
 > extends Pick<
-    DropdownSearchLegacyItemsProps<T>,
-    'currentValue' | 'onChange' | 'updateSearchValue'
-  > {
+  DropdownSearchLegacyItemsProps<T>,
+  'currentValue' | 'onChange' | 'updateSearchValue'
+> {
   option: DropdownSearchLegacyOption<T>;
 }

@@ -1,12 +1,12 @@
-import { useRef } from 'react';
 import clsx from 'clsx';
+import { useRef } from 'react';
 
-import DropdownSelect from '@/core/components/Dropdown/DropdownSelect';
 import {
   DropdownSearchItemsProps,
   DropdownSearchLabelType,
   DropdownSearchValueType,
 } from '@/core/components/Dropdown/DropdownSearch/types';
+import DropdownSelect from '@/core/components/Dropdown/DropdownSelect';
 
 const DropdownSearchItems = <
   T extends DropdownSearchValueType,

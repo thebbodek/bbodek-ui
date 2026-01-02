@@ -1,5 +1,6 @@
-import { ThemeColors, ThemeTypography } from '@/types';
 import { InputHTMLAttributes } from 'react';
+
+import { ThemeColors, ThemeTypography } from '@/types';
 
 export interface FormLabelProps {
   labelTheme?: ThemeTypography;

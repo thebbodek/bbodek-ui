@@ -1,11 +1,11 @@
-import { PropsWithChildren } from 'react';
 import clsx from 'clsx';
+import { PropsWithChildren } from 'react';
 
+import AvatarSkeleton from '@/core/components/Avatar/AvatarSkeleton';
 import { AVATAR_IMAGE_SIZE } from '@/core/components/Avatar/constants';
 import { AvatarContentProps } from '@/core/components/Avatar/types';
-import { getFirstLetter } from '@/utilities/letter';
 import Icon from '@/core/components/Icon';
-import AvatarSkeleton from '@/core/components/Avatar/AvatarSkeleton';
+import { getFirstLetter } from '@/utilities/letter';
 
 const AvatarContent = ({
   alt,

@@ -8,7 +8,8 @@ export interface PopoverChildrenProps {
 }
 
 export interface PopoverProps
-  extends Pick<HTMLAttributes<HTMLDivElement>, 'onClick'>,
+  extends
+    Pick<HTMLAttributes<HTMLDivElement>, 'onClick'>,
     Pick<UseUpdatePopoverPositionProps, 'applyMaxWidth'> {
   trigger: ReactElement;
   popover: ((props: PopoverChildrenProps) => ReactElement) | ReactElement;

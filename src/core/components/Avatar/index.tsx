@@ -1,13 +1,13 @@
 import { PropsWithChildren, useState } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
-import { AVATAR_SIZE_VARIANTS } from '@/core/components/Avatar/constants';
-import { AvatarProps } from '@/core/components/Avatar/types';
-import useInitEffect from '@/hooks/effects/useInitEffect';
-import Popover from '@/core/components/Popover/PopoverBase';
 import AvatarSkeleton from '@/core/components/Avatar/AvatarSkeleton';
 import AvatarTrigger from '@/core/components/Avatar/AvatarTrigger';
+import { AVATAR_SIZE_VARIANTS } from '@/core/components/Avatar/constants';
+import { AvatarProps } from '@/core/components/Avatar/types';
+import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
+import Popover from '@/core/components/Popover/PopoverBase';
+import useInitEffect from '@/hooks/effects/useInitEffect';
 
 const Avatar = ({
   popover,

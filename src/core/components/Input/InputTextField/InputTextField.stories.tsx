@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 import { useState } from 'react';
 
-import { ColorOptions } from '@/constants/color';
 import InputTextField from './index';
 import { InputTextFieldProps } from './types';
+import { ColorOptions } from '@/constants/color';
 
 const meta = {
   title: 'core/Input/InputTextField',

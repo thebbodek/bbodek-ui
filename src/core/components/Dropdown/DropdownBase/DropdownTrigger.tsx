@@ -1,5 +1,5 @@
-import { forwardRef, Ref, useContext } from 'react';
 import clsx from 'clsx';
+import { forwardRef, Ref, useContext } from 'react';
 
 import { DropdownContext } from './index';
 import { DropdownContextValue, DropdownTriggerProps } from './types';

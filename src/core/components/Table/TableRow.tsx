@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import React, { PropsWithChildren, Ref, forwardRef, useContext } from 'react';
+import React, { forwardRef, PropsWithChildren, Ref, useContext } from 'react';
 
-import { TableThemeContext } from './TableContainer';
 import { TR_THEME } from './constants';
+import { TableThemeContext } from './TableContainer';
 
 const TableRow = forwardRef(
   (

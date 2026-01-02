@@ -1,8 +1,8 @@
-import { forwardRef, Ref } from 'react';
 import clsx from 'clsx';
+import { forwardRef, Ref } from 'react';
 
-import { DropdownFilterItemProps } from './types';
 import DropdownBase from '../DropdownBase';
+import { DropdownFilterItemProps } from './types';
 
 const DropdownFilterItem = forwardRef(
   (

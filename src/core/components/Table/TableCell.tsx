@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import React, { PropsWithChildren, useContext } from 'react';
 
-import { TableThemeContext } from './TableContainer';
 import { TABLE_CELL_THEME } from './constants';
+import { TableThemeContext } from './TableContainer';
 import { TableCellProps, TableCellType } from './types';
 
 const TableCell = <T extends TableCellType = 'td'>({

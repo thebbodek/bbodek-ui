@@ -6,7 +6,8 @@ import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import { LightColorThemeType } from '@/types';
 
 export interface MenuProps
-  extends Omit<PopoverProps, 'popover'>,
+  extends
+    Omit<PopoverProps, 'popover'>,
     Pick<HTMLAttributes<HTMLUListElement>, 'className'> {
   items: Required<PopoverProps>['popover'][];
   useCloseOnItemClick?: boolean;
@@ -17,11 +18,10 @@ export type MenuItemColorTheme = Extract<
   'error' | 'secondary'
 >;
 
-export interface MenuItemProps<T extends ElementType>
-  extends Pick<
-    ButtonProps,
-    'content' | 'leftIcon' | 'rightIcon' | 'disabled' | 'gap'
-  > {
+export interface MenuItemProps<T extends ElementType> extends Pick<
+  ButtonProps,
+  'content' | 'leftIcon' | 'rightIcon' | 'disabled' | 'gap'
+> {
   element?: T;
   colorTheme?: MenuItemColorTheme;
 }

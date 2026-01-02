@@ -1,10 +1,10 @@
 import { forwardRef } from 'react';
 
+import Typography from '../Typography';
+import { FormLabelProps } from './types';
 import { THEME_COLOR } from '@/constants/color';
 import { THEME_TYPOGRAPHY } from '@/constants/typography';
 import { ThemeColors, ThemeTypography } from '@/types';
-import Typography from '../Typography';
-import { FormLabelProps } from './types';
 
 const FormLabel = forwardRef(
   (

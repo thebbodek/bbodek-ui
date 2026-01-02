@@ -1,10 +1,10 @@
-import { ComponentPropsWithoutRef, ElementType, MouseEvent } from 'react';
 import clsx from 'clsx';
+import { ComponentPropsWithoutRef, ElementType, MouseEvent } from 'react';
 
-import { LIGHT_COLOR_THEME } from '@/constants/theme';
 import { MENU_ITEM_THEME } from './constants';
-import { BUTTON_GAP, GAP } from '@/core/components/Button/ButtonBase/constants';
 import { MenuItemProps } from './types';
+import { LIGHT_COLOR_THEME } from '@/constants/theme';
+import { BUTTON_GAP, GAP } from '@/core/components/Button/ButtonBase/constants';
 
 const MenuItem = <T extends ElementType = 'button'>({
   element: Element,

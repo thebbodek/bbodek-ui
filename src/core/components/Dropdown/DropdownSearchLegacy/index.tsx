@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState, useTransition } from 'react';
 
+import DropdownBase from '../DropdownBase';
 import {
   DropdownSearchLegacyOption,
   DropdownSearchLegacyProps,
   DropdownSearchLegacyValueType,
 } from './types';
-import { filterSearch } from '@/utilities/search';
-import DropdownBase from '../DropdownBase';
-import DropdownSearchLegacyTrigger from '@/core/components/Dropdown/DropdownSearchLegacy/DropdownSearchLegacyTrigger';
 import DropdownSearchLegacyItems from '@/core/components/Dropdown/DropdownSearchLegacy/DropdownSearchLegacyItems';
+import DropdownSearchLegacyTrigger from '@/core/components/Dropdown/DropdownSearchLegacy/DropdownSearchLegacyTrigger';
+import { filterSearch } from '@/utilities/search';
 
 const DropdownSearch = <T extends DropdownSearchLegacyValueType>({
   currentValue,

@@ -1,7 +1,7 @@
 import { forwardRef, useId } from 'react';
 
-import { Typography } from '@/index';
 import { TableTabItemProps } from './types';
+import { Typography } from '@/index';
 
 const TableTabItem = forwardRef(
   (

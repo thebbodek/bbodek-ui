@@ -7,7 +7,8 @@ export type ButtonBottomSheetRoundedTypes =
   (typeof BOTTOM_SHEET_ROUNDED_VARIANTS)[keyof typeof BOTTOM_SHEET_ROUNDED_VARIANTS];
 
 export interface BottomSheetProps
-  extends Pick<
+  extends
+    Pick<
       ModalBaseProps,
       'target' | 'isOpen' | 'useClickOutsideEvent' | 'onClose'
     >,

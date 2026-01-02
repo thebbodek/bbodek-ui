@@ -7,6 +7,9 @@ import {
   SetStateAction,
 } from 'react';
 
+import DropdownItem from '../DropdownItem';
+import DropdownItems from '../DropdownItems';
+import DropdownTrigger from '../DropdownTrigger';
 import { FormLabelProps } from '@/core/components/FormLabel/types';
 import { InputSearchProps } from '@/core/components/Input/InputSearch/types';
 import { MenuItemColorTheme, MenuProps } from '@/core/components/Menu/types';
@@ -15,12 +18,10 @@ import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import { TypographyProps } from '@/core/components/Typography/types';
 import { VirtualListProps } from '@/core/components/Virtual/VirtualList/types';
 import { ThemeColors } from '@/types';
-import DropdownItem from '../DropdownItem';
-import DropdownItems from '../DropdownItems';
-import DropdownTrigger from '../DropdownTrigger';
 
 export interface DropdownProps
-  extends Partial<FormLabelProps>,
+  extends
+    Partial<FormLabelProps>,
     Pick<ModalBaseProps, 'useClickOutsideEvent' | 'onClose'>,
     Pick<PopoverProps, 'applyMaxWidth'> {
   className?: string;
@@ -34,14 +35,17 @@ export interface DropdownProps
   sub?: ReactNode;
 }
 
-export interface DropdownContextValue
-  extends Pick<DropdownProps, 'readOnly' | 'disabled'> {
+export interface DropdownContextValue extends Pick<
+  DropdownProps,
+  'readOnly' | 'disabled'
+> {
   isToggle: boolean;
   setIsToggle: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface DropdownItemProps
-  extends HTMLAttributes<HTMLDivElement>,
+  extends
+    HTMLAttributes<HTMLDivElement>,
     Pick<MenuProps, 'useCloseOnItemClick'> {
   checked: boolean;
   useCloseOnItemClick?: boolean;
@@ -50,7 +54,8 @@ export interface DropdownItemProps
 }
 
 export interface DropdownItemsProps
-  extends Pick<HTMLAttributes<HTMLUListElement>, 'className'>,
+  extends
+    Pick<HTMLAttributes<HTMLUListElement>, 'className'>,
     Partial<Pick<VirtualListProps, 'itemHeight' | 'gap'>> {
   rootClassName?: string;
   items: ReactNode[];
@@ -59,8 +64,10 @@ export interface DropdownItemsProps
     Partial<Pick<InputSearchProps<'div'>, 'rounded'>>;
 }
 
-export interface DropdownTriggerProps
-  extends Omit<HTMLAttributes<HTMLButtonElement>, 'children'> {
+export interface DropdownTriggerProps extends Omit<
+  HTMLAttributes<HTMLButtonElement>,
+  'children'
+> {
   placeholder?: TypographyProps['text'];
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   error?: boolean;

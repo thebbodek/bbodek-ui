@@ -20,8 +20,9 @@ export interface ValueWithLabel<T extends ValueWithLabelType> {
   value: T;
 }
 
-export interface DropdownMultipleTriggerProps<T extends ValueWithLabelType>
-  extends HTMLAttributes<HTMLDivElement> {
+export interface DropdownMultipleTriggerProps<
+  T extends ValueWithLabelType,
+> extends HTMLAttributes<HTMLDivElement> {
   placeholder?: TypographyProps['text'];
   currentValues: ValueWithLabel<T>[];
   variant?: DropdownMultipleVariant;

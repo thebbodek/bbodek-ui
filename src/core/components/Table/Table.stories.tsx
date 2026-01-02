@@ -1,12 +1,12 @@
 import { Meta } from '@storybook/react';
 
-import { TableContainerProps } from './types';
-import TableContainer from './TableContainer';
 import Table from './Table';
-import TableHead from './TableHead';
 import TableBody from './TableBody';
-import TableRow from './TableRow';
 import TableCell from './TableCell';
+import TableContainer from './TableContainer';
+import TableHead from './TableHead';
+import TableRow from './TableRow';
+import { TableContainerProps } from './types';
 
 const meta = {
   title: 'core/Table',

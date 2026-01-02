@@ -1,10 +1,10 @@
+import DropdownBase from '@/core/components/Dropdown/DropdownBase';
+import DropdownSearchLegacyItem from '@/core/components/Dropdown/DropdownSearchLegacy/DropdownSearchLegacyItem';
 import {
   DropdownSearchLegacyItemsProps,
   DropdownSearchLegacyValueType,
 } from '@/core/components/Dropdown/DropdownSearchLegacy/types';
 import Icon from '@/core/components/Icon';
-import DropdownSearchLegacyItem from '@/core/components/Dropdown/DropdownSearchLegacy/DropdownSearchLegacyItem';
-import DropdownBase from '@/core/components/Dropdown/DropdownBase';
 
 const DropdownSearchLegacyItems = <T extends DropdownSearchLegacyValueType>({
   currentValue,

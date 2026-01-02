@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 
+import { DropdownContext } from '@/core/components/Dropdown/DropdownBase';
+import { DropdownContextValue } from '@/core/components/Dropdown/DropdownBase/types';
 import {
   DropdownSearchLabelType,
   DropdownSearchTriggerProps,
   DropdownSearchValueType,
 } from '@/core/components/Dropdown/DropdownSearch/types';
-import { DropdownContext } from '@/core/components/Dropdown/DropdownBase';
-import { DropdownContextValue } from '@/core/components/Dropdown/DropdownBase/types';
 import DropdownSelect from '@/core/components/Dropdown/DropdownSelect';
 
 const DropdownSearchTrigger = <

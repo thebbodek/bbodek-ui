@@ -1,10 +1,10 @@
 import { Meta } from '@storybook/react';
 
 import Tooltip from '../Tooltip/index';
-import { TooltipProps } from '@/core/components/Tooltip/types';
 import { TypographyOptions } from '@/constants';
-import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
 import { COLOR_THEME } from '@/constants/theme';
+import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
+import { TooltipProps } from '@/core/components/Tooltip/types';
 
 const meta = {
   title: 'core/Tooltip',

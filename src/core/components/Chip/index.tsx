@@ -1,15 +1,15 @@
-import React, { ElementType, forwardRef, MouseEvent } from 'react';
 import clsx from 'clsx';
+import React, { ElementType, forwardRef, MouseEvent } from 'react';
 
-import Label from '@/core/components/Label';
-import { ChipProps } from '@/core/components/Chip/types';
-import IconButton from '@/core/components/Button/IconButton';
 import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
+import IconButton from '@/core/components/Button/IconButton';
 import {
   CHIP_DELETE_BUTTON_STYLE,
   CHIP_LABEL_STYLE,
 } from '@/core/components/Chip/constants';
+import { ChipProps } from '@/core/components/Chip/types';
 import Icon from '@/core/components/Icon';
+import Label from '@/core/components/Label';
 
 const Chip = forwardRef(
   <T extends ElementType = 'div'>(

@@ -1,10 +1,10 @@
 import { Meta } from '@storybook/react';
 
-import { TypographyOptions } from '@/constants';
-import { ColorOptions } from '@/constants/color';
 import { GAP, ROUNDED, SIZE } from '../ButtonBase/constants';
 import Button from './index';
 import { ButtonProps } from './types';
+import { TypographyOptions } from '@/constants';
+import { ColorOptions } from '@/constants/color';
 
 const meta = {
   title: 'core/Button',

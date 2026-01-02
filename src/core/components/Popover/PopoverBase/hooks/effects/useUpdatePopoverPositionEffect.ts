@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import { getPopoverPosition } from '@/core/components/Popover/PopoverBase/utils/getPopoverPosition';
 import { UseUpdatePopoverPositionEffectProps } from '@/core/components/Popover/PopoverBase/types/PopoverPosition';
+import { getPopoverPosition } from '@/core/components/Popover/PopoverBase/utils/getPopoverPosition';
 
 export const useUpdatePopoverPositionEffect = ({
   isOpen,

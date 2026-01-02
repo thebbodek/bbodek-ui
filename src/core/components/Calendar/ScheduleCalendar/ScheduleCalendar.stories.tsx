@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 import { useEffect, useState } from 'react';
 
-import ScheduleCalendar from '@/core/components/Calendar/ScheduleCalendar';
 import { PeriodDates } from '../DatePickerCalendar/types/DatePickerCalendarProps';
+import ScheduleCalendar from '@/core/components/Calendar/ScheduleCalendar';
 import { getDayjs } from '@/utilities/day';
 
 const meta = {

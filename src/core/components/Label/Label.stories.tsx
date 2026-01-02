@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import { colorThemeOptions } from '@/constants/theme';
 import Label from './index';
 import { LabelProps } from './types';
+import { colorThemeOptions } from '@/constants/theme';
 import Icon from '@/core/components/Icon';
 
 const meta = {

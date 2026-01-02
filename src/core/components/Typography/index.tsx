@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import React from 'react';
 
+import { TypographyProps } from './types';
 import { THEME_COLOR } from '@/constants/color';
 import { THEME_TYPOGRAPHY } from '@/constants/typography';
 import { ThemeColors, ThemeTypography } from '@/types';
-import { TypographyProps } from './types';
 
 const Typography = <T extends React.ElementType = 'span'>({
   theme = THEME_TYPOGRAPHY['BODY_01_REGULAR'] as ThemeTypography,

@@ -1,4 +1,5 @@
 import { CSSProperties, Dispatch, RefObject, SetStateAction } from 'react';
+
 import { ModalBaseProps } from '@/core/components/Modal/ModalBase/types';
 import { PopoverChildrenProps } from '@/core/components/Popover/PopoverBase/types/index';
 
@@ -11,14 +12,17 @@ export interface GetPopoverPositionProps {
 }
 
 export interface UseUpdatePopoverPositionProps
-  extends Pick<GetPopoverPositionProps, 'applyMaxWidth' | 'gap'>,
+  extends
+    Pick<GetPopoverPositionProps, 'applyMaxWidth' | 'gap'>,
     Pick<ModalBaseProps, 'useClickOutsideEvent'>,
     PopoverChildrenProps {
   isOpen: boolean;
 }
 
-export interface UseUpdatePopoverPositionEffectProps
-  extends Omit<UseUpdatePopoverPositionProps, 'close'> {
+export interface UseUpdatePopoverPositionEffectProps extends Omit<
+  UseUpdatePopoverPositionProps,
+  'close'
+> {
   popoverRef: RefObject<Element | null>;
   triggerRef: RefObject<Element | null>;
   setStyle: Dispatch<SetStateAction<CSSProperties>>;

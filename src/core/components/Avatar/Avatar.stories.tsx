@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 
-import { AVATAR_SIZE_VARIANTS } from '@/core/components/Avatar/constants';
-import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
 import Avatar from './index';
 import { AvatarProps } from './types';
+import { AVATAR_SIZE_VARIANTS } from '@/core/components/Avatar/constants';
+import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
 
 const meta = {
   title: 'core/Avatar',

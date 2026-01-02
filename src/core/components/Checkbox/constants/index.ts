@@ -1,10 +1,10 @@
-import { COLOR_THEME } from '@/constants/theme';
 import {
   CheckBoxColorTheme,
   CheckboxType,
   GapType,
   SvgSizeType,
 } from '../types';
+import { COLOR_THEME } from '@/constants/theme';
 import { IconComponentProps } from '@/core/components/Icon/types';
 
 export const SVG_SIZE = {

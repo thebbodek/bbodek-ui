@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 import { useState } from 'react';
 
-import DatePickerCalendar from '@/core/components/Calendar/DatePickerCalendar';
 import { DATE_PICKER_TYPE } from './constants';
 import { PeriodDates } from './types/DatePickerCalendarProps';
+import DatePickerCalendar from '@/core/components/Calendar/DatePickerCalendar';
 
 const meta = {
   title: 'core/Calendar/DatePickerCalendar',

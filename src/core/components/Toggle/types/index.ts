@@ -2,7 +2,8 @@ import { FormLabelProps } from '../../FormLabel/types';
 import { SIZE } from '../constants';
 
 export interface ToggleProps
-  extends Pick<
+  extends
+    Pick<
       React.InputHTMLAttributes<HTMLInputElement>,
       'onChange' | 'className' | 'checked' | 'disabled'
     >,

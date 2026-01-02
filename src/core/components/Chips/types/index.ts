@@ -3,7 +3,8 @@ import { HTMLAttributes, RefObject } from 'react';
 import { ChipProps } from '@/core/components/Chip/types';
 
 export interface ChipsProps
-  extends Pick<HTMLAttributes<HTMLUListElement>, 'className'>,
+  extends
+    Pick<HTMLAttributes<HTMLUListElement>, 'className'>,
     Pick<
       ChipProps<'li'>,
       | 'size'

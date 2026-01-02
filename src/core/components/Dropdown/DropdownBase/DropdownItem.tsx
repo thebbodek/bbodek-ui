@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import {
   forwardRef,
   MouseEvent,
@@ -5,12 +6,11 @@ import {
   Ref,
   useContext,
 } from 'react';
-import clsx from 'clsx';
 
 import { DropdownContext } from './index';
+import { DropdownContextValue, DropdownItemProps } from './types';
 import { LIGHT_COLOR_THEME } from '@/constants/theme';
 import { MENU_ITEM_THEME } from '@/core/components/Menu/constants';
-import { DropdownContextValue, DropdownItemProps } from './types';
 
 const DropdownItem = forwardRef(
   (
