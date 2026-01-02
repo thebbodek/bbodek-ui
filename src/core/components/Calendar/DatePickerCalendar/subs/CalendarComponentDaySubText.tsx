@@ -1,9 +1,11 @@
+import { DatePickerCalendarProps } from '../types/DatePickerCalendarProps';
 import { CalendarDateDto } from '@/core/components/Calendar/common/types/CalendarDateDto';
 import Typography from '@/core/components/Typography';
-import { DatePickerCalendarProps } from '../types/DatePickerCalendarProps';
 
-interface CalendarComponentDaySubTextProps
-  extends Pick<DatePickerCalendarProps, 'label' | 'periodDates'> {
+interface CalendarComponentDaySubTextProps extends Pick<
+  DatePickerCalendarProps,
+  'label' | 'periodDates'
+> {
   calendarDate: CalendarDateDto;
   isExceptionDate: boolean;
   exceptionDateLabel?: string;

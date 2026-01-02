@@ -1,9 +1,9 @@
 import { InputHTMLAttributes } from 'react';
 
+import { CHECKBOX_TYPE, GAP, SVG_SIZE } from '../constants';
 import { IconComponentProps } from '@/core/components/Icon/types';
 import { TypographyProps } from '@/core/components/Typography/types';
 import { ColorThemeType } from '@/types';
-import { CHECKBOX_TYPE, GAP, SVG_SIZE } from '../constants';
 
 export type SvgSizeType = (typeof SVG_SIZE)[keyof typeof SVG_SIZE];
 
@@ -17,7 +17,8 @@ export type CheckBoxColorTheme = Extract<
 >;
 
 export interface CheckboxProps
-  extends Pick<TypographyProps, 'theme'>,
+  extends
+    Pick<TypographyProps, 'theme'>,
     InputHTMLAttributes<HTMLInputElement>,
     Partial<Pick<IconComponentProps, 'iconKey'>> {
   label?: string;

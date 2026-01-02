@@ -1,10 +1,10 @@
 import { Meta } from '@storybook/react';
 
-import { TypographyOptions } from '@/constants';
-import { ColorOptions } from '@/constants/color';
 import { ROUNDED, SIZE } from '../ButtonBase/constants';
 import { default as IconButton } from './index';
 import { IconButtonProps } from './types';
+import { TypographyOptions } from '@/constants';
+import { ColorOptions } from '@/constants/color';
 
 const meta = {
   title: 'core/Button/IconButton',

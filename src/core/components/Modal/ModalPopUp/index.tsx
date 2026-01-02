@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { forwardRef, PropsWithChildren } from 'react';
+
 import Section from '../../Section';
 import ModalBase from '../ModalBase';
 import { VARIANTS } from '../ModalBase/constants';

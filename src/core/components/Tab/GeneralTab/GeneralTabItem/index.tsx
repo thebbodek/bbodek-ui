@@ -1,8 +1,8 @@
-import { forwardRef, useId } from 'react';
 import clsx from 'clsx';
+import { forwardRef, useId } from 'react';
 
-import { Typography } from '@/index';
 import { GeneralTabItemProps } from './types';
+import { Typography } from '@/index';
 
 const GeneralTabItem = forwardRef(
   (

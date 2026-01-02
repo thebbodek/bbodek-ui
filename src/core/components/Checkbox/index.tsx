@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React, { forwardRef, MouseEvent, useId } from 'react';
 
+import Typography from '../Typography';
 import {
   CHECK_BOX_GAP,
   CHECKBOX_CIRCLE_ICON_KEY,
@@ -10,13 +11,12 @@ import {
   CHECKBOX_TYPE,
   SVG_SIZE,
 } from './constants';
-import { GAP } from '@/core/components/Button/ButtonBase/constants';
+import { CheckboxProps } from './types';
 import { THEME_COLOR } from '@/constants/color';
 import { COLOR_THEME } from '@/constants/theme';
-import { ThemeColors } from '@/types';
-import { CheckboxProps } from './types';
-import Typography from '../Typography';
+import { GAP } from '@/core/components/Button/ButtonBase/constants';
 import Icon from '@/core/components/Icon';
+import { ThemeColors } from '@/types';
 
 const Checkbox = forwardRef(
   (

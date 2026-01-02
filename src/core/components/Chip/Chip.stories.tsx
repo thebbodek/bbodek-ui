@@ -1,12 +1,12 @@
 import { Meta } from '@storybook/react';
 import { useState } from 'react';
 
-import { colorThemeOptions } from '@/constants/theme';
 import Chip from './index';
 import { ChipProps } from './types';
+import { colorThemeOptions } from '@/constants/theme';
 import { ROUNDED } from '@/core/components/Button/ButtonBase/constants';
-import { SIZE } from '@/core/components/Label/constants';
 import Icon from '@/core/components/Icon';
+import { SIZE } from '@/core/components/Label/constants';
 
 const meta = {
   title: 'core/Chip',

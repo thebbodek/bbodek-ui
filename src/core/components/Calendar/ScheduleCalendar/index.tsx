@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-import { CalendarDayComponent } from '@/core/components/Calendar/ScheduleCalendar/subs/CalendarDayComponent';
-import { CalendarComponentProps } from '@/core/components/Calendar/ScheduleCalendar/types/CalendarComponentProps';
+import { PeriodDates } from '../DatePickerCalendar/types/DatePickerCalendarProps';
 import { useCalendar } from '@/core/components/Calendar/common/hooks/useCalendar';
 import { CalendarHeader } from '@/core/components/Calendar/common/subs/CalendarHeader';
 import { CalendarWeekDayComponent } from '@/core/components/Calendar/common/subs/CalendarWeekdayComponent';
-import { PeriodDates } from '../DatePickerCalendar/types/DatePickerCalendarProps';
+import { CalendarDayComponent } from '@/core/components/Calendar/ScheduleCalendar/subs/CalendarDayComponent';
+import { CalendarComponentProps } from '@/core/components/Calendar/ScheduleCalendar/types/CalendarComponentProps';
 import { getDayjs, today } from '@/utilities/day';
 
 const ScheduleCalendar = ({

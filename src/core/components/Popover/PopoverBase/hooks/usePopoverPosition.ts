@@ -1,8 +1,8 @@
 import { CSSProperties, useRef, useState } from 'react';
 
+import { useOutSideScrollLockEffect } from '@/core/components/Popover/PopoverBase/hooks/effects/useOutSideScrollLockEffect';
 import { useUpdatePopoverPositionEffect } from '@/core/components/Popover/PopoverBase/hooks/effects/useUpdatePopoverPositionEffect';
 import { UseUpdatePopoverPositionProps } from '@/core/components/Popover/PopoverBase/types/PopoverPosition';
-import { useOutSideScrollLockEffect } from '@/core/components/Popover/PopoverBase/hooks/effects/useOutSideScrollLockEffect';
 import useClickOutside from '@/hooks/useClickOutSide';
 
 export const usePopoverPosition = <T extends Element>({

@@ -4,7 +4,8 @@ import { AvatarProps } from '@/core/components/Avatar/types';
 import { SizeType } from '@/core/components/Label/types';
 
 export interface AvatarGroupProps
-  extends HTMLAttributes<HTMLDivElement>,
+  extends
+    HTMLAttributes<HTMLDivElement>,
     Pick<AvatarProps, 'popoverOptions' | 'useHover'> {
   items: ReactElement<AvatarProps>[];
   max?: number;

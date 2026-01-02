@@ -13,8 +13,8 @@ import {
   ReturnType,
   VirtualListProps,
 } from '@/core/components/Virtual/VirtualList/types';
-import { mergeRefs } from '@/utilities/ref';
 import VirtualListItem from '@/core/components/Virtual/VirtualList/VirtualListItem';
+import { mergeRefs } from '@/utilities/ref';
 
 const VirtualList = forwardRef<HTMLElement, VirtualListProps>(
   (

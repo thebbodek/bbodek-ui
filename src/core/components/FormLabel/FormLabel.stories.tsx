@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import { ColorOptions } from '@/constants/color';
 import { default as FormLabel } from './index';
 import { FormLabelProps } from './types';
+import { ColorOptions } from '@/constants/color';
 
 const meta = {
   title: 'core/FormLabel',

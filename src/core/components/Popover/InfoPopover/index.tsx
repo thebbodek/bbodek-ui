@@ -1,7 +1,7 @@
-import { InfoPopoverProps } from '@/core/components/Popover/InfoPopover/types';
-import Typography from '@/core/components/Typography';
 import Icon from '@/core/components/Icon';
+import { InfoPopoverProps } from '@/core/components/Popover/InfoPopover/types';
 import Popover from '@/core/components/Popover/PopoverBase';
+import Typography from '@/core/components/Typography';
 
 const InfoPopover = ({
   trigger,

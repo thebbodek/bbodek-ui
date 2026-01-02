@@ -1,16 +1,16 @@
-import { ChangeEvent, useContext } from 'react';
 import clsx from 'clsx';
+import { ChangeEvent, useContext } from 'react';
 
+import DropdownBase, {
+  DropdownContext,
+} from '@/core/components/Dropdown/DropdownBase';
+import { DropdownContextValue } from '@/core/components/Dropdown/DropdownBase/types';
 import {
   DropdownSearchLegacyTriggerProps,
   DropdownSearchLegacyValueType,
 } from '@/core/components/Dropdown/DropdownSearchLegacy/types';
-import { DropdownContextValue } from '@/core/components/Dropdown/DropdownBase/types';
-import Typography from '@/core/components/Typography';
-import DropdownBase, {
-  DropdownContext,
-} from '@/core/components/Dropdown/DropdownBase';
 import DropdownSelectIcon from '@/core/components/Dropdown/DropdownSelect/DropdownSelectIcon';
+import Typography from '@/core/components/Typography';
 
 const DropdownSearchLegacyTrigger = <T extends DropdownSearchLegacyValueType>({
   options,

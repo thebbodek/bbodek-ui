@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import { forwardRef, useId } from 'react';
 
 import Typography from '../../Typography';
-import InputBase from '../InputBase';
 import { useInput } from '../hooks/useInput';
+import InputBase from '../InputBase';
 import { TEXT_AREA_HEIGHT } from './constants';
 import { InputTextAreaProps } from './types';
 

@@ -1,8 +1,9 @@
-import { ColorOptions } from '@/constants/color';
-import { TypographyOptions } from '@/constants/typography';
 import { Meta } from '@storybook/react';
+
 import Typography from './index';
 import { TypographyProps } from './types';
+import { ColorOptions } from '@/constants/color';
+import { TypographyOptions } from '@/constants/typography';
 
 const meta = {
   title: 'core/Typography',

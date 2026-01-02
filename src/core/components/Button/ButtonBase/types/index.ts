@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 
-import { ColorThemeType, ThemeColors, ThemeTypography } from '@/types';
 import { GAP, ROUNDED, SIZE } from '../constants';
+import { ColorThemeType, ThemeColors, ThemeTypography } from '@/types';
 
 export type ThemeType = Extract<
   ThemeTypography,
@@ -27,8 +27,7 @@ export type BorderColorType = Extract<
 
 export type GapType = (typeof GAP)[keyof typeof GAP];
 
-export interface ButtonBaseProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   colorTheme?: ColorThemeType;
   theme?: ThemeType;
   color?: ThemeColors;

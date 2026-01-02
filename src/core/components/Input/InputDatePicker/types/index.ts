@@ -1,23 +1,22 @@
 import { InputHTMLAttributes } from 'react';
 
+import { InputBaseProps } from '../../InputBase/types';
 import {
   DatePickerCalendarProps,
   PeriodDates,
 } from '@/core/components/Calendar/DatePickerCalendar/types/DatePickerCalendarProps';
-import { InputBaseProps } from '../../InputBase/types';
 
-export interface DatePickerProps
-  extends Pick<
-    DatePickerCalendarProps,
-    | 'useHoliday'
-    | 'disabled'
-    | 'disabledDates'
-    | 'cutoffDate'
-    | 'cutoffAfterDate'
-    | 'initialDate'
-    | 'afterAllDate'
-    | 'temporaryDates'
-  > {
+export interface DatePickerProps extends Pick<
+  DatePickerCalendarProps,
+  | 'useHoliday'
+  | 'disabled'
+  | 'disabledDates'
+  | 'cutoffDate'
+  | 'cutoffAfterDate'
+  | 'initialDate'
+  | 'afterAllDate'
+  | 'temporaryDates'
+> {
   isFixStartDate?: boolean;
   variants?: DatePickerCalendarProps['variants'];
   externalDates?: PeriodDates;
@@ -30,7 +29,8 @@ export interface DatePickerProps
 }
 
 export interface InputDatePickerProps
-  extends Omit<
+  extends
+    Omit<
       DatePickerProps,
       | 'isOpen'
       | 'close'

@@ -35,8 +35,9 @@ export interface VirtualListProps<
   }: VirtualListChildrenProps) => ReactNode;
 }
 
-export interface VirtualListItemProps<T extends ElementType = 'div'>
-  extends Pick<HTMLAttributes<HTMLElement>, 'className'> {
+export interface VirtualListItemProps<
+  T extends ElementType = 'div',
+> extends Pick<HTMLAttributes<HTMLElement>, 'className'> {
   element?: T;
   topPosition: string;
   height: number;

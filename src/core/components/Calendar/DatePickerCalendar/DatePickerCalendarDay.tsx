@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { memo } from 'react';
 
-import { CalendarComponentDayText } from '@/core/components/Calendar/DatePickerCalendar/subs/CalendarComponentDayText';
 import { CalendarComponentDaySubText } from '@/core/components/Calendar/DatePickerCalendar/subs/CalendarComponentDaySubText';
+import { CalendarComponentDayText } from '@/core/components/Calendar/DatePickerCalendar/subs/CalendarComponentDayText';
 import {
   DatePickerCalendarDayProps,
   DatePickerCalendarProps,

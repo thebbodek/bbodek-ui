@@ -1,8 +1,6 @@
 import clsx from 'clsx';
-import { PropsWithChildren, forwardRef } from 'react';
+import { forwardRef, PropsWithChildren } from 'react';
 
-import { COLOR_THEME_STYLES } from '@/constants/theme';
-import { THEME_TYPOGRAPHY } from '@/constants/typography';
 import {
   BUTTON_GAP,
   BUTTON_ROUNDED,
@@ -12,6 +10,8 @@ import {
   SIZE,
 } from './constants';
 import { ButtonBaseProps, SizeType } from './types';
+import { COLOR_THEME_STYLES } from '@/constants/theme';
+import { THEME_TYPOGRAPHY } from '@/constants/typography';
 
 const ButtonBase = forwardRef(
   (

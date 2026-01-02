@@ -4,7 +4,8 @@ import { ROUNDED, SHADOW } from '../constants';
 import { ButtonProps } from '@/core/components/Button/Button/types';
 
 export interface SectionProps<T extends ElementType>
-  extends Omit<HTMLAttributes<HTMLElement>, 'color'>,
+  extends
+    Omit<HTMLAttributes<HTMLElement>, 'color'>,
     Pick<
       ButtonProps,
       'color' | 'colorTheme' | 'backgroundColor' | 'borderColor'

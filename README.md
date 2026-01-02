@@ -15,8 +15,8 @@ yarn add bbodek-ui
 Edit your `global.css` file:
 
 ```css
-@import "bbodek-ui/styles";
-@config "bbodek-ui/tailwind-config";
+@import 'bbodek-ui/styles';
+@config 'bbodek-ui/tailwind-config';
 ```
 
 ## 🔗 Peer Dependencies
@@ -46,34 +46,33 @@ Add the following to your package.json to align your project with the required v
 ## ✨ Usage
 
 ```tsx
-import { Button } from "bbodek-ui";
-import { useState } from "react";
+import { Button } from 'bbodek-ui';
+import { useState } from 'react';
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <div id="portal" />
+      <div id='portal' />
       <ModalPopUp
-        className="w-[30rem] h-[30rem]"
+        className='h-[30rem] w-[30rem]'
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       >
         Open ModalPopUp
       </ModalPopUp>
       <Button
-        className="w-[20rem]"
-        color="white"
-        backgroundColor="primary-03"
-        content="Button"
-        size="h-48"
+        className='w-[20rem]'
+        color='white'
+        backgroundColor='primary-03'
+        content='Button'
+        size='h-48'
         onClick={() => setIsOpen(true)}
       />
     </>
-  )
+  );
 }
-
 ```
 
 ## License

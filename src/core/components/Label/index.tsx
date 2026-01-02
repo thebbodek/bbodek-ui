@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
 
-import { COLOR_THEME_STYLES } from '@/constants/theme';
-import { BUTTON_ROUNDED } from '@/core/components/Button/ButtonBase/constants';
 import { LABEL_ROUNDED, LABEL_SIZE, SIZE } from './constants';
 import { LabelProps } from './types';
+import { COLOR_THEME_STYLES } from '@/constants/theme';
+import { BUTTON_ROUNDED } from '@/core/components/Button/ButtonBase/constants';
 
 const Label = forwardRef(
   <T extends ElementType = 'div'>(

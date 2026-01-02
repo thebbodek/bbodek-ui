@@ -1,12 +1,12 @@
 import { Meta } from '@storybook/react';
 import { useRef } from 'react';
 
-import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import Popover from './index';
 import Button from '@/core/components/Button/Button';
-import Section from '@/core/components/Section';
 import IconButton from '@/core/components/Button/IconButton';
 import Icon from '@/core/components/Icon';
+import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
+import Section from '@/core/components/Section';
 
 const meta = {
   title: 'core/Popover',

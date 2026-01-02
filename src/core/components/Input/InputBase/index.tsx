@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
 
-import { cn } from '@/utilities/utils';
 import FormLabel from '../../FormLabel';
 import Typography from '../../Typography';
 import { InputBaseProps } from './types';
+import { cn } from '@/utilities/utils';
 
 const InputBase = forwardRef(
   <T extends React.ElementType>(

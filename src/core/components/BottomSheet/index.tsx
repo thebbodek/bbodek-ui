@@ -4,12 +4,12 @@ import { forwardRef, PropsWithChildren } from 'react';
 import ModalBase from '../Modal/ModalBase';
 import { VARIANTS } from '../Modal/ModalBase/constants';
 import { BottomSheetProps } from './types';
-import Icon from '@/core/components/Icon';
 import {
   BOTTOM_SHEET_ROUNDED_VARIANTS,
   BOTTOM_SHEET_ROUNDED_VARIANTS_MAPPER,
 } from '@/core/components/BottomSheet/constants';
 import IconButton from '@/core/components/Button/IconButton';
+import Icon from '@/core/components/Icon';
 
 const BottomSheet = forwardRef(
   (

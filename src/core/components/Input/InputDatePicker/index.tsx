@@ -2,13 +2,13 @@ import clsx from 'clsx';
 import { overlay } from 'overlay-kit';
 import { useEffect, useId, useState } from 'react';
 
-import Icon from '@/core/components/Icon';
-import { getDayjs } from '@/utilities/day';
 import { DATE_PICKER_TYPE } from '../../Calendar/DatePickerCalendar/constants';
 import { PeriodDates } from '../../Calendar/DatePickerCalendar/types/DatePickerCalendarProps';
 import InputBase from '../InputBase';
 import DatePicker from './DatePicker';
 import { InputDatePickerProps } from './types';
+import Icon from '@/core/components/Icon';
+import { getDayjs } from '@/utilities/day';
 
 const InputDatePicker = ({
   variants = DATE_PICKER_TYPE['PERIOD'],

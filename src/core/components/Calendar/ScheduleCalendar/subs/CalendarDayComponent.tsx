@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 
-import { CalendarComponentProps } from '@/core/components/Calendar/ScheduleCalendar/types/CalendarComponentProps';
 import { CalendarDateDto } from '@/core/components/Calendar/common/types/CalendarDateDto';
+import { CalendarComponentProps } from '@/core/components/Calendar/ScheduleCalendar/types/CalendarComponentProps';
 import Typography from '@/core/components/Typography';
 
-interface CalendarDayComponentProps
-  extends Omit<CalendarComponentProps, 'onRender'> {
+interface CalendarDayComponentProps extends Omit<
+  CalendarComponentProps,
+  'onRender'
+> {
   calendarDates: CalendarDateDto[][];
 }
 

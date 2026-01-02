@@ -51,6 +51,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.27.0",
+    "@bbodek/prettier-config": "^0.0.6",
     "@chromatic-com/storybook": "^3",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",
@@ -64,6 +65,7 @@
     "@storybook/test": "^8.6.12",
     "@stylistic/eslint-plugin": "^1.4.0",
     "@stylistic/eslint-plugin-ts": "^1.4.0",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.0",
     "@types/node": "^22.14.1",
     "@types/react": "^19.2.1",
     "@types/react-dom": "^19.2.1",
@@ -80,13 +82,14 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "prettier": "^3.1.1",
-    "prettier-plugin-tailwindcss": "^0.6.11",
+    "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "storybook": "^8.6.12",
     "tailwind-merge": "^3.2.0",
     "tsc-alias": "^1.8.15",
     "typescript": "^5.8.3",
     "vite": "^6.0.0",
     "vite-tsconfig-paths": "^4.3.0"
-  }
+  },
+  "prettier": "@bbodek/prettier-config"
 }

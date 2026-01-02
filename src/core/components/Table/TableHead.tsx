@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, Ref, forwardRef } from 'react';
+import React, { forwardRef, PropsWithChildren, Ref } from 'react';
 
 const TableHead = forwardRef(
   (

@@ -1,10 +1,10 @@
 import { MouseEvent, RefObject, useState } from 'react';
 
-import { SHADOW } from '@/core/components/Section/constants';
-import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import { usePopoverPosition } from '@/core/components/Popover/PopoverBase/hooks/usePopoverPosition';
-import Section from '@/core/components/Section';
+import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import Portal from '@/core/components/Portal';
+import Section from '@/core/components/Section';
+import { SHADOW } from '@/core/components/Section/constants';
 
 const Popover = ({
   trigger,

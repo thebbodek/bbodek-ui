@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import DropdownSelectIcon from '@/core/components/Dropdown/DropdownSelect/DropdownSelectIcon';
 import Typography from '../../Typography';
 import DropdownBase from '../DropdownBase';
 import { DropdownSelectTriggerProps } from './types';
+import DropdownSelectIcon from '@/core/components/Dropdown/DropdownSelect/DropdownSelectIcon';
 
 const DropdownSelectTrigger = forwardRef(
   (

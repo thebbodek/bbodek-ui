@@ -1,8 +1,8 @@
-import { forwardRef, PropsWithChildren, Ref } from 'react';
 import clsx from 'clsx';
+import { forwardRef, PropsWithChildren, Ref } from 'react';
 
-import { DropdownSelectItemProps } from './types';
 import DropdownBase from '../DropdownBase';
+import { DropdownSelectItemProps } from './types';
 
 const DropdownSelectItem = forwardRef(
   (

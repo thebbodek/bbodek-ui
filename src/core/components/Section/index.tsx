@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import React, { forwardRef, PropsWithChildren } from 'react';
 
 import { ROUNDED, SECTION_ROUNDED, SECTION_SHADOW, SHADOW } from './constants';
-import { COLOR_THEME_STYLES } from '@/constants/theme';
 import { SectionProps } from './types';
+import { COLOR_THEME_STYLES } from '@/constants/theme';
 
 const Section = forwardRef(
   <T extends React.ElementType>(

@@ -10,8 +10,10 @@ export interface PeriodDates {
   endDate: string;
 }
 
-export interface DatePickerCalendarProps
-  extends Pick<CalendarHeaderProps, 'monthButtonStatus'> {
+export interface DatePickerCalendarProps extends Pick<
+  CalendarHeaderProps,
+  'monthButtonStatus'
+> {
   variants: DatePickerType;
   exceptionDay?: {
     date: string;
@@ -48,13 +50,16 @@ export interface UseDatePickerCalendarResponse {
   };
 }
 
-export interface DatePickerCalendarWeekProps
-  extends Omit<DatePickerCalendarDayProps, 'calendarDate'> {
+export interface DatePickerCalendarWeekProps extends Omit<
+  DatePickerCalendarDayProps,
+  'calendarDate'
+> {
   calendarWeekDates: CalendarDateDto[];
 }
 
 export interface DatePickerCalendarDayProps
-  extends Pick<
+  extends
+    Pick<
       DatePickerCalendarProps,
       | 'useHoliday'
       | 'disabledDates'

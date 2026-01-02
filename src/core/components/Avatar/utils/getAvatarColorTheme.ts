@@ -1,8 +1,8 @@
+import { AvatarProps } from '@/core/components/Avatar/types';
 import {
   getFixedColorThemeByLetter,
   getRandomColorTheme,
 } from '@/utilities/colorTheme';
-import { AvatarProps } from '@/core/components/Avatar/types';
 
 const getAvatarColorTheme = ({
   colorTheme,

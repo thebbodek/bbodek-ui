@@ -9,7 +9,8 @@ export type AvatarSizeVariants =
   (typeof AVATAR_SIZE_VARIANTS)[keyof typeof AVATAR_SIZE_VARIANTS];
 
 export interface AvatarProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'content' | 'popover'>,
+  extends
+    Omit<HTMLAttributes<HTMLDivElement>, 'content' | 'popover'>,
     Partial<Omit<PopoverProps, 'trigger'>> {
   src?: string;
   alt?: string;
@@ -21,8 +22,10 @@ export interface AvatarProps
   disabled?: boolean;
 }
 
-export interface AvatarTriggerProps
-  extends Omit<AvatarProps, 'popover' | 'popoverOptions' | 'useHover'> {
+export interface AvatarTriggerProps extends Omit<
+  AvatarProps,
+  'popover' | 'popoverOptions' | 'useHover'
+> {
   hasImageError: boolean;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
@@ -30,7 +33,8 @@ export interface AvatarTriggerProps
 }
 
 export interface AvatarContentProps
-  extends Pick<
+  extends
+    Pick<
       AvatarTriggerProps,
       | 'alt'
       | 'src'

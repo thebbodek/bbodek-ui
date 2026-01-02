@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { forwardRef, useId, useState } from 'react';
 
-import { useInput } from '@/core/components/Input/hooks/useInput';
 import InputBase from '../InputBase';
 import { InputPasswordProps } from './types';
 import Icon from '@/core/components/Icon';
+import { useInput } from '@/core/components/Input/hooks/useInput';
 
 const InputPassword = forwardRef(
   (

@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { forwardRef, useId } from 'react';
 
-import { useInput } from '@/core/components/Input/hooks/useInput';
 import InputBase from '../InputBase';
 import { InputTextFieldProps } from './types';
 import Icon from '@/core/components/Icon';
+import { useInput } from '@/core/components/Input/hooks/useInput';
 
 const InputTextField = forwardRef(
   (
