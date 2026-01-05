@@ -12,34 +12,11 @@ yarn add bbodek-ui
 
 ## ⚙️ Setup
 
-Edit your `tailwind.config.ts` file:
+Edit your `global.css` file:
 
-```ts
-// @ts-ignore
-import BbodekConfig from 'bbodek-ui/tailwind.config.js';
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
-  ...BbodekConfig,
-  content: [
-    ...BbodekConfig.content,
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-};
-export default config;
-```
-
-Edit your `_app.tsx` file:
-
-```tsx
-import 'bbodek-ui/bbodek-theme.css'; // add bbodek-theme.css
-import type { AppProps } from 'next/app';
-
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+```css
+@import "bbodek-ui/styles";
+@config "bbodek-ui/tailwind-config";
 ```
 
 ## 🔗 Peer Dependencies
@@ -48,11 +25,11 @@ bbodek-ui is designed to work alongside specific versions of certain peer depend
 
 ```json
 "peerDependencies": {
-  "@types/react": "18.2.0",
-  "@types/react-dom": "18.2.0",
-  "react": "18.2.0",
-  "react-dom": "18.2.0",
-  "tailwindcss": "3.3.5"
+  "@types/react": "^19.2.1",
+  "@types/react-dom": "^19.2.1",
+  "react": "^19.2.1",
+  "react-dom": "^19.2.1",
+  "tailwindcss": "^4.1.4"
 }
 ```
 
@@ -62,7 +39,7 @@ Add the following to your package.json to align your project with the required v
 
 ```json
 "resolutions": {
-  "@types/react": "18.2.0",
+  "@types/react": "^19.2.1",
 }
 ```
 
@@ -77,7 +54,7 @@ export default function Home() {
 
   return (
     <>
-      <div id="portal"/>
+      <div id="portal" />
       <ModalPopUp
         className="w-[30rem] h-[30rem]"
         isOpen={isOpen}
@@ -89,11 +66,11 @@ export default function Home() {
         className="w-[20rem]"
         color="white"
         backgroundColor="primary-03"
-        content="버튼 테스트"
+        content="Button"
         size="h-48"
         onClick={() => setIsOpen(true)}
       />
-    <>
+    </>
   )
 }
 
