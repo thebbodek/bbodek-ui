@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import tailwindcss from '@tailwindcss/vite';
 import { mergeConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -6,7 +7,7 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   viteFinal: async (config) => {
     return mergeConfig(config, {
-      plugins: [tsconfigPaths()],
+      plugins: [tsconfigPaths(), tailwindcss()],
       server: {
         allowedHosts: ['bbodek.ngrok.io'],
       },
