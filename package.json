@@ -24,7 +24,8 @@
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "ngrok": "ngrok http 6006 --domain=bbodek.ngrok.io",
-    "format": "prettier --write \"**/*.{ts,tsx,css,json,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,css,json,md}\"",
+    "rules:update": "git submodule update --remote .cursor/rules"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.2",
