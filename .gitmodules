@@ -1,0 +1,3 @@
+[submodule ".cursor/rules"]
+	path = .cursor/rules
+	url = git@github.com:thebbodek/frontend-rules.git
