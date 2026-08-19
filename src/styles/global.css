@@ -9,3 +9,5 @@
 @import './theme.css';
 @import './utilities.css';
 @import './safelist.css';
+
+@source '../../dist';
