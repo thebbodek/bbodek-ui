@@ -1,12 +1,11 @@
 {
   "name": "bbodek-ui",
-  "version": "0.0.341",
+  "version": "0.0.342",
   "type": "module",
   "author": "Bbodek",
   "license": "MIT",
   "files": [
     "dist",
-    "tailwind.config.js",
     "src/styles"
   ],
   "exports": {
@@ -14,8 +13,7 @@
       "import": "./dist/bbodek-ui.es.js",
       "types": "./dist/src/index.d.ts"
     },
-    "./styles": "./src/styles/global.css",
-    "./tailwind-config": "./tailwind.config.js"
+    "./styles": "./src/styles/global.css"
   },
   "scripts": {
     "dev": "vite",

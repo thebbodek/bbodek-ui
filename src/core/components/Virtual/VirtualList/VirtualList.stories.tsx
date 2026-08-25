@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 import clsx from 'clsx';
-import React, { memo, useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 
 import VirtualList from './index';
 import { VirtualListProps } from '@/core/components/Virtual/VirtualList/types';
@@ -67,7 +67,7 @@ export const Default = ({
   };
 
   return (
-    <div className={'flex-v-stack h-[500px]'}>
+    <div className={'flex-v-stack h-125 w-125'}>
       <input onChange={onChange} />
       <VirtualList
         listElement={'ul'}

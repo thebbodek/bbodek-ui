@@ -99,10 +99,10 @@
 
   --font-pretendard: 'Pretendard';
 
-  --animation-fade-in: fade-in 0.2s cubic-bezier(0, 0, 0.5, 1);
-  --animation-popup: popup 0.2s cubic-bezier(0, 0, 0.5, 1);
-  --animation-drawer: drawer 0.2s cubic-bezier(0, 0, 0.5, 1);
-  --animation-bottom-sheet: bottom-sheet 0.2s cubic-bezier(0, 0, 0.5, 1);
+  --animate-fade-in: fade-in 0.2s cubic-bezier(0, 0, 0.5, 1);
+  --animate-popup: popup 0.2s cubic-bezier(0, 0, 0.5, 1);
+  --animate-drawer: drawer 0.2s cubic-bezier(0, 0, 0.5, 1);
+  --animate-bottom-sheet: bottom-sheet 0.2s cubic-bezier(0, 0, 0.5, 1);
 
   @keyframes fade-in {
     0% {

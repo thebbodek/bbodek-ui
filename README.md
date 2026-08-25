@@ -16,8 +16,9 @@ Edit your `global.css` file:
 
 ```css
 @import 'bbodek-ui/styles';
-@config 'bbodek-ui/tailwind-config';
 ```
+
+> ⚠️ `@config 'bbodek-ui/tailwind-config'`는 0.0.342부터 제거되었습니다. tailwind 4.3.1+에서 content 글롭이 config 파일 위치 기준으로 해석되어 라이브러리 클래스가 누락되던 방식이므로, 기존에 사용 중이라면 해당 라인을 삭제해주세요. 테마·safelist는 `@import 'bbodek-ui/styles'` 한 줄로 모두 적용됩니다.
 
 ## 🔗 Peer Dependencies
 
