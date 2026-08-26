@@ -73,23 +73,23 @@ export const Default = (props: InputBaseProps<'div'>) => {
   return (
     <div className='w-[400px]'>
       <InputBase
-        element={element}
-        label={label}
-        inputId={inputId ?? id}
         inputComponent={
           !inputComponent ? (
             <input
+              className='bbodek-field'
               id={id}
-              className={'bbodek-field'}
               type='text'
-              onChange={onChangeHandler}
               value={currentValue}
               required
+              onChange={onChangeHandler}
             />
           ) : (
             inputComponent
           )
         }
+        element={element}
+        inputId={inputId ?? id}
+        label={label}
         {...rest}
       />
     </div>

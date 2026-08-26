@@ -39,12 +39,13 @@ const DatePickerCalendar = ({
       return;
     }
 
-    const calenderDatesEndWeek =
-      commonModels.calendarDates[commonModels.calendarDates.length - 1];
+    const { calendarDates } = commonModels;
+    const calenderDatesStartWeekStartDay = calendarDates[0][0];
+    const calenderDatesEndWeek = calendarDates[calendarDates.length - 1];
     const calenderDatesEndWeekEndDay =
       calenderDatesEndWeek[calenderDatesEndWeek.length - 1];
     const renderDates: PeriodDates = {
-      startDate: commonModels.calendarDates[0][0]?.dayjs.format('YYYY-MM-DD'),
+      startDate: calenderDatesStartWeekStartDay?.dayjs.format('YYYY-MM-DD'),
       endDate: calenderDatesEndWeekEndDay?.dayjs.format('YYYY-MM-DD'),
     };
 
@@ -75,33 +76,33 @@ const DatePickerCalendar = ({
   }, [periodDates]);
 
   return (
-    <div className={'flex-v-stack h-full w-full'}>
+    <div className='flex-v-stack h-full w-full'>
       <CalendarHeader
         currentMonth={commonModels.selectedDayjs}
-        onPreviousMonthClick={commonOperations.onPreviousMonthClick}
-        onNextMonthClick={commonOperations.onNextMonthClick}
         monthButtonStatus={monthButtonStatus}
+        onNextMonthClick={commonOperations.onNextMonthClick}
+        onPreviousMonthClick={commonOperations.onPreviousMonthClick}
       />
       <CalendarWeekDayComponent className='text-gray-06 mb-4' />
-      <div className={'flex-1'}>
+      <div className='flex-1'>
         {commonModels.calendarDates.map((calendarWeekDates, index) => (
           <DatePickerCalendarWeek
-            key={index}
-            calendarWeekDates={calendarWeekDates}
-            exceptionDay={exceptionDay}
-            useHoliday={useHoliday}
-            cutoffDate={cutoffDate}
-            cutoffAfterDate={cutoffAfterDate}
-            disabledDates={disabledDates}
-            temporaryDates={temporaryDates}
-            handleDateClick={operations['handleDateClick']}
             afterAllDate={afterAllDate}
+            calendarWeekDates={calendarWeekDates}
+            cutoffAfterDate={cutoffAfterDate}
+            cutoffDate={cutoffDate}
+            disabledDates={disabledDates}
+            exceptionDay={exceptionDay}
+            handleDateClick={operations['handleDateClick']}
+            key={index}
             label={label}
-            variants={variants}
+            periodDateArray={models['periodDateArray']}
             periodDates={models['periodDates']}
             setCalendarPeriodDates={operations['setCalendarPeriodDates']}
+            temporaryDates={temporaryDates}
+            useHoliday={useHoliday}
+            variants={variants}
             onDateClick={onDateClick}
-            periodDateArray={models['periodDateArray']}
           />
         ))}
       </div>

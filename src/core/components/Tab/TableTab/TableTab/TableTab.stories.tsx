@@ -20,9 +20,9 @@ export const Default = () => {
 
   const items = data.map((item) => (
     <TableTab.Item
-      label={item.label}
-      name={'plate'}
       checked={item.key === currentValue}
+      label={item.label}
+      name='plate'
       value={item.key}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;

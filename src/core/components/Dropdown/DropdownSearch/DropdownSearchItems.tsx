@@ -26,17 +26,17 @@ const DropdownSearchItems = <
 
   const ITEMS = filteredOptions.map(({ label, value, sub, disabled }) => (
     <DropdownSelect.Item
-      key={value}
       checked={currentValue === value}
+      className={clsx(sub && 'flex items-center gap-2')}
+      disabled={disabled}
+      key={value}
       onClick={() => {
         onChange?.({ label, value });
         onSearchChange('');
       }}
-      className={clsx(sub && 'flex items-center gap-2')}
-      disabled={disabled}
     >
       {label}
-      {sub && <div className={'shrink-0'}>{sub}</div>}
+      {sub && <div className='shrink-0'>{sub}</div>}
     </DropdownSelect.Item>
   ));
 
@@ -46,8 +46,8 @@ const DropdownSearchItems = <
     } else {
       return [
         <div
-          key={SEARCH_DROPDOWN_EMPTY_ITEM_KEY}
           className='text-body-01-medium text-gray-05 flex flex-1 items-center justify-center'
+          key={SEARCH_DROPDOWN_EMPTY_ITEM_KEY}
         >
           검색된 결과가 없습니다
         </div>,
@@ -57,15 +57,15 @@ const DropdownSearchItems = <
 
   return (
     <DropdownSelect.Items
-      items={renderer()}
       inputProps={{
         value: searchValue,
         onChange: (e) => onSearchChange(e.target.value),
         inputRef,
         ...inputProps,
       }}
-      itemHeight={!hasSearchedOptions ? 100 : itemHeight}
       className={clsx('max-h-56', className)}
+      itemHeight={!hasSearchedOptions ? 100 : itemHeight}
+      items={renderer()}
       {...props}
       useSearch
     />

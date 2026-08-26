@@ -17,12 +17,12 @@ const DropdownSelectTrigger = forwardRef(
 
     return (
       <DropdownBase.Trigger
-        ref={ref}
         className={clsx(
           'bbodek-select',
           error ? 'border-error' : 'border-gray-03',
           className,
         )}
+        ref={ref}
         {...rest}
       >
         {({ isToggle, disabled, readOnly }) => {
@@ -38,11 +38,11 @@ const DropdownSelectTrigger = forwardRef(
                     'block truncate',
                     isDisabled && 'mr-[1.725rem]',
                   )}
-                  text={label}
-                  title={label}
                   color={
                     !isDisabled && !showPlaceholder ? 'gray-08' : 'gray-05'
                   }
+                  text={label}
+                  title={label}
                 />
               ) : (
                 label

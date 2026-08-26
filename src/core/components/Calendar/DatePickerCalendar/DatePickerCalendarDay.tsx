@@ -60,9 +60,9 @@ const DatePickerCalendarDay = ({
 
   return (
     <button
-      type='button'
-      className={'h-full w-full'}
+      className='h-full w-full'
       disabled={disabled}
+      type='button'
       onClick={(): void => {
         if (startDate === endDate && endDate === currentDate) {
           return;
@@ -75,22 +75,22 @@ const DatePickerCalendarDay = ({
     >
       <div className={clsx('flex flex-col')}>
         <CalendarComponentDayText
-          disabled={disabled}
-          calendarDate={calendarDate}
-          periodDates={periodDates}
-          periodDateArray={periodDateArray}
           afterAllDate={afterAllDate}
+          calendarDate={calendarDate}
+          disabled={disabled}
           isExceptionDate={isExceptionDate}
           isTemporaryDate={isTemporaryDate}
+          periodDateArray={periodDateArray}
+          periodDates={periodDates}
         />
         <CalendarComponentDaySubText
           calendarDate={calendarDate}
-          periodDates={periodDates}
           disabled={disabled}
+          exceptionDateLabel={exceptionLabel}
           isExceptionDate={isExceptionDate}
           isTemporaryDate={isTemporaryDate}
-          exceptionDateLabel={exceptionLabel}
           label={label}
+          periodDates={periodDates}
         />
       </div>
     </button>

@@ -74,8 +74,8 @@ const VirtualList = forwardRef<HTMLElement, VirtualListProps>(
 
     return (
       <RootComponent
-        ref={mergeRefs(containerRef, ref)}
         className={classNames}
+        ref={mergeRefs(containerRef, ref)}
         onScroll={handleScroll}
       >
         <ListComponent

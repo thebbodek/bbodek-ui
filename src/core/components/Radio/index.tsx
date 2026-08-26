@@ -15,18 +15,18 @@ const Radio = forwardRef(
 
     return (
       <label
-        htmlFor={id}
         className={clsx(
           'cursor-pointer',
           label && 'flex items-center gap-x-2',
           className,
         )}
+        htmlFor={id}
       >
         <input
-          ref={ref}
-          id={id}
-          type='radio'
           className='peer hidden'
+          id={id}
+          ref={ref}
+          type='radio'
           {...props}
         />
         <Icon
@@ -34,8 +34,8 @@ const Radio = forwardRef(
             SVG_SIZE[svgSize],
             'text-gray-05 peer-checked:text-primary-03',
           )}
-          iconKey={'radio-button'}
-          weight={'fill'}
+          iconKey='radio-button'
+          weight='fill'
         />
         {label && <Typography text={label} />}
       </label>

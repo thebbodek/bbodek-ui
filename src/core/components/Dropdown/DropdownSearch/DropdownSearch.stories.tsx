@@ -295,15 +295,15 @@ export const Default = () => {
 
   return (
     <DropdownSearch
-      label={'정산 선택'}
+      className='w-96'
       currentValue={currentValue}
+      label='정산 선택'
       options={kindergartens}
-      placeholder={'선택해주세요'}
+      placeholder='선택해주세요'
+      required
       onChange={({ value }) => {
         setCurrentValue(value);
       }}
-      className={'w-96'}
-      required
     />
   );
 };
@@ -347,26 +347,26 @@ export const CustomDropdownSearch = () => {
       text: author + id,
       disabled,
       label: (
-        <div className={'flex items-center gap-2.5'}>
+        <div className='flex items-center gap-2.5'>
           <Avatar
-            className={'shrink-0'}
-            src={url}
             alt={author}
+            className='shrink-0'
             disabled={disabled}
+            src={url}
           />
 
-          <div className={'flex-v-stack w-[13rem] -space-y-0.5'}>
+          <div className='flex-v-stack w-[13rem] -space-y-0.5'>
             <Typography
-              theme={'body-02-medium'}
-              text={author}
+              className='truncate'
               color={disabled ? 'gray-03' : 'gray-07'}
-              className={'truncate'}
+              text={author}
+              theme='body-02-medium'
             />
             <Typography
-              theme={'body-03-regular'}
-              text={id}
-              className={'truncate'}
+              className='truncate'
               color={disabled ? 'gray-03' : 'gray-06'}
+              text={id}
+              theme='body-03-regular'
             />
           </div>
         </div>
@@ -376,18 +376,18 @@ export const CustomDropdownSearch = () => {
 
   return (
     <DropdownSearch
-      currentValue={currentValue}
-      options={options}
-      placeholder={'유저 이름 또는 이메일을 입력해주세요'}
       itemsProps={{
         itemHeight: 56,
         inputProps: {
           placeholder: '유저 이름 또는 이메일을 입력해주세요',
         },
       }}
-      className={'h-[3.625rem] w-[20rem]'}
-      onChange={({ value }) => setCurrentValue(value)}
+      className='h-[3.625rem] w-[20rem]'
+      currentValue={currentValue}
       disabled={isLoading}
+      options={options}
+      placeholder='유저 이름 또는 이메일을 입력해주세요'
+      onChange={({ value }) => setCurrentValue(value)}
     />
   );
 };

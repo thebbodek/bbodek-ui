@@ -17,44 +17,47 @@ const InputSelect = forwardRef(
       className,
       onChange,
       required,
-      error,
+      error: isError,
       sub,
       ...rest
     } = props;
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-      !isSelectedValue && setIsSelectedValue(true);
+      if (!isSelectedValue) {
+        setIsSelectedValue(true);
+      }
+
       onChange?.(e);
     };
 
     return (
       <InputBase
-        label={label}
-        inputId={id}
-        rootClassName={rootClassName}
-        error={error}
-        sub={sub}
-        badge={badge}
         inputComponent={
           <select
-            ref={ref}
             className={clsx(
               'w-full cursor-pointer outline-hidden',
               !value && !isSelectedValue ? 'text-gray-05' : 'text-gray-08',
               className,
             )}
-            onChange={onChangeHandler}
+            ref={ref}
             required={required}
             value={value}
+            onChange={onChangeHandler}
             {...rest}
           >
-            <option value='' selected disabled hidden>
+            <option value='' disabled hidden selected>
               {placeholder}
             </option>
             {options}
           </select>
         }
+        badge={badge}
+        error={isError}
+        inputId={id}
+        label={label}
         required={required}
+        rootClassName={rootClassName}
+        sub={sub}
       />
     );
   },

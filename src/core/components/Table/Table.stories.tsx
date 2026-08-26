@@ -85,7 +85,7 @@ export const WhiteTable = (props: TableContainerProps) => {
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-              <TableCell key={column.key} element='th'>
+              <TableCell element='th' key={column.key}>
                 {column.text}
               </TableCell>
             ))}
@@ -95,7 +95,7 @@ export const WhiteTable = (props: TableContainerProps) => {
           {rows.map((row) => (
             <TableRow key={row.id}>
               {columnsKeys.map((key, index) => (
-                <TableCell key={index} element='td'>
+                <TableCell element='td' key={index}>
                   {row[key]}
                 </TableCell>
               ))}
@@ -114,7 +114,7 @@ export const GrayTable = (props: TableContainerProps) => {
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-              <TableCell key={column.key} element='th'>
+              <TableCell element='th' key={column.key}>
                 {column.text}
               </TableCell>
             ))}
@@ -124,7 +124,7 @@ export const GrayTable = (props: TableContainerProps) => {
           {rows.map((row) => (
             <TableRow key={row.id}>
               {columnsKeys.map((key) => (
-                <TableCell key={key} element='td'>
+                <TableCell element='td' key={key}>
                   {row[key]}
                 </TableCell>
               ))}

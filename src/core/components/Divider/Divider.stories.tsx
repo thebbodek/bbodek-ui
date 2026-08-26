@@ -12,7 +12,7 @@ export default meta;
 
 export const Primary = () => {
   return (
-    <div className={'w-96 px-2'}>
+    <div className='w-96 px-2'>
       <Divider />
     </div>
   );

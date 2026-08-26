@@ -51,10 +51,10 @@ export const Default = (props: DrawerProps) => {
         <main className='relative flex-1'>
           <div id={props.target ?? 'bar'} />
           <Drawer
+            isOpen={props.isOpen || isOpen}
+            target={props.target ?? 'bar'}
             title={props.title ?? '알림'}
             titleSub={props.titleSub}
-            target={props.target ?? 'bar'}
-            isOpen={props.isOpen || isOpen}
             onClose={onToggle}
           >
             Drawer

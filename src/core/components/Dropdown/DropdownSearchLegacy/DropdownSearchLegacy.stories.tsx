@@ -23,15 +23,15 @@ export const Default = () => {
 
   return (
     <DropdownSearchLegacy
-      label={'정산 선택'}
+      className='w-60'
       currentValue={currentValue}
+      label='정산 선택'
       options={options}
-      placeholder={'선택해주세요'}
+      placeholder='선택해주세요'
+      required
       onChange={({ value }) => {
         setCurrentValue(value);
       }}
-      className={'w-60'}
-      required
     />
   );
 };
@@ -75,26 +75,26 @@ export const CustomDropdownSearch = () => {
       text: author + id,
       disabled,
       label: (
-        <div className={'flex items-center gap-2.5'}>
+        <div className='flex items-center gap-2.5'>
           <Avatar
-            className={'shrink-0'}
-            src={url}
             alt={author}
+            className='shrink-0'
             disabled={disabled}
+            src={url}
           />
 
-          <div className={'flex-v-stack w-[13rem] -space-y-0.5'}>
+          <div className='flex-v-stack w-[13rem] -space-y-0.5'>
             <Typography
-              theme={'body-02-medium'}
-              text={author}
+              className='truncate'
               color={disabled ? 'gray-03' : 'gray-07'}
-              className={'truncate'}
+              text={author}
+              theme='body-02-medium'
             />
             <Typography
-              theme={'body-03-regular'}
-              text={id}
-              className={'truncate'}
+              className='truncate'
               color={disabled ? 'gray-03' : 'gray-06'}
+              text={id}
+              theme='body-03-regular'
             />
           </div>
         </div>
@@ -104,14 +104,14 @@ export const CustomDropdownSearch = () => {
 
   return (
     <DropdownSearchLegacy
+      className='h-[3.625rem] w-[20rem]'
       currentValue={currentValue}
-      options={options}
-      placeholder={'유저 이름 또는 이메일을 입력해주세요'}
-      inputPlaceholder={'유저 이름 또는 이메일을 입력해주세요'}
-      className={'h-[3.625rem] w-[20rem]'}
-      itemHeight={56}
-      onChange={({ value }) => setCurrentValue(value)}
       disabled={isLoading}
+      inputPlaceholder='유저 이름 또는 이메일을 입력해주세요'
+      itemHeight={56}
+      options={options}
+      placeholder='유저 이름 또는 이메일을 입력해주세요'
+      onChange={({ value }) => setCurrentValue(value)}
     />
   );
 };

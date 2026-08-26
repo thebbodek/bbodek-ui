@@ -21,23 +21,23 @@ const Drawer = forwardRef(
     ref: React.Ref<HTMLDialogElement>,
   ) => {
     const { target, className, ...rest } = props;
-    const CloseIcon = <Icon className={'text-[2rem]'} iconKey={'x'} />;
+    const CloseIcon = <Icon className='text-[2rem]' iconKey='x' />;
 
     return (
       <ModalBase
-        target={target ?? 'drawer'}
-        ref={ref}
-        variants={'drawer'}
         isOpen={isOpen}
+        ref={ref}
+        target={target ?? 'drawer'}
         useClickOutsideEvent={useClickOutsideEvent}
+        variants='drawer'
         {...rest}
       >
         <Section
-          element='div'
           className={clsx(
             'animate-drawer safe-area-bottom w-[29.1875rem] bg-white',
             className,
           )}
+          element='div'
           hasRounded={false}
           hasShadow
         >
@@ -45,20 +45,20 @@ const Drawer = forwardRef(
             <div className='flex items-center justify-between'>
               <div className={clsx(titleSub && 'flex items-center gap-x-2')}>
                 <Typography
-                  element='strong'
-                  theme='head-01-bold'
                   className='text-black'
+                  element='strong'
                   text={title}
+                  theme='head-01-bold'
                 />
                 {titleSub && (
                   <Typography
-                    theme='body-02-regular'
                     color='gray-06'
                     text={titleSub}
+                    theme='body-02-regular'
                   />
                 )}
               </div>
-              <button onClick={onClose} aria-label='창 닫기'>
+              <button aria-label='창 닫기' onClick={onClose}>
                 {CloseIcon}
               </button>
             </div>

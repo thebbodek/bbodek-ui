@@ -16,9 +16,9 @@ const DropdownSelectItem = forwardRef(
   ) => {
     return (
       <DropdownBase.Item
-        ref={ref}
         checked={checked}
         className={clsx('text-body-01-regular', className)}
+        ref={ref}
         {...props}
       >
         {children}

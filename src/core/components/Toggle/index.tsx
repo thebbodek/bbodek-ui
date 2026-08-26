@@ -21,28 +21,28 @@ const Toggle = ({
 
   return (
     <label
-      htmlFor={id}
       className={clsx(
         'flex cursor-pointer items-center gap-x-1',
         reverse && 'flex-row-reverse',
         className,
       )}
+      htmlFor={id}
     >
       {label && (
         <FormLabel
-          labelTheme={labelTheme}
           label={label}
           labelColor={labelColor}
+          labelTheme={labelTheme}
           required={required}
         />
       )}
       <input
+        checked={checked}
+        className='peer hidden'
+        disabled={disabled}
         id={id}
         type='checkbox'
-        className='peer hidden'
-        checked={checked}
         onChange={onChange}
-        disabled={disabled}
       />
       <div
         className={clsx(

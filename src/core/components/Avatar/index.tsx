@@ -23,17 +23,17 @@ const Avatar = ({
 
   useInitEffect(() => setIsReady(true));
 
-  if (!isReady) return <AvatarSkeleton size={size} rounded={rounded} />;
+  if (!isReady) return <AvatarSkeleton rounded={rounded} size={size} />;
 
   if (!popover) {
     return (
       <AvatarTrigger
-        size={size}
-        rounded={rounded}
-        isLoading={isLoading}
-        setIsLoading={setIsLoading}
         hasImageError={hasImageError}
+        isLoading={isLoading}
+        rounded={rounded}
         setHasImageError={setHasImageError}
+        setIsLoading={setIsLoading}
+        size={size}
         {...props}
       />
     );
@@ -43,12 +43,12 @@ const Avatar = ({
     <Popover
       trigger={
         <AvatarTrigger
-          size={size}
-          rounded={rounded}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
           hasImageError={hasImageError}
+          isLoading={isLoading}
+          rounded={rounded}
           setHasImageError={setHasImageError}
+          setIsLoading={setIsLoading}
+          size={size}
           {...props}
         />
       }

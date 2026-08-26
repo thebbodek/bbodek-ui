@@ -80,7 +80,7 @@ export const Default = ({ content, placement, ...props }: TooltipProps) => {
       placement={placement ?? 'top'}
       {...props}
     >
-      <div className={'bg-primary-03 p-2 text-white'}>Hover Me</div>
+      <div className='bg-primary-03 p-2 text-white'>Hover Me</div>
     </Tooltip>
   );
 };
@@ -103,13 +103,13 @@ export const KeepFloatingTooltip = ({
           </>
         )
       }
-      placement={placement ?? 'top'}
-      isKeepFloating={isKeepFloating ?? true}
       hasArrow={hasArrow ?? true}
+      isKeepFloating={isKeepFloating ?? true}
+      placement={placement ?? 'top'}
       useCloseButton={useCloseButton ?? true}
       {...props}
     >
-      <div className={'bg-primary-03 p-2 text-white'}>Hover Me</div>
+      <div className='bg-primary-03 p-2 text-white'>Hover Me</div>
     </Tooltip>
   );
 };

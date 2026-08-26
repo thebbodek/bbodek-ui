@@ -23,18 +23,18 @@ const DropdownSearchLegacyItems = <T extends DropdownSearchLegacyValueType>({
       if (hasSearchedOptions) {
         return filteredOptions.map((option) => (
           <DropdownSearchLegacyItem
+            currentValue={currentValue}
             key={option.value}
             option={option}
-            currentValue={currentValue}
-            onChange={onChange}
             updateSearchValue={updateSearchValue}
+            onChange={onChange}
           />
         ));
       } else {
         return [
           <div
-            key={'empty'}
             className='text-body-01-medium text-gray-05 flex flex-1 items-center justify-center text-center'
+            key='empty'
           >
             검색된 결과가 없습니다
           </div>,
@@ -43,10 +43,10 @@ const DropdownSearchLegacyItems = <T extends DropdownSearchLegacyValueType>({
     }
 
     return [
-      <div key={'loading'} className='flex flex-1 items-center justify-center'>
+      <div className='flex flex-1 items-center justify-center' key='loading'>
         <Icon
-          iconKey='circle-notch'
           className='text-subhead-01-regular animate-spin'
+          iconKey='circle-notch'
         />
       </div>,
     ];

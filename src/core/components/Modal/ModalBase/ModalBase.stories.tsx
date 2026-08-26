@@ -49,17 +49,17 @@ export const Default = (props: ModalBaseProps) => {
     <>
       <div id={props.target ?? 'portal'} />
       <ModalBase
-        variants={props.variants ?? 'modal'}
+        dimmed={props.dimmed}
         isOpen={props.isOpen || isOpen}
         target={props.target}
-        dimmed={props.dimmed}
+        variants={props.variants ?? 'modal'}
       >
         <Section
-          element={'div'}
           className={clsx(
             'h-[20rem] w-[20rem]',
             props.variants === 'modal' ? 'animate-popup' : 'animate-drawer',
           )}
+          element='div'
         />
       </ModalBase>
       <button onClick={() => setIsOpen(true)}>Modal Open!!</button>

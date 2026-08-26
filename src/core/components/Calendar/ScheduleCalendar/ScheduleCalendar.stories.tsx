@@ -28,11 +28,8 @@ export const Default = () => {
   }, [selectedDate]);
 
   return (
-    <div className={'w-[1000px]'}>
+    <div className='w-[1000px]'>
       <ScheduleCalendar
-        initialDate={getDayjs('2023-12-02').unix()}
-        onRender={getCalendarDates}
-        defaultQuantity={25}
         schedulesData={{
           '2023-11-30': {
             quantity: 10,
@@ -88,7 +85,10 @@ export const Default = () => {
             markedDates: ['정식 전환일'],
           },
         }}
+        defaultQuantity={25}
+        initialDate={getDayjs('2023-12-02').unix()}
         onDateClick={onDateClick}
+        onRender={getCalendarDates}
       />
     </div>
   );

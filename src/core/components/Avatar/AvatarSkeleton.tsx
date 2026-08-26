@@ -11,12 +11,12 @@ const AvatarSkeleton = ({
 }: Required<Pick<AvatarProps, 'size' | 'rounded'>>) => {
   return (
     <Skeleton
-      width={AVATAR_IMAGE_SIZE[size]}
-      height={AVATAR_IMAGE_SIZE[size]}
       containerClassName={clsx(
         'flex items-center justify-center overflow-hidden',
         BUTTON_ROUNDED[rounded],
       )}
+      height={AVATAR_IMAGE_SIZE[size]}
+      width={AVATAR_IMAGE_SIZE[size]}
     />
   );
 };

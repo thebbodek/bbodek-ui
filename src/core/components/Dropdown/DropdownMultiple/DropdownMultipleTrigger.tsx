@@ -20,14 +20,17 @@ const DropdownMultipleTrigger = forwardRef(
     }: DropdownMultipleTriggerProps<T>,
     ref: Ref<HTMLDivElement>,
   ) => {
-    const { isToggle, readOnly, disabled, setIsToggle } = useContext(
-      DropdownContext,
-    ) as DropdownContextValue;
+    const {
+      isToggle,
+      readOnly: isReadOnly,
+      disabled,
+      setIsToggle,
+    } = useContext(DropdownContext) as DropdownContextValue;
     const { className, placeholder, ...rest } = props;
     const hasCurrentValues = currentValues.length > 0;
     const showPlaceholder = placeholder && !hasCurrentValues;
-    const isDisabled = readOnly || disabled;
-    const isVisibleContent = !readOnly && !disabled && isToggle;
+    const isDisabled = isReadOnly || disabled;
+    const isVisibleContent = !isReadOnly && !disabled && isToggle;
     const isText =
       !showPlaceholder && variant === DROPDOWN_MULTIPLE_VARIANT['TEXT'];
 
@@ -40,9 +43,6 @@ const DropdownMultipleTrigger = forwardRef(
 
     return (
       <div
-        ref={ref}
-        role={'button'}
-        onClick={onClickHandler}
         className={clsx(
           'bbodek-select whitespace-nowrap',
           isDisabled
@@ -50,24 +50,27 @@ const DropdownMultipleTrigger = forwardRef(
             : 'cursor-pointer bg-white',
           className,
         )}
-        aria-haspopup='listbox'
-        aria-expanded={isToggle}
         aria-disabled={disabled}
-        aria-readonly={readOnly}
+        aria-expanded={isToggle}
+        aria-haspopup='listbox'
+        aria-readonly={isReadOnly}
+        ref={ref}
+        role='button'
+        onClick={onClickHandler}
         {...rest}
       >
         {showPlaceholder || isText ? (
           <Typography
-            color={!showPlaceholder && !isDisabled ? 'gray-08' : 'gray-05'}
+            className={clsx(
+              'flex-1 truncate text-start',
+              isDisabled && 'mr-[1.725rem]',
+            )}
             text={
               !showPlaceholder
                 ? currentValues.map((value) => value.label).join(', ')
                 : placeholder
             }
-            className={clsx(
-              'flex-1 truncate text-start',
-              isDisabled && 'mr-[1.725rem]',
-            )}
+            color={!showPlaceholder && !isDisabled ? 'gray-08' : 'gray-05'}
           />
         ) : (
           <ul
@@ -78,12 +81,12 @@ const DropdownMultipleTrigger = forwardRef(
           >
             {currentValues.map(({ label, value }) => (
               <Chip
-                element={'li'}
+                colorTheme='secondary'
+                element='li'
                 key={value}
                 label={label}
-                size={'medium'}
-                rounded={'rounded-6'}
-                colorTheme={'secondary'}
+                rounded='rounded-6'
+                size='medium'
                 onDelete={(e: MouseEvent<HTMLButtonElement>) => {
                   e.stopPropagation();
                   onDelete?.(value);

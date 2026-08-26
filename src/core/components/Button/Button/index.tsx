@@ -18,7 +18,7 @@ const Button = forwardRef(
     const hasIcon = leftIcon || rightIcon ? true : false;
 
     return (
-      <ButtonBase ref={ref} hasIcon={hasIcon} {...props}>
+      <ButtonBase hasIcon={hasIcon} ref={ref} {...props}>
         {leftIcon && <div>{leftIcon}</div>}
         <span className={clsx(hasUnderline && 'underline')}>{content}</span>
         {rightIcon && <div>{rightIcon}</div>}

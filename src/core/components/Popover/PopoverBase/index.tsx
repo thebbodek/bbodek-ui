@@ -1,4 +1,4 @@
-import { MouseEvent, RefObject, useState } from 'react';
+import { MouseEvent, useState } from 'react';
 
 import { usePopoverPosition } from '@/core/components/Popover/PopoverBase/hooks/usePopoverPosition';
 import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
@@ -47,11 +47,11 @@ const Popover = ({
 
   return (
     <div
+      className={rootClassName}
       ref={triggerRef}
       onClick={handleTriggerClick}
       onMouseEnter={() => useHover && setIsOpen(true)}
       onMouseLeave={() => useHover && setIsOpen(false)}
-      className={rootClassName}
     >
       {trigger}
       {isOpen && popover && (
@@ -62,8 +62,8 @@ const Popover = ({
               hasShadow={hasShadow}
               shadow={shadow}
               {...props}
+              element='div'
               ref={popoverRef}
-              element={'div'}
             >
               {isFunction ? popover({ close }) : popover}
             </Section>

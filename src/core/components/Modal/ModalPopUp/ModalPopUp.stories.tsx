@@ -39,9 +39,9 @@ export const Default = (props: ModalPopUpProps) => {
     <>
       <div id={props.target ?? 'portal'} />
       <ModalPopUp
-        target={props.target}
-        isOpen={props.isOpen || isOpen}
         className='flex-v-stack h-[20rem] w-[20rem] gap-y-5 p-4'
+        isOpen={props.isOpen || isOpen}
+        target={props.target}
       >
         <button className='ml-auto' onClick={onToggle}>
           닫기
@@ -62,10 +62,10 @@ export const ModalPopUpUseBlur = (props: ModalPopUpProps) => {
     <>
       <div id={props.target ?? 'foo'} />
       <ModalPopUp
-        target={props.target ?? 'foo'}
-        isOpen={props.isOpen || isOpen}
-        onClose={onToggle}
         className='h-[20rem] w-[20rem] p-4'
+        isOpen={props.isOpen || isOpen}
+        target={props.target ?? 'foo'}
+        onClose={onToggle}
       >
         ModalPopUp
       </ModalPopUp>

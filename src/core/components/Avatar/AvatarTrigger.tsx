@@ -62,14 +62,14 @@ const AvatarTrigger = ({
     >
       <AvatarContent
         alt={alt}
-        src={src}
-        size={size}
-        rounded={rounded}
-        showAllLetter={showAllLetter}
-        isLoading={isLoading}
-        setIsLoading={setIsLoading}
         hasImageError={hasImageError}
+        isLoading={isLoading}
+        rounded={rounded}
         setHasImageError={setHasImageError}
+        setIsLoading={setIsLoading}
+        showAllLetter={showAllLetter}
+        size={size}
+        src={src}
       >
         {children}
       </AvatarContent>

@@ -27,37 +27,35 @@ export const CalendarHeader = ({
     'text-gray-05 group-disabled:text-gray-03 group-disabled:cursor-not-allowed text-subhead-01-regular md:text-head-01-regular';
 
   return (
-    <div className={'mb-6 flex items-center justify-center gap-x-5'}>
+    <div className='mb-6 flex items-center justify-center gap-x-5'>
       <button
-        type='button'
         className={buttonClassNames}
-        onClick={() => !isDisablePrev && onPreviousMonthClick?.()}
         disabled={isDisablePrev}
+        type='button'
+        onClick={() => !isDisablePrev && onPreviousMonthClick?.()}
       >
-        <Icon iconKey={'caret-left'} className={iconClassNames} />
+        <Icon className={iconClassNames} iconKey='caret-left' />
       </button>
-      <div
-        className={'flex min-w-[6rem] items-center justify-between text-black'}
-      >
+      <div className='flex min-w-[6rem] items-center justify-between text-black'>
         <Typography
           className='md:text-head-02-regular text-center'
-          theme='subhead-01-medium'
           text={year}
+          theme='subhead-01-medium'
         />
         <Typography
           className='md:text-head-02-regular text-center'
           color='black'
-          theme='subhead-01-medium'
           text={month}
+          theme='subhead-01-medium'
         />
       </div>
       <button
-        type='button'
         className={buttonClassNames}
-        onClick={() => !isDisableNext && onNextMonthClick?.()}
         disabled={isDisableNext}
+        type='button'
+        onClick={() => !isDisableNext && onNextMonthClick?.()}
       >
-        <Icon iconKey={'caret-right'} className={iconClassNames} />
+        <Icon className={iconClassNames} iconKey='caret-right' />
       </button>
     </div>
   );

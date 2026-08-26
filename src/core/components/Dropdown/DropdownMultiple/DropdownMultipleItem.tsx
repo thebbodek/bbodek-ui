@@ -12,21 +12,21 @@ const DropdownMultipleItem = forwardRef(
   ) => {
     return (
       <DropdownBase.Item
-        ref={ref}
-        checked={checked}
         className={clsx(
           'text-body-01-regular flex items-center justify-between',
           className,
         )}
+        checked={checked}
+        ref={ref}
         useCloseOnItemClick={false}
         {...props}
       >
         {children}
         {checked && (
           <Icon
-            iconKey={'check'}
-            className={'text-primary-03 -mt-[2px] shrink-0'}
-            weight={'bold'}
+            className='text-primary-03 -mt-[2px] shrink-0'
+            iconKey='check'
+            weight='bold'
           />
         )}
       </DropdownBase.Item>

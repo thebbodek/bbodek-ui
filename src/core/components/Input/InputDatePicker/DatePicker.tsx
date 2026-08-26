@@ -48,16 +48,18 @@ const DatePicker = ({
   };
 
   useEffect(() => {
-    externalDates && setPeriodDates(externalDates);
+    if (externalDates) {
+      setPeriodDates(externalDates);
+    }
   }, [externalDates]);
 
   const tabItems = tabData.map((item) => (
     <GeneralTab.Item
+      checked={item.key === tabSelected}
       key={item.key}
       label={item.label}
       name={id}
       theme='body-01-bold'
-      checked={item.key === tabSelected}
       value={item.key}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
         setTabSelected(e.target.value);
@@ -88,21 +90,21 @@ const DatePicker = ({
           {hasDatePickerTitle && (
             <div className='flex items-center gap-2'>
               <Icon
-                iconKey={'calendar-blank'}
-                className={'text-subhead-02-medium md:text-subhead-01-medium'}
+                className='text-subhead-02-medium md:text-subhead-01-medium'
+                iconKey='calendar-blank'
               />
               <Typography
+                className='md:text-subhead-02-medium'
                 element='h6'
                 text='날짜 선택'
                 theme='body-01-medium'
-                className='md:text-subhead-02-medium'
               />
             </div>
           )}
           {useTab && (
             <GeneralTab
-              items={tabItems}
               className='[&_span]:text-body-02-bold md:[&_span]:text-body-01-bold mt-3 rounded-xl! p-1.5! md:mt-4 md:p-2 [&_span]:rounded-lg! [&_span]:p-1.5 md:[&_span]:p-2'
+              items={tabItems}
             />
           )}
         </header>
@@ -113,27 +115,27 @@ const DatePicker = ({
           )}
         >
           <DatePickerCalendar
-            temporaryDates={temporaryDates}
-            isFixStartDate={isFixStartDate}
-            variants={variants}
-            cutoffDate={cutoffDate}
+            afterAllDate={tabSelected === 'afterAllDate'}
             cutoffAfterDate={cutoffAfterDate}
-            periodDates={periodDates}
+            cutoffDate={cutoffDate}
+            disabled={disabled}
             disabledDates={disabledDates}
             initialDate={initialDate}
-            onDateClick={onDateClick}
-            disabled={disabled}
-            useHoliday={useHoliday}
-            afterAllDate={tabSelected === 'afterAllDate'}
+            isFixStartDate={isFixStartDate}
             label={dateLabel}
+            periodDates={periodDates}
+            temporaryDates={temporaryDates}
+            useHoliday={useHoliday}
+            variants={variants}
+            onDateClick={onDateClick}
           />
         </div>
         <div className='border-t p-3 md:p-4'>
           <Button
+            className='w-full'
+            colorTheme='white'
             content={closeButtonText}
             size='h-52'
-            colorTheme='white'
-            className='w-full'
             onClick={handleClose}
           />
         </div>

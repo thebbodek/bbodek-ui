@@ -10,7 +10,7 @@ export const useMonthChangeEffect = (
   setCalendarDates: React.Dispatch<React.SetStateAction<CalendarDateDto[][]>>,
 ) => {
   useEffect(() => {
-    function getNewCalendarDates() {
+    const getNewCalendarDates = () => {
       const newCalendarDates: CalendarDateDto[][] = [];
       let calendarWeekDates: CalendarDateDto[] = [];
 
@@ -42,7 +42,7 @@ export const useMonthChangeEffect = (
       }
 
       return newCalendarDates;
-    }
+    };
 
     const newCalendarDates: CalendarDateDto[][] = getNewCalendarDates();
 

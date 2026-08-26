@@ -29,8 +29,8 @@ export const Default = (props: InputPasswordProps) => {
     <div className='w-[400px]'>
       <InputPassword
         value={currentValue}
-        onChange={onChangeHandler}
         required
+        onChange={onChangeHandler}
         {...props}
       />
     </div>

@@ -34,12 +34,12 @@ export default meta;
 export const Default = (props: FormLabelProps) => {
   return (
     <FormLabel
-      label={props.label ?? '품목 선택'}
-      required={props.required ?? true}
-      labelColor={props.labelColor}
       labelSubText={
         props.labelSubText ?? '반별로 품목과 수량을 각각 선택해주세요.'
       }
+      label={props.label ?? '품목 선택'}
+      labelColor={props.labelColor}
+      required={props.required ?? true}
     />
   );
 };

@@ -5,7 +5,6 @@ import Popover from './index';
 import Button from '@/core/components/Button/Button';
 import IconButton from '@/core/components/Button/IconButton';
 import Icon from '@/core/components/Icon';
-import { PopoverProps } from '@/core/components/Popover/PopoverBase/types';
 import Section from '@/core/components/Section';
 
 const meta = {
@@ -19,23 +18,14 @@ const ListItem = ({ index }: { index: number }) => {
   return (
     <li className='flex border-b p-2 first:justify-end last:border-b-0 even:justify-center'>
       <Popover
-        trigger={
-          <Button
-            size={'h-40'}
-            colorTheme={'secondary'}
-            content={`클릭 ${index}`}
-            rounded={'rounded-6'}
-            className={'px-2'}
-          />
-        }
         popover={({ close }) => (
-          <div className={'flex items-center justify-between gap-2'}>
+          <div className='flex items-center justify-between gap-2'>
             내용입니다 {index}
             <IconButton
-              size={'h-20'}
-              colorTheme={'gray'}
-              rounded={'rounded-full'}
-              icon={<Icon iconKey={'x'} />}
+              colorTheme='gray'
+              icon={<Icon iconKey='x' />}
+              rounded='rounded-full'
+              size='h-20'
               onClick={(e) => {
                 e.stopPropagation();
                 close();
@@ -43,26 +33,35 @@ const ListItem = ({ index }: { index: number }) => {
             />
           </div>
         )}
+        trigger={
+          <Button
+            className='px-2'
+            colorTheme='secondary'
+            content={`클릭 ${index}`}
+            rounded='rounded-6'
+            size='h-40'
+          />
+        }
         popoverOptions={{ colorTheme: 'white', className: 'p-2' }}
       />
     </li>
   );
 };
 
-export const Default = (props: PopoverProps) => {
+export const Default = () => {
   const rootRef = useRef(null);
 
   return (
     <>
-      <div id={'portal'} />
+      <div id='portal' />
       <Section
+        className='popover-root max-h-[16rem] w-60 overflow-y-auto'
+        element='ul'
         ref={rootRef}
-        element={'ul'}
-        className={'popover-root max-h-[16rem] w-60 overflow-y-auto'}
         hasBorder
       >
         {Array.from({ length: 5 }).map((_, i) => (
-          <ListItem key={i} index={i + 1} />
+          <ListItem index={i + 1} key={i} />
         ))}
       </Section>
     </>

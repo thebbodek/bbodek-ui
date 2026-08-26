@@ -15,7 +15,7 @@ const TableContainer = forwardRef(
   ) => {
     return (
       <TableThemeContext.Provider value={{ theme }}>
-        <div ref={ref} className={clsx('w-full overflow-x-auto', className)}>
+        <div className={clsx('w-full overflow-x-auto', className)} ref={ref}>
           {children}
         </div>
       </TableThemeContext.Provider>

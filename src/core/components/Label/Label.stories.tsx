@@ -31,11 +31,11 @@ export default meta;
 export const Primary = (props: LabelProps) => {
   return (
     <Label
-      element='dt'
       colorTheme={props.colorTheme ?? 'primary'}
-      size='small'
+      element='dt'
+      icon={<Icon iconKey='info' />}
       label={props.label ?? 'small primary'}
-      icon={<Icon iconKey={'info'} />}
+      size='small'
     />
   );
 };
@@ -44,9 +44,9 @@ export const Error = (props: LabelProps) => {
   return (
     <Label
       colorTheme={props.colorTheme ?? 'error'}
-      size='medium'
+      icon={<Icon iconKey='info' />}
       label={props.label ?? 'medium error'}
-      icon={<Icon iconKey={'info'} />}
+      size='medium'
     />
   );
 };
@@ -55,9 +55,9 @@ export const Success = (props: LabelProps) => {
   return (
     <Label
       colorTheme={props.colorTheme ?? 'success'}
-      size='large'
+      icon={<Icon iconKey='info' />}
       label={props.label ?? 'large success'}
-      icon={<Icon iconKey={'info'} />}
+      size='large'
     />
   );
 };
@@ -65,13 +65,13 @@ export const Success = (props: LabelProps) => {
 export const Warning = (props: LabelProps) => {
   return (
     <Label
-      colorTheme={props.colorTheme ?? 'warning'}
-      size='small'
       label={
         <>
           <span className='max-w-[70px] truncate'>small warning</span> 외 1개
         </>
       }
+      colorTheme={props.colorTheme ?? 'warning'}
+      size='small'
     />
   );
 };
@@ -80,8 +80,8 @@ export const Secondary = (props: LabelProps) => {
   return (
     <Label
       colorTheme={props.colorTheme ?? 'secondary'}
-      size='small'
       label={props.label ?? 'small secondary'}
+      size='small'
     />
   );
 };

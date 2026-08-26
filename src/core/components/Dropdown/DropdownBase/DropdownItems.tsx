@@ -71,38 +71,38 @@ const DropdownItems = forwardRef(
 
     return (
       <div
-        ref={mergeRefs(ref, listboxRef)}
         className={clsx(
           'border-gray-03 overflow-hidden rounded-lg border bg-white shadow-md',
           useSearch && 'flex-v-stack',
           rootClassName,
         )}
+        ref={mergeRefs(ref, listboxRef)}
         role='listbox'
         tabIndex={0}
         onKeyDown={onKeyDown}
       >
         {useSearch && (
           <InputSearch
-            rounded={rounded ?? 'rounded-8'}
-            rootElement={'div'}
-            placeholder={placeholder ?? '검색어를 입력하세요'}
-            inputRef={inputRef}
-            onCompositionStart={onCompositionStart}
-            onCompositionEnd={onCompositionEnd}
             rootClassName={clsx(
               'border-b-gray-02 border-b p-2',
               inputRootClassName,
             )}
+            inputRef={inputRef}
+            placeholder={placeholder ?? '검색어를 입력하세요'}
+            rootElement='div'
+            rounded={rounded ?? 'rounded-8'}
+            onCompositionEnd={onCompositionEnd}
+            onCompositionStart={onCompositionStart}
             {...restInputProps}
           />
         )}
         <VirtualList
-          ref={listRef}
-          listElement={'ul'}
+          className={clsx('overflow-x-hidden p-1 whitespace-nowrap', className)}
+          gap={gap}
           itemHeight={itemHeight}
           itemsTotalCount={items.length}
-          gap={gap}
-          className={clsx('overflow-x-hidden p-1 whitespace-nowrap', className)}
+          listElement='ul'
+          ref={listRef}
         >
           {({ startIndex, endIndex, getTopPosition }) =>
             items.slice(startIndex, endIndex).map((item, index) => {
@@ -116,9 +116,9 @@ const DropdownItems = forwardRef(
 
               return (
                 <VirtualList.Item
-                  key={item.key}
                   element='li'
                   height={itemHeight}
+                  key={item.key}
                   topPosition={getTopPosition({ index })}
                 >
                   {isDropdownOptionItem

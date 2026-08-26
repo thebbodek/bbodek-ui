@@ -10,7 +10,7 @@ const TableBody = forwardRef(
     ref: Ref<HTMLTableSectionElement>,
   ) => {
     return (
-      <tbody ref={ref} className={className} {...props}>
+      <tbody className={className} ref={ref} {...props}>
         {children}
       </tbody>
     );

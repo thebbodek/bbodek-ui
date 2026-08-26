@@ -9,6 +9,7 @@ const useScrollToFocusedItemEffect = ({
 }: UseScrollToFocusedItemEffectParams) => {
   useEffect(() => {
     const list = listRef.current;
+
     if (focusIndex < 0 || !list) return;
 
     const itemTop = focusIndex * itemFullHeight;

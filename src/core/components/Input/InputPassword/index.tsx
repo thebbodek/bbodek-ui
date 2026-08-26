@@ -19,9 +19,9 @@ const InputPassword = forwardRef(
     ref: React.ComponentPropsWithRef<'input'>['ref'],
   ) => {
     const id = useId();
-    const [showPassword, setShowPassword] = useState(false);
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const {
-      readOnly = false,
+      readOnly: isReadOnly = false,
       disabled = false,
       rootClassName,
       className,
@@ -29,7 +29,7 @@ const InputPassword = forwardRef(
       value,
       onChange,
       autoComplete = 'off',
-      error = false,
+      error: isError = false,
       name,
       sub,
       ...rest
@@ -41,54 +41,56 @@ const InputPassword = forwardRef(
       name,
     });
 
-    const onToggleShowPassword = () => setShowPassword((v) => !v);
+    const onToggleShowPassword = () => setIsPasswordVisible((v) => !v);
 
     return (
       <InputBase
-        inputId={id}
-        label={label}
-        rootClassName={rootClassName}
-        error={error}
-        readOnly={readOnly}
-        disabled={disabled}
-        required={required}
-        feedback={feedback}
-        labelColor={labelColor}
-        badge={badge}
-        sub={sub}
-        inputComponent={
-          <input
-            ref={ref}
-            id={id}
-            className={clsx('bbodek-field', className)}
-            type={showPassword ? 'text' : 'password'}
-            required={required}
-            value={inputValue}
-            readOnly={readOnly}
-            disabled={disabled}
-            onChange={onChangeHandler}
-            autoComplete={autoComplete}
-            aria-disabled={disabled}
-            aria-readonly={readOnly}
-            placeholder={'********'}
-            name={name}
-            {...rest}
-          />
-        }
         endComponent={
           <button
-            type='button'
+            aria-label={
+              isPasswordVisible ? '비밀번호 숨기기' : '비밀번호 보이기'
+            }
             className='h-6 w-6'
+            type='button'
             onClick={onToggleShowPassword}
-            aria-label={showPassword ? '비밀번호 숨기기' : '비밀번호 보이기'}
           >
             <Icon
+              className='text-gray-05 text-[120%]'
+              iconKey={isPasswordVisible ? 'eye-slash' : 'eye'}
               weight='fill'
-              className={'text-gray-05 text-[120%]'}
-              iconKey={showPassword ? 'eye-slash' : 'eye'}
             />
           </button>
         }
+        inputComponent={
+          <input
+            aria-disabled={disabled}
+            aria-readonly={isReadOnly}
+            autoComplete={autoComplete}
+            className={clsx('bbodek-field', className)}
+            disabled={disabled}
+            id={id}
+            name={name}
+            placeholder='********'
+            readOnly={isReadOnly}
+            ref={ref}
+            required={required}
+            type={isPasswordVisible ? 'text' : 'password'}
+            value={inputValue}
+            onChange={onChangeHandler}
+            {...rest}
+          />
+        }
+        badge={badge}
+        disabled={disabled}
+        error={isError}
+        feedback={feedback}
+        inputId={id}
+        label={label}
+        labelColor={labelColor}
+        readOnly={isReadOnly}
+        required={required}
+        rootClassName={rootClassName}
+        sub={sub}
       />
     );
   },

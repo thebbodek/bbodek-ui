@@ -35,13 +35,13 @@ export default meta;
 export const ImageAvatar = (props: AvatarProps) => {
   return (
     <Avatar
-      alt={props.alt ?? '뽀득'}
       src={
         props.src ??
         'https://avatars.slack-edge.com/2023-11-20/6219341924786_0bca2ecf54cedd4adf1c_512.jpg'
       }
-      size={props.size ?? 'xs'}
+      alt={props.alt ?? '뽀득'}
       rounded={props.rounded ?? 'rounded-full'}
+      size={props.size ?? 'xs'}
     />
   );
 };
@@ -49,9 +49,9 @@ export const ImageAvatar = (props: AvatarProps) => {
 export const BrokenImageAvatar = (props: AvatarProps) => {
   return (
     <Avatar
-      src={props.src ?? 'https://image.thebbodek.com/broken.jpg'}
-      size={props.size ?? 'md'}
       rounded={props.rounded ?? 'rounded-full'}
+      size={props.size ?? 'md'}
+      src={props.src ?? 'https://image.thebbodek.com/broken.jpg'}
     />
   );
 };
@@ -59,9 +59,9 @@ export const BrokenImageAvatar = (props: AvatarProps) => {
 export const LetterAvatar = (props: AvatarProps) => {
   return (
     <Avatar
-      size={props.size ?? 'md'}
       alt={props.alt ?? 'jinju'}
       rounded={props.rounded ?? 'rounded-full'}
+      size={props.size ?? 'md'}
       useRandomColorTheme
     >
       {props.children ?? 'jinju'}

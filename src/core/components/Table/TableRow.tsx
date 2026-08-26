@@ -14,8 +14,9 @@ const TableRow = forwardRef(
     ref: Ref<HTMLTableRowElement>,
   ) => {
     const { theme } = useContext(TableThemeContext);
+
     return (
-      <tr ref={ref} className={clsx(TR_THEME[theme], className)} {...props}>
+      <tr className={clsx(TR_THEME[theme], className)} ref={ref} {...props}>
         {children}
       </tr>
     );

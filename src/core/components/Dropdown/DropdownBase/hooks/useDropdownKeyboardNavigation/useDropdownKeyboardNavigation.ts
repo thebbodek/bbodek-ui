@@ -56,7 +56,9 @@ const useDropdownKeyboardNavigation = ({
 
         case KEYBOARD_DOWN_KEY.ENTER: {
           if (focusIndex >= 0) {
-            itemRefs.current[focusIndex]?.click();
+            const { current: items } = itemRefs;
+
+            items[focusIndex]?.click();
           }
 
           break;

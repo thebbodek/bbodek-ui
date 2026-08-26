@@ -27,12 +27,12 @@ export const CalendarWeekDayComponent = ({
     >
       {Object.values(Weekdays).map((weekdayNumber) => (
         <Typography
+          className='md:text-body-01-regular text-inherit!'
+          color='gray-06'
           element='strong'
           key={weekdayNumber}
           text={convertWeekdayNumberToString(weekdayNumber)}
           theme='body-02-regular'
-          color='gray-06'
-          className='md:text-body-01-regular text-inherit!'
         />
       ))}
     </div>

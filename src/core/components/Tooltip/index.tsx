@@ -107,19 +107,19 @@ const Tooltip = ({
             {content}
             {useCloseButton && (
               <IconButton
-                size={'h-20'}
-                icon={<Icon iconKey={'x'} className={'mt-0.5 text-[1.2em]'} />}
+                icon={<Icon className='mt-0.5 text-[1.2em]' iconKey='x' />}
+                size='h-20'
                 onClick={handleClose}
               />
             )}
             {hasArrow && (
               <FloatingArrow
-                ref={arrowRef}
-                context={context}
-                width={ARROW_HEIGHT + 6}
-                height={ARROW_HEIGHT}
-                tipRadius={2}
                 className={clsx(FILL_COLOR_THEME_STYLES[colorTheme])}
+                context={context}
+                height={ARROW_HEIGHT}
+                ref={arrowRef}
+                tipRadius={2}
+                width={ARROW_HEIGHT + 6}
               />
             )}
           </div>

@@ -78,12 +78,12 @@ export const Default = (props: ButtonProps) => {
 
   return (
     <Button
-      theme={theme}
-      color={color ?? 'white'}
       backgroundColor={backgroundColor ?? 'primary-03'}
-      size={size ?? SIZE['SIZE_48']}
-      content={content ?? '스케줄 등록하기'}
       className='w-[427px]'
+      color={color ?? 'white'}
+      content={content ?? '스케줄 등록하기'}
+      size={size ?? SIZE['SIZE_48']}
+      theme={theme}
       {...rest}
     />
   );

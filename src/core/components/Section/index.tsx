@@ -29,7 +29,6 @@ const Section = forwardRef(
 
     return (
       <Component
-        ref={ref}
         className={clsx(
           !colorTheme && color && `text-${color}`,
           !colorTheme && backgroundColor && `bg-${backgroundColor}`,
@@ -40,6 +39,7 @@ const Section = forwardRef(
           hasBorder && `border border-${borderColor}`,
           className,
         )}
+        ref={ref}
         {...rest}
       >
         {children}

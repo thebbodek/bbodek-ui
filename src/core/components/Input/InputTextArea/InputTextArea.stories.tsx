@@ -39,6 +39,7 @@ const meta = {
 export default meta;
 
 export const Default = (props: InputTextAreaProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- maxLength·textAreaHeight를 스토리 고정값으로 덮기 위해 rest에서 제외하는 의도적 추출
   const { label, maxLength, textAreaHeight, ...rest } = props;
   const [currentValue, setCurrentValue] = useState('');
   const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -46,12 +47,12 @@ export const Default = (props: InputTextAreaProps) => {
 
   return (
     <InputTextArea
+      inputRootClassName='w-[30rem] h-[10rem]'
       label={label}
-      onChange={onChangeHandler}
       maxLength={50}
-      inputRootClassName={'w-[30rem] h-[10rem]'}
-      value={currentValue}
       placeholder='검색하기'
+      value={currentValue}
+      onChange={onChangeHandler}
       {...rest}
     />
   );

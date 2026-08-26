@@ -57,29 +57,29 @@ const DropdownSearch = <T extends DropdownSearchLegacyValueType>({
 
   return (
     <DropdownBase
-      trigger={
-        <DropdownSearchLegacyTrigger
-          options={options}
-          currentValue={currentValue}
-          className={className}
-          placeholder={placeholder}
-          error={error}
-          searchValue={searchValue}
-          inputRef={inputRef}
-          inputPlaceholder={inputPlaceholder}
-          updateSearchValue={updateSearchValue}
-          close={handleClose}
-        />
-      }
       content={
         <DropdownSearchLegacyItems
-          isSearching={isSearching}
           currentValue={currentValue}
           filteredOptions={filteredOptions}
-          onChange={onChange}
-          updateSearchValue={updateSearchValue}
+          isSearching={isSearching}
           itemHeight={itemHeight}
           itemsClassName={itemsClassName}
+          updateSearchValue={updateSearchValue}
+          onChange={onChange}
+        />
+      }
+      trigger={
+        <DropdownSearchLegacyTrigger
+          className={className}
+          close={handleClose}
+          currentValue={currentValue}
+          error={error}
+          inputPlaceholder={inputPlaceholder}
+          inputRef={inputRef}
+          options={options}
+          placeholder={placeholder}
+          searchValue={searchValue}
+          updateSearchValue={updateSearchValue}
         />
       }
       className={rootClassName}
