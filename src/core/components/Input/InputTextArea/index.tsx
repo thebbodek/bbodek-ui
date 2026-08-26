@@ -23,7 +23,7 @@ const InputTextArea = forwardRef(
   ) => {
     const id = useId();
     const {
-      readOnly = false,
+      readOnly: isReadOnly = false,
       disabled = false,
       rootClassName,
       inputRootClassName,
@@ -33,7 +33,7 @@ const InputTextArea = forwardRef(
       onChange,
       autoComplete = 'off',
       maxLength,
-      error = false,
+      error: isError = false,
       name,
       sub,
       ...rest
@@ -54,37 +54,6 @@ const InputTextArea = forwardRef(
 
     return (
       <InputBase
-        label={label}
-        inputId={id}
-        rootClassName={rootClassName}
-        inputRootClassName={clsx(
-          'flex-v-stack',
-          textAreaHeight && TEXT_AREA_HEIGHT[textAreaHeight],
-          inputRootClassName,
-        )}
-        feedback={feedback}
-        error={error}
-        badge={badge}
-        readOnly={readOnly}
-        disabled={disabled}
-        sub={sub}
-        inputComponent={
-          <textarea
-            ref={ref}
-            className={clsx('bbodek-field resize-none', className)}
-            autoComplete={autoComplete}
-            onChange={onChangeTextArea}
-            required={required}
-            value={inputValue}
-            maxLength={maxLength}
-            readOnly={readOnly}
-            disabled={disabled}
-            aria-disabled={disabled}
-            aria-readonly={readOnly}
-            name={name}
-            {...rest}
-          />
-        }
         endComponent={
           maxLength && (
             <Typography
@@ -94,9 +63,40 @@ const InputTextArea = forwardRef(
             />
           )
         }
-        required={required}
-        labelColor={labelColor}
+        inputComponent={
+          <textarea
+            aria-disabled={disabled}
+            aria-readonly={isReadOnly}
+            autoComplete={autoComplete}
+            className={clsx('bbodek-field resize-none', className)}
+            disabled={disabled}
+            maxLength={maxLength}
+            name={name}
+            readOnly={isReadOnly}
+            ref={ref}
+            required={required}
+            value={inputValue}
+            onChange={onChangeTextArea}
+            {...rest}
+          />
+        }
+        inputRootClassName={clsx(
+          'flex-v-stack',
+          textAreaHeight && TEXT_AREA_HEIGHT[textAreaHeight],
+          inputRootClassName,
+        )}
+        badge={badge}
         borderColor={borderColor}
+        disabled={disabled}
+        error={isError}
+        feedback={feedback}
+        inputId={id}
+        label={label}
+        labelColor={labelColor}
+        readOnly={isReadOnly}
+        required={required}
+        rootClassName={rootClassName}
+        sub={sub}
       />
     );
   },

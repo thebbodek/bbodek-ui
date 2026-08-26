@@ -36,7 +36,10 @@ const DropdownItem = forwardRef(
     const onClickHandler = (e: MouseEvent<HTMLDivElement>) => {
       if (disabled) return;
 
-      useCloseOnItemClick && setIsToggle(false);
+      if (useCloseOnItemClick) {
+        setIsToggle(false);
+      }
+
       onClick?.(e);
     };
 
@@ -54,14 +57,15 @@ const DropdownItem = forwardRef(
 
     return (
       <div
-        ref={ref}
-        role='option'
-        onClick={onClickHandler}
         className={clsx(
           `w-full rounded-md p-2 ${!disabled && MENU_ITEM_THEME[colorTheme]}`,
           DROPDOWN_ITEM_STYLES[getItemState()],
           className,
         )}
+        aria-selected={checked}
+        ref={ref}
+        role='option'
+        onClick={onClickHandler}
         {...props}
       >
         {children}

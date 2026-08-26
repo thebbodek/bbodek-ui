@@ -28,8 +28,8 @@ const InputTextField = forwardRef(
       value,
       onChange,
       autoComplete = 'off',
-      readOnly = false,
-      error = false,
+      readOnly: isReadOnly = false,
+      error: isError = false,
       name,
       disabled = false,
       sub,
@@ -43,58 +43,58 @@ const InputTextField = forwardRef(
     });
     const ResetIcon = (
       <Icon
-        className={'text-gray-05 rounded-full text-[140%]'}
-        iconKey={'x-circle'}
-        weight={'fill'}
+        className='text-gray-05 rounded-full text-[140%]'
+        iconKey='x-circle'
+        weight='fill'
       />
     );
 
     return (
       <InputBase
-        inputId={id}
-        label={label}
-        rootClassName={rootClassName}
-        readOnly={readOnly}
-        disabled={disabled}
-        feedback={feedback}
-        feedbackColor={feedbackColor}
-        badge={badge}
-        error={error}
-        sub={sub}
-        inputComponent={
-          <input
-            ref={ref}
-            id={id}
-            className={clsx('bbodek-field', className)}
-            type='text'
-            required={required}
-            value={inputValue}
-            onChange={onChangeHandler}
-            autoComplete={autoComplete}
-            readOnly={readOnly}
-            disabled={disabled}
-            aria-disabled={disabled}
-            aria-readonly={readOnly}
-            name={name}
-            {...rest}
-          />
-        }
         endComponent={
           <button
-            type='button'
             className={clsx(
               'flex h-6 w-6 items-center justify-center',
               inputValue ? 'visible' : 'invisible',
             )}
-            onClick={onResetInputValue}
             aria-label='초기화'
+            type='button'
+            onClick={onResetInputValue}
           >
             {ResetIcon}
           </button>
         }
-        required={required}
-        labelColor={labelColor}
+        inputComponent={
+          <input
+            aria-disabled={disabled}
+            aria-readonly={isReadOnly}
+            autoComplete={autoComplete}
+            className={clsx('bbodek-field', className)}
+            disabled={disabled}
+            id={id}
+            name={name}
+            readOnly={isReadOnly}
+            ref={ref}
+            required={required}
+            type='text'
+            value={inputValue}
+            onChange={onChangeHandler}
+            {...rest}
+          />
+        }
+        badge={badge}
         borderColor={borderColor}
+        disabled={disabled}
+        error={isError}
+        feedback={feedback}
+        feedbackColor={feedbackColor}
+        inputId={id}
+        label={label}
+        labelColor={labelColor}
+        readOnly={isReadOnly}
+        required={required}
+        rootClassName={rootClassName}
+        sub={sub}
       />
     );
   },

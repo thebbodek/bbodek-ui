@@ -19,25 +19,25 @@ const DatePickerCalendarWeek = ({
   periodDateArray,
 }: DatePickerCalendarWeekProps) => {
   return (
-    <div className={'grid grid-cols-7'}>
+    <div className='grid grid-cols-7'>
       {calendarWeekDates.map((calendarDate, index) => (
         <DatePickerCalendarDay
-          key={index}
-          calendarDate={calendarDate}
-          exceptionDay={exceptionDay}
-          useHoliday={useHoliday}
-          cutoffDate={cutoffDate}
-          cutoffAfterDate={cutoffAfterDate}
-          disabledDates={disabledDates}
-          temporaryDates={temporaryDates}
-          handleDateClick={handleDateClick}
-          label={label}
-          variants={variants}
-          setCalendarPeriodDates={setCalendarPeriodDates}
-          periodDates={periodDates}
-          onDateClick={onDateClick}
           afterAllDate={afterAllDate}
+          calendarDate={calendarDate}
+          cutoffAfterDate={cutoffAfterDate}
+          cutoffDate={cutoffDate}
+          disabledDates={disabledDates}
+          exceptionDay={exceptionDay}
+          handleDateClick={handleDateClick}
+          key={index}
+          label={label}
           periodDateArray={periodDateArray}
+          periodDates={periodDates}
+          setCalendarPeriodDates={setCalendarPeriodDates}
+          temporaryDates={temporaryDates}
+          useHoliday={useHoliday}
+          variants={variants}
+          onDateClick={onDateClick}
         />
       ))}
     </div>

@@ -53,11 +53,11 @@ export const Default = ({
   }, []);
 
   if (isLoading) {
-    return <div className={'animate-bounce'}>Loading...</div>;
+    return <div className='animate-bounce'>Loading...</div>;
   }
 
   if (itemsTotalCount === 0) {
-    return <div className={'animate-bounce'}>Empty...</div>;
+    return <div className='animate-bounce'>Empty...</div>;
   }
 
   const onChange = () => {
@@ -67,14 +67,14 @@ export const Default = ({
   };
 
   return (
-    <div className={'flex-v-stack h-125 w-125'}>
+    <div className='flex-v-stack h-125 w-125'>
       <input onChange={onChange} />
       <VirtualList
-        listElement={'ul'}
-        itemHeight={itemHeight}
+        className='bg-gray-02'
         gap={8}
+        itemHeight={itemHeight}
         itemsTotalCount={itemsTotalCount}
-        className={'bg-gray-02'}
+        listElement='ul'
         ref={listRef}
       >
         {({ startIndex, endIndex, getTopPosition }) =>
@@ -83,14 +83,14 @@ export const Default = ({
 
             return (
               <VirtualList.Item
-                key={id}
-                element={'li'}
-                topPosition={getTopPosition({ index })}
+                className='gap-x-3'
+                element='li'
                 height={itemHeight}
-                className={'gap-x-3'}
+                key={id}
+                topPosition={getTopPosition({ index })}
               >
                 <ImageComponent key={download_url} src={download_url} />
-                <AuthorComponent key={author} author={author} />
+                <AuthorComponent author={author} key={author} />
               </VirtualList.Item>
             );
           })
@@ -101,7 +101,7 @@ export const Default = ({
 };
 
 const AuthorComponent = memo(({ author }: { author: string }) => {
-  return <div className={'text-primary-03'}>{author}</div>;
+  return <div className='text-primary-03'>{author}</div>;
 });
 
 const ImageComponent = memo(({ src }: { src: string }) => {
@@ -110,17 +110,15 @@ const ImageComponent = memo(({ src }: { src: string }) => {
   return (
     <>
       {isLoading && (
-        <div
-          className={'flex aspect-video w-[150px] items-center justify-center'}
-        >
+        <div className='flex aspect-video w-[150px] items-center justify-center'>
           Loading Image...
         </div>
       )}
       <img
-        src={src}
-        className={clsx('aspect-video', isLoading ? 'hidden' : 'block')}
-        width={150}
         alt=''
+        className={clsx('aspect-video', isLoading ? 'hidden' : 'block')}
+        src={src}
+        width={150}
         onLoad={() => setIsLoading(false)}
       />
     </>

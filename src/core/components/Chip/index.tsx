@@ -45,18 +45,18 @@ const Chip = forwardRef(
         <>
           {label}
           <IconButton
-            size={'h-20'}
-            rounded={rounded}
-            color={color}
-            theme={theme}
-            backgroundColor={backgroundColor}
-            borderColor={borderColor}
-            colorTheme={colorTheme}
             className={clsx(
               'brightness-100 transition-all',
               colorTheme && CHIP_DELETE_BUTTON_STYLE[colorTheme],
             )}
-            icon={<Icon iconKey={'x'} weight={'bold'} />}
+            backgroundColor={backgroundColor}
+            borderColor={borderColor}
+            color={color}
+            colorTheme={colorTheme}
+            icon={<Icon iconKey='x' weight='bold' />}
+            rounded={rounded}
+            size='h-20'
+            theme={theme}
             onClick={handleDelete}
           />
         </>
@@ -65,14 +65,6 @@ const Chip = forwardRef(
 
     return (
       <Label
-        ref={ref}
-        label={renderer()}
-        rounded={rounded}
-        color={color}
-        theme={theme}
-        backgroundColor={backgroundColor}
-        borderColor={borderColor}
-        colorTheme={colorTheme}
         className={clsx(
           onDelete && 'flex gap-2',
           onClick &&
@@ -82,6 +74,14 @@ const Chip = forwardRef(
           onClick ? 'cursor-pointer' : 'cursor-text',
           className,
         )}
+        backgroundColor={backgroundColor}
+        borderColor={borderColor}
+        color={color}
+        colorTheme={colorTheme}
+        label={renderer()}
+        ref={ref}
+        rounded={rounded}
+        theme={theme}
         onClick={handleLabelClick}
         {...props}
       />

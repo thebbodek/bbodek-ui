@@ -20,7 +20,7 @@ const DropdownSearchLegacyItem = <T extends DropdownSearchLegacyValueType>({
     if (!isString) return label;
 
     return (
-      <span className={'block truncate'} title={label}>
+      <span className='block truncate' title={label}>
         {label}
       </span>
     );
@@ -30,14 +30,14 @@ const DropdownSearchLegacyItem = <T extends DropdownSearchLegacyValueType>({
     <DropdownBase.Item
       checked={checked}
       className={clsx('text-body-01-regular', sub && 'flex items-center gap-2')}
+      disabled={disabled}
       onClick={() => {
         onChange?.({ label, value });
         updateSearchValue('');
       }}
-      disabled={disabled}
     >
       {renderer()}
-      {sub && <div className={'shrink-0'}>{sub}</div>}
+      {sub && <div className='shrink-0'>{sub}</div>}
     </DropdownBase.Item>
   );
 };

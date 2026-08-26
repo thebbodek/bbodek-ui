@@ -36,8 +36,9 @@ export const Default = () => {
 
     return (
       <DropdownMultiple.Item
-        key={idx}
         checked={checked}
+        disabled={item.value === 1}
+        key={idx}
         onClick={() => {
           if (!checked) {
             setCurrentValues((prev) => [...prev, item]);
@@ -47,7 +48,6 @@ export const Default = () => {
             );
           }
         }}
-        disabled={item.value === 1}
       >
         {label}
       </DropdownMultiple.Item>
@@ -56,17 +56,17 @@ export const Default = () => {
 
   return (
     <DropdownMultiple
-      label={'정산 선택'}
       trigger={
         <DropdownMultiple.Trigger
-          variant={'chip'}
           currentValues={currentValues}
           placeholder='선택해주세요'
+          variant='chip'
           onDelete={handleDelete}
         />
       }
+      className='w-[500px]'
       content={<DropdownMultiple.Items items={items} />}
-      className={'w-[500px]'}
+      label='정산 선택'
       required
     />
   );
@@ -102,8 +102,8 @@ export const DropdownMultipleWithSearch = () => {
 
     return (
       <DropdownMultiple.Item
-        key={idx}
         checked={checked}
+        key={idx}
         onClick={() => {
           if (!checked) {
             setCurrentValues((prev) => [...prev, item]);
@@ -121,23 +121,23 @@ export const DropdownMultipleWithSearch = () => {
 
   return (
     <DropdownMultiple
-      label={'정산 선택'}
+      content={
+        <DropdownMultiple.Items
+          inputProps={{ value: searchValue, onChange: onSearchChange }}
+          items={items}
+          useSearch
+        />
+      }
       trigger={
         <DropdownMultiple.Trigger
-          variant={'chip'}
           currentValues={currentValues}
           placeholder='선택해주세요'
+          variant='chip'
           onDelete={handleDelete}
         />
       }
-      content={
-        <DropdownMultiple.Items
-          useSearch
-          inputProps={{ value: searchValue, onChange: onSearchChange }}
-          items={items}
-        />
-      }
-      className={'w-[500px]'}
+      className='w-[500px]'
+      label='정산 선택'
       required
     />
   );

@@ -28,7 +28,6 @@ const Label = forwardRef(
 
     return (
       <Component
-        ref={ref}
         className={clsx(
           'flex items-center justify-center gap-1',
           colorTheme && COLOR_THEME_STYLES[colorTheme],
@@ -40,6 +39,7 @@ const Label = forwardRef(
           rounded ? BUTTON_ROUNDED[rounded] : LABEL_ROUNDED[size],
           className,
         )}
+        ref={ref}
         {...rest}
       >
         {icon && icon}

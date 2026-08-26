@@ -62,11 +62,11 @@ export const Default = (props: IconButtonProps) => {
 
   return (
     <IconButton
-      theme={theme}
-      color={color ?? 'white'}
       backgroundColor={backgroundColor ?? 'primary-03'}
-      size={size ?? SIZE['SIZE_48']}
+      color={color ?? 'white'}
       icon={icon ?? '아이콘'}
+      size={size ?? SIZE['SIZE_48']}
+      theme={theme}
       {...rest}
     />
   );

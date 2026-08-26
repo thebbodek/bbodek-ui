@@ -41,11 +41,11 @@ export const Default = (props: BottomSheetProps) => {
         <main className='relative flex-1'>
           <div id={props.target ?? 'bar'} />
           <BottomSheet
-            target={props.target ?? 'bar'}
             isOpen={props.isOpen || isOpen}
-            onClose={onToggle}
-            useCloseBtn
+            target={props.target ?? 'bar'}
             useClickOutsideEvent
+            useCloseBtn
+            onClose={onToggle}
           >
             BottomSheet
           </BottomSheet>

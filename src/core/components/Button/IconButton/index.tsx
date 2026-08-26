@@ -15,10 +15,10 @@ const IconButton = forwardRef(
 
     return (
       <ButtonBase
-        ref={ref}
         className={clsx(BUTTON_SIZE[size], className)}
-        size={size}
+        ref={ref}
         rounded={!isCircle ? rounded : ROUNDED['ROUNDED_FULL']}
+        size={size}
         {...rest}
       >
         {icon}

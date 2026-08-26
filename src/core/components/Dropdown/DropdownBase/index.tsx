@@ -50,8 +50,8 @@ const DropdownBase = ({
   const labelRenderer = () => {
     if (badge && label) {
       return (
-        <div className={'flex items-center gap-x-0.5'}>
-          <div className={'shrink-0'}>{badge}</div>
+        <div className='flex items-center gap-x-0.5'>
+          <div className='shrink-0'>{badge}</div>
           <div className='flex flex-1 items-center justify-between'>
             {label && (
               <label>
@@ -90,7 +90,7 @@ const DropdownBase = ({
     >
       <div className={clsx('flex-v-stack gap-y-1', className)}>
         {hasInputLabel && labelRenderer()}
-        <div ref={triggerRef} className={'flex-1'}>
+        <div className='flex-1' ref={triggerRef}>
           {trigger}
           {isVisibleContent && (
             <div ref={popoverRef} style={style}>
@@ -100,10 +100,10 @@ const DropdownBase = ({
         </div>
         {feedback ? (
           <Typography
-            theme='body-03-regular'
+            className='mt-0.5'
             color={feedbackColor}
             text={feedback}
-            className='mt-0.5'
+            theme='body-03-regular'
           />
         ) : null}
       </div>

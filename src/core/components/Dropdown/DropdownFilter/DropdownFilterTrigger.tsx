@@ -16,18 +16,18 @@ const DropdownFilterTrigger = forwardRef(
         {({ isToggle }) => (
           <div className='flex items-center justify-between gap-x-1 text-start'>
             <Typography
-              theme='body-02-regular'
+              className='block flex-1 truncate'
               color='gray-06'
               text={currentValue}
-              className={'block flex-1 truncate'}
+              theme='body-02-regular'
             />
             <Icon
-              iconKey={'caret-down'}
               className={clsx(
                 'text-gray-06',
                 isToggle ? 'rotate-180' : 'rotate-0',
               )}
-              weight={'fill'}
+              iconKey='caret-down'
+              weight='fill'
             />
           </div>
         )}

@@ -20,10 +20,10 @@ const GeneralTabItem = forwardRef(
       <li className='flex-1'>
         <label htmlFor={id}>
           <input
-            ref={ref}
+            className='peer hidden'
             id={id}
+            ref={ref}
             type='radio'
-            className={'peer hidden'}
             {...props}
           />
           <Typography
@@ -31,9 +31,9 @@ const GeneralTabItem = forwardRef(
               'block w-full cursor-pointer rounded-[1rem] bg-transparent p-2.5 text-center peer-checked:bg-white peer-checked:text-black peer-disabled:cursor-not-allowed',
               className,
             )}
-            theme={theme}
             color='gray-05'
             text={label}
+            theme={theme}
           >
             {label}
           </Typography>

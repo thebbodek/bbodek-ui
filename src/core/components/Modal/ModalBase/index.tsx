@@ -55,7 +55,6 @@ const ModalBase = forwardRef(
     return (
       <Portal target={target}>
         <dialog
-          ref={ref}
           className={clsx(
             'open:animate-fade-in top-0 left-0 h-full w-full overflow-hidden',
             variants === VARIANTS['MODAL'] && 'safe-area-bottom',
@@ -64,6 +63,7 @@ const ModalBase = forwardRef(
             className,
           )}
           open={isOpen}
+          ref={ref}
           {...rest}
         >
           {cloneElement(_children, {

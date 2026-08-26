@@ -11,20 +11,20 @@ const BasicCalendar = ({ dottedDates }: BasicCalendarProps) => {
   const { models: commonModels } = useCalendar();
 
   return (
-    <div className={'flex h-full w-full flex-col'}>
+    <div className='flex h-full w-full flex-col'>
       <Typography
-        text={commonModels.selectedDayjs.locale('ko').format('MM월 D일 (ddd)')}
         className='mb-4'
+        text={commonModels.selectedDayjs.locale('ko').format('MM월 D일 (ddd)')}
       />
       <CalendarWeekDayComponent />
 
       <div className='flex-v-stack h-full'>
         {commonModels.calendarDates.map(
           (calendarWeekDates: CalendarDateDto[], index) => (
-            <div key={index} className={clsx('grid flex-1 grid-cols-7')}>
+            <div className={clsx('grid flex-1 grid-cols-7')} key={index}>
               {calendarWeekDates.map(
                 (calendarDate: CalendarDateDto, index: number) => (
-                  <div key={index} className={'flex flex-col'}>
+                  <div className='flex flex-col' key={index}>
                     <div className='relative flex flex-col items-center justify-start'>
                       <div
                         className={clsx(
@@ -41,9 +41,9 @@ const BasicCalendar = ({ dottedDates }: BasicCalendarProps) => {
                         )}
                       >
                         <Typography
+                          className='text-inherit'
                           text={`${calendarDate.dayjs.date()}`}
                           theme='body-02-regular'
-                          className='text-inherit'
                         />
                       </div>
                     </div>

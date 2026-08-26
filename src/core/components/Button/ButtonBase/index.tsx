@@ -39,8 +39,6 @@ const ButtonBase = forwardRef(
 
     return (
       <button
-        ref={ref}
-        type={'button'}
         className={clsx(
           'disabled:border-gray-03 disabled:bg-gray-03 flex items-center justify-center disabled:cursor-not-allowed disabled:text-white',
           `text-${theme ?? defaultButtonTheme}`,
@@ -54,6 +52,8 @@ const ButtonBase = forwardRef(
           className,
         )}
         disabled={disabled}
+        ref={ref}
+        type='button'
         {...rest}
       >
         {children}

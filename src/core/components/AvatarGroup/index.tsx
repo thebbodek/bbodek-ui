@@ -39,7 +39,6 @@ const AvatarGroup = ({
       {visibleItems}
       {isOverflow && (
         <Avatar
-          colorTheme={'gray'}
           popover={
             overflowPopover && isFunction
               ? overflowPopover({
@@ -47,11 +46,12 @@ const AvatarGroup = ({
                 })
               : overflowPopover
           }
-          popoverOptions={popoverOptions}
-          useHover={useHover}
-          size={size}
-          rounded={rounded}
+          colorTheme='gray'
           disabled={disabled}
+          popoverOptions={popoverOptions}
+          rounded={rounded}
+          size={size}
+          useHover={useHover}
           showAllLetter
         >
           {`+${overflowCount}`}

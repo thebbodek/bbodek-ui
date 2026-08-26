@@ -29,6 +29,7 @@ const Checkbox = forwardRef(
       isCircle = false,
       className,
       disabled,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars -- input DOM으로 iconKey가 흘러가지 않도록 rest에서 제외하는 의도적 추출
       iconKey,
       colorTheme = COLOR_THEME['PRIMARY'],
       ...props
@@ -39,8 +40,6 @@ const Checkbox = forwardRef(
 
     return (
       <label
-        onClick={(e: MouseEvent<HTMLLabelElement>) => e.stopPropagation()}
-        htmlFor={id}
         className={clsx(
           {
             'flex items-center': label,
@@ -50,13 +49,15 @@ const Checkbox = forwardRef(
           label && gap && CHECK_BOX_GAP[gap],
           className,
         )}
+        htmlFor={id}
+        onClick={(e: MouseEvent<HTMLLabelElement>) => e.stopPropagation()}
       >
         <input
-          ref={ref}
-          id={id}
-          type='checkbox'
           className='peer hidden'
           disabled={disabled}
+          id={id}
+          ref={ref}
+          type='checkbox'
           {...props}
         />
         <Icon
@@ -72,13 +73,13 @@ const Checkbox = forwardRef(
         />
         {label && (
           <Typography
-            theme={theme}
             color={
               (!disabled
                 ? THEME_COLOR['GRAY_08']
                 : THEME_COLOR['GRAY_03']) as ThemeColors
             }
             text={label}
+            theme={theme}
           />
         )}
       </label>

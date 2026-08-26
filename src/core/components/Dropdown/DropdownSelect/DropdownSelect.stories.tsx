@@ -17,8 +17,8 @@ export const Default = () => {
 
   const items = data.map((item, idx) => (
     <DropdownSelect.Item
-      key={idx}
       checked={currentValue === item}
+      key={idx}
       onClick={() => setCurrentValue(item)}
     >
       {item}

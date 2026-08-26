@@ -12,47 +12,39 @@ const InfoPopover = ({
   const ITEMS = () => {
     return items.map(({ title, description }, idx) => (
       <li key={idx}>
-        <div className={'flex gap-x-1'}>
+        <div className='flex gap-x-1'>
           <Typography
-            theme={'body-02-bold'}
-            color={'primary-03'}
             text={
               <>
-                <Icon
-                  iconKey={'circle'}
-                  weight={'fill'}
-                  className={'text-[6px]'}
-                />
+                <Icon className='text-[6px]' iconKey='circle' weight='fill' />
                 {title}
               </>
             }
-            className={'flex gap-1'}
+            className='flex gap-1'
+            color='primary-03'
+            theme='body-02-bold'
           />
         </div>
-        <Typography
-          element={'p'}
-          theme={'body-02-regular'}
-          text={description}
-        />
+        <Typography element='p' text={description} theme='body-02-regular' />
       </li>
     ));
   };
 
   return (
     <Popover
-      trigger={trigger}
       popover={
         <>
           <Typography
-            element={'strong'}
-            theme={'body-02-bold'}
-            color={'primary-06'}
+            className='block border-b p-3'
+            color='primary-06'
+            element='strong'
             text={heading}
-            className={'block border-b p-3'}
+            theme='body-02-bold'
           />
-          <ul className={'flex-v-stack gap-y-4 p-3'}>{ITEMS()}</ul>
+          <ul className='flex-v-stack gap-y-4 p-3'>{ITEMS()}</ul>
         </>
       }
+      trigger={trigger}
       {...props}
     />
   );

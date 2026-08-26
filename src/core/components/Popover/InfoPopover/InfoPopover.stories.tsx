@@ -35,23 +35,17 @@ export const Default = () => {
 
   return (
     <>
-      <div id={'portal'} />
+      <div id='portal' />
       <InfoPopover
-        heading={'정보 설명'}
         trigger={
           <IconButton
-            colorTheme={'warning'}
-            rounded={'rounded-full'}
-            icon={
-              <Icon
-                iconKey={'question'}
-                weight={'bold'}
-                className={'text-lg'}
-              />
-            }
-            size={'h-40'}
+            colorTheme='warning'
+            icon={<Icon className='text-lg' iconKey='question' weight='bold' />}
+            rounded='rounded-full'
+            size='h-40'
           />
         }
+        heading='정보 설명'
         items={data}
         popoverOptions={{ className: 'w-32' }}
       />

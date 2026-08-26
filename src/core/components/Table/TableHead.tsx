@@ -10,7 +10,7 @@ const TableHead = forwardRef(
     ref: Ref<HTMLTableSectionElement>,
   ) => {
     return (
-      <thead ref={ref} className={className} {...props}>
+      <thead className={className} ref={ref} {...props}>
         {children}
       </thead>
     );

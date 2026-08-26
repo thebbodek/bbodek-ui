@@ -49,26 +49,26 @@ const DefaultLayout = () => {
           전체 날짜 변경
         </button>
         <InputDatePicker
-          variants='single'
-          getPeriodDates={getDate}
           externalDates={{
             startDate: myDates.startDate,
             endDate: myDates.endDate || '',
           }}
-          label='날짜 선택'
-          initialDate='2024-02-05'
           afterAllDate={myDates.endDate === null}
           dateLabel={['복구일']}
-          useTab
+          getPeriodDates={getDate}
+          initialDate='2024-02-05'
+          label='날짜 선택'
+          variants='single'
           required
+          useTab
         />
         <Button
-          type='submit'
           backgroundColor='primary-03'
-          color='white'
-          size='h-48'
           className='mt-4 px-7'
+          color='white'
           content='전송'
+          size='h-48'
+          type='submit'
         />
       </div>
     </form>
@@ -93,8 +93,8 @@ const InputDatePickerInModalPopUpLayout = () => {
         <ModalPopUp isOpen={isOpen}>
           <InputDatePicker
             dateLabel={['사용일', '종료일']}
-            useTab={false}
             getPeriodDates={getDate}
+            useTab={false}
           />
         </ModalPopUp>
       );

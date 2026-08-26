@@ -27,5 +27,5 @@ const meta = {
 export default meta;
 
 export const Default = (props: IconComponentProps) => {
-  return <Icon {...props} className={'h-[2rem] w-[2rem] text-xl'} />;
+  return <Icon {...props} className='h-[2rem] w-[2rem] text-xl' />;
 };

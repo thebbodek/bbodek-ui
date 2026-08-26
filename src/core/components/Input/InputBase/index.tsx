@@ -39,8 +39,8 @@ const InputBase = forwardRef(
     const labelRenderer = () => {
       if (badge && label) {
         return (
-          <div className={'flex items-center gap-x-0.5'}>
-            <div className={'shrink-0'}>{badge}</div>
+          <div className='flex items-center gap-x-0.5'>
+            <div className='shrink-0'>{badge}</div>
             <div className='flex flex-1 items-center justify-between'>
               {label && (
                 <label htmlFor={inputId}>
@@ -75,8 +75,8 @@ const InputBase = forwardRef(
 
     return (
       <Component
-        ref={ref}
         className={clsx('flex-v-stack gap-y-1', rootClassName)}
+        ref={ref}
         {...props}
       >
         {hasInputLabel && labelRenderer()}
@@ -94,10 +94,10 @@ const InputBase = forwardRef(
         </div>
         {feedback ? (
           <Typography
-            theme='body-03-regular'
+            className='mt-0.5'
             color={feedbackColor}
             text={feedback}
-            className='mt-0.5'
+            theme='body-03-regular'
           />
         ) : null}
       </Component>

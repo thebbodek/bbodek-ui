@@ -37,6 +37,6 @@ export const Default = (props: ToggleProps) => {
   const { label, size, ...rest } = props;
 
   return (
-    <Toggle size={size || SIZE['SMALL']} label={label || '토글'} {...rest} />
+    <Toggle label={label || '토글'} size={size || SIZE['SMALL']} {...rest} />
   );
 };

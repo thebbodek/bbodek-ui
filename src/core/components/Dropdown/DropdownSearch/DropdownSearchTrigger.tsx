@@ -25,10 +25,13 @@ const DropdownSearchTrigger = <
 
   return (
     <DropdownSelect.Trigger
-      placeholder={placeholder}
       currentValue={label}
+      placeholder={placeholder}
       onClick={(e) => {
-        isToggle && onClose();
+        if (isToggle) {
+          onClose();
+        }
+
         onClick?.(e);
       }}
       {...triggerProps}

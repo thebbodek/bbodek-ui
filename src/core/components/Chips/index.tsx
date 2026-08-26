@@ -22,15 +22,15 @@ const Chips = ({
 
   return (
     <ul
-      ref={rootRef}
       className={clsx('flex items-center gap-x-2 overflow-x-auto', className)}
+      ref={rootRef}
     >
       {items.map(({ id, label }) => (
         <Chip
-          element={'li'}
+          className={clsx('px-3')}
+          element='li'
           key={id}
           label={label}
-          className={clsx('px-3')}
           {...props}
           onDelete={onDelete && (() => onDelete({ id }))}
         />

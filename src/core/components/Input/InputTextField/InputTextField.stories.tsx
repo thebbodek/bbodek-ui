@@ -50,13 +50,13 @@ export const Default = (props: InputTextFieldProps) => {
   return (
     <div className='w-[400px]'>
       <InputTextField
+        feedback='test'
+        feedbackColor='gray-06'
         label={label ?? '레이블'}
         placeholder='placeholder'
         value={currentValue}
-        onChange={onChangeHandler}
-        feedback={'test'}
-        feedbackColor={'gray-06'}
         required
+        onChange={onChangeHandler}
         {...rest}
       />
     </div>

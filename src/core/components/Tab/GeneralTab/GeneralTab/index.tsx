@@ -13,8 +13,8 @@ const GeneralTab = forwardRef(
 
     return (
       <ul
-        ref={ref}
         className={clsx('bg-gray-01 flex rounded-[1.25rem] p-2.5', className)}
+        ref={ref}
         {...rest}
       >
         {items}

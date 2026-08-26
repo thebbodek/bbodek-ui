@@ -37,7 +37,10 @@ const Menu = ({
                     e.stopPropagation();
 
                     Item.props.onClick?.(e);
-                    useCloseOnItemClick && !isFunction && close();
+
+                    if (useCloseOnItemClick && !isFunction) {
+                      close();
+                    }
                   },
                 })}
               </Fragment>

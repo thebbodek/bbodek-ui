@@ -25,9 +25,9 @@ export const Default = () => {
 
   const items = data.map((item) => (
     <GeneralTab.Item
-      label={item.label}
-      name={'className'}
       checked={item.key === currentValue}
+      label={item.label}
+      name='className'
       value={item.key}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;

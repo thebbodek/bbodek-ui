@@ -48,17 +48,17 @@ export const Default = (props: ChipProps<'div'>) => {
 
     return (
       <Chip
+        colorTheme={props.colorTheme ?? 'primary_06'}
+        icon={<Icon className='text-[1.125rem]' iconKey='user' />}
         key={item}
         label={item}
-        colorTheme={props.colorTheme ?? 'primary_06'}
-        size={props.size ?? 'medium'}
         rounded={props.rounded}
-        icon={<Icon iconKey={'user'} className={'text-[1.125rem]'} />}
+        size={props.size ?? 'medium'}
         onClick={handleClick}
         onDelete={handleDelete}
       />
     );
   });
 
-  return <ul className={'flex gap-2'}>{chips}</ul>;
+  return <ul className='flex gap-2'>{chips}</ul>;
 };

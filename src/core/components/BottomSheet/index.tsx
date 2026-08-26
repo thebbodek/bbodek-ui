@@ -30,11 +30,11 @@ const BottomSheet = forwardRef(
     return (
       <ModalBase
         isOpen={isOpen}
-        target={target ?? 'portal'}
         ref={ref}
+        target={target ?? 'portal'}
+        useClickOutsideEvent={useClickOutsideEvent}
         variants={VARIANTS['BOTTOM_SHEET']}
         onClose={onClose}
-        useClickOutsideEvent={useClickOutsideEvent}
         {...rest}
       >
         <div
@@ -46,18 +46,18 @@ const BottomSheet = forwardRef(
           <div className={clsx('p-4', isFullScreen && 'h-[100svh]', className)}>
             {useCloseBtn ? (
               <IconButton
-                className={'ml-auto'}
-                size={'h-24'}
-                backgroundColor={'gray-02'}
-                onClick={onClose}
-                aria-label='창 닫기'
                 icon={
                   <Icon
-                    className={'text-gray-07 text-[0.8125rem]'}
-                    iconKey={'x'}
-                    weight={'bold'}
+                    className='text-gray-07 text-[0.8125rem]'
+                    iconKey='x'
+                    weight='bold'
                   />
                 }
+                aria-label='창 닫기'
+                backgroundColor='gray-02'
+                className='ml-auto'
+                size='h-24'
+                onClick={onClose}
               />
             ) : null}
             {children}

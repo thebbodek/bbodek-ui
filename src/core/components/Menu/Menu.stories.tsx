@@ -14,32 +14,30 @@ export default meta;
 export const Default = () => {
   return (
     <>
-      <div id={'portal'} />
+      <div id='portal' />
       <Menu
-        trigger={
-          <IconButton
-            colorTheme={'secondary'}
-            icon={
-              <Icon iconKey={'gear'} weight={'fill'} className={'text-lg'} />
-            }
-            size={'h-40'}
-          />
-        }
         items={[
-          <Menu.Item content={'수정'} />,
+          <Menu.Item content='수정' />,
           <Menu.Item
-            element={'a'}
-            href={'https://internal.thebbodek.com'}
-            target={'_blank'}
-            content={'인터널 바로가기'}
-            rightIcon={<Icon iconKey={'arrow-square-out'} weight={'fill'} />}
+            content='인터널 바로가기'
+            element='a'
+            href='https://internal.thebbodek.com'
+            rightIcon={<Icon iconKey='arrow-square-out' weight='fill' />}
+            target='_blank'
           />,
           <Menu.Item
-            content={'삭제'}
-            colorTheme={'error'}
-            rightIcon={<Icon iconKey={'trash'} weight={'bold'} />}
+            colorTheme='error'
+            content='삭제'
+            rightIcon={<Icon iconKey='trash' weight='bold' />}
           />,
         ]}
+        trigger={
+          <IconButton
+            colorTheme='secondary'
+            icon={<Icon className='text-lg' iconKey='gear' weight='fill' />}
+            size='h-40'
+          />
+        }
       />
     </>
   );

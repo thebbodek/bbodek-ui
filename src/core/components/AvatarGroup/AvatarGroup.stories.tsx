@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/react';
 
 import AvatarGroup from './index';
-import { AvatarGroupProps } from './types';
 import Avatar from '@/core/components/Avatar';
 import { SIZE } from '@/core/components/Label/constants';
 import Section from '@/core/components/Section';
@@ -31,29 +30,26 @@ export default meta;
 const members = ['강준영', '정휘영', '박진주', '김미림', '이준호', '김지혜'];
 const items = members.map((member) => (
   <Avatar
+    alt={member}
     key={member}
     popover={() => <>{member}</>}
     popoverOptions={{ colorTheme: 'white', className: 'p-2' }}
-    alt={member}
   >
     {member}
   </Avatar>
 ));
 
-export const MaxAvatarGroup = (props: AvatarGroupProps) => {
+export const MaxAvatarGroup = () => {
   return (
     <>
-      <div id={'portal'} />
-      <Section className={'overflow-hidden border p-4'}>
+      <div id='portal' />
+      <Section className='overflow-hidden border p-4'>
         <AvatarGroup
-          items={items}
-          max={3}
-          popoverOptions={{ colorTheme: 'white', className: 'p-2' }}
           overflowPopover={({ overflowItems }) => (
-            <ul className={'flex-v-stack gap-y-1'}>
+            <ul className='flex-v-stack gap-y-1'>
               {overflowItems.map((item) => (
-                <li key={item.alt} className={'flex items-center gap-2'}>
-                  <Avatar size={'sm'} alt={item.alt}>
+                <li className='flex items-center gap-2' key={item.alt}>
+                  <Avatar alt={item.alt} size='sm'>
                     {item.children}
                   </Avatar>
                   {item.alt}
@@ -61,17 +57,20 @@ export const MaxAvatarGroup = (props: AvatarGroupProps) => {
               ))}
             </ul>
           )}
+          items={items}
+          max={3}
+          popoverOptions={{ colorTheme: 'white', className: 'p-2' }}
         />
       </Section>
     </>
   );
 };
 
-export const TotalAvatarGroup = (props: AvatarGroupProps) => {
+export const TotalAvatarGroup = () => {
   return (
     <>
-      <div id={'portal'} />
-      <Section className={'overflow-hidden border p-4'}>
+      <div id='portal' />
+      <Section className='overflow-hidden border p-4'>
         <AvatarGroup items={items} total={50} />
       </Section>
     </>

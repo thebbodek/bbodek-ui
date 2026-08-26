@@ -36,10 +36,10 @@ export const Default = () => {
     <div className='w-[500px]'>
       <InputSearch
         formSubmitHandler={onSubmitHandler}
-        onChange={onChangeHandler}
-        value={currentValue}
-        rounded='rounded-8'
         placeholder='검색하기'
+        rounded='rounded-8'
+        value={currentValue}
+        onChange={onChangeHandler}
       />
     </div>
   );

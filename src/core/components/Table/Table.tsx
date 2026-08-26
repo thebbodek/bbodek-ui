@@ -11,7 +11,7 @@ const Table = forwardRef(
     ref: Ref<HTMLTableElement>,
   ) => {
     return (
-      <table ref={ref} className={clsx('w-full text-sm', className)} {...props}>
+      <table className={clsx('w-full text-sm', className)} ref={ref} {...props}>
         {children}
       </table>
     );

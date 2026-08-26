@@ -18,15 +18,15 @@ const FormLabel = forwardRef(
     ref: React.Ref<HTMLDivElement>,
   ) => {
     return (
-      <div ref={ref} className={`flex text-${labelColor} text-${labelTheme}`}>
+      <div className={`flex text-${labelColor} text-${labelTheme}`} ref={ref}>
         {label}
         {required && <span className='text-primary-03 ml-0.5'>*</span>}
         {labelSubText && (
           <Typography
             className='ml-3'
-            theme='body-02-regular'
-            text={labelSubText}
             color='error'
+            text={labelSubText}
+            theme='body-02-regular'
           />
         )}
       </div>

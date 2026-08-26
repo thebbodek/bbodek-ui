@@ -28,7 +28,7 @@ const DropdownSearchLegacyTrigger = <T extends DropdownSearchLegacyValueType>({
   const { isToggle } = useContext(DropdownContext) as DropdownContextValue;
   const { label } =
     options.find((option) => option.value === currentValue) ?? {};
-  const showPlaceholder =
+  const isPlaceholderVisible =
     !!placeholder && (currentValue === undefined || currentValue === '');
 
   const onSearchValueChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -58,41 +58,38 @@ const DropdownSearchLegacyTrigger = <T extends DropdownSearchLegacyValueType>({
         const isVisibleContent = !readOnly && !disabled && isToggle;
         const currentLabel = label || placeholder;
         const isString = typeof currentLabel === 'string';
+        const toggledInputPlaceholder = isString
+          ? currentLabel || inputPlaceholder
+          : inputPlaceholder;
 
         return (
           <>
             <div className='relative flex w-full flex-1 items-center'>
               {isString ? (
                 <Typography
-                  text={currentLabel || placeholder}
                   className={clsx(
                     'text-ellipsis-line-clamp-1',
                     !searchValue ? 'opacity-100' : 'opacity-0',
                     isDisabled && 'mr-[1.725rem]',
                   )}
                   color={
-                    !isDisabled && !showPlaceholder ? 'gray-08' : 'gray-05'
+                    !isDisabled && !isPlaceholderVisible ? 'gray-08' : 'gray-05'
                   }
+                  text={currentLabel || placeholder}
                 />
               ) : (
                 currentLabel
               )}
               <input
-                type='text'
-                placeholder={
-                  isToggle
-                    ? isString
-                      ? currentLabel || inputPlaceholder
-                      : inputPlaceholder
-                    : ''
-                }
                 className={clsx(
                   'absolute top-0 right-0 bottom-0 left-0 focus:outline-hidden',
                   !isToggle
                     ? 'h-0 w-[2px]'
                     : 'h-full min-h-fit w-full bg-white',
                 )}
+                placeholder={isToggle ? toggledInputPlaceholder : ''}
                 ref={inputRef}
+                type='text'
                 value={searchValue}
                 onChange={onSearchValueChange}
               />

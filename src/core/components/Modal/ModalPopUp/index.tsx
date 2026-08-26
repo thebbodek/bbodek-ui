@@ -24,19 +24,19 @@ const ModalPopUp = forwardRef(
 
     return (
       <ModalBase
-        target={target ?? 'portal'}
-        ref={ref}
-        variants={VARIANTS['MODAL']}
-        useClickOutsideEvent={useClickOutsideEvent}
         isOpen={isOpen}
+        ref={ref}
+        target={target ?? 'portal'}
+        useClickOutsideEvent={useClickOutsideEvent}
+        variants={VARIANTS['MODAL']}
         {...rest}
       >
         <Section
-          element='div'
           className={clsx('animate-popup', className)}
-          rounded={rounded}
+          element='div'
           hasRounded={hasRounded}
           hasShadow={hasShadow}
+          rounded={rounded}
         >
           {children}
         </Section>

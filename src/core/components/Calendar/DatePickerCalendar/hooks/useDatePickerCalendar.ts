@@ -107,6 +107,7 @@ export const useDatePickerCalendar = ({
     (periodDates: PeriodDates) => {
       if (!periodDates.endDate || !periodDates.startDate) {
         setPeriodDateArray([]);
+
         return;
       }
       const newPeriodDateArray = [];

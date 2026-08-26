@@ -38,10 +38,10 @@ export const Default = (props: InputSelectProps) => {
 
   return (
     <InputSelect
-      className={'w-[30rem]'}
+      className='w-[30rem]'
       label={props.label ?? '레이블'}
-      placeholder={props.placeholder ?? '메뉴 선택'}
       options={options}
+      placeholder={props.placeholder ?? '메뉴 선택'}
       value={currentValue}
       onChange={onChangeHandler}
     />

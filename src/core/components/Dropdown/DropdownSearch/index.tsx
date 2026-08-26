@@ -53,23 +53,23 @@ const DropdownSearch = <
 
   return (
     <DropdownSelect
-      trigger={
-        <DropdownSearchTrigger
-          currentValue={currentValue}
-          options={options}
-          triggerProps={triggerProps}
-          placeholder={placeholder}
-          onClose={handleClose}
-        />
-      }
       content={
         <DropdownSearchItems
           currentValue={currentValue}
           filteredOptions={filteredOptions}
-          onChange={onChange}
-          searchValue={searchValue}
-          onSearchChange={onSearchChange}
           itemsProps={itemsProps}
+          searchValue={searchValue}
+          onChange={onChange}
+          onSearchChange={onSearchChange}
+        />
+      }
+      trigger={
+        <DropdownSearchTrigger
+          currentValue={currentValue}
+          options={options}
+          placeholder={placeholder}
+          triggerProps={triggerProps}
+          onClose={handleClose}
         />
       }
       onClose={handleClose}

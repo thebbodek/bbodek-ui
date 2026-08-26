@@ -19,8 +19,8 @@ export const Default = () => {
 
   const items = data.map((item) => (
     <DropdownBase.Item
-      key={item}
       checked={item === currentValue}
+      key={item}
       onClick={() => setCurrentValue(item)}
     >
       {item}
@@ -29,12 +29,12 @@ export const Default = () => {
 
   return (
     <DropdownBase
-      className={'w-60'}
       trigger={
         <DropdownBase.Trigger>
           {currentValue || '옵션을 선택해주세요'}
         </DropdownBase.Trigger>
       }
+      className='w-60'
       content={<DropdownBase.Items items={items} />}
     />
   );
@@ -47,8 +47,8 @@ export const DropdownBaseWithIcon = () => {
 
   const items = data.map((item) => (
     <DropdownBase.Item
-      key={item}
       checked={item === currentValue}
+      key={item}
       onClick={() => setCurrentValue(item)}
     >
       {item}
@@ -57,20 +57,20 @@ export const DropdownBaseWithIcon = () => {
 
   return (
     <DropdownBase
-      className={'w-60'}
       trigger={
         <DropdownBase.Trigger>
           {({ isToggle }) => (
             <div className='flex items-center'>
               {currentValue || '옵션을 선택해주세요'}
               <Icon
-                iconKey={'caret-down'}
                 className={isToggle ? 'rotate-180' : 'rotate-0'}
+                iconKey='caret-down'
               />
             </div>
           )}
         </DropdownBase.Trigger>
       }
+      className='w-60'
       content={<DropdownBase.Items items={items} />}
     />
   );
@@ -83,8 +83,8 @@ export const DropdownBaseWithSearch = () => {
 
   const items = data.map((item) => (
     <DropdownBase.Item
-      key={item}
       checked={item === currentValue}
+      key={item}
       onClick={() => setCurrentValue(item)}
     >
       {item}
@@ -93,21 +93,21 @@ export const DropdownBaseWithSearch = () => {
 
   return (
     <DropdownBase
-      className={'w-60'}
       trigger={
         <DropdownBase.Trigger>
           {({ isToggle }) => (
             <div className='flex items-center'>
               {currentValue || '옵션을 선택해주세요'}
               <Icon
-                iconKey={'caret-down'}
                 className={isToggle ? 'rotate-180' : 'rotate-0'}
+                iconKey='caret-down'
               />
             </div>
           )}
         </DropdownBase.Trigger>
       }
-      content={<DropdownBase.Items useSearch items={items} />}
+      className='w-60'
+      content={<DropdownBase.Items items={items} useSearch />}
     />
   );
 };

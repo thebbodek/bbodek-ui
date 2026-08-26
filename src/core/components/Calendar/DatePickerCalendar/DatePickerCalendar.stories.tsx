@@ -23,15 +23,15 @@ export const SingleDatePicker = () => {
   };
 
   return (
-    <div className={'w-[500px] rounded-3xl border py-6'}>
+    <div className='w-[500px] rounded-3xl border py-6'>
       <DatePickerCalendar
         cutoffDate='2023-12-08'
-        variants={DATE_PICKER_TYPE['SINGLE']}
-        label={['해지 신청일']}
         initialDate='2024-02-05'
+        label={['해지 신청일']}
         periodDates={periodDates}
-        onDateClick={onDateClick}
         temporaryDates={['2024-10-01']}
+        variants={DATE_PICKER_TYPE['SINGLE']}
+        onDateClick={onDateClick}
       />
     </div>
   );
@@ -48,13 +48,13 @@ export const PeriodDatesPicker = () => {
   };
 
   return (
-    <div className={'w-[500px] rounded-3xl border py-6'}>
+    <div className='w-[500px] rounded-3xl border py-6'>
       <DatePickerCalendar
-        label={['사용일', '종료일']}
-        variants={DATE_PICKER_TYPE['PERIOD']}
         cutoffDate='2024-01-23'
+        label={['사용일', '종료일']}
         periodDates={periodDates}
         temporaryDates={['2024-10-01']}
+        variants={DATE_PICKER_TYPE['PERIOD']}
         onDateClick={onDateClick}
       />
     </div>

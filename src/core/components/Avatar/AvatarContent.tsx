@@ -25,18 +25,18 @@ const AvatarContent = ({
     if (!hasImageError && src) {
       return (
         <>
-          {isLoading && <AvatarSkeleton size={size} rounded={rounded} />}
+          {isLoading && <AvatarSkeleton rounded={rounded} size={size} />}
           <img
-            src={src}
-            alt={alt || ''}
             className={clsx(
               'h-full w-full object-cover',
               isLoading ? 'hidden' : 'block',
             )}
-            width={AVATAR_IMAGE_SIZE[size]}
+            alt={alt || ''}
             height={AVATAR_IMAGE_SIZE[size]}
-            onLoad={() => setIsLoading(false)}
+            src={src}
+            width={AVATAR_IMAGE_SIZE[size]}
             onError={() => setHasImageError(true)}
+            onLoad={() => setIsLoading(false)}
           />
         </>
       );
@@ -50,7 +50,7 @@ const AvatarContent = ({
       return children;
     }
 
-    return <Icon iconKey={'user'} weight={'fill'} />;
+    return <Icon iconKey='user' weight='fill' />;
   };
 
   return <>{renderer()}</>;
